@@ -1,1 +1,1 @@
-# SAE_pacman_Leroux_Rouge_Oger_Delin-Lartigaud
+# SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud
