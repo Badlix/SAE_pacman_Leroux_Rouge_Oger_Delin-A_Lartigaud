@@ -8,8 +8,10 @@
 using namespace std;
 
 namespace functions {
-    void showMaze(vector<string> & maze);
-    void initCharacters(map<string, Character> & mapC);
+    struct Character;
+    void showMaze(const vector<string> &maze);
+    void initCharacters(map<string, Character> mapC);
+    pair<unsigned, unsigned> getCagePos();
 }
 
 #endif // FUNCTIONS_H
