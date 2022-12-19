@@ -1,5 +1,5 @@
-#ifndef CONST_H
-#define CONST_H
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 #include <vector>
 #include <iostream>
 
@@ -39,4 +39,4 @@ const vector<string> maze1 = {
 const pair<unsigned, unsigned> posCage1 = {15,8}; // <x, y>
 // ghosts can only get out of the cage by going up, which means that the spawn of ghost is the position of the cage -1y
 
-#endif // CONST_H
+#endif // CONSTANTS_H

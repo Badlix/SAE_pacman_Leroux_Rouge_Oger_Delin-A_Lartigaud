@@ -8,4 +8,10 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
-    functions.h
+    functions.h \
+    constants.h
+
+DISTFILES += \
+    settings.yaml
+
+include(../MinGL/mingl.pri)
