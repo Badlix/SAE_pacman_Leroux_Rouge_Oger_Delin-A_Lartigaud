@@ -3,19 +3,18 @@
 #include <vector>
 #include <iostream>
 
-// file use to store all constants and struct
+// file use to store all constants
 
 using namespace std;
 
-namespace constants {
 // Declaration of the differents maze
 // # = wall
 // . = bubble
 //   = space
 // o = big bubble
 // = = tunnel
-// - = number of ghosts in the cage
-// ~ = spawn of ghosts
+// - = cage of ghosts
+// ~ = spawn of ghosts (par là où ils sortent de la cage)
 
 const vector<string> maze1 = {
     "#######################",
@@ -31,8 +30,7 @@ const vector<string> maze1 = {
     "#o....................#",
     "#######################"
 };
+// ghosts can only get out of the cage by going up, which means that the spawn of ghost is the position of the cage -1y
 
-    const pair<unsigned, unsigned> posCage1 = {15,8}; // <x, y>
-    // ghosts can only get out of the cage by going up, which means that the spawn of ghost is the position of the cage -1y
-}
+
 #endif // CONSTANTS_H

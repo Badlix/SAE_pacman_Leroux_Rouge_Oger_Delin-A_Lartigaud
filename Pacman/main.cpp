@@ -2,12 +2,14 @@
 
 #include <iostream>
 #include <thread>
+#include <chrono>
 
 #include "mingl/mingl.h"
 #include "mingl/shape/rectangle.h"
 #include "mingl/shape/circle.h"
 #include "mingl/shape/line.h"
 #include "mingl/shape/triangle.h"
+#include "mingl/transition/transition_engine.h"
 
 #include "functions.h"
 #include "constants.h"
@@ -15,46 +17,59 @@
 using namespace std;
 using namespace nsGraphics;
 using namespace nsShape;
-using namespace functions;
-using namespace constants;
+
+// main pour les tests console
 
 int main() {
-    showMaze(maze1);
+    vector<string> maze = maze1;
+    showMaze(maze);
+    map<string, Character> characterMaps;
+    initCharacters(characterMaps);
+    showMap(characterMaps);
 }
 
 
+// main mingl
+
 //int main()
 //{
-//    // Initialise le système
 //    MinGL window("Pacman", Vec2D(1500, 800), Vec2D(128, 128), nsGraphics::KBlack);
 //    window.initGlut();
 //    window.initGraphic();
+//    nsTransition::TransitionEngine transitionEngine;
 
-//    // Variable qui tient le temps de frame
+//    // On peut définir une fonction a appeler quand une transition se termine
+////    nsTransition::TransitionContract rectTransitionContract(rect, rect.TRANSITION_FILL_COLOR_ALPHA, chrono::seconds(5), {64});
+////    rectTransitionContract.setDestinationCallback([&] {
+////        // On définit ici ce qu'il se passe quand la transition est terminée
+////        std::cout << "Transition sur rectangle terminé!" << std::endl;
+////        rect.setFillColor(nsGraphics::RGBAcolor(255, 0, 0, 64));
+////        rect.setBorderColor(nsGraphics::KGreen);
+////    });
+
+////    transitionEngine.startContract(rectTransitionContract);
+//    Vec2D pos = {75,75};
+//    Circle pacman(pos, 25, KYellow);
+//    // Enfin, il existe aussi plusieurs mode de transitions (ici, nous voyons une transition infinie)
+//    transitionEngine.startContract(nsTransition::TransitionContract(pacman, pacman.TRANSITION_POSITION, chrono::milliseconds(250), {pos.getX()+ 50, pos.getY()}));
+
 //    chrono::microseconds frameTime = chrono::microseconds::zero();
 
-//    // On fait tourner la boucle tant que la fenêtre est ouverte
 //    while (window.isOpen())
 //    {
-//        // Récupère l'heure actuelle
 //        chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
 
-//        // On efface la fenêtre
 //        window.clearScreen();
+//        transitionEngine.update(frameTime);
+//        window << Rectangle(Vec2D(150, 100), Vec2D(1350, 750), KRed); // area in which the maze will be draw
+//        window << Rectangle(Vec2D(150,100), Vec2D(200,150), KGray); // exemple of case
+//        window << Rectangle(Vec2D(200,100), Vec2D(250,150), KBlue);
+//        window << Rectangle(Vec2D(250,100), Vec2D(300,150), KGreen);
+//        window << pacman;
 
-//        // On dessine les formes géométriques
-//        dessiner(window);
-
-//        // On finit la frame en cours
 //        window.finishFrame();
-
-//        // On vide la queue d'évènements
 //        window.getEventManager().clearEvents();
-
-//        // On attend un peu pour limiter le framerate et soulager le CPU
 //        this_thread::sleep_for(chrono::milliseconds(1000 / FPS_LIMIT) - chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start));
-
-//        // On récupère le temps de frame
 //        frameTime = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start);
 //    }
 //    return 0;

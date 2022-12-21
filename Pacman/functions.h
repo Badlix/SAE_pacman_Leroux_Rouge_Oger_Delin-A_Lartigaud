@@ -3,15 +3,32 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include "constants.h"
+#include "mingl/mingl.h"
 
 using namespace std;
 
-namespace functions {
-    struct Character;
+    // types
+
+    struct Character {
+        unsigned posX;
+        unsigned posY;
+        string direction;
+        bool isDefaultState;
+    };
+
+    // init functions
+
+    void initCharacters(map<string, Character> &mapC);
+
+
+    // functions use for test
+
     void showMaze(const vector<string> &maze);
-    void initCharacters(map<string, Character> mapC);
-    pair<unsigned, unsigned> getCagePos();
-}
+    void showMap(map<string, Character> &myMap);
+
+    // Others
+
+    void keyboardInput(MinGL &window, nsGraphics::Vec2D pos);
+
 
 #endif // FUNCTIONS_H
