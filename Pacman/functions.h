@@ -16,6 +16,11 @@ using namespace std;
         bool isDefaultState;
     };
 
+    // move fonctions
+
+    void keyboardInput(MinGL &window, Character &pacman);
+    void moveCharacter(Character &c, string direction);
+
     // init functions
 
     void initCharacters(map<string, Character> &mapC);
@@ -27,8 +32,5 @@ using namespace std;
     void showMap(map<string, Character> &myMap);
 
     // Others
-
-    void keyboardInput(MinGL &window, map<string, Character> &c);
-
 
 #endif // FUNCTIONS_H

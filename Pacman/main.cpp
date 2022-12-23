@@ -64,7 +64,7 @@ int main()
             isTransitionFinished = false;
             TransitionContract a(pacman, pacman.TRANSITION_POSITION, chrono::milliseconds(500), {(float)(175+characterMaps["Pacman"].posX*50), (float)(125+characterMaps["Pacman"].posY*50)});
             a.setDestinationCallback([&] {
-                keyboardInput(window, characterMaps);
+                keyboardInput(window, characterMaps["Pacman"]);
                 isTransitionFinished = true;
                 cout << "ok - " << characterMaps["Pacman"].posX << endl;
             });

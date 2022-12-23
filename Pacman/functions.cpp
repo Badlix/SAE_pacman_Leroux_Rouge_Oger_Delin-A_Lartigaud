@@ -5,32 +5,42 @@
 
 using namespace std;
 
-void keyboardInput(MinGL &window, map<string, Character> &c) {
-    // changing the direction instead of changing directly the pos offer a better control of the character
-    if(window.isPressed({'z', false}) && c["Pacman"].direction != "up") {
-        //isMovePossible(Pacman, "up")
-        c["Pacman"].direction = "up";
-    } else if(window.isPressed({'d', false}) && c["Pacman"].direction != "right") {
-        c["Pacman"].direction = "right";
-    } else if(window.isPressed({'s', false}) && c["Pacman"].direction != "down") {
-        c["Pacman"].direction = "down";
-    } else if(window.isPressed({'q', false}) && c["Pacman"].direction != "left") {
-        c["Pacman"].direction = "left";
-    }
+// ---------- Fonctions uses to move ---------- //
 
-    // doit être dans la fonction move je crois
-    if(c["Pacman"].direction == "up") {
-        --c["Pacman"].posY;
-    } else if(c["Pacman"].direction == "right") {
-        ++c["Pacman"].posX;
-    } else if(c["Pacman"].direction == "down") {
-        ++c["Pacman"].posY;
-    } else if(c["Pacman"].direction == "left") {
-        --c["Pacman"].posX;
+void keyboardInput(MinGL &window, Character &pacman) {
+    // changing the direction instead of changing directly the pos offer a better control of the character
+    if(window.isPressed({'z', false}) && pacman.direction != "up") {
+        //if (isMovePossible(pacman, "up")) pacman.direction == "up";
+        moveCharacter(pacman, "up");
+    } else if(window.isPressed({'d', false}) && pacman.direction != "right") {
+        moveCharacter(pacman, "right");
+    } else if(window.isPressed({'s', false}) && pacman.direction != "down") {
+        moveCharacter(pacman, "down");
+    } else if(window.isPressed({'q', false}) && pacman.direction != "left") {
+        moveCharacter(pacman, "left");
+    } else {
+        moveCharacter(pacman, pacman.direction);
+        // if (isMovePossible(pacman, pacman.direction)
     }
 }
 
-// ---------- Fonctions uses for initialisations
+void moveCharacter(Character &c, string direction) {
+    if(direction == "up") {
+        --c.posY;
+        c.direction = "up";
+    } else if(direction == "right") {
+        ++c.posX;
+        c.direction = "right";
+    } else if(direction == "down") {
+        ++c.posY;
+        c.direction = "down";
+    } else if(direction == "left") {
+        --c.posX;
+        c.direction = "left";
+    }
+}
+
+// ---------- Fonctions uses for initialisations ---------- //
 
 void initCharacters(map<string, Character> &mapC) {
     Character tmp = {1, 1, "right", true};
@@ -44,7 +54,7 @@ void initCharacters(map<string, Character> &mapC) {
     }
 }
 
-// ---------- Fonctions uses for tests ----------//
+// ---------- Fonctions uses for tests ---------- //
 
 void showMap(map<string, Character> &myMap) {
     vector<string> keys;
