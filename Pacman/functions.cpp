@@ -5,15 +5,28 @@
 
 using namespace std;
 
-void keyboardInput(MinGL &window, nsGraphics::Vec2D pos) {
-    if(window.isPressed({'z', false})) {
-        cout << "up"; //isMovePossible(Pacman, "up")
-    } else if(window.isPressed({'d', false})) {
-        cout << "right";
-    } else if(window.isPressed({'s', false})) {
-        cout << "down";
-    } else if(window.isPressed({'q', false})) {
-        cout << "left";
+void keyboardInput(MinGL &window, map<string, Character> &c) {
+    // changing the direction instead of changing directly the pos offer a better control of the character
+    if(window.isPressed({'z', false}) && c["Pacman"].direction != "up") {
+        //isMovePossible(Pacman, "up")
+        c["Pacman"].direction = "up";
+    } else if(window.isPressed({'d', false}) && c["Pacman"].direction != "right") {
+        c["Pacman"].direction = "right";
+    } else if(window.isPressed({'s', false}) && c["Pacman"].direction != "down") {
+        c["Pacman"].direction = "down";
+    } else if(window.isPressed({'q', false}) && c["Pacman"].direction != "left") {
+        c["Pacman"].direction = "left";
+    }
+
+    // doit être dans la fonction move je crois
+    if(c["Pacman"].direction == "up") {
+        --c["Pacman"].posY;
+    } else if(c["Pacman"].direction == "right") {
+        ++c["Pacman"].posX;
+    } else if(c["Pacman"].direction == "down") {
+        ++c["Pacman"].posY;
+    } else if(c["Pacman"].direction == "left") {
+        --c["Pacman"].posX;
     }
 }
 

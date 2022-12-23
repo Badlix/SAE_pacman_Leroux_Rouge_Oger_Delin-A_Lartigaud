@@ -28,7 +28,7 @@ using namespace std;
 
     // Others
 
-    void keyboardInput(MinGL &window, nsGraphics::Vec2D pos);
+    void keyboardInput(MinGL &window, map<string, Character> &c);
 
 
 #endif // FUNCTIONS_H

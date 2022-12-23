@@ -17,60 +17,73 @@
 using namespace std;
 using namespace nsGraphics;
 using namespace nsShape;
+using namespace nsTransition;
 
 // main pour les tests console
 
-int main() {
-    vector<string> maze = maze1;
-    showMaze(maze);
-    map<string, Character> characterMaps;
-    initCharacters(characterMaps);
-    showMap(characterMaps);
-}
+//int main() {
+//    vector<string> maze = maze1;
+//    showMaze(maze);
+//    map<string, Character> characterMaps;
+//    initCharacters(characterMaps);
+//    showMap(characterMaps);
+//}
 
 
 // main mingl
 
-//int main()
-//{
-//    MinGL window("Pacman", Vec2D(1500, 800), Vec2D(128, 128), nsGraphics::KBlack);
-//    window.initGlut();
-//    window.initGraphic();
-//    nsTransition::TransitionEngine transitionEngine;
+int main()
+{
+    // Initalisation des elements console
+    map<string, Character> characterMaps;
+    initCharacters(characterMaps);
 
-//    // On peut définir une fonction a appeler quand une transition se termine
-////    nsTransition::TransitionContract rectTransitionContract(rect, rect.TRANSITION_FILL_COLOR_ALPHA, chrono::seconds(5), {64});
-////    rectTransitionContract.setDestinationCallback([&] {
-////        // On définit ici ce qu'il se passe quand la transition est terminée
-////        std::cout << "Transition sur rectangle terminé!" << std::endl;
-////        rect.setFillColor(nsGraphics::RGBAcolor(255, 0, 0, 64));
-////        rect.setBorderColor(nsGraphics::KGreen);
-////    });
+    // Initialisation du système de gestion graphique
+    MinGL window("Pacman", Vec2D(1500, 900), Vec2D(128, 128), nsGraphics::KBlack);
+    window.initGlut();
+    window.initGraphic();
+    TransitionEngine transitionEngine;
 
-////    transitionEngine.startContract(rectTransitionContract);
-//    Vec2D pos = {75,75};
-//    Circle pacman(pos, 25, KYellow);
-//    // Enfin, il existe aussi plusieurs mode de transitions (ici, nous voyons une transition infinie)
-//    transitionEngine.startContract(nsTransition::TransitionContract(pacman, pacman.TRANSITION_POSITION, chrono::milliseconds(250), {pos.getX()+ 50, pos.getY()}));
+    // Initialisation des formes
+    vector<Rectangle> vR = {};
+    Vec2D posBegin = {175,125};
+    Circle pacman(posBegin + Vec2D{(int)(characterMaps["Pacman"].posX)*50, (int)(characterMaps["Pacman"].posY)*50}, 25, KYellow);
+    for (int i (150); i < 1350; i+=50) {
+        for (int j (100); j < 750; j+=50) {
+            vR.push_back(Rectangle(Vec2D(i,j), Vec2D(i+50, j+50), KBlue));
+            vR[vR.size()-1].setBorderColor(KCyan);
+        }
+    }
 
-//    chrono::microseconds frameTime = chrono::microseconds::zero();
+    bool isTransitionFinished (true);
+    chrono::microseconds frameTime = chrono::microseconds::zero();
 
-//    while (window.isOpen())
-//    {
-//        chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
+    while (window.isOpen())
+    {
+        if (isTransitionFinished) {
+            isTransitionFinished = false;
+            TransitionContract a(pacman, pacman.TRANSITION_POSITION, chrono::milliseconds(500), {(float)(175+characterMaps["Pacman"].posX*50), (float)(125+characterMaps["Pacman"].posY*50)});
+            a.setDestinationCallback([&] {
+                keyboardInput(window, characterMaps);
+                isTransitionFinished = true;
+                cout << "ok - " << characterMaps["Pacman"].posX << endl;
+            });
+            transitionEngine.startContract(a);
+        }
+        chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
 
-//        window.clearScreen();
-//        transitionEngine.update(frameTime);
-//        window << Rectangle(Vec2D(150, 100), Vec2D(1350, 750), KRed); // area in which the maze will be draw
-//        window << Rectangle(Vec2D(150,100), Vec2D(200,150), KGray); // exemple of case
-//        window << Rectangle(Vec2D(200,100), Vec2D(250,150), KBlue);
-//        window << Rectangle(Vec2D(250,100), Vec2D(300,150), KGreen);
-//        window << pacman;
+        window.clearScreen();
+        transitionEngine.update(frameTime);
+        for (size_t k (0); k < vR.size(); ++k) {
+            window << vR[k];
+        }
+        //window << Rectangle(Vec2D(150, 100), Vec2D(1350, 750), KRed); // area in which the maze will be draw
+        window << pacman;
 
-//        window.finishFrame();
-//        window.getEventManager().clearEvents();
-//        this_thread::sleep_for(chrono::milliseconds(1000 / FPS_LIMIT) - chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start));
-//        frameTime = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start);
-//    }
-//    return 0;
-//}
+        window.finishFrame();
+        window.getEventManager().clearEvents();
+        this_thread::sleep_for(chrono::milliseconds(1000 / FPS_LIMIT) - chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start));
+        frameTime = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start);
+    }
+    return 0;
+}
