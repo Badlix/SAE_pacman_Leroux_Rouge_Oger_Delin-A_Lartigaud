@@ -35,7 +35,7 @@ using namespace nsTransition;
 
 int main()
 {
-    // Initalisation of 'shell' elements
+    // Initalization of core elements
     Param param;
     loadParams(param);
 
@@ -52,13 +52,13 @@ int main()
         characterList.push_back(it->first);
     }
 
-    // Initialisation of the graphics system
+    // Initalization of the graphics system
     MinGL window("Pacman", Vec2D(1500, 900), Vec2D(128, 128), KBlack);
     window.initGlut();
     window.initGraphic();
     TransitionEngine transitionEngine;
 
-    // Initialisation graphic of the maze
+    // Graphic initalization of the maze
     vector<Rectangle> vR = {};
     for (int i (150); i < 1350; i+=50) {
         for (int j (100); j < 750; j+=50) {

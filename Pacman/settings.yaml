@@ -1,21 +1,21 @@
 # ONLY CHANGE THE VALUE AFTER THE ' : '
 
-# Choose the maze in which you want to play
-# 1 -> Casali Maze
+# Choose the maze in which you want to play.
+# 1 : Casali Maze
 
 Maze : 1
 
-# Choose the number of ghosts betwwen (1 to 4)?
+# Choose the number of ghosts betwwen 1 to 4.
 
 GhostNumber : 1
 
-# Choose pacman skin (? g pas d'idee de parametres)
-# 1 -> default skin
+# Choose pacman and ghosts skins.
+# 1 : default skin
 
 Pacman : 1
 Ghost : 1
 
-# Choose the move key (? je crois pas que c anglais ça)
+# Keybinding
 
 KeyUp : z
 KeyDown : s

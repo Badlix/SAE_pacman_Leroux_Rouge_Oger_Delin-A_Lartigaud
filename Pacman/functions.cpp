@@ -12,10 +12,10 @@ using namespace nsTransition;
 using namespace nsGraphics;
 using namespace nsShape;
 
-// ---------- Fonctions uses to move ---------- //
+// ---------- Functions used to move ---------- //
 
 void keyboardInput(MinGL &window, Character &pacman) {
-    // priority of directions change for a better control of the character
+    // priority of directions change for a better control of the character [pas clair]
     if(window.isPressed({'z', false}) && pacman.direction != "up") {
         //if (isMovePossible(pacman, "up")) pacman.direction == "up";
         moveCharacter(pacman, "up");
@@ -31,20 +31,20 @@ void keyboardInput(MinGL &window, Character &pacman) {
     }
 }
 
-void moveCharacter(Character &c, string direction) {
-    if (direction == "up") --c.posY;
-    else if (direction == "right") ++c.posX;
-    else if (direction == "down") ++c.posY;
-    else if (direction == "left") --c.posX;
-    c.direction = direction;
+void moveCharacter(Character &character, string direction) {
+    if (direction == "up") --character.posY;
+    else if (direction == "right") ++character.posX;
+    else if (direction == "down") ++character.posY;
+    else if (direction == "left") --character.posX;
+    character.direction = direction;
 }
 
 Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &posNow) {
     return {(float)(posBegin.getX() + charact.posX*50 + (posNow.getX() - posBegin.getX())%50),
-                (float)(posBegin.getY() + charact.posY*50 + (posNow.getY() - posBegin.getY())%50)};
+            (float)(posBegin.getY() + charact.posY*50 + (posNow.getY() - posBegin.getY())%50)};
 }
 
-// ---------- Fonctions uses for initialisations ---------- //
+// ---------- Functions used in initialisation ---------- //
 
 void initCharacters(map<string, Character> &mapC, Param &param) {
     Character tmp = {1, 1, "right", true};
@@ -61,7 +61,7 @@ void initSkins(map<string, Skin> &mapSkins, Param &param) {
     if (param.skins["Pacman"] == 1) mapSkins["Pacman"] = skinPacman1;
 }
 
-// ---------- Fonctions uses to draw ---------- //
+// ---------- Functions used to draw ---------- //
 
 void drawCharacter(MinGL &window, vector<string> &characterList ,map<string, Skin> &skinMap) {
     for (string name : characterList) {
@@ -99,7 +99,7 @@ void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMa
             TransitionContract c(triangle, triangle.TRANSITION_SECOND_POSITION, chrono::milliseconds(500),
             {posEnd.getX(), posEnd.getY()});
             t.startContract(c);
-            // Thirs Point
+            // Third Point
             posEnd = calcPosTransition(posBegin, characterMap[name], triangle.getThirdPosition());
             TransitionContract d(triangle, triangle.TRANSITION_THIRD_POSITION, chrono::milliseconds(500),
             {posEnd.getX(), posEnd.getY()});
@@ -108,7 +108,7 @@ void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMa
     }
 }
 
-// ---------- Fonctions uses for tests ---------- //
+// ---------- Functions used for tests ---------- //
 
 void showMap(map<string, Character> &myMap) {
     vector<string> keys;
@@ -132,21 +132,3 @@ void showMaze(const vector<string> & maze) {
         cout << endl;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

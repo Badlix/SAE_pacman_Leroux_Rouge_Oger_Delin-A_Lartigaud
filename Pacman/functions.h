@@ -25,16 +25,16 @@ using namespace std;
     void moveCharacter(Character &c, string direction);
     nsGraphics::Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &posNow);
 
-    // init functions
+    // initialization functions
 
     void initCharacters(map<string, Character> &mapC, Param &param);
     void initSkins(map<string, Skin> &mapSkins, Param &param);
 
-    // functions use to draw
+    // functions used to draw
 
     void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMap, map<string, Character> &characterMap, nsTransition::TransitionEngine &t, bool &isTransitionFinished);
 
-    // functions use for test
+    // functions used for tests
 
     void showMaze(const vector<string> &maze);
     void showMap(map<string, Character> &myMap);
