@@ -50,6 +50,7 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../Pacman/functions.cpp \
 		../Pacman/main.cpp \
+		../Pacman/param.cpp \
 		../MinGL/src/audio/audioengine.cpp \
 		../MinGL/src/exception/cexception.cpp \
 		../MinGL/src/mingl.cpp \
@@ -69,6 +70,7 @@ SOURCES       = ../Pacman/functions.cpp \
 		../MinGL/src/transition/transition_engine.cpp 
 OBJECTS       = functions.o \
 		main.o \
+		param.o \
 		audioengine.o \
 		cexception.o \
 		mingl.o \
@@ -232,6 +234,7 @@ DIST          = ../Pacman/settings.yaml \
 		../../../../Qt5.7.0/5.7/gcc_64/mkspecs/features/yacc.prf \
 		../../../../Qt5.7.0/5.7/gcc_64/mkspecs/features/lex.prf \
 		../Pacman/Pacman.pro functions.h \
+		param.h \
 		constants.h \
 		/home/mathieu/Dropbox/BUT/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/audio/audioengine.h \
 		/home/mathieu/Dropbox/BUT/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.h \
@@ -261,6 +264,7 @@ DIST          = ../Pacman/settings.yaml \
 		/home/mathieu/Dropbox/BUT/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_engine.h \
 		/home/mathieu/Dropbox/BUT/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_types.h ../Pacman/functions.cpp \
 		../Pacman/main.cpp \
+		../Pacman/param.cpp \
 		../MinGL/src/audio/audioengine.cpp \
 		../MinGL/src/exception/cexception.cpp \
 		../MinGL/src/mingl.cpp \
@@ -624,7 +628,22 @@ compiler_clean:
 ####### Compile
 
 functions.o: ../Pacman/functions.cpp ../Pacman/functions.h \
-		../Pacman/constants.h
+		../MinGL/include/mingl/mingl.h \
+		../MinGL/include/mingl/graphics/idrawable.h \
+		../MinGL/include/mingl/graphics/rgbacolor.h \
+		../MinGL/include/mingl/tools/ieditable.h \
+		../MinGL/include/mingl/tools/ieditable.hpp \
+		../MinGL/include/mingl/graphics/vec2d.h \
+		../MinGL/include/mingl/event/event_manager.h \
+		../MinGL/include/mingl/event/event.hpp \
+		../Pacman/constants.h \
+		../MinGL/include/mingl/shape/rectangle.h \
+		../MinGL/include/mingl/shape/shape.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
+		../MinGL/include/mingl/shape/circle.h \
+		../MinGL/include/mingl/shape/line.h \
+		../MinGL/include/mingl/shape/triangle.h \
+		../Pacman/param.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o functions.o ../Pacman/functions.cpp
 
 main.o: ../Pacman/main.cpp ../MinGL/include/mingl/mingl.h \
@@ -640,8 +659,18 @@ main.o: ../Pacman/main.cpp ../MinGL/include/mingl/mingl.h \
 		../MinGL/include/mingl/transition/itransitionable.h \
 		../MinGL/include/mingl/shape/circle.h \
 		../MinGL/include/mingl/shape/line.h \
-		../MinGL/include/mingl/shape/triangle.h
+		../MinGL/include/mingl/shape/triangle.h \
+		../MinGL/include/mingl/transition/transition_engine.h \
+		../MinGL/include/mingl/transition/transition.h \
+		../MinGL/include/mingl/transition/transition_contract.h \
+		../MinGL/include/mingl/transition/transition_types.h \
+		../Pacman/functions.h \
+		../Pacman/constants.h \
+		../Pacman/param.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Pacman/main.cpp
+
+param.o: ../Pacman/param.cpp ../Pacman/param.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o param.o ../Pacman/param.cpp
 
 audioengine.o: ../MinGL/src/audio/audioengine.cpp ../MinGL/include/mingl/audio/audioengine.h \
 		../MinGL/include/mingl/exception/cexception.h \

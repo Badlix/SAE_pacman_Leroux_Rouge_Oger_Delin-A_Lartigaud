@@ -1,20 +1,37 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
+#include "mingl/shape/rectangle.h"
+#include "mingl/shape/circle.h"
+#include "mingl/shape/line.h"
+#include "mingl/shape/triangle.h"
+#include "mingl/mingl.h"
 #include <vector>
 #include <iostream>
 
-// file use to store all constants
-
 using namespace std;
+using namespace nsShape;
+using namespace nsGraphics;
 
-// Declaration of the differents maze
-// # = wall
-// . = bubble
-//   = space
-// o = big bubble
-// = = tunnel
-// - = cage of ghosts
-// ~ = spawn of ghosts (par là où ils sortent de la cage)
+
+struct Skin {
+    vector<Rectangle> rectangles;
+    vector<Triangle> triangles;
+    vector<Line> lines;
+    vector<Circle> circles;
+};
+
+// ---------- Global Values ---------- //
+
+const Vec2D posBegin = {150,100};
+
+// ---------- Maze Patterns ---------- //
+
+// # : wall
+// . : bubble
+// o : big bubble (letter not digit)
+// = : tunnel
+// - : ghost cage
+// ~ : ghost spawn (as to be considered as a wall except when a ghost get out of the cage)
 
 const vector<string> maze1 = {
     "#######################",
@@ -30,7 +47,38 @@ const vector<string> maze1 = {
     "#o....................#",
     "#######################"
 };
-// ghosts can only get out of the cage by going up, which means that the spawn of ghost is the position of the cage -1y
+
+// ---------- Wall Skins ---------- //
+
+// ---------- Pacman Skins ---------- //
+
+/* a modulo 50 is used for calculating the ending position of transitions
+-> coord shoul be between [0, 49], or else a point at (50,50) will be draw at (0,0)*/
+
+const Skin skinPacman1 = {
+    /* rectangles */ {},
+    /* triangles */ {Triangle(Vec2D(24,24), Vec2D(49,13), Vec2D(49,37), KRed)},
+    /* lines */{},
+    /* circles */{Circle(Vec2D(24,24), 25, KYellow), Circle(Vec2D(18,18), 5, KRed)}
+};
+
+const Skin skinPacman2 = {
+    /* rectangles */ {},
+    /* triangles */ {Triangle(Vec2D(25,25), Vec2D(49,13), Vec2D(49,37), KBlue)},
+    /* lines */{},
+    /* circles */{Circle(Vec2D(25,25), 25, KGreen), Circle(Vec2D(18,18), 5, KBlue)}
+};
+
+// ---------- Ghost Skins ---------- //
+
+const Skin skinGhost1 = {
+    /* rectangles */ {Rectangle(Vec2D(10,10), Vec2D(40,40), KGreen)},
+    /* triangles */ {},
+    /* lines */{},
+    /* circles */{Circle(Vec2D(20,20), 25, KYellow), Circle(Vec2D(30,20), 5, KYellow)}
+};
+
+// ----------  Other Skins ---------- //
 
 
 #endif // CONSTANTS_H

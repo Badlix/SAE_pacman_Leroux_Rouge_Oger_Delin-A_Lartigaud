@@ -5,10 +5,12 @@ CONFIG -= qt
 
 SOURCES += \
         functions.cpp \
-        main.cpp
+        main.cpp \
+        param.cpp
 
 HEADERS += \
     functions.h \
+    param.h \
     constants.h
 
 DISTFILES += \
