@@ -25,20 +25,21 @@ using namespace std;
     void moveCharacter(Character &c, string direction);
     nsGraphics::Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &posNow);
 
-    // init functions
+    // initialization functions
 
     void initCharacters(map<string, Character> &mapC, Param &param);
     void initSkins(map<string, Skin> &mapSkins, Param &param);
 
-    // functions use to draw
-    template <typename rectOrLineOrTri>
-    void launchTwoCornerTransition(nsTransition::TransitionEngine &t, rectOrLineOrTri &aShape, Character &charact);
-    void launchCircleTransition(nsTransition::TransitionEngine &t, Circle &circle, Character &charact, string &name, bool &isTransitionFinished);
-    void launchThirdCornerTransition(nsTransition::TransitionEngine &t, Triangle &triangle, Character &charact);
-    void drawCharacter(MinGL &window, vector<string> &characterList ,map<string, Skin> &skinMap);
-    void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMap, map<string, Character> &characterMap, nsTransition::TransitionEngine &t, bool &isTransitionFinished);
+    // functions used to draw
 
-    // functions use for test
+    template <typename rectOrLineOrTri>
+    void launchCircleTransition(nsTransition::TransitionEngine &t, Circle &circle, Character &charact, string &name, bool &isTransitionFinished);
+    void launchTwoCornerTransition(nsTransition::TransitionEngine &t, rectOrLineOrTri &aShape, Character &charact);
+    void launchThirdCornerTransition(nsTransition::TransitionEngine &t, Triangle &triangle, Character &charact);
+    void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMap, map<string, Character> &characterMap, nsTransition::TransitionEngine &t, bool &isTransitionFinished);
+    void drawCharacter(MinGL &window, vector<string> &characterList ,map<string, Skin> &skinMap);
+
+    // functions used for tests
 
     void showMaze(const vector<string> &maze);
     void showMap(map<string, Character> &myMap);

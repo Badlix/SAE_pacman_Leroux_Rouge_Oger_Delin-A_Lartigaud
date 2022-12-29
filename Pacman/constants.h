@@ -34,10 +34,10 @@ const Vec2D posBegin = {150,100};
 
 // # : wall
 // . : bubble
-// o : big bubble (letter not digit)
+// o : big bubble
 // = : tunnel
 // - : ghost cage
-// ~ : ghost spawn (as to be considered as a wall except when a ghost get out of the cage)
+// ~ : ghost spawn (considered as a wall except when a ghost get out of the cage)
 
 const vector<string> maze1 = {
     "#######################",
@@ -59,7 +59,7 @@ const vector<string> maze1 = {
 // ---------- Pacman Skins ---------- //
 
 /* a modulo 50 is used for calculating the ending position of transitions
--> coord shoul be between [0, 49], or else a point at (50,50) will be draw at (0,0)*/
+-> coord should be in [0, 49], or else a point at (50,50) will be draw at (0,0)*/
 
 const Skin skinPacman1 = {
     // Back Layer
