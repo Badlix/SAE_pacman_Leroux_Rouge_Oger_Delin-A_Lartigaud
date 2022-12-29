@@ -37,10 +37,11 @@ int main()
 {
     // Initalisation of 'shell' elements
     Param param;
-    loadParams(param);
+    loadParam(param);
 
     map<string, Character> characterMap;
     initCharacters(characterMap, param);
+    showMap(characterMap);
 
     map<string, Skin> skinMap;
     initSkins(skinMap, param);
@@ -72,7 +73,7 @@ int main()
     while (window.isOpen())
     {
         if (isTransitionFinished) {
-            keyboardInput(window, characterMap["Pacman"]);
+            keyboardInput(window, param, characterMap["Pacman"]);
             isTransitionFinished = false;
             launchAllTransition(characterList, skinMap, characterMap, transitionEngine, isTransitionFinished);
         }
@@ -86,14 +87,7 @@ int main()
             window << vR[k];
         }
 
-        for (string c : characterList) {
-            for (size_t i (0); i < skinMap[c].circles.size(); ++i) {
-                window << skinMap[c].circles[i];
-            }
-            for (size_t i (0); i < skinMap[c].triangles.size(); ++i) {
-                window << skinMap[c].triangles[i];
-            }
-        }
+        drawCharacter(window, characterList, skinMap);
 
         window.finishFrame();
         window.getEventManager().clearEvents();

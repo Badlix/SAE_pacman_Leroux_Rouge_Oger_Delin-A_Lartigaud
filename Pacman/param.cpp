@@ -11,30 +11,36 @@ using namespace std;
 
 void checkParam(Param &param, AutorizedKeys &autorizedKeys,string &key, string &value)
 {
+    /* check if key is a move keys*/
     if (find(autorizedKeys.moveKeys.begin(), autorizedKeys.moveKeys.end(), key) != autorizedKeys.moveKeys.end()) {
+        /* check if move key is a char */
         if (value.size() == 1) {
             param.moveKeys[key] = value[0];
         } else {
-            cerr << "Erreur : Les paramètres des touches doivent être un caractère unique" << endl;
+            cerr << "Settings Error : '" << key << "' should be a single letter" << endl;
         }
-    } else if (key == "Ghost" or key == "Pacman" or key == "Maze") {
-        if (stoi(value) == 1 || stoi(value) == 2 || stoi(value) == 3) {
+    /* check if key is a skin number */
+    } else if (find(autorizedKeys.skins.begin(), autorizedKeys.skins.end(), key) != autorizedKeys.skins.end()) {
+        /* check if value is a valid skin number */
+        if (value == "1" || value == "2" || value == "3") {
             param.skins[key] = stoi(value);
         } else {
-            cerr << "Erreur : Les valeurs des skins sont invalide" << endl;
+            cerr << "Settings Error : '" << key << "' has an invalid value" << endl;
         }
+    /* check if key is the number of ghosts */
     } else if (key == "GhostNumber") {
-        if (stoi(value) == 1 || stoi(value) == 2 || stoi(value) == 3 || stoi(value) == 4) {
+        /* check if value is a valid number of ghosts */
+        if (value == "1" || value == "2" || value == "3" || value == "4") {
             param.difficulty[key] = stoi(value);
         } else {
-            cerr << "Erreur : Les nombre de fantome est invalide" << endl;
+            cerr << "Settings Error : '" << key << "' has an invalid value" << endl;
         }
     } else {
-        cerr << "Erreur : key de paramètre invalide -> " << key << endl;
+        cerr << "Settings Error : '" << key << "' is an invalid key name" << endl;
     }
 }
 
-void loadParams (Param &param) {
+void loadParam(Param &param) {
     ifstream file("../Pacman/settings.yaml");
     string line;
     string key;

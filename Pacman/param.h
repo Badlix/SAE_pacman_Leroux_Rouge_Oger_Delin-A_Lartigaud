@@ -17,7 +17,7 @@ struct AutorizedKeys {
     const vector<string> difficulty {"GhostNumber"};
 };
 
-void loadParams (Param &param);
+void loadParam(Param &param);
 void checkParam(Param &param, AutorizedKeys &autorizedKeys, string &key, string &value);
 
 #endif // PARAM_H

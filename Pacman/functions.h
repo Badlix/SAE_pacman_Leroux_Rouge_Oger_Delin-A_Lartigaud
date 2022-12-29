@@ -13,15 +13,15 @@ using namespace std;
     // types
 
     struct Character {
-        unsigned posX;
-        unsigned posY;
+        int posX;
+        int posY;
         string direction;
         bool isDefaultState;
     };
 
     // move fonctions
 
-    void keyboardInput(MinGL &window, Character &pacman);
+    void keyboardInput(MinGL &window, Param &param, Character &pacman);
     void moveCharacter(Character &c, string direction);
     nsGraphics::Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &posNow);
 
@@ -31,7 +31,11 @@ using namespace std;
     void initSkins(map<string, Skin> &mapSkins, Param &param);
 
     // functions use to draw
-
+    template <typename rectOrLineOrTri>
+    void launchTwoCornerTransition(nsTransition::TransitionEngine &t, rectOrLineOrTri &aShape, Character &charact);
+    void launchCircleTransition(nsTransition::TransitionEngine &t, Circle &circle, Character &charact, string &name, bool &isTransitionFinished);
+    void launchThirdCornerTransition(nsTransition::TransitionEngine &t, Triangle &triangle, Character &charact);
+    void drawCharacter(MinGL &window, vector<string> &characterList ,map<string, Skin> &skinMap);
     void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMap, map<string, Character> &characterMap, nsTransition::TransitionEngine &t, bool &isTransitionFinished);
 
     // functions use for test

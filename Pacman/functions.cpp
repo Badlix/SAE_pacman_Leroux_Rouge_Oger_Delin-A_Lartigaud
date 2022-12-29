@@ -14,16 +14,16 @@ using namespace nsShape;
 
 // ---------- Fonctions uses to move ---------- //
 
-void keyboardInput(MinGL &window, Character &pacman) {
+void keyboardInput(MinGL &window, Param &param, Character &pacman) {
     // priority of directions change for a better control of the character
-    if(window.isPressed({'z', false}) && pacman.direction != "up") {
+    if(window.isPressed({param.moveKeys["KeyUp"], false}) && pacman.direction != "up") {
         //if (isMovePossible(pacman, "up")) pacman.direction == "up";
         moveCharacter(pacman, "up");
-    } else if(window.isPressed({'d', false}) && pacman.direction != "right") {
+    } else if(window.isPressed({param.moveKeys["KeyRight"], false}) && pacman.direction != "right") {
         moveCharacter(pacman, "right");
-    } else if(window.isPressed({'s', false}) && pacman.direction != "down") {
+    } else if(window.isPressed({param.moveKeys["KeyDown"], false}) && pacman.direction != "down") {
         moveCharacter(pacman, "down");
-    } else if(window.isPressed({'q', false}) && pacman.direction != "left") {
+    } else if(window.isPressed({param.moveKeys["KeyLeft"], false}) && pacman.direction != "left") {
         moveCharacter(pacman, "left");
     } else { // continue in the same direction
         moveCharacter(pacman, pacman.direction);
@@ -40,8 +40,8 @@ void moveCharacter(Character &c, string direction) {
 }
 
 Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &posNow) {
-    return {(float)(posBegin.getX() + charact.posX*50 + (posNow.getX() - posBegin.getX())%50),
-                (float)(posBegin.getY() + charact.posY*50 + (posNow.getY() - posBegin.getY())%50)};
+    return {posBegin.getX() + charact.posX*50 + (posNow.getX() - posBegin.getX())%50,
+            posBegin.getY() + charact.posY*50 + (posNow.getY() - posBegin.getY())%50};
 }
 
 // ---------- Fonctions uses for initialisations ---------- //
@@ -49,61 +49,109 @@ Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &
 void initCharacters(map<string, Character> &mapC, Param &param) {
     Character tmp = {1, 1, "right", true};
     mapC["Pacman"] = tmp;
+    // on initialise la position de tt les fantomes dans la cage au début de la partie
     // pour l'instant on va coder l'emplacement de la cage des fantomes en dur
     tmp = {15, 7, "up", true};
     for (unsigned i(1); i <= param.difficulty["GhostNumber"]; ++i) {
         mapC["Ghost"+to_string(i)] = tmp;
-        // on initialise la position de tt les fantomes dans la cage au début de la partie
+        tmp = {10, 3, "up", true};
     }
 }
 
 void initSkins(map<string, Skin> &mapSkins, Param &param) {
     if (param.skins["Pacman"] == 1) mapSkins["Pacman"] = skinPacman1;
+    //else if (param.skins["Pacman"] == 2) mapSkins["Pacman"] = skinPacman2;
+    if (param.skins["Ghost"] == 1) mapSkins["Ghost1"] = skinGhost1;
+    for (size_t i(2); i <= param.difficulty["GhostNumber"]; ++i) {
+        mapSkins["Ghost"+to_string(i)] = mapSkins["Ghost1"];
+        // change the color of the ghost
+        for (Circle &circle : mapSkins["Ghost"+to_string(i)].backLayer.circles) circle.setFillColor(skinGhostColor1[i-1]);
+        for (Triangle &triangle : mapSkins["Ghost"+to_string(i)].backLayer.triangles) triangle.setFillColor(skinGhostColor1[i-1]);
+        for (Rectangle &rectangle : mapSkins["Ghost"+to_string(i)].backLayer.rectangles) rectangle.setFillColor(skinGhostColor1[i-1]);
+    }
 }
 
 // ---------- Fonctions uses to draw ---------- //
 
 void drawCharacter(MinGL &window, vector<string> &characterList ,map<string, Skin> &skinMap) {
-    for (string name : characterList) {
-        for (Circle circle : skinMap[name].circles) {
+    for (string &name : characterList) {
+        for (Circle &circle : skinMap[name].backLayer.circles) {
             window << circle;
         }
-        for (Triangle triangle : skinMap[name].triangles) {
+        for (Triangle &triangle : skinMap[name].backLayer.triangles) {
             window << triangle;
+        }
+        for (Rectangle &rectangle : skinMap[name].backLayer.rectangles) {
+            window << rectangle;
+        }
+        for (Circle &circle : skinMap[name].frontLayer.circles) {
+            window << circle;
+        }
+        for (Triangle &triangle : skinMap[name].frontLayer.triangles) {
+            window << triangle;
+        }
+        for (Rectangle &rectangle : skinMap[name].frontLayer.rectangles) {
+            window << rectangle;
         }
     }
 }
 
-void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMap, map<string,Character> &characterMap, TransitionEngine &t, bool &isTransitionFinished) {
+void launchCircleTransition(TransitionEngine &t, Circle &circle, Character &charact, string &name, bool &isTransitionFinished) {
     Vec2D posEnd;
+    posEnd = calcPosTransition(posBegin, charact, circle.getPosition());
+    TransitionContract a(circle, circle.TRANSITION_POSITION, chrono::milliseconds(500),{posEnd.getX(), posEnd.getY()});
+    if (name == "Pacman" && circle.getRadius() == 25) {
+        a.setDestinationCallback([&] {
+            isTransitionFinished = true;
+        });
+    }
+    t.startContract(a);
+}
+
+template <typename rectOrLineOrTri>
+void launchTwoCornerTransition(TransitionEngine &t, rectOrLineOrTri &aShape, Character &charact) {
+    Vec2D posEnd;
+    // First Corner
+    posEnd = calcPosTransition(posBegin, charact, aShape.getFirstPosition());
+    TransitionContract b(aShape, aShape.TRANSITION_FIRST_POSITION, chrono::milliseconds(500),{posEnd.getX(), posEnd.getY()});
+    t.startContract(b);
+    // Second Corner
+    posEnd = calcPosTransition(posBegin, charact, aShape.getSecondPosition());
+    TransitionContract c(aShape, aShape.TRANSITION_SECOND_POSITION, chrono::milliseconds(500), {posEnd.getX(), posEnd.getY()});
+    t.startContract(c);
+}
+
+void launchThirdCornerTransition(TransitionEngine &t, Triangle &triangle, Character &charact) {
+    Vec2D posEnd;
+    // Third Corner
+    posEnd = calcPosTransition(posBegin, charact, triangle.getThirdPosition());
+    TransitionContract d(triangle, triangle.TRANSITION_THIRD_POSITION, chrono::milliseconds(500),{posEnd.getX(), posEnd.getY()});
+    t.startContract(d);
+}
+
+void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMap, map<string,Character> &characterMap, TransitionEngine &t, bool &isTransitionFinished) {
     for (string &name : characterList) {
-        for (Circle &circle : skinMap[name].circles) {
-            posEnd = calcPosTransition(posBegin, characterMap[name], circle.getPosition());
-            TransitionContract a(circle, circle.TRANSITION_POSITION, chrono::milliseconds(500),
-                               {posEnd.getX(), posEnd.getY()});
-            if (name == "Pacman" && circle.getRadius() == 25) {
-                a.setDestinationCallback([&] {
-                    isTransitionFinished = true;
-                });
-            }
-            t.startContract(a);
+        // draw back layer
+        for (Circle &circle : skinMap[name].backLayer.circles) {
+            launchCircleTransition(t, circle, characterMap[name], name, isTransitionFinished);
         }
-        for (Triangle &triangle : skinMap[name].triangles) {
-            // First Point
-            posEnd = calcPosTransition(posBegin, characterMap[name], triangle.getFirstPosition());
-            TransitionContract b(triangle, triangle.TRANSITION_FIRST_POSITION, chrono::milliseconds(500),
-            {posEnd.getX(), posEnd.getY()});
-            t.startContract(b);
-            // Second Point
-            posEnd = calcPosTransition(posBegin, characterMap[name], triangle.getSecondPosition());
-            TransitionContract c(triangle, triangle.TRANSITION_SECOND_POSITION, chrono::milliseconds(500),
-            {posEnd.getX(), posEnd.getY()});
-            t.startContract(c);
-            // Thirs Point
-            posEnd = calcPosTransition(posBegin, characterMap[name], triangle.getThirdPosition());
-            TransitionContract d(triangle, triangle.TRANSITION_THIRD_POSITION, chrono::milliseconds(500),
-            {posEnd.getX(), posEnd.getY()});
-            t.startContract(d);
+        for (Triangle &triangle : skinMap[name].backLayer.triangles) {
+            launchTwoCornerTransition(t, triangle, characterMap[name]);
+            launchThirdCornerTransition(t, triangle, characterMap[name]);
+        }
+        for (Rectangle &rectangle : skinMap[name].backLayer.rectangles) {
+            launchTwoCornerTransition(t, rectangle, characterMap[name]);
+        }
+        // draw front layer
+        for (Circle &circle2 : skinMap[name].frontLayer.circles) {
+            launchCircleTransition(t, circle2, characterMap[name], name, isTransitionFinished);
+        }
+        for (Triangle &triangle2 : skinMap[name].frontLayer.triangles) {
+            launchTwoCornerTransition(t, triangle2, characterMap[name]);
+            launchThirdCornerTransition(t, triangle2, characterMap[name]);
+        }
+        for (Rectangle &rectangle2 : skinMap[name].frontLayer.rectangles) {
+            launchTwoCornerTransition(t, rectangle2, characterMap[name]);
         }
     }
 }
