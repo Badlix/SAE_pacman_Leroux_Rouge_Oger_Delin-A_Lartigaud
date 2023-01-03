@@ -32,12 +32,13 @@ using namespace std;
 
     // functions used to draw
 
-    template <typename rectOrLineOrTri>
     void launchCircleTransition(nsTransition::TransitionEngine &t, Circle &circle, Character &charact, string &name, bool &isTransitionFinished);
+    template <typename rectOrLineOrTri>
     void launchTwoCornerTransition(nsTransition::TransitionEngine &t, rectOrLineOrTri &aShape, Character &charact);
     void launchThirdCornerTransition(nsTransition::TransitionEngine &t, Triangle &triangle, Character &charact);
     void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMap, map<string, Character> &characterMap, nsTransition::TransitionEngine &t, bool &isTransitionFinished);
     void drawCharacter(MinGL &window, vector<string> &characterList ,map<string, Skin> &skinMap);
+    void drawMaze(MinGL &window, vector<string> &maze);
 
     // functions used for tests
 

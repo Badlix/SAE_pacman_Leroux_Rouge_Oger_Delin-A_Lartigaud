@@ -41,7 +41,6 @@ int main()
 
     map<string, Character> characterMap;
     initCharacters(characterMap, param);
-    showMap(characterMap);
 
     map<string, Skin> skinMap;
     initSkins(skinMap, param);
@@ -54,16 +53,16 @@ int main()
     }
 
     // Initalization of the graphics system
-    MinGL window("Pacman", Vec2D(1500, 900), Vec2D(128, 128), KBlack);
+    MinGL window("Pacman", Vec2D(1550, 900), Vec2D(128, 128), KBlack);
     window.initGlut();
     window.initGraphic();
     TransitionEngine transitionEngine;
 
     // Graphic initalization of the maze
     vector<Rectangle> vR = {};
-    for (int i (150); i < 1350; i+=50) {
-        for (int j (100); j < 750; j+=50) {
-            vR.push_back(Rectangle(Vec2D(i,j), Vec2D(i+50, j+50), KBlue));
+    for (size_t i(posBegin.getX()); i <= 1300; i+=50) {
+        for (size_t j (posBegin.getY()); j <= 700; j+=50) {
+            vR.push_back(Rectangle(Vec2D(i,j), Vec2D(i+50, j+50), KTeal));
             vR[vR.size()-1].setBorderColor(KCyan);
         }
     }
@@ -83,10 +82,11 @@ int main()
         window.clearScreen();
         transitionEngine.update(frameTime);
 
-        for (size_t k (0); k < vR.size(); ++k) { // show Grid
+        for (size_t k (0); k < vR.size(); ++k) { // show Grid -> temporaire
             window << vR[k];
         }
 
+        drawMaze(window, maze);
         drawCharacter(window, characterList, skinMap);
 
         window.finishFrame();

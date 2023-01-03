@@ -46,6 +46,7 @@ Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &
 
 // ---------- Functions used in initialisation ---------- //
 
+// PAS FINI
 void initCharacters(map<string, Character> &mapC, Param &param) {
     Character tmp = {1, 1, "right", true};
     mapC["Pacman"] = tmp;
@@ -54,10 +55,11 @@ void initCharacters(map<string, Character> &mapC, Param &param) {
     tmp = {15, 7, "up", true};
     for (unsigned i(1); i <= param.difficulty["GhostNumber"]; ++i) {
         mapC["Ghost"+to_string(i)] = tmp;
-        tmp = {10, 3, "up", true};
+        tmp = {15+i, 7, "up", true}; // a changer
     }
 }
 
+// PAS FINI
 void initSkins(map<string, Skin> &mapSkins, Param &param) {
     if (param.skins["Pacman"] == 1) mapSkins["Pacman"] = skinPacman1;
     //else if (param.skins["Pacman"] == 2) mapSkins["Pacman"] = skinPacman2;
@@ -72,6 +74,16 @@ void initSkins(map<string, Skin> &mapSkins, Param &param) {
 }
 
 // ---------- Functions used to draw ---------- //
+
+
+// PAS FINI -> pour l'instant affiche uniquement les murs en dur
+void drawMaze(MinGL &window, vector<string> &maze) {
+    for (size_t j(0); j < maze.size(); ++j) {
+        for (size_t i(0); i < maze[0].size(); ++i) {
+            if (maze[j][i] == '#') window << Rectangle(posBegin + Vec2D(50*i, 50*j), posBegin + Vec2D(50*i+50, 50*j+50), KRed);
+        }
+    }
+}
 
 void drawCharacter(MinGL &window, vector<string> &characterList ,map<string, Skin> &skinMap) {
     for (string &name : characterList) {

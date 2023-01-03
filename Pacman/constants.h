@@ -28,7 +28,7 @@ struct Skin {
 
 // ---------- Global Values ---------- //
 
-const Vec2D posBegin = {150,100};
+const Vec2D posBegin = {200,150};
 
 // ---------- Maze Patterns ---------- //
 
@@ -87,7 +87,7 @@ const Skin skinGhost1 = {
     {{},{},{},{Circle(Vec2D(20,20), 5, KYellow), Circle(Vec2D(30,20), 5, KYellow)}}
 };
 
-const vector<RGBAcolor> skinGhostColor1 = {KYellow, KSilver, KGreen, KRed};
+const vector<RGBAcolor> skinGhostColor1 = {KGreen, KPurple, KBlack, KNavy};
 
 // ----------  Other Skins ---------- //
 
