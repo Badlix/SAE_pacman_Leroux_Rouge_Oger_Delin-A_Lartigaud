@@ -95,7 +95,7 @@ void drawMaze(MinGL &window, vector<string> &maze) {
     }
 }
 
-void drawCharacter(MinGL &window, vector<string> &characterList ,map<string, Skin> &skinMap) {
+void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Skin> &skinMap) {
     for (string &name : characterList) {
         for (Circle &circle : skinMap[name].backLayer.circles) {
             window << circle;
@@ -178,6 +178,15 @@ void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMa
     }
 }
 
+// ---------- Other Functions ---------- //
+
+//void changeState(Character &caract, Skin &mapSkin) {
+//    caract.isDefaultState = !caract.isDefaultState;
+//    if (caract.isDefaultState) {
+//        S
+//    }
+//}
+
 // ---------- Functions used for tests ---------- //
 
 void showMap(map<string, Character> &myMap) {
@@ -195,7 +204,7 @@ void showMap(map<string, Character> &myMap) {
 }
 
 void showMaze(const vector<string> & maze) {
-    for (string line : maze) {
+    for (const string &line : maze) {
         for (char c : line) {
             cout << c << ' ';
         }
