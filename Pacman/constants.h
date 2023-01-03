@@ -28,7 +28,7 @@ struct Skin {
 
 // ---------- Global Values ---------- //
 
-const Vec2D posBegin = {200,150};
+const static Vec2D posBegin = {200,150};
 
 // ---------- Maze Patterns ---------- //
 
@@ -54,8 +54,6 @@ const vector<string> maze1 = {
     "#######################"
 };
 
-// ---------- Wall Skins ---------- //
-
 // ---------- Pacman Skins ---------- //
 
 /* a modulo 50 is used for calculating the ending position of transitions
@@ -65,7 +63,7 @@ const Skin skinPacman1 = {
     // Back Layer
     {{},{},{},{Circle(Vec2D(24,24), 25, KYellow)}},
     // Front Layer
-    {{},{Triangle(Vec2D(24,24), Vec2D(49,13), Vec2D(49,37), KRed)},{},
+    {{},{Triangle(Vec2D(24,24), Vec2D(49,13), Vec2D(49,37), KBlack)},{},
      {Circle(Vec2D(18,18), 5, KRed)}
     }
 };
@@ -88,8 +86,5 @@ const Skin skinGhost1 = {
 };
 
 const vector<RGBAcolor> skinGhostColor1 = {KGreen, KPurple, KBlack, KNavy};
-
-// ----------  Other Skins ---------- //
-
 
 #endif // CONSTANTS_H

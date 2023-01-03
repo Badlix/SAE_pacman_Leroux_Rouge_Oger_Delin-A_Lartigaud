@@ -55,7 +55,7 @@ void initCharacters(map<string, Character> &mapC, Param &param) {
     tmp = {15, 7, "up", true};
     for (unsigned i(1); i <= param.difficulty["GhostNumber"]; ++i) {
         mapC["Ghost"+to_string(i)] = tmp;
-        tmp = {15+i, 7, "up", true}; // a changer
+        tmp = {static_cast<int>(15+i), 7, "up", true}; // a changer
     }
 }
 
@@ -78,9 +78,19 @@ void initSkins(map<string, Skin> &mapSkins, Param &param) {
 
 // PAS FINI -> pour l'instant affiche uniquement les murs en dur
 void drawMaze(MinGL &window, vector<string> &maze) {
-    for (size_t j(0); j < maze.size(); ++j) {
-        for (size_t i(0); i < maze[0].size(); ++i) {
-            if (maze[j][i] == '#') window << Rectangle(posBegin + Vec2D(50*i, 50*j), posBegin + Vec2D(50*i+50, 50*j+50), KRed);
+    for (size_t i(0); i < maze.size(); ++i) {
+        for (size_t j(0); j < maze[0].size(); ++j) {
+            switch (maze[i][j]) {
+            case '#':
+                window << Rectangle(posBegin + Vec2D(j*50,i*50), posBegin + Vec2D(j*50+50, i*50+50), KRed);
+                break;
+            case '.':
+                window << Circle(posBegin + Vec2D(j*50+25, i*50+25), 3, KYellow);
+                break;
+            case 'o':
+                window << Circle(posBegin + Vec2D(j*50+25, i*50+25), 8, KYellow);
+                break;
+            }
         }
     }
 }
@@ -111,7 +121,7 @@ void drawCharacter(MinGL &window, vector<string> &characterList ,map<string, Ski
 void launchCircleTransition(TransitionEngine &t, Circle &circle, Character &charact, string &name, bool &isTransitionFinished) {
     Vec2D posEnd;
     posEnd = calcPosTransition(posBegin, charact, circle.getPosition());
-    TransitionContract a(circle, circle.TRANSITION_POSITION, chrono::milliseconds(500),{posEnd.getX(), posEnd.getY()});
+    TransitionContract a(circle, circle.TRANSITION_POSITION, chrono::milliseconds(500),{(float)(posEnd.getX()), (float)(posEnd.getY())});
     if (name == "Pacman" && circle.getRadius() == 25) {
         a.setDestinationCallback([&] {
             isTransitionFinished = true;
@@ -125,11 +135,11 @@ void launchTwoCornerTransition(TransitionEngine &t, rectOrLineOrTri &aShape, Cha
     Vec2D posEnd;
     // First Corner
     posEnd = calcPosTransition(posBegin, charact, aShape.getFirstPosition());
-    TransitionContract b(aShape, aShape.TRANSITION_FIRST_POSITION, chrono::milliseconds(500),{posEnd.getX(), posEnd.getY()});
+    TransitionContract b(aShape, aShape.TRANSITION_FIRST_POSITION, chrono::milliseconds(500),{(float)(posEnd.getX()), (float)(posEnd.getY())});
     t.startContract(b);
     // Second Corner
     posEnd = calcPosTransition(posBegin, charact, aShape.getSecondPosition());
-    TransitionContract c(aShape, aShape.TRANSITION_SECOND_POSITION, chrono::milliseconds(500), {posEnd.getX(), posEnd.getY()});
+    TransitionContract c(aShape, aShape.TRANSITION_SECOND_POSITION, chrono::milliseconds(500), {(float)(posEnd.getX()), (float)(posEnd.getY())});
     t.startContract(c);
 }
 
@@ -137,7 +147,7 @@ void launchThirdCornerTransition(TransitionEngine &t, Triangle &triangle, Charac
     Vec2D posEnd;
     // Third Corner
     posEnd = calcPosTransition(posBegin, charact, triangle.getThirdPosition());
-    TransitionContract d(triangle, triangle.TRANSITION_THIRD_POSITION, chrono::milliseconds(500),{posEnd.getX(), posEnd.getY()});
+    TransitionContract d(triangle, triangle.TRANSITION_THIRD_POSITION, chrono::milliseconds(500),{(float)(posEnd.getX()), (float)(posEnd.getY())});
     t.startContract(d);
 }
 
