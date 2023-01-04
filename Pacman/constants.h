@@ -88,7 +88,7 @@ const Skin skinGhost1 = {
 const vector<RGBAcolor> skinGhostColor1 = {KGreen, KPurple, KBlack, KNavy};
 
 // ---------- Numbers ---------- //
-/* Numbers are vector of rectangles */
+/* Numbers are vector of yellow rectangles */
 
 const vector<Rectangle> nbZero = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),

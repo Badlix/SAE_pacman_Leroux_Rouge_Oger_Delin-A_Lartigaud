@@ -14,52 +14,61 @@ using namespace nsShape;
 
 // ---------- Functions used to move ---------- //
 
-void keyboardInput(MinGL &window, Param &param, Character &pacman) {
+void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze){
     // priority of directions change for a better control of the character [pas clair]
-    if(window.isPressed({param.moveKeys["KeyUp"], false}) && pacman.direction != "up") {
-        //if (isMovePossible(pacman, "up")) pacman.direction == "up";
-        moveCharacter(pacman, "up");
-    } else if(window.isPressed({param.moveKeys["KeyRight"], false}) && pacman.direction != "right") {
-        moveCharacter(pacman, "right");
-    } else if(window.isPressed({param.moveKeys["KeyDown"], false}) && pacman.direction != "down") {
-        moveCharacter(pacman, "down");
-    } else if(window.isPressed({param.moveKeys["KeyLeft"], false}) && pacman.direction != "left") {
-        moveCharacter(pacman, "left");
-    } else { // continue in the same direction
-        moveCharacter(pacman, pacman.direction);
-        // if (isMovePossible(pacman, pacman.direction)
+    if(window.isPressed({param.moveKeys["KeyUp"], false}) && pacman.direction != "up" && (isMovePossible(maze,pacman, "up"))) {
+            pacman.direction = "up";
+            moveCharacter(pacman, "up");}
+    else if(window.isPressed({param.moveKeys["KeyRight"], false}) && pacman.direction != "right" && (isMovePossible(maze,pacman, "right"))) {
+            pacman.direction = "right";
+            moveCharacter(pacman, "right");}
+    else if(window.isPressed({param.moveKeys["KeyDown"], false}) && pacman.direction != "down" && (isMovePossible(maze,pacman, "down"))) {
+            pacman.direction = "down";
+            moveCharacter(pacman, "down");}
+    else if(window.isPressed({param.moveKeys["KeyLeft"], false}) && pacman.direction != "left" && (isMovePossible(maze,pacman, "left"))) {
+            pacman.direction = "left";
+            moveCharacter(pacman, "left");}
+    else if (isMovePossible(maze,pacman, pacman.direction)){
+            moveCharacter(pacman, pacman.direction); // continue in the same direction
     }
 }
 
+bool isMovePossible(vector<string> &maze,Character &character, string direction) {
+    if ((direction == "up") && (maze[character.pos.y-1][character.pos.x] != '#' && (maze[character.pos.y-1][character.pos.x] != '~' ))) return true;
+    else if ((direction == "down") && (maze[character.pos.y+1][character.pos.x] != '#' && (maze[character.pos.y+1][character.pos.x] != '~' ))) return true;
+    else if ((direction == "left") && (maze[character.pos.y][character.pos.x-1] != '#' && (maze[character.pos.y][character.pos.x-1] != '~' ))) return true;
+    else if ((direction == "right") && (maze[character.pos.y][character.pos.x+1] != '#' && (maze[character.pos.y][character.pos.x+1] != '~' ))) return true;
+    else return false;
+}
+
 void moveCharacter(Character &character, string direction) {
-    if (direction == "up") --character.posY;
-    else if (direction == "right") ++character.posX;
-    else if (direction == "down") ++character.posY;
-    else if (direction == "left") --character.posX;
+    if (direction == "up") --character.pos.y;
+    else if (direction == "right") ++character.pos.x;
+    else if (direction == "down") ++character.pos.y;
+    else if (direction == "left") --character.pos.x;
     character.direction = direction;
 }
 
 Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &posNow) {
-    return {posBegin.getX() + charact.posX*50 + (posNow.getX() - posBegin.getX())%50,
-            posBegin.getY() + charact.posY*50 + (posNow.getY() - posBegin.getY())%50};
+    return {posBegin.getX() + charact.pos.x*50 + (posNow.getX() - posBegin.getX())%50,
+            posBegin.getY() + charact.pos.y*50 + (posNow.getY() - posBegin.getY())%50};
 }
 
 // ---------- Functions used in initialisation ---------- //
 
 // PAS FINI
 void initCharacters(map<string, Character> &mapC, Param &param) {
-    Character tmp = {1, 1, "right", true};
+    Character tmp = {Position {1, 1}, "right", true};
     mapC["Pacman"] = tmp;
     // on initialise la position de tt les fantomes dans la cage au début de la partie
     // pour l'instant on va coder l'emplacement de la cage des fantomes en dur
-    tmp = {15, 7, "up", true};
+    tmp = {getPosCage(param), "up", true};
     for (unsigned i(1); i <= param.difficulty["GhostNumber"]; ++i) {
         mapC["Ghost"+to_string(i)] = tmp;
-        tmp = {static_cast<int>(15+i), 7, "up", true}; // a changer
+        tmp = {Position {static_cast<int>(15+i), 7}, "up", true}; // a changer
     }
 }
 
-// PAS FINI
 void initSkins(map<string, Skin> &mapSkins, Param &param) {
     if (param.skins["Pacman"] == 1) mapSkins["Pacman"] = skinPacman1;
     //else if (param.skins["Pacman"] == 2) mapSkins["Pacman"] = skinPacman2;
@@ -178,6 +187,17 @@ void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMa
     }
 }
 
+// ---------- Funtions used for ghosts ---------- //
+
+bool isGhostInCage(Character ghost, Param &param) {
+    if (ghost.pos == getPosCage(param)) {
+        cout << "ok";
+    }
+    return true;
+}
+
+// ---------- A* algorithm---------- //
+
 // ---------- Other Functions ---------- //
 
 //void changeState(Character &caract, Skin &mapSkin) {
@@ -186,6 +206,15 @@ void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMa
 //        S
 //    }
 //}
+
+// ---------- Functions used to get values ---------- //
+
+Position getPosCage(Param &param) {
+    if (param.skins["Maze"] == 1) {
+        return {15, 7};
+    }
+    return {0,0};
+}
 
 // ---------- Functions used for tests ---------- //
 
@@ -196,8 +225,8 @@ void showMap(map<string, Character> &myMap) {
     }
     for (size_t i (0); i < keys.size(); ++i) {
         cout << keys[i] << " -> ";
-        cout << " posX : " << myMap[keys[i]].posX;
-        cout << "  |  posY : " << myMap[keys[i]].posY;
+        cout << " pos.x : " << myMap[keys[i]].pos.x;
+        cout << "  |  pos.y : " << myMap[keys[i]].pos.y;
         cout << "  |  direction : " << myMap[keys[i]].direction;
         cout << "  |  isDefaultState : " << myMap[keys[i]].isDefaultState << endl;
     }

@@ -37,6 +37,7 @@ int main()
 {
     // Initalization of core elements
     Param param;
+    initParam(param);
     loadParam(param);
 
     map<string, Character> characterMap;
@@ -72,7 +73,7 @@ int main()
     while (window.isOpen())
     {
         if (isTransitionFinished) {
-            keyboardInput(window, param, characterMap["Pacman"]);
+            keyboardInput(window, param, characterMap["Pacman"], maze);
             isTransitionFinished = false;
             launchAllTransition(characterList, skinMap, characterMap, transitionEngine, isTransitionFinished);
         }

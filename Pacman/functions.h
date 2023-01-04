@@ -12,16 +12,24 @@ using namespace std;
 
     // types
 
+    struct Position {
+        int x;
+        int y;
+        bool operator == (const Position& p) const {
+            return x == p.x && y == p.y;
+        }
+    };
+
     struct Character {
-        int posX;
-        int posY;
+        Position pos;
         string direction;
         bool isDefaultState;
     };
 
     // move fonctions
 
-    void keyboardInput(MinGL &window, Param &param, Character &pacman);
+    void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze);
+    bool isMovePossible(vector<string> &maze,Character &character, string direction);
     void moveCharacter(Character &c, string direction);
     nsGraphics::Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &posNow);
 
@@ -39,6 +47,16 @@ using namespace std;
     void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMap, map<string, Character> &characterMap, nsTransition::TransitionEngine &t, bool &isTransitionFinished);
     void drawCharacter(MinGL &window, vector<string> &characterList ,map<string, Skin> &skinMap);
     void drawMaze(MinGL &window, vector<string> &maze);
+
+    // functions used for ghosts
+
+    bool isGhostInCage(Character ghost, Param &param);
+
+    // A* algorithm
+
+    // functions used to get value
+
+    Position getPosCage(Param &param);
 
     // functions used for tests
 

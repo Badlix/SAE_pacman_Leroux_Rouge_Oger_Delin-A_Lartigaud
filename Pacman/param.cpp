@@ -9,6 +9,17 @@
 
 using namespace std;
 
+void initParam(Param &param) {
+    param.moveKeys["KeyUp"] = 'z';
+    param.moveKeys["KeyDown"] = 's';
+    param.moveKeys["KeyRight"] = 'd';
+    param.moveKeys["KeyLeft"] = 'q';
+    param.skins["Pacman"] = 1;
+    param.skins["Ghost"] = 1;
+    param.skins["Maze"] = 1;
+    param.difficulty["GhostNumber"] = 4;
+}
+
 void checkParam(Param &param, AutorizedKeys &autorizedKeys,string &key, string &value)
 {
     /* check if key is a move keys*/
@@ -19,6 +30,7 @@ void checkParam(Param &param, AutorizedKeys &autorizedKeys,string &key, string &
         } else {
             cerr << "Settings Error : '" << key << "' should be a single letter" << endl;
         }
+
     /* check if key is a skin number */
     } else if (find(autorizedKeys.skins.begin(), autorizedKeys.skins.end(), key) != autorizedKeys.skins.end()) {
         /* check if value is a valid skin number */
@@ -27,6 +39,7 @@ void checkParam(Param &param, AutorizedKeys &autorizedKeys,string &key, string &
         } else {
             cerr << "Settings Error : '" << key << "' has an invalid value" << endl;
         }
+
     /* check if key is the number of ghosts */
     } else if (key == "GhostNumber") {
         /* check if value is a valid number of ghosts */
