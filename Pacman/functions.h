@@ -51,6 +51,7 @@ using namespace std;
     // functions used for ghosts
 
     bool isGhostInCage(Character ghost, Param &param);
+    void letGhostsOut();
 
     // A* algorithm
 

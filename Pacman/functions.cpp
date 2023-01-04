@@ -4,6 +4,8 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <chrono>
+#include <thread>
 #include "mingl/mingl.h"
 #include "mingl/transition/transition_engine.h"
 
@@ -191,10 +193,16 @@ void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMa
 
 bool isGhostInCage(Character ghost, Param &param) {
     if (ghost.pos == getPosCage(param)) {
-        cout << "ok";
+        return true;
     }
-    return true;
+    return false;
 }
+
+// Met en pause tt le programme
+//void letGhostsOut() {
+//    this_thread::sleep_for(chrono::seconds(5));
+//    cout << "ok" << endl;
+//}
 
 // ---------- A* algorithm---------- //
 

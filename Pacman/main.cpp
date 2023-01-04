@@ -89,6 +89,7 @@ int main()
 
         drawMaze(window, maze);
         drawCharacter(window, characterList, skinMap);
+        letGhostsOut();
 
         window.finishFrame();
         window.getEventManager().clearEvents();

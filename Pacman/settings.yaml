@@ -1,7 +1,8 @@
 # ONLY CHANGE THE VALUE AFTER THE ' : '
 
 # Choose the maze in which you want to play.
-# 1 : Casali Maze
+# 1 : Default Maze
+# 2 : Casali Maze
 
 Maze : 1
 
