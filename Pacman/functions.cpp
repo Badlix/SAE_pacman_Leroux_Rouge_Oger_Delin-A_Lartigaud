@@ -8,6 +8,7 @@
 #include <thread>
 #include "mingl/mingl.h"
 #include "mingl/transition/transition_engine.h"
+#include <math.h>
 
 using namespace std;
 using namespace nsTransition;
@@ -205,6 +206,93 @@ bool isGhostInCage(Character ghost, Param &param) {
 //}
 
 // ---------- A* algorithm---------- //
+
+unsigned nodeQuality(Position &currentPos, Position &pacmanPos){
+    return fabs(currentPos.x-pacmanPos.x) + fabs(currentPos.y-pacmanPos.y);
+}
+
+bool isFree(char &pos){
+    if (pos != '#' && pos != '-' && pos != '~') return true;
+    else return false;
+}
+vector<Position> getAllNodes(vector<string> &maze){
+    vector<Position> nodes;
+    for (size_t i = 0 ; i < maze.size() ; ++i) {
+        for (size_t j = 0 ; j < maze.size() ; ++j) {
+            if (isFree(maze[i][j])) nodes.push_back(Position{static_cast<int>(i), static_cast<int>(j)});
+        }
+    }
+    return nodes;
+}
+void setNodesQuality(vector<Position> &nodes, map<Position, unsigned> &openNodes, Position &pacmanPos){
+    for (size_t i = 0 ; i < nodes.size() ; ++i) {
+        openNodes.insert({nodes[i], nodeQuality(nodes[i], pacmanPos)});
+    }
+}
+vector<string> possibleMoves(Position &currentPos, vector<string> &maze){
+    vector<string> directions;
+    if ( isFree(maze[currentPos.y-1][currentPos.x]) ) directions.push_back("up");
+    if ( isFree(maze[currentPos.y+1][currentPos.x]) ) directions.push_back("down");
+    if ( isFree(maze[currentPos.y][currentPos.x-1]) ) directions.push_back("left");
+    if ( isFree(maze[currentPos.y][currentPos.x+1]) ) directions.push_back("right");
+    return directions;
+}
+
+Position nextMove(string &direction, Position &currentPos){
+    if (direction == "up") return Position{currentPos.x, currentPos.y-1};
+    else if (direction == "down") return Position{currentPos.x, currentPos.y+1};
+    else if (direction == "left") return Position{currentPos.x-1, currentPos.y};
+    else return Position{currentPos.x+1, currentPos.y}; //if (direction == "right")
+}
+
+unsigned bestMove(vector<string> &directions, map<Position, unsigned> &openNodes, Position &currentPos){
+    unsigned bestIndex = 0;
+    for (size_t i = 0 ; i < directions.size() ; ++i) {
+        if (openNodes[nextMove(directions[i], currentPos)] > openNodes[nextMove(directions[bestIndex], currentPos)]) {
+            bestIndex = i;
+        }
+    }
+    return bestIndex;
+}
+
+void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> &closedNodes, Position &pacmanPos, vector<string> &maze, Position &currentNode){
+    Position tmpNode;
+    vector<string> directions;
+    Position move;
+    while(currentNode != pacmanPos) {
+        directions = possibleMoves(currentNode, maze);
+        if (directions.size() == 0) {
+            openNodes.erase(currentNode);
+            tmpNode = closedNodes.currentNode;
+            closedNodes.erase(currentNode);
+            currentNode = closedNodes.tmpNode;
+        }
+        else {
+            move = nextMove(directions[bestMove(directions, openNodes, currentNode)], currentNode);
+            closedNodes.insert({move, currentNode});
+            currentNode = move;
+        }
+    }
+}
+string getDirection(Position &pos1, Position &pos2){
+    if ( pos1.x-1 == pos2.x && pos1.y == pos2.y ) return "up";
+    else if ( pos1.x+1 == pos2.x && pos1.y == pos2.y ) return "down";
+    else if ( pos1.x == pos2.x && pos1.y-1 == pos2.y ) return "left";
+    else if ( pos1.x == pos2.x && pos1.y+1 == pos2.y ) return "right";
+}
+string firstDirection(map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos){
+    if (closedNodes[currentNode] == ghostPos) return getDirection(ghostPos, currentNode);
+    firstDirection(closedNodes, closedNodes[currentNode], ghostPos);
+}
+string aStar(vector<string> &maze, Character &ghost, Character &pacman){
+    Position currentNode = ghost.pos;
+    map<Position, unsigned> openNodes;
+    map<Position, Position> closedNodes;
+    vector<Position> nodes = getAllNodes(maze);
+    setNodesQuality(nodes, openNodes, pacman.pos);
+    aStarAlgorithm(openNodes, closedNodes, pacman.pos, maze, currentNode);
+    return firstDirection(closedNodes, currentNode, ghost.pos);
+}
 
 // ---------- Other Functions ---------- //
 
