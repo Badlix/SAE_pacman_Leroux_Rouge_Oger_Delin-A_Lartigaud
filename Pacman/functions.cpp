@@ -268,9 +268,9 @@ void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> 
         directions = possibleMoves(currentNode, maze);
         if (directions.size() == 0) {
             openNodes.erase(currentNode);
-            tmpNode = closedNodes.currentNode;
+            tmpNode = closedNodes[currentNode];
             closedNodes.erase(currentNode);
-            currentNode = closedNodes.tmpNode;
+            currentNode = closedNodes[tmpNode];
         }
         else {
             move = nextMove(directions[bestMove(directions, openNodes, currentNode)], currentNode);
@@ -283,11 +283,11 @@ string getDirection(Position &pos1, Position &pos2){
     if ( pos1.x-1 == pos2.x && pos1.y == pos2.y ) return "up";
     else if ( pos1.x+1 == pos2.x && pos1.y == pos2.y ) return "down";
     else if ( pos1.x == pos2.x && pos1.y-1 == pos2.y ) return "left";
-    else if ( pos1.x == pos2.x && pos1.y+1 == pos2.y ) return "right";
+    else return "right"; //if ( pos1.x == pos2.x && pos1.y+1 == pos2.y )
 }
 string firstDirection(map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos){
     if (closedNodes[currentNode] == ghostPos) return getDirection(ghostPos, currentNode);
-    firstDirection(closedNodes, closedNodes[currentNode], ghostPos);
+    else return firstDirection(closedNodes, closedNodes[currentNode], ghostPos);
 }
 string aStar(vector<string> &maze, Character &ghost, Character &pacman){
     Position currentNode = ghost.pos;

@@ -7,6 +7,8 @@
 #include "mingl/transition/transition_engine.h"
 #include "constants.h"
 #include "param.h"
+#include <cmath>
+#include <ostream>
 
 using namespace std;
 
@@ -18,7 +20,14 @@ using namespace std;
         bool operator == (const Position& p) const {
             return x == p.x && y == p.y;
         }
+        bool operator != (const Position& p) const {
+            return x != p.x || y != p.y;
+        }
+        bool operator > (const Position& p) const {
+            return x > p.x || y > p.y;
+        }
     };
+
 
     struct Character {
         Position pos;
@@ -32,6 +41,7 @@ using namespace std;
     bool isMovePossible(vector<string> &maze,Character &character, string direction);
     void moveCharacter(Character &c, string direction);
     nsGraphics::Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &posNow);
+    bool isSamePos(Character &c1, Character &c2);
 
     // initialization functions
 
