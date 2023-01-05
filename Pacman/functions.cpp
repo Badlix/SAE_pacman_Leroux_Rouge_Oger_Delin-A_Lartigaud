@@ -57,6 +57,11 @@ Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &
             posBegin.getY() + charact.pos.y*50 + (posNow.getY() - posBegin.getY())%50};
 }
 
+bool isSamePos(Character &c1, Character &c2) {
+    if (c1.pos.x == c2.pos.x && c1.pos.y == c2.pos.y) return true;
+    else return false;
+}
+
 // ---------- Functions used in initialisation ---------- //
 
 // PAS FINI
