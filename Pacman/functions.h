@@ -76,7 +76,9 @@ using namespace std;
     string getDirection(Position &pos1, Position &pos2);
     string firstDirection(map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos);
     string aStar(vector<string> &maze, Character &ghost, Character &pacman);
-
+    string randomDirection(Character &character, vector<string> &maze);
+    Character randomCharacter(map<string, Character> &characters, vector<string> &characterList);
+    string decideGhostDirection(Character &ghost, string &personality, unsigned &difficulty, vector<string> maze, Position &pacmanPos, map<string, Character> &characters, vector<string> &characterList);
 
     // functions used to get value
 

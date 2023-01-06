@@ -217,7 +217,7 @@ void setNodesQuality(vector<Position> &nodes, map<Position, unsigned> &openNodes
         openNodes.insert({nodes[i], nodeQuality(nodes[i], pacmanPos)});
     }
 }
-vector<string> possibleMoves(Position &currentPos, vector<string> &maze){
+vector<string> possibleDirections(Position &currentPos, vector<string> &maze){
     vector<string> directions;
     if ( isFree(maze[currentPos.y-1][currentPos.x]) ) directions.push_back("up");
     if ( isFree(maze[currentPos.y+1][currentPos.x]) ) directions.push_back("down");
@@ -248,7 +248,7 @@ void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> 
     vector<string> directions;
     Position move;
     while(currentNode != pacmanPos) {
-        directions = possibleMoves(currentNode, maze);
+        directions = possibleDirections(currentNode, maze);
         if (directions.size() == 0) {
             openNodes.erase(currentNode);
             tmpNode = closedNodes[currentNode];
@@ -272,14 +272,34 @@ string firstDirection(map<Position, Position> closedNodes, Position &currentNode
     if (closedNodes[currentNode] == ghostPos) return getDirection(ghostPos, currentNode);
     else return firstDirection(closedNodes, closedNodes[currentNode], ghostPos);
 }
-string aStar(vector<string> &maze, Character &ghost, Character &pacman){
-    Position currentNode = ghost.pos;
+string aStar(vector<string> &maze, Position &ghostPos, Position &pacmanPos){
+    Position currentNode = ghostPos;
     map<Position, unsigned> openNodes;
     map<Position, Position> closedNodes;
     vector<Position> nodes = getAllNodes(maze);
-    setNodesQuality(nodes, openNodes, pacman.pos);
-    aStarAlgorithm(openNodes, closedNodes, pacman.pos, maze, currentNode);
-    return firstDirection(closedNodes, currentNode, ghost.pos);
+    setNodesQuality(nodes, openNodes, pacmanPos);
+    aStarAlgorithm(openNodes, closedNodes, pacmanPos, maze, currentNode);
+    return firstDirection(closedNodes, currentNode, ghostPos);
+}
+
+string randomDirection(Character &character, vector<string> &maze){
+    vector<string> directions = possibleDirections(character.pos, maze);
+    return directions[rand()%5-1];
+}
+
+Character randomCharacter(map<string, Character> &characters, vector<string> &characterList) {
+    return characters[characterList[rand()%characterList.size()-1]];
+}
+
+string decideGhostDirection(Character &ghost, string &personality, unsigned &difficulty, vector<string> maze, Position &pacmanPos, map<string, Character> &characters, vector<string> &characterList) {
+    unsigned aStarProba = difficulty*20;
+    if(personality == "hardcore") aStarProba *= 1.5;
+    if( rand()%100 <= aStarProba) return aStar(maze, ghost.pos, pacmanPos);
+    else if (personality == "dumb" || personality == "hardcore") return randomDirection(ghost, maze);
+    else if (personality == "confused") {
+        Character randomChar = randomCharacter(characters, characterList);
+        return aStar(maze, ghost.pos, randomChar.pos);
+    }
 }
 
 // ---------- Other Functions ---------- //
