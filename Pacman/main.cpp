@@ -22,8 +22,6 @@ using namespace nsGraphics;
 using namespace nsShape;
 using namespace nsTransition;
 
-// main mingl
-
 int main()
 {
     // Initalization of core elements

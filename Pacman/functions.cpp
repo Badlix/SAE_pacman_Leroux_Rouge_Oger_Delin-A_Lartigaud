@@ -57,7 +57,7 @@ bool isMovePossible(vector<string> &maze,Character &character, string direction)
 
 void moveCharacter(Character &character, string direction, Skin &skin) {
     if (direction != character.direction) {
-        skin.defaultState[direction].setPosition(skin.defaultState[character.direction].getPosition());
+        skin.defaultState.find(direction)->second.setPosition(skin.defaultState.find(character.direction)->second.getPosition());
     }
     if (direction == "up") --character.pos.y;
     else if (direction == "right") ++character.pos.x;
@@ -114,7 +114,7 @@ void initSkins(map<string, Skin> &mapSkins, Param &param) {
     if (param.skins["Ghost"] == 1) mapSkins["Ghost1"] = skinGhost1;
     vector<RGBAcolor> listColors;
     for (unsigned i(2); i <= param.difficulty["GhostNumber"]; ++i) {
-        listColors = skinGhost1.defaultState["up"].getPixelData();
+        listColors = mapSkins["Ghost1"].defaultState.find("up")->second.getPixelData();
         for (RGBAcolor &color : listColors) {
             if (color == skinGhostColors[0]) {
                 color = skinGhostColors[i-1];
@@ -158,7 +158,7 @@ void drawMaze(MinGL &window, vector<string> &maze) {
 void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Skin> &skinMap, map<string, Character> &charactMap) {
     for (string &name : characterList) {
         if (charactMap[name].isDefaultState) {
-            window << skinMap[name].defaultState[charactMap[name].direction];
+            window << skinMap[name].defaultState.find(charactMap[name].direction)->second;
         }
     }
 }
@@ -167,7 +167,8 @@ void launchTransitions(TransitionEngine &t, map<string, Character> &charactMap, 
     Vec2D posEnd;
     for (const string &name : names) {
         posEnd = calcPosTransition(posBegin, charactMap[name]);
-        TransitionContract a(skinMap[name].defaultState[charactMap[name].direction], skinMap[name].defaultState[charactMap[name].direction].TRANSITION_POSITION, chrono::milliseconds(500),{(float)(posEnd.getX()), (float)(posEnd.getY())});
+        TransitionContract a(skinMap[name].defaultState.find(charactMap[name].direction)->second,
+                             skinMap[name].defaultState.find(charactMap[name].direction)->second.TRANSITION_POSITION, chrono::milliseconds(500),{(float)(posEnd.getX()), (float)(posEnd.getY())});
         if (name == "Pacman") {
             a.setDestinationCallback([&] {
                 isTransitionFinished = true;
@@ -333,7 +334,7 @@ vector<Position> getPosTeleporter(Param &param) {
     if (param.skins["Maze"] == 1) {
         return {{11,0}, {11,11}};
     } else if (param.skins["Maze"] == 2) {
-        return {{0,5},{22,5}};//take the position of the two teleporter on the first map
+        return {{0,5},{22,5}}; // take the position of the two teleporter on the first map
     }
     return {{0,0}, {0,0}};
 }

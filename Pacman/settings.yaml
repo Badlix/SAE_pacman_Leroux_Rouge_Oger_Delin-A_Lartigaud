@@ -8,7 +8,7 @@ Maze : 1
 
 # Choose the number of ghosts betwwen 1 to 4.
 
-GhostNumber : 1
+GhostNumber : 4
 
 # Choose pacman and ghosts skins.
 # 1 : default skin
