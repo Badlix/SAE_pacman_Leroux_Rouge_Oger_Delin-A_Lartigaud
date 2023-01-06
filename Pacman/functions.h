@@ -23,9 +23,6 @@ using namespace std;
         bool operator != (const Position& p) const {
             return x != p.x || y != p.y;
         }
-        bool operator > (const Position& p) const {
-            return x > p.x || y > p.y;
-        }
         bool operator < (const Position& p) const {
             return x < p.x || y < p.y;
         }
@@ -40,7 +37,7 @@ using namespace std;
 
     // move fonctions
 
-    void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, Skin &skin);
+    void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, Skin &skin, size_t &nbBubbleLeft);
     bool isMovePossible(vector<string> &maze,Character &character, string direction);
     void moveCharacter(Character &c, string direction, Skin &skin);
     void moveCharacterTeleporter (vector<string> &maze, Character &character, Param& param);
@@ -50,8 +47,10 @@ using namespace std;
 
     // initialization functions
 
+    void initMaze(vector<string> &maze, Param &param);
     void initCharacters(map<string, Character> &mapC, Param &param);
     void initSkins(map<string, Skin> &mapSkins, Param &param);
+    size_t nbBubbleInMaze(vector<string> &maze);
 
     // functions used to draw
 
@@ -66,16 +65,19 @@ using namespace std;
 
     // A* algorithm
     unsigned nodeQuality(Position &currentPos, Position &pacmanPos);
-    bool isFree(char &pos);
-    vector<Position> getAllNodes(vector<string> &maze);
-    void setNodesQuality(vector<Position> &nodes, map<Position, unsigned> &openNodes, Position &pacmanPos);
-    vector<string> possibleMoves(Position &currentPos, vector<string> &maze);
-    unsigned bestMove(vector<string> &directions, map<Position, unsigned> &openNodes);
-    Position nextMove(string &direction, Position &currentPos);
-    void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> &closedNodes, Position &pacmanPos, vector<string> &maze, Position &currentNode);
-    string getDirection(Position &pos1, Position &pos2);
-    string firstDirection(map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos);
-    string aStar(vector<string> &maze, Character &ghost, Character &pacman);
+        bool isFree(char &pos);
+        vector<Position> getAllNodes(vector<string> &maze);
+        void setNodesQuality(vector<Position> &nodes, map<Position, unsigned> &openNodes, Position &pacmanPos);
+        vector<string> possibleMoves(Position &currentPos, vector<string> &maze);
+        unsigned bestMove(vector<string> &directions, map<Position, unsigned> &openNodes);
+        Position nextMove(string &direction, Position &currentPos);
+        void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> &closedNodes, Position &pacmanPos, vector<string> &maze, Position &currentNode);
+        string getDirection(Position &pos1, Position &pos2);
+        string firstDirection(map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos);
+        string aStar(vector<string> &maze, Character &ghost, Character &pacman);
+        string randomDirection(Character &character, vector<string> &maze);
+    Character randomCharacter(map<string, Character> &characters, vector<string> &characterList);
+    string decideGhostDirection(Character &ghost, string &personality, unsigned &difficulty, vector<string> maze, Position &pacmanPos, map<string, Character> &characters, vector<string> &characterList);
 
 
     // functions used to get value
@@ -90,9 +92,12 @@ using namespace std;
 
     // Others
 
+    void isBubbleLeft (size_t &bubbleLeft , bool &gameRunning);
+    void gameOver(bool &gameRunning);
+    void removeBubbleOnCount (size_t &bubbleLeft, bool &gameRunning);
     bool isBigBubble (Character &character, vector<string> &maze);
     bool isBubble (Character &character, vector<string> &maze);
-    void eatBubble (Character &character, vector<string> &maze);
-    void eatBigBubble (Character &character, vector<string> &maze);
+    void eatBubble (Character &character, vector<string> &maze, size_t &bubbleLeft);
+    void eatBigBubble (Character &character, vector<string> &maze, size_t &bubbleLeft);
 
 #endif // FUNCTIONS_H

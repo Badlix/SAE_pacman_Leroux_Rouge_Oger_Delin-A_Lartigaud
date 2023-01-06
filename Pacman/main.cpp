@@ -35,12 +35,16 @@ int main()
     map<string, Skin> skinMap;
     initSkins(skinMap, param);
 
-    vector<string> maze = maze1;
+    vector<string> maze;
+    initMaze(maze, param);
 
     vector<string> characterList;
     for (auto it = characterMap.begin(); it != characterMap.end(); it++) {
         characterList.push_back(it->first);
     }
+
+    bool gameRunning = true;
+    size_t nbBubbleLeft = nbBubbleInMaze(maze);
 
     // Initalization of the graphics system
     MinGL window("Pacman", Vec2D(1550, 900), Vec2D(128, 128), KSilver);
@@ -62,7 +66,7 @@ int main()
     while (window.isOpen())
     {
         if (isTransitionFinished) {
-            keyboardInput(window, param, characterMap["Pacman"], maze, skinMap["Pacman"]);
+            keyboardInput(window, param, characterMap["Pacman"], maze, skinMap["Pacman"], nbBubbleLeft);
             isTransitionFinished = false;
             launchTransitions(transitionEngine, characterMap, isTransitionFinished, skinMap, characterList);
         }
@@ -72,18 +76,21 @@ int main()
         window.clearScreen();
         transitionEngine.update(frameTime);
 
-        for (size_t k (0); k < vR.size(); ++k) { // show Grid -> temporaire
-            window << vR[k];
-        }
-
-        drawMaze(window, maze);
-        drawCharacter(window, characterList, skinMap, characterMap);
-        //letGhostsOut();
-
+        if (gameRunning == true){
+            for (size_t k (0); k < vR.size(); ++k) { // show Grid -> temporaire
+                window << vR[k];
+            }
+            drawMaze(window, maze);
+            drawCharacter(window, characterList, skinMap, characterMap);
+            //letGhostsOut();
+        } /* else {
+            window << sprite de gameover/victoire et avec indication d'une touche rejouer et d'une touche pour quitter
+        }*/
         window.finishFrame();
         window.getEventManager().clearEvents();
         this_thread::sleep_for(chrono::milliseconds(1000 / FPS_LIMIT) - chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start));
         frameTime = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start);
+        isBubbleLeft(nbBubbleLeft, gameRunning);
     }
     return 0;
 }

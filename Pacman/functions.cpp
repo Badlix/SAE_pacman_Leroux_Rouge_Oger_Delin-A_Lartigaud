@@ -17,7 +17,7 @@ using namespace nsShape;
 
 // ---------- Functions used to move ---------- //
 
-void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, Skin &skin){
+void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, Skin &skin, size_t &nbBubbleLeft){
     // called inbetween every transition
     // allows to press many directions simultanuously without causing errors and fluidify the movements and the ergonomy
     if(window.isPressed({param.moveKeys["KeyUp"], false}) && pacman.direction != "up" && (isMovePossible(maze,pacman, "up"))) {
@@ -36,8 +36,8 @@ void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string
             moveCharacter(pacman, pacman.direction, skin);// continue in the same direction
     }
     if (isTeleporter(maze, pacman)) moveCharacterTeleporter(maze, pacman,param);
-    if (isBubble(pacman, maze)) eatBubble(pacman, maze);
-    if (isBigBubble(pacman, maze))eatBigBubble(pacman, maze);
+    if (isBubble(pacman, maze)) eatBubble(pacman, maze, nbBubbleLeft);
+    if (isBigBubble(pacman, maze))eatBigBubble(pacman, maze, nbBubbleLeft);
 }
 
 bool isMovePossible(vector<string> &maze,Character &character, string direction) {
@@ -57,7 +57,7 @@ bool isMovePossible(vector<string> &maze,Character &character, string direction)
 
 void moveCharacter(Character &character, string direction, Skin &skin) {
     if (direction != character.direction) {
-        skin.defaultState.find(direction)->second.setPosition(skin.defaultState.find(character.direction)->second.getPosition());
+            skin.defaultState.find(direction)->second.setPosition(skin.defaultState.find(character.direction)->second.getPosition());
     }
     if (direction == "up") --character.pos.y;
     else if (direction == "right") ++character.pos.x;
@@ -90,51 +90,75 @@ Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact) {
 }
 
 bool isSamePos(Character &c1, Character &c2) {
-    if (c1.pos.x == c2.pos.x && c1.pos.y == c2.pos.y) return true;
+    if (c1.pos == c2.pos) return true;
     else return false;
 }
 
 // ---------- Functions used in initialisation ---------- //
+
+void initMaze(vector<string> &maze, Param &param) {
+    if (param.skins["Maze"] == 1) maze = maze1;
+    else if (param.skins["Maze"] == 2) maze = maze2;
+}
 
 void initCharacters(map<string, Character> &mapC, Param &param) {
     Character tmp = {Position {1, 1}, "right", true};
     mapC["Pacman"] = tmp;
     tmp = {getPosCage(param), "up", true};
     for (unsigned i(1); i <= param.difficulty["GhostNumber"]; ++i) {
-        tmp = {Position {15+i, 7}, "up", true}; // a changer
+        //tmp = {Position {15+i, 7}, "up", true}; // a changer
         mapC["Ghost"+to_string(i)] = tmp;
     }
+    mapC["Ghost1"].direction = "up";
+    mapC["Ghost2"].direction = "right";
+    mapC["Ghost3"].direction = "down";
+    mapC["Ghost4"].direction = "left";
 }
 
 
 // PAS FINI
-void initSkins(map<string, Skin> &mapSkins, Param &param) {
-    if (param.skins["Pacman"] == 1) mapSkins["Pacman"] = skinPacman1;
-    //else if (param.skins["Pacman"] == 2) mapSkins["Pacman"] = skinPacman2;
-    if (param.skins["Ghost"] == 1) mapSkins["Ghost1"] = skinGhost1;
+void initSkins(map<string, Skin> &mapSkins, Param &param) {    
+
+    if (param.skins["Pacman"] == 1) mapSkins["Pacman"] = flowerPacman;
+    else if (param.skins["Pacman"] == 2) mapSkins["Pacman"] = candyPacman;
+    else if (param.skins["Pacman"] == 3) mapSkins["Pacman"] = penguinPacman;
+
+    if (param.skins["Ghost"] == 1) mapSkins["Ghost1"] = butterflyGhost;
+    else if (param.skins["Ghost"] == 2) mapSkins["Pacman"] = lolipopGhost;
+    else if (param.skins["Ghost"] == 3) mapSkins["Pacman"] = iceCreamGhost;
+
+    vector<string> directions = {"up", "down", "right", "left"};
     vector<RGBAcolor> listColors;
+    Skin tmp = mapSkins["Ghost1"];
     for (unsigned i(2); i <= param.difficulty["GhostNumber"]; ++i) {
-        listColors = mapSkins["Ghost1"].defaultState.find("up")->second.getPixelData();
-        for (RGBAcolor &color : listColors) {
-            if (color == skinGhostColors[0]) {
-                color = skinGhostColors[i-1];
+        for (string direction : directions) {
+            listColors = mapSkins["Ghost1"].defaultState.find(direction)->second.getPixelData();
+            for (RGBAcolor &color : listColors) {
+                if (color == skinGhostColors[0]) {
+                    color = skinGhostColors[i-1];
+                }
             }
+            tmp.defaultState.find(direction)->second = nsGui::Sprite(listColors, 50);
+            tmp.otherState.find(direction)->second = (mapSkins.find("Ghost1")->second).otherState.find(direction)->second;
         }
-        Skin tmp = {
-             {{"up", nsGui::Sprite(listColors, 50)},
-              {"down", nsGui::Sprite(listColors, 50)},
-              {"right", nsGui::Sprite(listColors, 50)},
-              {"left", nsGui::Sprite(listColors, 50)}
-             }, {}
-        };
         mapSkins["Ghost"+to_string(i)] = tmp;
     }
 }
 
+size_t nbBubbleInMaze(vector<string> &maze){
+    size_t bubbleLeft = 0;
+    for (size_t i(0); i < maze.size(); ++i){
+        for (size_t j=0; j<maze[i].size(); ++j){
+            if (maze[i][j] == '.' || maze[i][j] == 'o'){
+                ++bubbleLeft;
+            }
+        }
+    }
+    return bubbleLeft;
+}
+
 // ---------- Functions used to draw ---------- //
 
-
-// PAS FINI -> pour l'instant affiche uniquement les murs en dur
 void drawMaze(MinGL &window, vector<string> &maze) {
     for (size_t i(0); i < maze.size(); ++i) {
         for (size_t j(0); j < maze[0].size(); ++j) {
@@ -168,7 +192,7 @@ void launchTransitions(TransitionEngine &t, map<string, Character> &charactMap, 
     for (const string &name : names) {
         posEnd = calcPosTransition(posBegin, charactMap[name]);
         TransitionContract a(skinMap[name].defaultState.find(charactMap[name].direction)->second,
-                             skinMap[name].defaultState.find(charactMap[name].direction)->second.TRANSITION_POSITION, chrono::milliseconds(500),{(float)(posEnd.getX()), (float)(posEnd.getY())});
+                             skinMap[name].defaultState.find(charactMap[name].direction)->second.TRANSITION_POSITION, chrono::milliseconds(100),{(float)(posEnd.getX()), (float)(posEnd.getY())});
         if (name == "Pacman") {
             a.setDestinationCallback([&] {
                 isTransitionFinished = true;
@@ -176,7 +200,6 @@ void launchTransitions(TransitionEngine &t, map<string, Character> &charactMap, 
         t.startContract(a);
     }
 }
-
 
 // ---------- Funtions used for ghosts ---------- //
 
@@ -186,12 +209,6 @@ bool isGhostInCage(Character ghost, Param &param) {
     }
     return false;
 }
-
-// Met en pause tt le programme
-//void letGhostsOut() {
-//    this_thread::sleep_for(chrono::seconds(5));
-//    cout << "ok" << endl;
-//}
 
 // ---------- A* algorithm---------- //
 
@@ -217,7 +234,7 @@ void setNodesQuality(vector<Position> &nodes, map<Position, unsigned> &openNodes
         openNodes.insert({nodes[i], nodeQuality(nodes[i], pacmanPos)});
     }
 }
-vector<string> possibleMoves(Position &currentPos, vector<string> &maze){
+vector<string> possibleDirections(Position &currentPos, vector<string> &maze){
     vector<string> directions;
     if ( isFree(maze[currentPos.y-1][currentPos.x]) ) directions.push_back("up");
     if ( isFree(maze[currentPos.y+1][currentPos.x]) ) directions.push_back("down");
@@ -248,7 +265,7 @@ void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> 
     vector<string> directions;
     Position move;
     while(currentNode != pacmanPos) {
-        directions = possibleMoves(currentNode, maze);
+        directions = possibleDirections(currentNode, maze);
         if (directions.size() == 0) {
             openNodes.erase(currentNode);
             tmpNode = closedNodes[currentNode];
@@ -272,24 +289,38 @@ string firstDirection(map<Position, Position> closedNodes, Position &currentNode
     if (closedNodes[currentNode] == ghostPos) return getDirection(ghostPos, currentNode);
     else return firstDirection(closedNodes, closedNodes[currentNode], ghostPos);
 }
-string aStar(vector<string> &maze, Character &ghost, Character &pacman){
-    Position currentNode = ghost.pos;
+string aStar(vector<string> &maze, Position &ghostPos, Position &pacmanPos){
+    Position currentNode = ghostPos;
     map<Position, unsigned> openNodes;
     map<Position, Position> closedNodes;
     vector<Position> nodes = getAllNodes(maze);
-    setNodesQuality(nodes, openNodes, pacman.pos);
-    aStarAlgorithm(openNodes, closedNodes, pacman.pos, maze, currentNode);
-    return firstDirection(closedNodes, currentNode, ghost.pos);
+    setNodesQuality(nodes, openNodes, pacmanPos);
+    aStarAlgorithm(openNodes, closedNodes, pacmanPos, maze, currentNode);
+    return firstDirection(closedNodes, currentNode, ghostPos);
 }
 
-// ---------- Other Functions ---------- //
+string randomDirection(Character &character, vector<string> &maze){
+    vector<string> directions = possibleDirections(character.pos, maze);
+    return directions[rand()%5-1];
+}
 
-//void changeState(Character &caract, Skin &mapSkin) {
-//    caract.isDefaultState = !caract.isDefaultState;
-//    if (caract.isDefaultState) {
-//        S
-//    }
-//}
+Character randomCharacter(map<string, Character> &characters, vector<string> &characterList) {
+    return characters[characterList[rand()%characterList.size()-1]];
+}
+
+string decideGhostDirection(Character &ghost, string &personality, unsigned &difficulty, vector<string> maze, Position &pacmanPos, map<string, Character> &characters, vector<string> &characterList) {
+    unsigned aStarProba = difficulty*20;
+    if(personality == "hardcore") aStarProba *= 1.5;
+    if( rand()%100 <= aStarProba) return aStar(maze, ghost.pos, pacmanPos);
+    else if (personality == "dumb" || personality == "hardcore") return randomDirection(ghost, maze);
+    else if (personality == "confused") {
+        Character randomChar = randomCharacter(characters, characterList);
+        return aStar(maze, ghost.pos, randomChar.pos);
+    }
+}
+
+
+// ---------- Other Functions ---------- //
 
 bool isBubble (Character &character, vector<string> &maze){
      if (character.direction == "up" && (maze[character.pos.y+1][character.pos.x] == '.'))return true;
@@ -299,11 +330,12 @@ bool isBubble (Character &character, vector<string> &maze){
      else return false;
 }
 
-void eatBubble (Character &character, vector<string> &maze){
+void eatBubble (Character &character, vector<string> &maze, size_t &bubbleLeft){
     if(character.direction == "up") maze[character.pos.y+1][character.pos.x] = '\t';
     else if(character.direction == "down") maze[character.pos.y-1][character.pos.x] = '\t';
     else if(character.direction == "left") maze[character.pos.y][character.pos.x+1] = '\t';
     else if(character.direction == "right") maze[character.pos.y][character.pos.x-1] = '\t';
+    bubbleLeft -= 1;
 }
 
 
@@ -314,11 +346,23 @@ bool isBigBubble (Character &character, vector<string> &maze){
      else if(character.direction == "right" && (maze[character.pos.y][character.pos.x-1] == 'o')) return true;
      else return false;
 }
-void eatBigBubble (Character &character, vector<string> &maze){
+
+void eatBigBubble (Character &character, vector<string> &maze, size_t &bubbleLeft){
     if(character.direction == "up") maze[character.pos.y+1][character.pos.x] = '\t';
     else if(character.direction == "down") maze[character.pos.y-1][character.pos.x] = '\t';
     else if(character.direction == "left") maze[character.pos.y][character.pos.x+1] = '\t';
     else if(character.direction == "right") maze[character.pos.y][character.pos.x-1] = '\t';
+    bubbleLeft -= 1;
+}
+
+void isBubbleLeft (size_t &bubbleLeft , bool &gameRunning) {
+    if (bubbleLeft == 0){
+        gameOver(gameRunning);
+    }
+}
+
+void gameOver(bool &gameRunning) {
+    gameRunning = false;
 }
 
 // ---------- Functions used to get values ---------- //
