@@ -17,34 +17,48 @@ using namespace nsShape;
 
 // ---------- Functions used to move ---------- //
 
-void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze){
-    // priority of directions change for a better control of the character [pas clair]
+void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, Skin &skin){
+    // called inbetween every transition
+    // allows to press many directions simultanuously without causing errors and fluidify the movements and the ergonomy
     if(window.isPressed({param.moveKeys["KeyUp"], false}) && pacman.direction != "up" && (isMovePossible(maze,pacman, "up"))) {
-            pacman.direction = "up";
-            moveCharacter(pacman, "up");}
-    else if(window.isPressed({param.moveKeys["KeyRight"], false}) && pacman.direction != "right" && (isMovePossible(maze,pacman, "right"))) {
-            pacman.direction = "right";
-            moveCharacter(pacman, "right");}
-    else if(window.isPressed({param.moveKeys["KeyDown"], false}) && pacman.direction != "down" && (isMovePossible(maze,pacman, "down"))) {
-            pacman.direction = "down";
-            moveCharacter(pacman, "down");}
-    else if(window.isPressed({param.moveKeys["KeyLeft"], false}) && pacman.direction != "left" && (isMovePossible(maze,pacman, "left"))) {
-            pacman.direction = "left";
-            moveCharacter(pacman, "left");}
-    else if (isMovePossible(maze,pacman, pacman.direction)){
-            moveCharacter(pacman, pacman.direction); // continue in the same direction
+            moveCharacter(pacman, "up", skin);
     }
+    else if(window.isPressed({param.moveKeys["KeyRight"], false}) && pacman.direction != "right" && (isMovePossible(maze,pacman, "right"))) {
+            moveCharacter(pacman, "right", skin);
+    }
+    else if(window.isPressed({param.moveKeys["KeyDown"], false}) && pacman.direction != "down" && (isMovePossible(maze,pacman, "down"))) {
+            moveCharacter(pacman, "down", skin);
+    }
+    else if(window.isPressed({param.moveKeys["KeyLeft"], false}) && pacman.direction != "left" && (isMovePossible(maze,pacman, "left"))) {
+            moveCharacter(pacman, "left", skin);
+    }
+    else if (isMovePossible(maze,pacman, pacman.direction)){
+            moveCharacter(pacman, pacman.direction, skin);// continue in the same direction
+    }
+    if (isTeleporter(maze, pacman)) moveCharacterTeleporter(maze, pacman,param);
+    if (isBubble(pacman, maze)) eatBubble(pacman, maze);
+    if (isBigBubble(pacman, maze))eatBigBubble(pacman, maze);
 }
 
 bool isMovePossible(vector<string> &maze,Character &character, string direction) {
-    if ((direction == "up") && (maze[character.pos.y-1][character.pos.x] != '#' && (maze[character.pos.y-1][character.pos.x] != '~' ))) return true;
-    else if ((direction == "down") && (maze[character.pos.y+1][character.pos.x] != '#' && (maze[character.pos.y+1][character.pos.x] != '~' ))) return true;
-    else if ((direction == "left") && (maze[character.pos.y][character.pos.x-1] != '#' && (maze[character.pos.y][character.pos.x-1] != '~' ))) return true;
-    else if ((direction == "right") && (maze[character.pos.y][character.pos.x+1] != '#' && (maze[character.pos.y][character.pos.x+1] != '~' ))) return true;
+    //check if the player is going to leave the maze
+    if ((direction == "up") && (character.pos.y <= 0)) return false;
+    else if ((direction == "down") && (character.pos.y >= maze.size()-1)) return false;
+    else if ((direction == "left") && (character.pos.x <= 0)) return false;
+    else if ((direction == "right") && (character.pos.x >= maze[0].size()-1)) return false;
+    // without these instructions, the player could exit the maze when using the teleporter
+
+    else if ((direction == "up") && (maze[character.pos.y-1][character.pos.x] != '#' && (maze[character.pos.y-1][character.pos.x] != '-' ))) return true;
+    else if ((direction == "down") && (maze[character.pos.y+1][character.pos.x] != '#' && (maze[character.pos.y+1][character.pos.x] != '-' ))) return true;
+    else if ((direction == "left") && (maze[character.pos.y][character.pos.x-1] != '#' && (maze[character.pos.y][character.pos.x-1] != '-' ))) return true;
+    else if ((direction == "right") && (maze[character.pos.y][character.pos.x+1] != '#' && (maze[character.pos.y][character.pos.x+1] != '-' ))) return true;
     else return false;
 }
 
-void moveCharacter(Character &character, string direction) {
+void moveCharacter(Character &character, string direction, Skin &skin) {
+    if (direction != character.direction) {
+        skin.defaultState[direction].setPosition(skin.defaultState[character.direction].getPosition());
+    }
     if (direction == "up") --character.pos.y;
     else if (direction == "right") ++character.pos.x;
     else if (direction == "down") ++character.pos.y;
@@ -52,9 +66,27 @@ void moveCharacter(Character &character, string direction) {
     character.direction = direction;
 }
 
-Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &posNow) {
-    return {posBegin.getX() + charact.pos.x*50 + (posNow.getX() - posBegin.getX())%50,
-            posBegin.getY() + charact.pos.y*50 + (posNow.getY() - posBegin.getY())%50};
+void moveCharacterTeleporter (vector<string> &maze, Character &character, Param& param) {
+    if(isTeleporter(maze,character)){
+        if(character.pos == (getPosTeleporter(param))[0]){ // check if the player is on the first teleporter to know on wich teleporter the player have to move.
+            character.pos = (getPosTeleporter(param))[1]; // change the positionof the player to set it on the linked teleporter.
+        }else if(character.pos == (getPosTeleporter(param))[1]){
+                character.pos = (getPosTeleporter(param))[0];
+        }
+    }
+}
+
+bool isTeleporter(vector<string> &maze, Character & character) {
+    //checking if the player is on a teleporter. If yes, it check if the player is taking the teleporter from the right way.
+    if ((maze[character.pos.y][character.pos.x] == '=') && character.direction == "up" && isMovePossible(maze, character, "down")) return true;
+    else if  ((maze[character.pos.y][character.pos.x] == '=') && character.direction == "down" && isMovePossible(maze, character, "up")) return true;
+    else if  ((maze[character.pos.y][character.pos.x] == '=') && character.direction == "right" && isMovePossible(maze, character, "left")) return true;
+    else if  ((maze[character.pos.y][character.pos.x] == '=') && character.direction == "left" && isMovePossible(maze, character, "right")) return true;
+    else return false;
+}
+
+Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact) {
+    return {posBegin.getX() + charact.pos.x*50, posBegin.getY() + charact.pos.y*50};
 }
 
 bool isSamePos(Character &c1, Character &c2) {
@@ -64,29 +96,38 @@ bool isSamePos(Character &c1, Character &c2) {
 
 // ---------- Functions used in initialisation ---------- //
 
-// PAS FINI
 void initCharacters(map<string, Character> &mapC, Param &param) {
     Character tmp = {Position {1, 1}, "right", true};
     mapC["Pacman"] = tmp;
-    // on initialise la position de tt les fantomes dans la cage au début de la partie
-    // pour l'instant on va coder l'emplacement de la cage des fantomes en dur
     tmp = {getPosCage(param), "up", true};
     for (unsigned i(1); i <= param.difficulty["GhostNumber"]; ++i) {
+        tmp = {Position {15+i, 7}, "up", true}; // a changer
         mapC["Ghost"+to_string(i)] = tmp;
-        tmp = {Position {static_cast<int>(15+i), 7}, "up", true}; // a changer
     }
 }
 
+
+// PAS FINI
 void initSkins(map<string, Skin> &mapSkins, Param &param) {
     if (param.skins["Pacman"] == 1) mapSkins["Pacman"] = skinPacman1;
     //else if (param.skins["Pacman"] == 2) mapSkins["Pacman"] = skinPacman2;
     if (param.skins["Ghost"] == 1) mapSkins["Ghost1"] = skinGhost1;
-    for (size_t i(2); i <= param.difficulty["GhostNumber"]; ++i) {
-        mapSkins["Ghost"+to_string(i)] = mapSkins["Ghost1"];
-        // change the color of the ghost
-        for (Circle &circle : mapSkins["Ghost"+to_string(i)].backLayer.circles) circle.setFillColor(skinGhostColor1[i-1]);
-        for (Triangle &triangle : mapSkins["Ghost"+to_string(i)].backLayer.triangles) triangle.setFillColor(skinGhostColor1[i-1]);
-        for (Rectangle &rectangle : mapSkins["Ghost"+to_string(i)].backLayer.rectangles) rectangle.setFillColor(skinGhostColor1[i-1]);
+    vector<RGBAcolor> listColors;
+    for (unsigned i(2); i <= param.difficulty["GhostNumber"]; ++i) {
+        listColors = skinGhost1.defaultState["up"].getPixelData();
+        for (RGBAcolor &color : listColors) {
+            if (color == skinGhostColors[0]) {
+                color = skinGhostColors[i-1];
+            }
+        }
+        Skin tmp = {
+             {{"up", nsGui::Sprite(listColors, 50)},
+              {"down", nsGui::Sprite(listColors, 50)},
+              {"right", nsGui::Sprite(listColors, 50)},
+              {"left", nsGui::Sprite(listColors, 50)}
+             }, {}
+        };
+        mapSkins["Ghost"+to_string(i)] = tmp;
     }
 }
 
@@ -107,93 +148,34 @@ void drawMaze(MinGL &window, vector<string> &maze) {
             case 'o':
                 window << Circle(posBegin + Vec2D(j*50+25, i*50+25), 8, KYellow);
                 break;
+            case '-':
+                window << Rectangle(posBegin + Vec2D(j*50,i*50), posBegin + Vec2D(j*50+50, i*50+50), KSilver);
             }
         }
     }
 }
 
-void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Skin> &skinMap) {
+void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Skin> &skinMap, map<string, Character> &charactMap) {
     for (string &name : characterList) {
-        for (Circle &circle : skinMap[name].backLayer.circles) {
-            window << circle;
-        }
-        for (Triangle &triangle : skinMap[name].backLayer.triangles) {
-            window << triangle;
-        }
-        for (Rectangle &rectangle : skinMap[name].backLayer.rectangles) {
-            window << rectangle;
-        }
-        for (Circle &circle : skinMap[name].frontLayer.circles) {
-            window << circle;
-        }
-        for (Triangle &triangle : skinMap[name].frontLayer.triangles) {
-            window << triangle;
-        }
-        for (Rectangle &rectangle : skinMap[name].frontLayer.rectangles) {
-            window << rectangle;
+        if (charactMap[name].isDefaultState) {
+            window << skinMap[name].defaultState[charactMap[name].direction];
         }
     }
 }
 
-void launchCircleTransition(TransitionEngine &t, Circle &circle, Character &charact, string &name, bool &isTransitionFinished) {
+void launchTransitions(TransitionEngine &t, map<string, Character> &charactMap, bool &isTransitionFinished, map<string,Skin> &skinMap, vector<string> &names) {
     Vec2D posEnd;
-    posEnd = calcPosTransition(posBegin, charact, circle.getPosition());
-    TransitionContract a(circle, circle.TRANSITION_POSITION, chrono::milliseconds(500),{(float)(posEnd.getX()), (float)(posEnd.getY())});
-    if (name == "Pacman" && circle.getRadius() == 25) {
-        a.setDestinationCallback([&] {
-            isTransitionFinished = true;
-        });
-    }
-    t.startContract(a);
-}
-
-template <typename rectOrLineOrTri>
-void launchTwoCornerTransition(TransitionEngine &t, rectOrLineOrTri &aShape, Character &charact) {
-    Vec2D posEnd;
-    // First Corner
-    posEnd = calcPosTransition(posBegin, charact, aShape.getFirstPosition());
-    TransitionContract b(aShape, aShape.TRANSITION_FIRST_POSITION, chrono::milliseconds(500),{(float)(posEnd.getX()), (float)(posEnd.getY())});
-    t.startContract(b);
-    // Second Corner
-    posEnd = calcPosTransition(posBegin, charact, aShape.getSecondPosition());
-    TransitionContract c(aShape, aShape.TRANSITION_SECOND_POSITION, chrono::milliseconds(500), {(float)(posEnd.getX()), (float)(posEnd.getY())});
-    t.startContract(c);
-}
-
-void launchThirdCornerTransition(TransitionEngine &t, Triangle &triangle, Character &charact) {
-    Vec2D posEnd;
-    // Third Corner
-    posEnd = calcPosTransition(posBegin, charact, triangle.getThirdPosition());
-    TransitionContract d(triangle, triangle.TRANSITION_THIRD_POSITION, chrono::milliseconds(500),{(float)(posEnd.getX()), (float)(posEnd.getY())});
-    t.startContract(d);
-}
-
-void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMap, map<string,Character> &characterMap, TransitionEngine &t, bool &isTransitionFinished) {
-    for (string &name : characterList) {
-        // draw back layer
-        for (Circle &circle : skinMap[name].backLayer.circles) {
-            launchCircleTransition(t, circle, characterMap[name], name, isTransitionFinished);
-        }
-        for (Triangle &triangle : skinMap[name].backLayer.triangles) {
-            launchTwoCornerTransition(t, triangle, characterMap[name]);
-            launchThirdCornerTransition(t, triangle, characterMap[name]);
-        }
-        for (Rectangle &rectangle : skinMap[name].backLayer.rectangles) {
-            launchTwoCornerTransition(t, rectangle, characterMap[name]);
-        }
-        // draw front layer
-        for (Circle &circle : skinMap[name].frontLayer.circles) {
-            launchCircleTransition(t, circle, characterMap[name], name, isTransitionFinished);
-        }
-        for (Triangle &triangle : skinMap[name].frontLayer.triangles) {
-            launchTwoCornerTransition(t, triangle, characterMap[name]);
-            launchThirdCornerTransition(t, triangle, characterMap[name]);
-        }
-        for (Rectangle &rectangle : skinMap[name].frontLayer.rectangles) {
-            launchTwoCornerTransition(t, rectangle, characterMap[name]);
-        }
+    for (const string &name : names) {
+        posEnd = calcPosTransition(posBegin, charactMap[name]);
+        TransitionContract a(skinMap[name].defaultState[charactMap[name].direction], skinMap[name].defaultState[charactMap[name].direction].TRANSITION_POSITION, chrono::milliseconds(500),{(float)(posEnd.getX()), (float)(posEnd.getY())});
+        if (name == "Pacman") {
+            a.setDestinationCallback([&] {
+                isTransitionFinished = true;
+            });}
+        t.startContract(a);
     }
 }
+
 
 // ---------- Funtions used for ghosts ---------- //
 
@@ -308,13 +290,52 @@ string aStar(vector<string> &maze, Character &ghost, Character &pacman){
 //    }
 //}
 
+bool isBubble (Character &character, vector<string> &maze){
+     if (character.direction == "up" && (maze[character.pos.y+1][character.pos.x] == '.'))return true;
+     else if(character.direction == "down" && (maze[character.pos.y-1][character.pos.x] == '.'))return true;
+     else if(character.direction == "left" && (maze[character.pos.y][character.pos.x+1] == '.'))return true;
+     else if(character.direction == "right" && (maze[character.pos.y][character.pos.x-1] == '.')) return true;
+     else return false;
+}
+
+void eatBubble (Character &character, vector<string> &maze){
+    if(character.direction == "up") maze[character.pos.y+1][character.pos.x] = '\t';
+    else if(character.direction == "down") maze[character.pos.y-1][character.pos.x] = '\t';
+    else if(character.direction == "left") maze[character.pos.y][character.pos.x+1] = '\t';
+    else if(character.direction == "right") maze[character.pos.y][character.pos.x-1] = '\t';
+}
+
+
+bool isBigBubble (Character &character, vector<string> &maze){
+     if (character.direction == "up" && (maze[character.pos.y+1][character.pos.x] == 'o'))return true;
+     else if(character.direction == "down" && (maze[character.pos.y-1][character.pos.x] == 'o'))return true;
+     else if(character.direction == "left" && (maze[character.pos.y][character.pos.x+1] == 'o'))return true;
+     else if(character.direction == "right" && (maze[character.pos.y][character.pos.x-1] == 'o')) return true;
+     else return false;
+}
+void eatBigBubble (Character &character, vector<string> &maze){
+    if(character.direction == "up") maze[character.pos.y+1][character.pos.x] = '\t';
+    else if(character.direction == "down") maze[character.pos.y-1][character.pos.x] = '\t';
+    else if(character.direction == "left") maze[character.pos.y][character.pos.x+1] = '\t';
+    else if(character.direction == "right") maze[character.pos.y][character.pos.x-1] = '\t';
+}
+
 // ---------- Functions used to get values ---------- //
 
 Position getPosCage(Param &param) {
     if (param.skins["Maze"] == 1) {
         return {15, 7};
     }
-    return {0,0};
+   return {0,0};
+}
+
+vector<Position> getPosTeleporter(Param &param) {
+    if (param.skins["Maze"] == 1) {
+        return {{11,0}, {11,11}};
+    } else if (param.skins["Maze"] == 2) {
+        return {{0,5},{22,5}};//take the position of the two teleporter on the first map
+    }
+    return {{0,0}, {0,0}};
 }
 
 // ---------- Functions used for tests ---------- //

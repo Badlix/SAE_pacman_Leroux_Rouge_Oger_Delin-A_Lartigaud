@@ -15,5 +15,6 @@ HEADERS += \
 
 DISTFILES += \
     settings.yaml
+    skins/
 
 include(../MinGL/mingl.pri)

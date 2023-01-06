@@ -3,6 +3,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <map>
 
 #include "mingl/mingl.h"
 #include "mingl/shape/rectangle.h"
@@ -10,6 +11,7 @@
 #include "mingl/shape/line.h"
 #include "mingl/shape/triangle.h"
 #include "mingl/transition/transition_engine.h"
+#include "mingl/gui/sprite.h"
 
 #include "functions.h"
 #include "constants.h"
@@ -19,17 +21,6 @@ using namespace std;
 using namespace nsGraphics;
 using namespace nsShape;
 using namespace nsTransition;
-
-// main pour les tests console
-
-//int main() {
-//    vector<string> maze = maze1;
-//    showMaze(maze);
-//    map<string, Character> characterMaps;
-//    initCharacters(characterMaps);
-//    showMap(characterMaps);
-//}
-
 
 // main mingl
 
@@ -54,7 +45,7 @@ int main()
     }
 
     // Initalization of the graphics system
-    MinGL window("Pacman", Vec2D(1550, 900), Vec2D(128, 128), KBlack);
+    MinGL window("Pacman", Vec2D(1550, 900), Vec2D(128, 128), KSilver);
     window.initGlut();
     window.initGraphic();
     TransitionEngine transitionEngine;
@@ -73,9 +64,9 @@ int main()
     while (window.isOpen())
     {
         if (isTransitionFinished) {
-            keyboardInput(window, param, characterMap["Pacman"], maze);
+            keyboardInput(window, param, characterMap["Pacman"], maze, skinMap["Pacman"]);
             isTransitionFinished = false;
-            launchAllTransition(characterList, skinMap, characterMap, transitionEngine, isTransitionFinished);
+            launchTransitions(transitionEngine, characterMap, isTransitionFinished, skinMap, characterList);
         }
 
         chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
@@ -88,8 +79,8 @@ int main()
         }
 
         drawMaze(window, maze);
-        drawCharacter(window, characterList, skinMap);
-        letGhostsOut();
+        drawCharacter(window, characterList, skinMap, characterMap);
+        //letGhostsOut();
 
         window.finishFrame();
         window.getEventManager().clearEvents();

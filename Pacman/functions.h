@@ -26,6 +26,9 @@ using namespace std;
         bool operator > (const Position& p) const {
             return x > p.x || y > p.y;
         }
+        bool operator < (const Position& p) const {
+            return x < p.x || y < p.y;
+        }
     };
 
 
@@ -37,10 +40,12 @@ using namespace std;
 
     // move fonctions
 
-    void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze);
+    void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, Skin &skin);
     bool isMovePossible(vector<string> &maze,Character &character, string direction);
-    void moveCharacter(Character &c, string direction);
-    nsGraphics::Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact, const Vec2D &posNow);
+    void moveCharacter(Character &c, string direction, Skin &skin);
+    void moveCharacterTeleporter (vector<string> &maze, Character &character, Param& param);
+    bool isTeleporter(vector<string> &maze,Character & character);
+    nsGraphics::Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact);
     bool isSamePos(Character &c1, Character &c2);
 
     // initialization functions
@@ -50,18 +55,14 @@ using namespace std;
 
     // functions used to draw
 
-    void launchCircleTransition(nsTransition::TransitionEngine &t, Circle &circle, Character &charact, string &name, bool &isTransitionFinished);
-    template <typename rectOrLineOrTri>
-    void launchTwoCornerTransition(nsTransition::TransitionEngine &t, rectOrLineOrTri &aShape, Character &charact);
-    void launchThirdCornerTransition(nsTransition::TransitionEngine &t, Triangle &triangle, Character &charact);
-    void launchAllTransition(vector<string> &characterList, map<string,Skin> &skinMap, map<string, Character> &characterMap, nsTransition::TransitionEngine &t, bool &isTransitionFinished);
-    void drawCharacter(MinGL &window, vector<string> &characterList ,map<string, Skin> &skinMap);
+    void drawCharacter(MinGL &window, vector<string> &characterList , map<string, Skin> &skinMap, map<string, Character> &charactMap);
     void drawMaze(MinGL &window, vector<string> &maze);
+    void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character> & characterMap, bool &isTransitionFinished, map<string,Skin> &skinMap, vector<string> &names);
 
     // functions used for ghosts
 
     bool isGhostInCage(Character ghost, Param &param);
-    void letGhostsOut();
+    //void letGhostsOut();
 
     // A* algorithm
     unsigned nodeQuality(Position &currentPos, Position &pacmanPos);
@@ -80,6 +81,7 @@ using namespace std;
     // functions used to get value
 
     Position getPosCage(Param &param);
+    vector<Position> getPosTeleporter(Param &param);
 
     // functions used for tests
 
@@ -87,5 +89,10 @@ using namespace std;
     void showMap(map<string, Character> &myMap);
 
     // Others
+
+    bool isBigBubble (Character &character, vector<string> &maze);
+    bool isBubble (Character &character, vector<string> &maze);
+    void eatBubble (Character &character, vector<string> &maze);
+    void eatBigBubble (Character &character, vector<string> &maze);
 
 #endif // FUNCTIONS_H
