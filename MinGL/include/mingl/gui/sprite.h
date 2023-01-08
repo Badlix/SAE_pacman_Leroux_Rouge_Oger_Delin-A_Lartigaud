@@ -72,6 +72,13 @@ public:
     const std::vector<nsGraphics::RGBAcolor>& getPixelData() const;
 
     /**
+     * @brief Définit le nouveau vecteur contenant les pixels de l'image
+     * @param[in] position : Nouveau vecteur
+     * @fn void setPixelData(const std::vector<nsGraphics::RGBAcolor>& pixelData);
+     */
+    void setPixelData(const std::vector<nsGraphics::RGBAcolor>& pixelData);
+
+    /**
      * @brief Récupère la position du sprite
      * @return Une référence const vers m_position
      * @fn const nsGraphics::Vec2D& getPosition() const;

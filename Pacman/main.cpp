@@ -29,20 +29,14 @@ int main()
     initParam(param);
     loadParam(param);
 
-    map<string, Character> characterMap;
-    initCharacters(characterMap, param);
-
-    map<string, Skin> skinMap;
-    initSkins(skinMap, param);
-
-    vector<string> maze;
-    initMaze(maze, param);
-
+    map<string, Character> characterMap = initCharacters(param);
+    map<string, Skin> skinMap = initSkins(param);
+    Skin closedMouthPacman = initSkinMouthPacman(param);
+    vector<string> maze = initMaze(param); // 22x11 = max i
     vector<string> characterList;
     for (auto it = characterMap.begin(); it != characterMap.end(); it++) {
         characterList.push_back(it->first);
     }
-
     bool gameRunning = true;
     size_t nbBubbleLeft = nbBubbleInMaze(maze);
 
@@ -60,7 +54,7 @@ int main()
             vR[vR.size()-1].setBorderColor(KCyan);
         }
     }
-
+    unsigned i(0);
     bool isTransitionFinished (true);
     chrono::microseconds frameTime = chrono::microseconds::zero();
     while (window.isOpen())
@@ -80,8 +74,13 @@ int main()
             for (size_t k (0); k < vR.size(); ++k) { // show Grid -> temporaire
                 window << vR[k];
             }
+            if (i > 15) {
+                switchMouthPacmanOpenClose(skinMap["Pacman"], closedMouthPacman);
+                i = 0;
+            }
             drawMaze(window, maze);
             drawCharacter(window, characterList, skinMap, characterMap);
+            ++i;
             //letGhostsOut();
         } /* else {
             window << sprite de gameover/victoire et avec indication d'une touche rejouer et d'une touche pour quitter
@@ -92,5 +91,37 @@ int main()
         frameTime = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start);
         isBubbleLeft(nbBubbleLeft, gameRunning);
     }
+
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

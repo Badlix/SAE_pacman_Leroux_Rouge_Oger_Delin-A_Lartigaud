@@ -103,6 +103,11 @@ const std::vector<nsGraphics::RGBAcolor>& nsGui::Sprite::getPixelData() const
     return m_pixelData;
 } // getPixelData()
 
+void nsGui::Sprite::setPixelData(const std::vector<nsGraphics::RGBAcolor>& pixelData)
+{
+    m_pixelData = pixelData;
+} // setPosition()
+
 const nsGraphics::Vec2D& nsGui::Sprite::getPosition() const
 {
     return m_position;

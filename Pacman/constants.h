@@ -15,8 +15,6 @@ using namespace nsShape;
 using namespace nsGraphics;
 
 struct Skin {
-//    vector<nsGui::Sprite> defaultState; // or mouth open for pacman
-//    vector<nsGui::Sprite> otherState; // or mouth close for pacman
     map<string, nsGui::Sprite> defaultState;
     map<string, nsGui::Sprite> otherState;
 };
@@ -67,13 +65,20 @@ const vector<string> maze2 = {
 
 const Skin flowerPacman = {
     {{"up", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+     {"down", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
      {"right", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}},
+     {"left", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))}},
     {{"up", nsGui::Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+     {"down", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
      {"right", nsGui::Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}}
+     {"left", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))}}
+};
+
+const Skin flowerPacmanClose = {
+    {{"up", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"down", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"right", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}},{}
 };
 
 const Skin penguinPacman = {
@@ -200,5 +205,31 @@ const vector<Rectangle> nbNine = {
     nsShape::Rectangle(nsGraphics::Vec2D(20,10), nsGraphics::Vec2D(25,30), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
+
+
+// Sohkna
+//const unsigned largeur_rayon_fantome = 12;
+//const unsigned longeur_fantome = 25;
+
+//struct GhostSprite {
+//    RGBAcolor couleur;
+//    nsGraphics::Vec2D position;
+//    nsGraphics::Circle head;
+//    nsGraphics::Rectangle body;
+//    vector<nsGraphics::Triangle> bottom;
+//};
+
+//// ex de la création d'un fantome
+
+//GhostSprite ghost1 = {
+//    nsGraphics::KCyan, //couleur
+//    {0,0}, //position
+//    Circle(blablabla), //head
+//    Rectangle(blablabla), //body
+//    {Triangle(blabla),Triangle(blabla),Triangle(blabla)} //bottom
+//};
+
+
+
 
 #endif // CONSTANTS_H

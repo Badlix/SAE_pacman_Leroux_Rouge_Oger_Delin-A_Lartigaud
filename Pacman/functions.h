@@ -47,13 +47,15 @@ using namespace std;
 
     // initialization functions
 
-    void initMaze(vector<string> &maze, Param &param);
-    void initCharacters(map<string, Character> &mapC, Param &param);
-    void initSkins(map<string, Skin> &mapSkins, Param &param);
+    vector<string> initMaze(Param &param);
+    map<string, Character> initCharacters(Param &param);
+    map<string, Skin> initSkins(Param &param);
+    Skin initSkinMouthPacman(Param &param);
     size_t nbBubbleInMaze(vector<string> &maze);
 
     // functions used to draw
 
+    void switchMouthPacmanOpenClose(Skin &currentpPacman, Skin &otherPacman);
     void drawCharacter(MinGL &window, vector<string> &characterList , map<string, Skin> &skinMap, map<string, Character> &charactMap);
     void drawMaze(MinGL &window, vector<string> &maze);
     void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character> & characterMap, bool &isTransitionFinished, map<string,Skin> &skinMap, vector<string> &names);
@@ -97,7 +99,7 @@ using namespace std;
     void removeBubbleOnCount (size_t &bubbleLeft, bool &gameRunning);
     bool isBigBubble (Character &character, vector<string> &maze);
     bool isBubble (Character &character, vector<string> &maze);
-    void eatBubble (Character &character, vector<string> &maze, size_t &bubbleLeft);
+    void eatBubble (const Character &character, vector<string> &maze, size_t &bubbleLeft);
     void eatBigBubble (Character &character, vector<string> &maze, size_t &bubbleLeft);
 
 #endif // FUNCTIONS_H
