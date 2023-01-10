@@ -30,14 +30,20 @@ int main()
     loadParam(param);
 
     map<string, Character> characterMap = initCharacters(param);
+
+
     map<string, Skin> skinMap = initSkins(param);
     Skin closedMouthPacman = initSkinMouthPacman(param);
+
     vector<string> maze = initMaze(param); // 22x11 = max i
+
     vector<string> characterList;
     for (auto it = characterMap.begin(); it != characterMap.end(); it++) {
         characterList.push_back(it->first);
     }
+
     bool gameRunning = true;
+
     size_t nbBubbleLeft = nbBubbleInMaze(maze);
 
     // Initalization of the graphics system
@@ -75,7 +81,7 @@ int main()
                 window << vR[k];
             }
             if (i > 15) {
-                switchMouthPacmanOpenClose(skinMap["Pacman"], closedMouthPacman);
+                switchMouthPacmanOpenClose(skinMap["Pacman"], closedMouthPacman, characterMap["Pacman"]);
                 i = 0;
             }
             drawMaze(window, maze);

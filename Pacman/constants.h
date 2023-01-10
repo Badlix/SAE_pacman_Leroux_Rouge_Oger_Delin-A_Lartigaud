@@ -14,9 +14,31 @@ using namespace std;
 using namespace nsShape;
 using namespace nsGraphics;
 
+struct Position {
+    int x;
+    int y;
+    bool operator == (const Position& p) const {
+        return x == p.x && y == p.y;
+    }
+    bool operator != (const Position& p) const {
+        return x != p.x || y != p.y;
+    }
+    bool operator < (const Position& p) const {
+        return x < p.x || y < p.y;
+    }
+};
+
+struct Character {
+    string type; //Pacman, Ghost, Fruit
+    Position pos;
+    string direction;
+    bool isDefaultState;
+    unsigned vitesse; // default : 500, mad mod : 300 -> 0 is the fastest
+};
+
 struct Skin {
     map<string, nsGui::Sprite> defaultState;
-    map<string, nsGui::Sprite> otherState;
+    map<string, nsGui::Sprite> madState;
 };
 
 // ---------- Global Values ---------- //
@@ -77,16 +99,36 @@ const Skin flowerPacman = {
 const Skin flowerPacmanClose = {
     {{"up", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
     {"down", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"right", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}},{}
+    {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"right", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}},
+    {{"up", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"down", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"right", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}}
 };
 
 const Skin penguinPacman = {
-    {{"open", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"close", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))}},
-    {{"open", nsGui::Sprite("../Pacman/skins/madPenguinOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"close", nsGui::Sprite("../Pacman/skins/madPenguinClose.si2", nsGraphics::Vec2D(0,0))}}
+    {{"up", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"right", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"down", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"left", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))}},
+    {{"up", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"right", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"down", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"left", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))}}
 };
+
+const Skin penguinPacmanClose = {
+    {{"up", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
+     {"right", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
+     {"down", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
+     {"left", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))}},
+    {{"up", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
+     {"right", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
+     {"down", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
+     {"left", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))}}
+};
+
 
 const Skin candyPacman = {
     {{"open", nsGui::Sprite("../Pacman/skins/candyOpen.si2", nsGraphics::Vec2D(0,0))},
@@ -207,7 +249,7 @@ const vector<Rectangle> nbNine = {
 };
 
 
-// Sohkna
+//// Sohkna
 //const unsigned largeur_rayon_fantome = 12;
 //const unsigned longeur_fantome = 25;
 
@@ -228,8 +270,5 @@ const vector<Rectangle> nbNine = {
 //    Rectangle(blablabla), //body
 //    {Triangle(blabla),Triangle(blabla),Triangle(blabla)} //bottom
 //};
-
-
-
 
 #endif // CONSTANTS_H

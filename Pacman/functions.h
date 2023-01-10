@@ -12,31 +12,8 @@
 
 using namespace std;
 
-    // types
-
-    struct Position {
-        int x;
-        int y;
-        bool operator == (const Position& p) const {
-            return x == p.x && y == p.y;
-        }
-        bool operator != (const Position& p) const {
-            return x != p.x || y != p.y;
-        }
-        bool operator < (const Position& p) const {
-            return x < p.x || y < p.y;
-        }
-    };
-
-
-    struct Character {
-        Position pos;
-        string direction;
-        bool isDefaultState;
-    };
-
     // move fonctions
-
+    void testRotate(vector<RGBAcolor> &pixels);
     void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, Skin &skin, size_t &nbBubbleLeft);
     bool isMovePossible(vector<string> &maze,Character &character, string direction);
     void moveCharacter(Character &c, string direction, Skin &skin);
@@ -55,7 +32,7 @@ using namespace std;
 
     // functions used to draw
 
-    void switchMouthPacmanOpenClose(Skin &currentpPacman, Skin &otherPacman);
+    void switchMouthPacmanOpenClose(Skin &currentpPacman, Skin &otherPacman, Character &pacman);
     void drawCharacter(MinGL &window, vector<string> &characterList , map<string, Skin> &skinMap, map<string, Character> &charactMap);
     void drawMaze(MinGL &window, vector<string> &maze);
     void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character> & characterMap, bool &isTransitionFinished, map<string,Skin> &skinMap, vector<string> &names);
@@ -101,5 +78,6 @@ using namespace std;
     bool isBubble (Character &character, vector<string> &maze);
     void eatBubble (const Character &character, vector<string> &maze, size_t &bubbleLeft);
     void eatBigBubble (Character &character, vector<string> &maze, size_t &bubbleLeft);
+    void changeState(Character &charact);
 
 #endif // FUNCTIONS_H

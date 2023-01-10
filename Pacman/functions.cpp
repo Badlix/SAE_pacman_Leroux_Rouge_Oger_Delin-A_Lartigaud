@@ -36,8 +36,11 @@ void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string
             moveCharacter(pacman, pacman.direction, skin);// continue in the same direction
     }
     if (isTeleporter(maze, pacman)) moveCharacterTeleporter(maze, pacman,param);
-    if (isBubble(pacman, maze)) eatBubble(pacman, maze, nbBubbleLeft);
-    if (isBigBubble(pacman, maze)) eatBigBubble(pacman, maze, nbBubbleLeft);
+    else if (isBubble(pacman, maze)) eatBubble(pacman, maze, nbBubbleLeft);
+    else if (isBigBubble(pacman, maze)) {
+        eatBigBubble(pacman, maze, nbBubbleLeft);
+        changeState(pacman);
+    }
 }
 
 bool isMovePossible(vector<string> &maze,Character &character, string direction) {
@@ -57,7 +60,8 @@ bool isMovePossible(vector<string> &maze,Character &character, string direction)
 
 void moveCharacter(Character &character, string direction, Skin &skin) {
     if (direction != character.direction) {
-            skin.defaultState.find(direction)->second.setPosition(skin.defaultState.find(character.direction)->second.getPosition());
+        skin.defaultState.find(direction)->second.setPosition(skin.defaultState.find(character.direction)->second.getPosition());
+        skin.madState.find(direction)->second.setPosition(skin.madState.find(character.direction)->second.getPosition());
     }
     if (direction == "up") --character.pos.y;
     else if (direction == "right") ++character.pos.x;
@@ -103,9 +107,9 @@ vector<string> initMaze(Param &param) {
 
 map<string, Character> initCharacters(Param &param) {
     map<string, Character> mapC;
-    Character tmp = {Position {1, 1}, "right", true};
+    Character tmp = {"Pacman", Position {1, 1}, "right", true, 500};
     mapC["Pacman"] = tmp;
-    tmp = {getPosCage(param), "up", true};
+    tmp = {"Ghost", getPosCage(param), "up", true, 500};
     for (unsigned i(1); i <= param.difficulty["GhostNumber"]; ++i) {
         //tmp = {Position {15+i, 7}, "up", true}; // a changer
         mapC["Ghost"+to_string(i)] = tmp;
@@ -141,7 +145,7 @@ map<string, Skin> initSkins(Param &param) {
             }
         }
         tmp.defaultState.find("up")->second = nsGui::Sprite(listPixel, 50);
-        tmp.otherState.find("up")->second = (mapSkins.find("Ghost1")->second).otherState.find("up")->second;
+        tmp.madState.find("up")->second = (mapSkins.find("Ghost1")->second).madState.find("up")->second;
         mapSkins["Ghost"+to_string(i)] = tmp;
     }
     return mapSkins;
@@ -149,6 +153,7 @@ map<string, Skin> initSkins(Param &param) {
 
 Skin initSkinMouthPacman(Param &param) {
     if (param.skins["Pacman"] == 1) return flowerPacmanClose;
+    if (param.skins["Pacman"] == 3) return penguinPacmanClose;
     return flowerPacmanClose;
 }
 
@@ -190,17 +195,25 @@ void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Ski
     for (string &name : characterList) {
         if (charactMap[name].isDefaultState) {
             window << skinMap[name].defaultState.find(charactMap[name].direction)->second;
+        } else {
+            window << skinMap[name].madState.find(charactMap[name].direction)->second;
         }
     }
 }
 
-void switchMouthPacmanOpenClose(Skin &currentPacman, Skin &otherPacman) {
+void switchMouthPacmanOpenClose(Skin &currentPacman, Skin &otherPacman, Character &pacman) {
     vector<RGBAcolor> tmp;
     vector<string> directions = {"up", "right", "down", "left"};
     for (string direction : directions) {
-        tmp = currentPacman.defaultState.find(direction)->second.getPixelData();
-        currentPacman.defaultState.find(direction)->second.setPixelData(otherPacman.defaultState.find(direction)->second.getPixelData());
-        otherPacman.defaultState.find(direction)->second.setPixelData(tmp);
+        if (pacman.isDefaultState) {
+            tmp = currentPacman.defaultState.find(direction)->second.getPixelData();
+            currentPacman.defaultState.find(direction)->second.setPixelData(otherPacman.defaultState.find(direction)->second.getPixelData());
+            otherPacman.defaultState.find(direction)->second.setPixelData(tmp);
+        } else {
+            tmp = currentPacman.madState.find(direction)->second.getPixelData();
+            currentPacman.madState.find(direction)->second.setPixelData(otherPacman.madState.find(direction)->second.getPixelData());
+            otherPacman.madState.find(direction)->second.setPixelData(tmp);
+        }
     }
 }
 
@@ -208,9 +221,8 @@ void launchTransitions(TransitionEngine &t, map<string, Character> &charactMap, 
     Vec2D posEnd;
     for (const string &name : names) {
         posEnd = calcPosTransition(posBegin, charactMap[name]);
-        //if (name == "Pacman")
         TransitionContract a(skinMap[name].defaultState.find(charactMap[name].direction)->second,
-                             skinMap[name].defaultState.find(charactMap[name].direction)->second.TRANSITION_POSITION, chrono::milliseconds(500),{(float)(posEnd.getX()), (float)(posEnd.getY())});
+                             skinMap[name].defaultState.find(charactMap[name].direction)->second.TRANSITION_POSITION, chrono::milliseconds(charactMap[name].vitesse),{(float)(posEnd.getX()), (float)(posEnd.getY())});
         if (name == "Pacman") {
             a.setDestinationCallback([&] {
                 isTransitionFinished = true;
@@ -341,10 +353,6 @@ string decideGhostDirection(Character &ghost, string &personality, unsigned &dif
 // ---------- Other Functions ---------- //
 
 bool isBubble (Character &character, vector<string> &maze){
-//    int x = character.pos.x;
-//    int y = character.pos.y;
-//    cout << character.direction << endl;
-//    cout << "X : " << x << " | Y : " << y << endl << endl;
     if (character.direction == "up" && (maze[character.pos.y+1][character.pos.x] == '.')) return true;
     else if(character.direction == "down" && (maze[character.pos.y-1][character.pos.x] == '.')) return true;
     else if(character.direction == "left" && (maze[character.pos.y][character.pos.x+1] == '.')) return true;
@@ -385,6 +393,14 @@ void isBubbleLeft (size_t &bubbleLeft , bool &gameRunning) {
 
 void gameOver(bool &gameRunning) {
     gameRunning = false;
+}
+
+void changeState(Character &charact) {
+    charact.isDefaultState = !charact.isDefaultState;
+    if (charact.type == "Pacman"){
+        if (charact.isDefaultState) charact.vitesse = 500;
+        else charact.vitesse = 250;
+    }
 }
 
 // ---------- Functions used to get values ---------- //
