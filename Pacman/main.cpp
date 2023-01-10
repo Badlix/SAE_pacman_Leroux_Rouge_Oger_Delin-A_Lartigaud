@@ -31,10 +31,6 @@ int main()
 
     map<string, Character> characterMap = initCharacters(param);
 
-
-    map<string, Skin> skinMap = initSkins(param);
-    Skin closedMouthPacman = initSkinMouthPacman(param);
-
     vector<string> maze = initMaze(param); // 22x11 = max i
 
     vector<string> characterList;
@@ -61,14 +57,15 @@ int main()
         }
     }
     unsigned i(0);
+    bool isMouthOpen (true);
     bool isTransitionFinished (true);
     chrono::microseconds frameTime = chrono::microseconds::zero();
     while (window.isOpen())
     {
         if (isTransitionFinished) {
-            keyboardInput(window, param, characterMap["Pacman"], maze, skinMap["Pacman"], nbBubbleLeft);
+            keyboardInput(window, param, characterMap["Pacman"], maze, nbBubbleLeft, characterList, characterMap);
             isTransitionFinished = false;
-            launchTransitions(transitionEngine, characterMap, isTransitionFinished, skinMap, characterList);
+            launchTransitions(transitionEngine, characterMap, isTransitionFinished, characterList);
         }
 
         chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
@@ -81,11 +78,12 @@ int main()
                 window << vR[k];
             }
             if (i > 15) {
-                switchMouthPacmanOpenClose(skinMap["Pacman"], closedMouthPacman, characterMap["Pacman"]);
+                switchMouthPacmanOpenClose(characterMap["Pacman"], isMouthOpen);
+                isMouthOpen = !isMouthOpen;
                 i = 0;
             }
             drawMaze(window, maze);
-            drawCharacter(window, characterList, skinMap, characterMap);
+            drawCharacter(window, characterList, characterMap);
             ++i;
             //letGhostsOut();
         } /* else {

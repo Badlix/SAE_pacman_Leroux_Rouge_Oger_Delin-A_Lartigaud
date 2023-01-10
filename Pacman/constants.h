@@ -28,17 +28,20 @@ struct Position {
     }
 };
 
+struct Skin {
+    map<string, vector<RGBAcolor>> defaultState;
+    map<string, vector<RGBAcolor>> madState;
+};
+
 struct Character {
     string type; //Pacman, Ghost, Fruit
     Position pos;
     string direction;
     bool isDefaultState;
     unsigned vitesse; // default : 500, mad mod : 300 -> 0 is the fastest
-};
-
-struct Skin {
-    map<string, nsGui::Sprite> defaultState;
-    map<string, nsGui::Sprite> madState;
+    vector<nsGui::Sprite> sprite; // can't init an empty sprite
+    Skin skins;
+    Skin openMouthSkins; // uses only for pacman
 };
 
 // ---------- Global Values ---------- //
@@ -86,90 +89,90 @@ const vector<string> maze2 = {
 // ---------- Pacman Skins ---------- //
 
 const Skin flowerPacman = {
-    {{"up", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))}},
-    {{"up", nsGui::Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))}}
+    {{"up", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()}},
+    {{"up", nsGui::Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()}}
 };
 
 const Skin flowerPacmanClose = {
-    {{"up", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"down", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"right", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}},
-    {{"up", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"down", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"right", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}}
+    {{"up", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+    {"down", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+    {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+    {"right", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()}},
+    {{"up", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+    {"down", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+    {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+    {"right", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()}}
 };
 
 const Skin penguinPacman = {
-    {{"up", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))}},
-    {{"up", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0))}}
+    {{"up", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()}},
+    {{"up", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/penguinOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()}}
 };
 
 const Skin penguinPacmanClose = {
-    {{"up", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))}},
-    {{"up", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0))}}
+    {{"up", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()}},
+    {{"up", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/penguinClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()}}
 };
 
 
 const Skin candyPacman = {
-    {{"open", nsGui::Sprite("../Pacman/skins/candyOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"close", nsGui::Sprite("../Pacman/skins/candyClose.si2", nsGraphics::Vec2D(0,0))}},
-    {{"open", nsGui::Sprite("../Pacman/skins/madCandyOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"close", nsGui::Sprite("../Pacman/skins/madCandyClose.si2", nsGraphics::Vec2D(0,0))}}
+    {{"open", nsGui::Sprite("../Pacman/skins/candyOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"close", nsGui::Sprite("../Pacman/skins/candyClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()}},
+    {{"open", nsGui::Sprite("../Pacman/skins/madCandyOpen.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"close", nsGui::Sprite("../Pacman/skins/madCandyClose.si2", nsGraphics::Vec2D(0,0)).getPixelData()}}
 };
 
 // ---------- Ghost Skins ---------- //
 
 const Skin butterflyGhost = {
-    {{"up", nsGui::Sprite("../Pacman/skins/butterflyUp.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/butterflyDown.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/butterflyRight.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/butterflyLeft.si2", nsGraphics::Vec2D(0,0))}},
-    {{"up", nsGui::Sprite("../Pacman/skins/fearedButterflyUp.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/fearedButterflyDown.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/fearedButterflyRight.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/fearedButterflyLeft.si2", nsGraphics::Vec2D(0,0))}}
+    {{"up", nsGui::Sprite("../Pacman/skins/butterflyUp.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/butterflyDown.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/butterflyRight.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/butterflyLeft.si2", nsGraphics::Vec2D(0,0)).getPixelData()}},
+    {{"up", nsGui::Sprite("../Pacman/skins/fearedButterflyUp.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/fearedButterflyDown.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/fearedButterflyRight.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/fearedButterflyLeft.si2", nsGraphics::Vec2D(0,0)).getPixelData()}}
 };
 
 const Skin iceCreamGhost = {
-    {{"up", nsGui::Sprite("../Pacman/skins/iceCreamUp.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/iceCreamDown.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/iceCreamRight.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/iceCreamLeft.si2", nsGraphics::Vec2D(0,0))}},
-    {{"up", nsGui::Sprite("../Pacman/skins/fearedIceCreamUp.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/fearedIceCreamDown.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/fearedIceCreamRight.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/fearedIceCreamLeft.si2", nsGraphics::Vec2D(0,0))}}
+    {{"up", nsGui::Sprite("../Pacman/skins/iceCreamUp.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/iceCreamDown.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/iceCreamRight.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/iceCreamLeft.si2", nsGraphics::Vec2D(0,0)).getPixelData()}},
+    {{"up", nsGui::Sprite("../Pacman/skins/fearedIceCreamUp.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/fearedIceCreamDown.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/fearedIceCreamRight.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/fearedIceCreamLeft.si2", nsGraphics::Vec2D(0,0)).getPixelData()}}
 };
 
 const Skin lolipopGhost = {
-    {{"up", nsGui::Sprite("../Pacman/skins/lolipopUp.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/lolipopDown.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/lolipopRight.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/lolipopLeft.si2", nsGraphics::Vec2D(0,0))}},
-    {{"up", nsGui::Sprite("../Pacman/skins/fearedLolipopUp.si2", nsGraphics::Vec2D(0,0))},
-     {"down", nsGui::Sprite("../Pacman/skins/fearedLolipopDown.si2", nsGraphics::Vec2D(0,0))},
-     {"right", nsGui::Sprite("../Pacman/skins/fearedLolipopRight.si2", nsGraphics::Vec2D(0,0))},
-     {"left", nsGui::Sprite("../Pacman/skins/fearedLolipopLeft.si2", nsGraphics::Vec2D(0,0))}}
+    {{"up", nsGui::Sprite("../Pacman/skins/lolipopUp.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/lolipopDown.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/lolipopRight.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/lolipopLeft.si2", nsGraphics::Vec2D(0,0)).getPixelData()}},
+    {{"up", nsGui::Sprite("../Pacman/skins/fearedLolipopUp.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"down", nsGui::Sprite("../Pacman/skins/fearedLolipopDown.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"right", nsGui::Sprite("../Pacman/skins/fearedLolipopRight.si2", nsGraphics::Vec2D(0,0)).getPixelData()},
+     {"left", nsGui::Sprite("../Pacman/skins/fearedLolipopLeft.si2", nsGraphics::Vec2D(0,0)).getPixelData()}}
 };
 
 const vector<RGBAcolor> skinGhostColors = {RGBAcolor(0,200,0,255), RGBAcolor(255,238,0,255), RGBAcolor(105,0,105,255), RGBAcolor(200,0,0,255)};

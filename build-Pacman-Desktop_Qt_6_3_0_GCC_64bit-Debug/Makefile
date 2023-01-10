@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Pacman1.0.0
-DISTDIR = /amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.tmp/Pacman1.0.0
+DISTDIR = /amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.tmp/Pacman1.0.0
 LINK          = g++
 LFLAGS        = 
 LIBS          = $(SUBLIBS) -lglut -lsfml-audio -lGLU -lGL   
@@ -242,33 +242,33 @@ DIST          = ../Pacman/settings.yaml \
 		../Pacman/Pacman.pro functions.h \
 		param.h \
 		constants.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/audio/audioengine.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.hpp \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/errcode.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/macros.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/mingl.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event.hpp \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event_manager.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/circle.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/line.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/rectangle.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/triangle.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/shape.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/idrawable.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/rgbacolor.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/vec2d.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/glut_font.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/sprite.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/text.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.hpp \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ifonctorunaire.hpp \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/itransitionable.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_contract.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_engine.h \
-		/amuhome/l22011431/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_types.h ../Pacman/functions.cpp \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/audio/audioengine.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.hpp \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/errcode.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/macros.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/mingl.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event.hpp \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event_manager.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/circle.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/line.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/rectangle.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/triangle.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/shape.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/idrawable.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/rgbacolor.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/vec2d.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/glut_font.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/sprite.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/text.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.hpp \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ifonctorunaire.hpp \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/itransitionable.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_contract.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_engine.h \
+		/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_types.h ../Pacman/functions.cpp \
 		../Pacman/main.cpp \
 		../Pacman/param.cpp \
 		../MinGL/src/audio/audioengine.cpp \
@@ -657,6 +657,7 @@ functions.o: ../Pacman/functions.cpp ../Pacman/functions.h \
 		../MinGL/include/mingl/shape/circle.h \
 		../MinGL/include/mingl/shape/line.h \
 		../MinGL/include/mingl/shape/triangle.h \
+		../MinGL/include/mingl/gui/sprite.h \
 		../Pacman/param.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o functions.o ../Pacman/functions.cpp
 
@@ -678,6 +679,7 @@ main.o: ../Pacman/main.cpp ../MinGL/include/mingl/mingl.h \
 		../MinGL/include/mingl/transition/transition.h \
 		../MinGL/include/mingl/transition/transition_contract.h \
 		../MinGL/include/mingl/transition/transition_types.h \
+		../MinGL/include/mingl/gui/sprite.h \
 		../Pacman/functions.h \
 		../Pacman/constants.h \
 		../Pacman/param.h

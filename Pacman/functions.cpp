@@ -17,29 +17,31 @@ using namespace nsShape;
 
 // ---------- Functions used to move ---------- //
 
-void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, Skin &skin, size_t &nbBubbleLeft){
+void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, size_t &nbBubbleLeft, vector<string> &listCharact, map<string, Character> &mapCharact){
     // called inbetween every transition
     // allows to press many directions simultanuously without causing errors and fluidify the movements and the ergonomy
     if(window.isPressed({param.moveKeys["KeyUp"], false}) && pacman.direction != "up" && (isMovePossible(maze,pacman, "up"))) {
-            moveCharacter(pacman, "up", skin);
+            moveCharacter(pacman, "up");
     }
     else if(window.isPressed({param.moveKeys["KeyRight"], false}) && pacman.direction != "right" && (isMovePossible(maze,pacman, "right"))) {
-            moveCharacter(pacman, "right", skin);
+            moveCharacter(pacman, "right");
     }
     else if(window.isPressed({param.moveKeys["KeyDown"], false}) && pacman.direction != "down" && (isMovePossible(maze,pacman, "down"))) {
-            moveCharacter(pacman, "down", skin);
+            moveCharacter(pacman, "down");
     }
     else if(window.isPressed({param.moveKeys["KeyLeft"], false}) && pacman.direction != "left" && (isMovePossible(maze,pacman, "left"))) {
-            moveCharacter(pacman, "left", skin);
+            moveCharacter(pacman, "left");
     }
     else if (isMovePossible(maze,pacman, pacman.direction)){
-            moveCharacter(pacman, pacman.direction, skin);// continue in the same direction
+            moveCharacter(pacman, pacman.direction);// continue in the same direction
     }
     if (isTeleporter(maze, pacman)) moveCharacterTeleporter(maze, pacman,param);
     else if (isBubble(pacman, maze)) eatBubble(pacman, maze, nbBubbleLeft);
     else if (isBigBubble(pacman, maze)) {
         eatBigBubble(pacman, maze, nbBubbleLeft);
-        changeState(pacman);
+        for (string &name : listCharact) {
+            changeState(mapCharact[name]);
+        }
     }
 }
 
@@ -58,11 +60,10 @@ bool isMovePossible(vector<string> &maze,Character &character, string direction)
     else return false;
 }
 
-void moveCharacter(Character &character, string direction, Skin &skin) {
-    if (direction != character.direction) {
-        skin.defaultState.find(direction)->second.setPosition(skin.defaultState.find(character.direction)->second.getPosition());
-        skin.madState.find(direction)->second.setPosition(skin.madState.find(character.direction)->second.getPosition());
-    }
+void moveCharacter(Character &character, string direction) {
+//    if (direction != character.direction) {
+
+//    }
     if (direction == "up") --character.pos.y;
     else if (direction == "right") ++character.pos.x;
     else if (direction == "down") ++character.pos.y;
@@ -89,7 +90,7 @@ bool isTeleporter(vector<string> &maze, Character & character) {
     else return false;
 }
 
-Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact) {
+Vec2D calcPosTransition(Character &charact) {
     return {posBegin.getX() + charact.pos.x*50, posBegin.getY() + charact.pos.y*50};
 }
 
@@ -105,56 +106,60 @@ vector<string> initMaze(Param &param) {
     else if (param.skins["Maze"] == 2) return maze2;
 }
 
+
+// VALUE ARE NOT COMPLETE
 map<string, Character> initCharacters(Param &param) {
     map<string, Character> mapC;
-    Character tmp = {"Pacman", Position {1, 1}, "right", true, 500};
-    mapC["Pacman"] = tmp;
-    tmp = {"Ghost", getPosCage(param), "up", true, 500};
-    for (unsigned i(1); i <= param.difficulty["GhostNumber"]; ++i) {
-        //tmp = {Position {15+i, 7}, "up", true}; // a changer
-        mapC["Ghost"+to_string(i)] = tmp;
-    }
-    mapC["Ghost1"].direction = "up";
-    mapC["Ghost2"].direction = "right";
-    mapC["Ghost3"].direction = "down";
-    mapC["Ghost4"].direction = "left";
-    return mapC;
-}
-
-map<string, Skin> initSkins(Param &param) {
-    map<string, Skin> mapSkins;
-
     /* Set Pacman Skin*/
-    if (param.skins["Pacman"] == 1) mapSkins["Pacman"] = flowerPacman;
-    else if (param.skins["Pacman"] == 2) mapSkins["Pacman"] = candyPacman;
-    else if (param.skins["Pacman"] == 3) mapSkins["Pacman"] = penguinPacman;
+    Skin skin;
+    Skin skinMouthClose;
+    if (param.skins["Pacman"] == 1) {skin = flowerPacman; skinMouthClose = flowerPacmanClose;}
+    else if (param.skins["Pacman"] == 2) {skin = candyPacman; skinMouthClose = flowerPacmanClose;}
+    else if (param.skins["Pacman"] == 3) {skin = penguinPacman; skinMouthClose = penguinPacmanClose;}
+
+    Character tmp = {
+        "Pacman",  // type
+        Position {1, 1}, // position
+        "right", // direction
+        true, // isDefaultState
+        500, // vitesse
+        {}, // sprites
+        skin,
+        skinMouthClose
+    };
+    mapC["Pacman"] = tmp;
 
     /* Set Ghost1 Skin*/
-    if (param.skins["Ghost"] == 1) mapSkins["Ghost1"] = butterflyGhost;
-    else if (param.skins["Ghost"] == 2) mapSkins["Pacman"] = lolipopGhost;
-    else if (param.skins["Ghost"] == 3) mapSkins["Pacman"] = iceCreamGhost;
+    if (param.skins["Ghost"] == 1) skin = butterflyGhost;
+    else if (param.skins["Ghost"] == 2) skin = lolipopGhost;
+    else if (param.skins["Ghost"] == 3) skin = iceCreamGhost;
 
-    /* Set other ghosts skins by changing colors of ghost1's skin */
+    tmp = {
+        "Ghost",
+        getPosCage(param),
+        "up",
+        true,
+        500,
+        {},
+        skin,
+        skin
+    };
+    mapC["Ghost1"] = tmp;
     vector<RGBAcolor> listPixel;
-    Skin tmp = mapSkins["Ghost1"];
+    vector<string> directions = {"up", "down", "right", "left"};
     for (unsigned i(2); i <= param.difficulty["GhostNumber"]; ++i) {
-        listPixel = mapSkins["Ghost1"].defaultState.find("up")->second.getPixelData();
-        for (RGBAcolor &color : listPixel) {
-            if (color == skinGhostColors[0]) {
-                color = skinGhostColors[i-1];
+        for (const string &direction : directions) {
+            mapC["Ghost"+to_string(i)] = tmp;
+            listPixel = mapC["Ghost1"].skins.defaultState.find(direction)->second;
+            for (RGBAcolor &color : listPixel) {
+                if (color == skinGhostColors[0]) {
+                    color = skinGhostColors[i-1];
+                }
             }
+            mapC["Ghost"+to_string(i)].skins.defaultState[direction] = listPixel;
         }
-        tmp.defaultState.find("up")->second = nsGui::Sprite(listPixel, 50);
-        tmp.madState.find("up")->second = (mapSkins.find("Ghost1")->second).madState.find("up")->second;
-        mapSkins["Ghost"+to_string(i)] = tmp;
     }
-    return mapSkins;
-}
-
-Skin initSkinMouthPacman(Param &param) {
-    if (param.skins["Pacman"] == 1) return flowerPacmanClose;
-    if (param.skins["Pacman"] == 3) return penguinPacmanClose;
-    return flowerPacmanClose;
+    return mapC;
 }
 
 size_t nbBubbleInMaze(vector<string> &maze){
@@ -191,38 +196,37 @@ void drawMaze(MinGL &window, vector<string> &maze) {
     }
 }
 
-void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Skin> &skinMap, map<string, Character> &charactMap) {
+void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Character> &charactMap) {
     for (string &name : characterList) {
         if (charactMap[name].isDefaultState) {
-            window << skinMap[name].defaultState.find(charactMap[name].direction)->second;
+            charactMap[name].sprite[0].setPixelData(charactMap[name].skins.defaultState.find(charactMap[name].direction)->second);
         } else {
-            window << skinMap[name].madState.find(charactMap[name].direction)->second;
+            charactMap[name].sprite[0].setPixelData(charactMap[name].skins.madState.find(charactMap[name].direction)->second);
         }
+        charactMap[name].sprite[0].draw(window);
     }
 }
 
-void switchMouthPacmanOpenClose(Skin &currentPacman, Skin &otherPacman, Character &pacman) {
+void switchMouthPacmanOpenClose(Character &pacman, bool &isMouthOpen) {
     vector<RGBAcolor> tmp;
     vector<string> directions = {"up", "right", "down", "left"};
-    for (string direction : directions) {
+    for (const string &direction : directions) {
         if (pacman.isDefaultState) {
-            tmp = currentPacman.defaultState.find(direction)->second.getPixelData();
-            currentPacman.defaultState.find(direction)->second.setPixelData(otherPacman.defaultState.find(direction)->second.getPixelData());
-            otherPacman.defaultState.find(direction)->second.setPixelData(tmp);
+            if (isMouthOpen) pacman.sprite[0].setPixelData(pacman.skins.defaultState.find(pacman.direction)->second);
+            else pacman.sprite[0].setPixelData(pacman.openMouthSkins.defaultState.find(pacman.direction)->second);
         } else {
-            tmp = currentPacman.madState.find(direction)->second.getPixelData();
-            currentPacman.madState.find(direction)->second.setPixelData(otherPacman.madState.find(direction)->second.getPixelData());
-            otherPacman.madState.find(direction)->second.setPixelData(tmp);
+            if (isMouthOpen) pacman.sprite[0].setPixelData(pacman.skins.madState.find(pacman.direction)->second);
+            else pacman.sprite[0].setPixelData(pacman.openMouthSkins.madState.find(pacman.direction)->second);
         }
     }
 }
 
-void launchTransitions(TransitionEngine &t, map<string, Character> &charactMap, bool &isTransitionFinished, map<string,Skin> &skinMap, vector<string> &names) {
+void launchTransitions(TransitionEngine &t, map<string, Character> &charactMap, bool &isTransitionFinished, vector<string> &names) {
     Vec2D posEnd;
     for (const string &name : names) {
-        posEnd = calcPosTransition(posBegin, charactMap[name]);
-        TransitionContract a(skinMap[name].defaultState.find(charactMap[name].direction)->second,
-                             skinMap[name].defaultState.find(charactMap[name].direction)->second.TRANSITION_POSITION, chrono::milliseconds(charactMap[name].vitesse),{(float)(posEnd.getX()), (float)(posEnd.getY())});
+        posEnd = calcPosTransition(charactMap[name]);
+        TransitionContract a(charactMap[name].sprite[0],
+                             charactMap[name].sprite[0].TRANSITION_POSITION, chrono::milliseconds(charactMap[name].vitesse),{(float)(posEnd.getX()), (float)(posEnd.getY())});
         if (name == "Pacman") {
             a.setDestinationCallback([&] {
                 isTransitionFinished = true;

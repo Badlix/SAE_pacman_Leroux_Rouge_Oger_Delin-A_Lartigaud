@@ -14,28 +14,26 @@ using namespace std;
 
     // move fonctions
     void testRotate(vector<RGBAcolor> &pixels);
-    void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, Skin &skin, size_t &nbBubbleLeft);
+    void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, size_t &nbBubbleLeft, vector<string> &listCharact, map<string, Character> &mapCharact);
     bool isMovePossible(vector<string> &maze,Character &character, string direction);
-    void moveCharacter(Character &c, string direction, Skin &skin);
+    void moveCharacter(Character &c, string direction);
     void moveCharacterTeleporter (vector<string> &maze, Character &character, Param& param);
     bool isTeleporter(vector<string> &maze,Character & character);
-    nsGraphics::Vec2D calcPosTransition(const Vec2D &posBegin, Character &charact);
+    nsGraphics::Vec2D calcPosTransition(Character &charact);
     bool isSamePos(Character &c1, Character &c2);
 
     // initialization functions
 
     vector<string> initMaze(Param &param);
     map<string, Character> initCharacters(Param &param);
-    map<string, Skin> initSkins(Param &param);
-    Skin initSkinMouthPacman(Param &param);
     size_t nbBubbleInMaze(vector<string> &maze);
 
     // functions used to draw
 
-    void switchMouthPacmanOpenClose(Skin &currentpPacman, Skin &otherPacman, Character &pacman);
-    void drawCharacter(MinGL &window, vector<string> &characterList , map<string, Skin> &skinMap, map<string, Character> &charactMap);
+    void switchMouthPacmanOpenClose(Character &pacman, bool &isMouthOpen);
+    void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Character> &charactMap);
     void drawMaze(MinGL &window, vector<string> &maze);
-    void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character> & characterMap, bool &isTransitionFinished, map<string,Skin> &skinMap, vector<string> &names);
+    void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character> & characterMap, bool &isTransitionFinished, vector<string> &names);
 
     // functions used for ghosts
 
