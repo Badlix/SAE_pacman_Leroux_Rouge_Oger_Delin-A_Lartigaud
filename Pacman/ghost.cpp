@@ -63,7 +63,7 @@ Position nextMove(string &direction, Position &currentPos){
     else return Position{currentPos.x+1, currentPos.y}; //if (direction == "right")
 }
 
-unsigned bestMove(vector<string> &directions, map<Position, unsigned> &openNodes, Position &currentPos){
+unsigned bestDirection(vector<string> &directions, map<Position, unsigned> &openNodes, Position &currentPos){
     unsigned bestIndex = 0;
     for (size_t i = 0 ; i < directions.size() ; ++i) {
         if (openNodes[nextMove(directions[i], currentPos)] > openNodes[nextMove(directions[bestIndex], currentPos)]) {
@@ -86,7 +86,7 @@ void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> 
             currentNode = closedNodes[tmpNode];
         }
         else {
-            move = nextMove(directions[bestMove(directions, openNodes, currentNode)], currentNode);
+            move = nextMove(directions[bestDirection(directions, openNodes, currentNode)], currentNode);
             closedNodes.insert({move, currentNode});
             currentNode = move;
         }
@@ -113,9 +113,9 @@ string aStar(vector<string> &maze, Position &ghostPos, Position &pacmanPos){
     return firstDirection(closedNodes, currentNode, ghostPos);
 }
 
-string randomDirection(Character &character, vector<string> &maze){
-    vector<string> directions = possibleDirections(character.pos, maze);
-    return directions[rand()%5-1];
+string randomDirection(Position &pos, vector<string> &maze){
+    vector<string> directions = possibleDirections(pos, maze);
+    return directions[(rand()%directions.size())-1];
 }
 
 Character randomCharacter(map<string, Character> &characters, vector<string> &characterList) {
@@ -124,11 +124,45 @@ Character randomCharacter(map<string, Character> &characters, vector<string> &ch
 
 string decideGhostDirection(Character &ghost, string &personality, unsigned &difficulty, vector<string> maze, Position &pacmanPos, map<string, Character> &characters, vector<string> &characterList) {
     unsigned aStarProba = difficulty*20;
-    if(personality == "hardcore") aStarProba *= 1.5;
+    if(personality == "hardcore") aStarProba *= 1.5; //the hardcore personnality has higher chances to follow the a* algorithm
     if(rand()%100 <= aStarProba) return aStar(maze, ghost.pos, pacmanPos);
-    else if (personality == "dumb" || personality == "hardcore") return randomDirection(ghost, maze);
-    else if (personality == "confused") {
+    else if (personality == "dumb" || personality == "hardcore") return randomDirection(ghost.pos, maze); //the dumb personnality, or the hardcore when failed, follow a random path
+    else if (personality == "confused") { //the confused personnality sometime confuses pacman with another ghost or with a fruit...
         Character randomChar = randomCharacter(characters, characterList);
         return aStar(maze, ghost.pos, randomChar.pos);
+    }
+}
+
+void initPersonality (vector<string> &characterList, map<string, string> personalities, unsigned &difficulty) {
+    //Each personnality has a level of difficulty.
+    //The chances of it to drop are in percentage.
+
+    //Initialization of the personalities
+    vector<string> easyPersonality {"dumb"};
+    vector<string> normalPersonality {"confused"};
+    vector<string> hardPersonality {"hardcore"};
+
+    //Initialization of the droprate of each level of difficulty :
+    unsigned easy = 100 - 30*difficulty;
+    unsigned hard = 30 * difficulty - 20;
+    unsigned normal = 100 - easy - hard ;
+
+    //Application of a random personality to each characters
+    unsigned random;
+    string personality;
+    for (size_t i = 0 ; i < characterList.size() ; ++i) {
+        random = rand()%100;
+        if (random <= easy) {
+            personality = easyPersonality[(rand()%easyPersonality.size())-1];
+            personalities.insert({characterList[i], personality});
+        }
+        else if (random <= easy+normal){
+            personality = normalPersonality[(rand()%normalPersonality.size())-1];
+            personalities.insert({characterList[i], personality});
+        }
+        else {
+            personality = hardPersonality[(rand()%hardPersonality.size())-1];
+            personalities.insert({characterList[i], personality});
+        }
     }
 }
