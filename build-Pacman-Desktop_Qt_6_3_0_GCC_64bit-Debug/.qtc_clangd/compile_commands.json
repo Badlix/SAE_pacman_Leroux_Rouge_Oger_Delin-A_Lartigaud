@@ -3,7 +3,7 @@
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -18,11 +18,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -49,16 +49,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/functions.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/functions.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/functions.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/functions.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -73,11 +73,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -104,16 +104,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/main.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/main.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/main.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/main.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -128,11 +128,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -159,16 +159,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/param.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/param.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/param.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/param.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -183,11 +183,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -214,16 +214,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/audio/audioengine.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/ghost.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/audio/audioengine.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/ghost.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -238,11 +238,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -269,16 +269,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/exception/cexception.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/audio/audioengine.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/exception/cexception.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/audio/audioengine.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -293,11 +293,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -324,16 +324,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/mingl.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/exception/cexception.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/mingl.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/exception/cexception.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -348,11 +348,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -379,16 +379,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/event/event_manager.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/mingl.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/event/event_manager.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/mingl.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -403,11 +403,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -434,16 +434,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/circle.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/event/event_manager.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/circle.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/event/event_manager.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -458,11 +458,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -489,16 +489,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/line.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/circle.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/line.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/circle.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -513,11 +513,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -544,16 +544,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/rectangle.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/line.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/rectangle.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/line.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -568,11 +568,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -599,16 +599,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/triangle.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/rectangle.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/triangle.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/rectangle.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -623,11 +623,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -654,16 +654,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/shape.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/triangle.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/shape.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/triangle.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -678,11 +678,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -709,16 +709,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/graphics/rgbacolor.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/shape.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/graphics/rgbacolor.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/shape/shape.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -733,11 +733,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -764,16 +764,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/graphics/vec2d.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/graphics/rgbacolor.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/graphics/vec2d.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/graphics/rgbacolor.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -788,11 +788,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -819,16 +819,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/glut_font.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/graphics/vec2d.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/glut_font.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/graphics/vec2d.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -843,11 +843,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -874,16 +874,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/sprite.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/glut_font.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/sprite.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/glut_font.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -898,11 +898,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -929,16 +929,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/text.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/sprite.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/text.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/sprite.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -953,11 +953,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -984,16 +984,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/text.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/gui/text.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1008,11 +1008,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1039,16 +1039,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition_contract.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition_contract.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1063,11 +1063,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1094,16 +1094,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition_engine.cpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition_contract.cpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition_engine.cpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition_contract.cpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1118,11 +1118,66 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "-I",
+        "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
+        "-isystem",
+        "/usr/include/c++/9",
+        "-isystem",
+        "/usr/include/x86_64-linux-gnu/c++/9",
+        "-isystem",
+        "/usr/include/c++/9/backward",
+        "-isystem",
+        "/usr/local/include",
+        "-isystem",
+        "/opt/Qt-6.3/Tools/QtCreator/libexec/qtcreator/clang/lib/clang/14.0.0/include",
+        "-isystem",
+        "/usr/include/x86_64-linux-gnu",
+        "-isystem",
+        "/usr/include",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++",
+        "-Wno-unknown-pragmas",
+        "-Wno-unknown-warning-option",
+        "-Wno-documentation-unknown-command",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition_engine.cpp"
+    ],
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/src/transition/transition_engine.cpp"
+},
+{
+    "arguments": [
+        "clang",
+        "-I",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
+        "-nostdinc",
+        "-nostdinc++",
+        "-pipe",
+        "-g",
+        "-std=gnu++1z",
+        "-Wall",
+        "-Wextra",
+        "-fPIC",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-linux-gnu",
+        "-DQ_CREATOR_RUN",
+        "-DQT_QML_DEBUG",
+        "-I",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "-I",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "-I",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1149,16 +1204,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.hpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.hpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.hpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.hpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1173,11 +1228,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1204,16 +1259,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event.hpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event.hpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event.hpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event.hpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1228,11 +1283,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1259,16 +1314,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.hpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.hpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.hpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.hpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1283,11 +1338,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1314,16 +1369,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ifonctorunaire.hpp"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ifonctorunaire.hpp"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ifonctorunaire.hpp"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ifonctorunaire.hpp"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1338,11 +1393,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1369,16 +1424,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/functions.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/functions.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/functions.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/functions.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1393,11 +1448,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1424,16 +1479,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/param.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/param.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/param.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/param.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1448,11 +1503,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1479,16 +1534,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/constants.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/constants.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/constants.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/constants.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1503,11 +1558,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1534,16 +1589,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/audio/audioengine.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/ghost.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/audio/audioengine.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman/ghost.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1558,11 +1613,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1589,16 +1644,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/audio/audioengine.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/audio/audioengine.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1613,11 +1668,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1644,16 +1699,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/errcode.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/errcode.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/cexception.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1668,11 +1723,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1699,16 +1754,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/macros.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/errcode.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/macros.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/exception/errcode.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1723,11 +1778,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1754,16 +1809,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/mingl.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/macros.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/mingl.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/macros.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1778,11 +1833,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1809,16 +1864,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event_manager.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/mingl.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event_manager.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/mingl.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1833,11 +1888,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1864,16 +1919,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/circle.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event_manager.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/circle.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/event/event_manager.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1888,11 +1943,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1919,16 +1974,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/line.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/circle.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/line.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/circle.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1943,11 +1998,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -1974,16 +2029,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/rectangle.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/line.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/rectangle.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/line.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1998,11 +2053,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2029,16 +2084,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/triangle.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/rectangle.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/triangle.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/rectangle.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2053,11 +2108,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2084,16 +2139,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/shape.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/triangle.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/shape.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/triangle.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2108,11 +2163,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2139,16 +2194,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/idrawable.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/shape.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/idrawable.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/shape/shape.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2163,11 +2218,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2194,16 +2249,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/rgbacolor.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/idrawable.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/rgbacolor.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/idrawable.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2218,11 +2273,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2249,16 +2304,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/vec2d.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/rgbacolor.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/vec2d.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/rgbacolor.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2273,11 +2328,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2304,16 +2359,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/glut_font.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/vec2d.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/glut_font.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/graphics/vec2d.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2328,11 +2383,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2359,16 +2414,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/sprite.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/glut_font.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/sprite.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/glut_font.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2383,11 +2438,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2414,16 +2469,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/text.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/sprite.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/text.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/sprite.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2438,11 +2493,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2469,16 +2524,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/text.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/gui/text.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2493,11 +2548,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2524,16 +2579,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/itransitionable.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/itransitionable.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/tools/ieditable.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2548,11 +2603,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2579,16 +2634,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/itransitionable.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/itransitionable.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2603,11 +2658,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2634,16 +2689,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_contract.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_contract.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2658,11 +2713,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2689,16 +2744,16 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_engine.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_contract.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_engine.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_contract.h"
 },
 {
     "arguments": [
         "clang",
         "-I",
-        "/tmp/QtCreator-FKOmKb/clang-uiheader-vBINjp",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -2713,11 +2768,11 @@
         "-DQ_CREATOR_RUN",
         "-DQT_QML_DEBUG",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
         "-I",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
         "-I",
         "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
         "-isystem",
@@ -2744,9 +2799,64 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_types.h"
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_engine.h"
     ],
-    "directory": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/amuhome/l22011431/PACMAN2/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_types.h"
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_engine.h"
+},
+{
+    "arguments": [
+        "clang",
+        "-I",
+        "/tmp/QtCreator-FPeMql/clang-uiheader-usZXkg",
+        "-nostdinc",
+        "-nostdinc++",
+        "-pipe",
+        "-g",
+        "-std=gnu++1z",
+        "-Wall",
+        "-Wextra",
+        "-fPIC",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-linux-gnu",
+        "-DQ_CREATOR_RUN",
+        "-DQT_QML_DEBUG",
+        "-I",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/Pacman",
+        "-I",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include",
+        "-I",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+        "-I",
+        "/opt/Qt-6.3/6.3.0/gcc_64/mkspecs/linux-g++",
+        "-isystem",
+        "/usr/include/c++/9",
+        "-isystem",
+        "/usr/include/x86_64-linux-gnu/c++/9",
+        "-isystem",
+        "/usr/include/c++/9/backward",
+        "-isystem",
+        "/usr/local/include",
+        "-isystem",
+        "/opt/Qt-6.3/Tools/QtCreator/libexec/qtcreator/clang/lib/clang/14.0.0/include",
+        "-isystem",
+        "/usr/include/x86_64-linux-gnu",
+        "-isystem",
+        "/usr/include",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++-header",
+        "-Wno-unknown-pragmas",
+        "-Wno-unknown-warning-option",
+        "-Wno-documentation-unknown-command",
+        "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_types.h"
+    ],
+    "directory": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/build-Pacman-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
+    "file": "/amuhome/r22011455/Cours/pacman/SAE_pacman_Leroux_Rouge_Oger_Delin-A_Lartigaud/MinGL/include/mingl/transition/transition_types.h"
 }
 ]
