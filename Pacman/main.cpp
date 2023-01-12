@@ -23,14 +23,6 @@ using namespace nsGraphics;
 using namespace nsShape;
 using namespace nsTransition;
 
-//int main() {
-//    vector<string> maze = maze1;
-//    Position posGhost = {1,1};
-//    Position posPacman = {2,1};
-//    cout << aStar(maze, posGhost, posPacman) << endl;
-//    return 0;
-//}
-
 int main()
 {
     // Initalization of core elements
@@ -41,7 +33,7 @@ int main()
     map<string, Character> characterMap = initCharacters(param);
     PacmanMouth pacmanMouth = initPacmanmouth(param);
 
-    vector<string> maze = initMaze(param); // 22x11 = max i
+    vector<string> maze = initMaze(param);
 
     vector<string> characterList;
     for (auto it = characterMap.begin(); it != characterMap.end(); it++) {
@@ -89,9 +81,9 @@ int main()
             drawMaze(window, maze, param);
             drawCharacter(window, characterList, characterMap);
             //letGhostsOut();
-        } /* else {
-            window << sprite de gameover/victoire et avec indication d'une touche rejouer et d'une touche pour quitter
-        }*/
+        }  else {
+            window << nsGui::Sprite("../Pacman/skins/gameover.si2", Vec2D(window.getWindowSize().getX()/3, 100));
+        }
         window.finishFrame();
         window.getEventManager().clearEvents();
         this_thread::sleep_for(chrono::milliseconds(1000 / FPS_LIMIT) - chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start));

@@ -224,7 +224,7 @@ void launchTransitions(TransitionEngine &t, map<string, Character> &charactMap, 
     for (const string &name : names) {
         posEnd = calcPosTransition(charactMap[name]);
         TransitionContract a(charactMap[name].sprite[0],
-                             charactMap[name].sprite[0].TRANSITION_POSITION, chrono::milliseconds(charactMap[name].vitesse),{(float)(posEnd.getX()), (float)(posEnd.getY())});
+                             charactMap[name].sprite[0].TRANSITION_POSITION, chrono::milliseconds(charactMap[name].vitesse-200),{(float)(posEnd.getX()), (float)(posEnd.getY())});
         if (name == "Pacman") {
             a.setDestinationCallback([&] {
                 isTransitionFinished = true;
@@ -281,10 +281,8 @@ void gameOver(bool &gameRunning) {
 void changeState(Character &charact) {
     charact.isDefaultState = !charact.isDefaultState;
     if (charact.isDefaultState) {
-//        charact.sprite[0].setPixelData(charact.skins.defaultState.find(charact.direction)->second);
         if (charact.type == "Pacman") charact.vitesse = 500;
     } else {
-//        charact.sprite[0].setPixelData(charact.skins.madState.find(charact.direction)->second);
         if (charact.type == "Pacman") charact.vitesse = 300;
     }
 }
