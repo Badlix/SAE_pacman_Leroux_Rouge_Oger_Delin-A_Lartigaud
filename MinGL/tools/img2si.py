@@ -40,8 +40,10 @@ def convert_from_si2(source, output):
     # Read si2 image data
     with open(source, 'rb') as file:
         file.seek(0x08)
-        pixelCount = int.from_bytes(file.read(4), byteorder='little', signed=False)
-        lineSize = int.from_bytes(file.read(4), byteorder='little', signed=False)
+        pixelCount = int.from_bytes(
+            file.read(4), byteorder='little', signed=False)
+        lineSize = int.from_bytes(
+            file.read(4), byteorder='little', signed=False)
         imageSize = (lineSize, int(pixelCount/lineSize))
         file.seek(0x14)
         imageData = file.read()
@@ -68,7 +70,8 @@ def convert_to_si2(source, output):
 
         if img.mode != 'RGBA':
             # Convert image mode if unsupported
-            print('Source image mode "{}" is unsupported, attempting conversion...'.format(img.mode))
+            print('Source image mode "{}" is unsupported, attempting conversion...'.format(
+                img.mode))
 
             imgConvt = img.convert('RGBA')
             imageData = imgConvt.load()
@@ -93,15 +96,9 @@ def convert_to_si2(source, output):
 
 
 def main():
-    # Setup argument parser
-    parser = argparse.ArgumentParser(description='This tool converts images compatible with PIL to the minGL 2 Simple Image format (.si2), and vice versa.')
-    parser.add_argument('-v', '--version', action='version', version='%(prog)s 1.0')
-    parser.add_argument('<source image file>', help='The path to the image to convert. A .si2 will be converted to a .png file. Any other image type will be converted to a .si2 file.')
-    parser.add_argument('<output file>', help='The path to output the converted image to.')
 
-    args = vars(parser.parse_args())
-    source = args['<source image file>']
-    output = args['<output file>']
+    source = "pixel.png"
+    output = "gameover.si2"
 
     # Check that source file exists
     if not os.path.isfile(source):

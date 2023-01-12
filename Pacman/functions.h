@@ -13,8 +13,16 @@
 using namespace std;
 
     // move fonctions
-    void testRotate(vector<RGBAcolor> &pixels);
-    void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze, size_t &nbBubbleLeft, vector<string> &listCharact, map<string, Character> &mapCharact);
+    void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze);
+
+    /**
+     * @brief check if a move is possible
+     * @param maze : vector<string>
+     * @param character : ?
+     * @param[in] direction : ?
+     * @return true if the move is possible, if not return false
+     * @fn bool isMovePossible(vector<string> &maze,Character &character, string direction)
+     */
     bool isMovePossible(vector<string> &maze,Character &character, string direction);
     void moveCharacter(Character &c, string direction);
     void moveCharacterTeleporter (vector<string> &maze, Character &character, Param& param);
@@ -26,40 +34,19 @@ using namespace std;
 
     vector<string> initMaze(Param &param);
     map<string, Character> initCharacters(Param &param);
+    PacmanMouth initPacmanmouth(Param &param);
     size_t nbBubbleInMaze(vector<string> &maze);
 
     // functions used to draw
 
-    void switchMouthPacmanOpenClose(Character &pacman, bool &isMouthOpen);
+    void drawCage(MinGL &window, Vec2D pos);
+    void switchMouthPacmanOpenClose(Character &pacman, PacmanMouth &pacmanMouth);
     void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Character> &charactMap);
-    void drawMaze(MinGL &window, vector<string> &maze);
+    void drawMaze(MinGL &window, vector<string> &maze, Param &param);
     void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character> & characterMap, bool &isTransitionFinished, vector<string> &names);
-
-    // functions used for ghosts
-
-    bool isGhostInCage(Character ghost, Param &param);
-    //void letGhostsOut();
-
-    // A* algorithm
-
-    unsigned nodeQuality(Position &currentPos, Position &pacmanPos);
-    bool isFree(char &pos);
-    vector<Position> getAllNodes(vector<string> &maze);
-    void setNodesQuality(vector<Position> &nodes, map<Position, unsigned> &openNodes, Position &pacmanPos);
-    vector<string> possibleMoves(Position &currentPos, vector<string> &maze);
-    unsigned bestMove(vector<string> &directions, map<Position, unsigned> &openNodes);
-    Position nextMove(string &direction, Position &currentPos);
-    void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> &closedNodes, Position &pacmanPos, vector<string> &maze, Position &currentNode);
-    string getDirection(Position &pos1, Position &pos2);
-    string firstDirection(map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos);
-    string aStar(vector<string> &maze, Character &ghost, Character &pacman);
-    string randomDirection(Character &character, vector<string> &maze);
-    Character randomCharacter(map<string, Character> &characters, vector<string> &characterList);
-    string decideGhostDirection(Character &ghost, string &personality, unsigned &difficulty, vector<string> maze, Position &pacmanPos, map<string, Character> &characters, vector<string> &characterList);
 
     // functions used to get value
 
-    Position getPosCage(Param &param);
     vector<Position> getPosTeleporter(Param &param);
 
     // functions used for tests
@@ -76,6 +63,8 @@ using namespace std;
     bool isBubble (Character &character, vector<string> &maze);
     void eatBubble (const Character &character, vector<string> &maze, size_t &bubbleLeft);
     void eatBigBubble (Character &character, vector<string> &maze, size_t &bubbleLeft);
+    void bigBubbleDuration(map<string, Character> &mapCharact);
     void changeState(Character &charact);
+    void changeEveryoneState(map<string, Character> &mapCharact, bool newValue);
 
 #endif // FUNCTIONS_H

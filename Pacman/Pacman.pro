@@ -6,12 +6,14 @@ CONFIG -= qt
 SOURCES += \
         functions.cpp \
         main.cpp \
-        param.cpp
+        param.cpp \
+    ghost.cpp
 
 HEADERS += \
     functions.h \
     param.h \
-    constants.h
+    constants.h \
+    ghost.h
 
 DISTFILES += \
     settings.yaml

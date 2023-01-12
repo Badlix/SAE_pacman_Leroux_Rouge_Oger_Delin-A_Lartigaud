@@ -1,4 +1,4 @@
-#define FPS_LIMIT 60
+#define FPS_LIMIT 50
 
 #include <iostream>
 #include <thread>
@@ -13,6 +13,7 @@
 #include "mingl/transition/transition_engine.h"
 #include "mingl/gui/sprite.h"
 
+#include "ghost.h"
 #include "functions.h"
 #include "constants.h"
 #include "param.h"
@@ -22,6 +23,14 @@ using namespace nsGraphics;
 using namespace nsShape;
 using namespace nsTransition;
 
+//int main() {
+//    vector<string> maze = maze1;
+//    Position posGhost = {1,1};
+//    Position posPacman = {2,1};
+//    cout << aStar(maze, posGhost, posPacman) << endl;
+//    return 0;
+//}
+
 int main()
 {
     // Initalization of core elements
@@ -30,6 +39,7 @@ int main()
     loadParam(param);
 
     map<string, Character> characterMap = initCharacters(param);
+    PacmanMouth pacmanMouth = initPacmanmouth(param);
 
     vector<string> maze = initMaze(param); // 22x11 = max i
 
@@ -43,27 +53,28 @@ int main()
     size_t nbBubbleLeft = nbBubbleInMaze(maze);
 
     // Initalization of the graphics system
-    MinGL window("Pacman", Vec2D(1550, 900), Vec2D(128, 128), KSilver);
+    MinGL window("Pacman", Vec2D(1550, 900), Vec2D(128, 128), KBlack);
     window.initGlut();
     window.initGraphic();
     TransitionEngine transitionEngine;
 
-    // Graphic initalization of the maze
-    vector<Rectangle> vR = {};
-    for (size_t i(posBegin.getX()); i <= 1300; i+=50) {
-        for (size_t j (posBegin.getY()); j <= 700; j+=50) {
-            vR.push_back(Rectangle(Vec2D(i,j), Vec2D(i+50, j+50), KTeal));
-            vR[vR.size()-1].setBorderColor(KCyan);
-        }
-    }
-    unsigned i(0);
-    bool isMouthOpen (true);
     bool isTransitionFinished (true);
+    unsigned bigBubbleDuration(0);
     chrono::microseconds frameTime = chrono::microseconds::zero();
     while (window.isOpen())
     {
+
         if (isTransitionFinished) {
-            keyboardInput(window, param, characterMap["Pacman"], maze, nbBubbleLeft, characterList, characterMap);
+            keyboardInput(window, param, characterMap["Pacman"], maze);
+            if (isTeleporter(maze, characterMap["Pacman"])) moveCharacterTeleporter(maze, characterMap["Pacman"], param);
+            else if (isBubble(characterMap["Pacman"], maze)) eatBubble(characterMap["Pacman"], maze, nbBubbleLeft);
+            else if (isBigBubble(characterMap["Pacman"], maze)) {
+                eatBigBubble(characterMap["Pacman"], maze, nbBubbleLeft);
+                changeEveryoneState(characterMap, false);
+                bigBubbleDuration = 0;
+            }
+            ++bigBubbleDuration;
+            if (bigBubbleDuration == 30) changeEveryoneState(characterMap, true);
             isTransitionFinished = false;
             launchTransitions(transitionEngine, characterMap, isTransitionFinished, characterList);
         }
@@ -74,17 +85,9 @@ int main()
         transitionEngine.update(frameTime);
 
         if (gameRunning == true){
-            for (size_t k (0); k < vR.size(); ++k) { // show Grid -> temporaire
-                window << vR[k];
-            }
-            if (i > 15) {
-                switchMouthPacmanOpenClose(characterMap["Pacman"], isMouthOpen);
-                isMouthOpen = !isMouthOpen;
-                i = 0;
-            }
-            drawMaze(window, maze);
+            switchMouthPacmanOpenClose(characterMap["Pacman"], pacmanMouth);
+            drawMaze(window, maze, param);
             drawCharacter(window, characterList, characterMap);
-            ++i;
             //letGhostsOut();
         } /* else {
             window << sprite de gameover/victoire et avec indication d'une touche rejouer et d'une touche pour quitter
