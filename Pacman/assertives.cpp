@@ -1,3 +1,10 @@
+#include "constants.h"
+#include "param.h"'
+#include "general.h"
+#include <iostream>
+
+using namespace std;
+
 bool isGhostInCage(Character ghost, Param &param) {
     if (ghost.pos == getPosCage(param)) {
         return true;

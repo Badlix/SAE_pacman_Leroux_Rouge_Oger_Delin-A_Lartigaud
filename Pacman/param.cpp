@@ -1,11 +1,9 @@
-#include <string>
-#include <typeinfo>
 #include "param.h"
-#include "fstream"
-#include "iostream"
+#include <typeinfo>
+#include <iostream>
 #include <map>
 #include <algorithm>
-#include "param.h"
+#include <fstream>
 
 using namespace std;
 

@@ -1,3 +1,16 @@
+#include "mingl/mingl.h"
+#include "mingl/shape/line.h"
+#include "mingl/shape/rectangle.h"
+#include "mingl/shape/circle.h"
+#include "mingl/transition/transition_engine.h"
+#include "constants.h"
+#include "param.h"
+#include "general.h"
+#include <iostream>
+
+using namespace std;
+using namespace nsGraphics;
+using namespace nsShape;
 
 void drawCage(MinGL &window, Vec2D pos) {
     window << Line(pos, pos + Vec2D(1*50, 0), KSilver, 5.0);
@@ -50,11 +63,15 @@ void switchMouthPacmanOpenClose(Character &pacman, PacmanMouth &pacmanMouth) {
     ++pacmanMouth.delay;
 }
 
-void launchTransitions(TransitionEngine &t, map<string, Character> &charactMap, bool &isTransitionFinished, vector<string> &names) {
+Vec2D calcPosTransition(Character &charact) {
+    return {posBegin.getX() + charact.pos.x*50, posBegin.getY() + charact.pos.y*50};
+}
+
+void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character> &charactMap, bool &isTransitionFinished, vector<string> &names) {
     Vec2D posEnd;
     for (const string &name : names) {
         posEnd = calcPosTransition(charactMap[name]);
-        TransitionContract a(charactMap[name].sprite[0],
+        nsTransition::TransitionContract a(charactMap[name].sprite[0],
                              charactMap[name].sprite[0].TRANSITION_POSITION, chrono::milliseconds(charactMap[name].vitesse-200),{(float)(posEnd.getX()), (float)(posEnd.getY())});
         if (name == "Pacman") {
             a.setDestinationCallback([&] {
@@ -62,8 +79,4 @@ void launchTransitions(TransitionEngine &t, map<string, Character> &charactMap, 
             });}
         t.startContract(a);
     }
-}
-
-Vec2D calcPosTransition(Character &charact) {
-    return {posBegin.getX() + charact.pos.x*50, posBegin.getY() + charact.pos.y*50};
 }

@@ -1,5 +1,7 @@
 #ifndef ASSERTIVES_H
 #define ASSERTIVES_H
+#include "constants.h"
+#include <iostream>
 
 bool isGhostInCage(Character ghost, Param &param);
 
@@ -11,15 +13,15 @@ bool isGhostInCage(Character ghost, Param &param);
  */
 bool isFree(char &pos);
 
-void isBubbleLeft (size_t &bubbleLeft , bool &gameRunning);
+void isBubbleLeft(size_t &bubbleLeft , bool &gameRunning);
 
-bool isBigBubble (Character &character, vector<string> &maze);
+bool isBigBubble(Character &character, std::vector<std::string> &maze);
 
-bool isBubble (Character &character, vector<string> &maze);
+bool isBubble(Character &character, std::vector<std::string> &maze);
 
-bool isMovePossible(vector<string> &maze,Character &character, string direction);
+bool isMovePossible(std::vector<std::string> &maze,Character &character, std::string direction);
 
-bool isTeleporter(vector<string> &maze,Character & character);
+bool isTeleporter(std::vector<std::string> &maze,Character &character);
 
 bool isSamePos(Character &c1, Character &c2);
 

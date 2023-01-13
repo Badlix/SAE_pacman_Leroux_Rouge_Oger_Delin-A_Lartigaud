@@ -1,3 +1,12 @@
+#include "mingl/mingl.h"
+#include "param.h"
+#include "constants.h"
+#include "game_logic.h"
+#include "assertives.h"
+#include <iostream>
+
+using namespace std;
+
 // game control
 
 void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze){
@@ -26,6 +35,15 @@ void gameOver(bool &gameRunning) {
 
 // general functions
 
+vector<string> possibleDirections(Position &currentPos, vector<string> &maze){
+    vector<string> directions;
+    if ( isFree(maze[currentPos.y-1][currentPos.x]) ) directions.push_back("up");
+    if ( isFree(maze[currentPos.y+1][currentPos.x]) ) directions.push_back("down");
+    if ( isFree(maze[currentPos.y][currentPos.x-1]) ) directions.push_back("left");
+    if ( isFree(maze[currentPos.y][currentPos.x+1]) ) directions.push_back("right");
+    return directions;
+}
+
 string randomDirection(Position &pos, vector<string> &maze){
     vector<string> directions = possibleDirections(pos, maze);
     return directions[(rand()%directions.size())-1];
@@ -40,15 +58,6 @@ Position nextMove(string &direction, Position &currentPos){
     else if (direction == "down") return Position{currentPos.x, currentPos.y+1};
     else if (direction == "left") return Position{currentPos.x-1, currentPos.y};
     else return Position{currentPos.x+1, currentPos.y}; //if (direction == "right")
-}
-
-vector<string> possibleDirections(Position &currentPos, vector<string> &maze){
-    vector<string> directions;
-    if ( isFree(maze[currentPos.y-1][currentPos.x]) ) directions.push_back("up");
-    if ( isFree(maze[currentPos.y+1][currentPos.x]) ) directions.push_back("down");
-    if ( isFree(maze[currentPos.y][currentPos.x-1]) ) directions.push_back("left");
-    if ( isFree(maze[currentPos.y][currentPos.x+1]) ) directions.push_back("right");
-    return directions;
 }
 
 string getDirection(Position &pos1, Position &pos2){

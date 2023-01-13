@@ -1,22 +1,14 @@
 #define FPS_LIMIT 50
-
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include <map>
-
 #include "mingl/mingl.h"
-#include "mingl/shape/rectangle.h"
-#include "mingl/shape/circle.h"
-#include "mingl/shape/line.h"
-#include "mingl/shape/triangle.h"
 #include "mingl/transition/transition_engine.h"
-#include "mingl/gui/sprite.h"
-
-#include "ghost.h"
-#include "functions.h"
-#include "constants.h"
-#include "param.h"
+#include "initialization.h"
+#include "general.h"
+#include "assertives.h"
+#include "game_logic.h"
+#include "draw.h"
 
 using namespace std;
 using namespace nsGraphics;
@@ -48,7 +40,7 @@ int main()
     MinGL window("Pacman", Vec2D(1550, 900), Vec2D(128, 128), KBlack);
     window.initGlut();
     window.initGraphic();
-    TransitionEngine transitionEngine;
+    nsTransition::TransitionEngine transitionEngine;
 
     bool isTransitionFinished (true);
     unsigned bigBubbleDuration(0);
@@ -65,7 +57,7 @@ int main()
                 changeEveryoneState(characterMap, false);
                 bigBubbleDuration = 0;
             }
-            checkEating(characterMap, gameRunning);
+            //checkEating(characterMap, gameRunning);
             ++bigBubbleDuration;
             if (bigBubbleDuration == 30) changeEveryoneState(characterMap, true);
             isTransitionFinished = false;

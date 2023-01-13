@@ -1,24 +1,21 @@
 #ifndef GAME_LOGIC_H
 #define GAME_LOGIC_H
-
+#include "constants.h"
+#include "param.h"
 #include <iostream>
 
-using namespace std;
+void moveCharacter(Character &c, std::string direction);
 
-void moveCharacter(Character &c, string direction);
+void moveCharacterTeleporter (std::vector<std::string> &maze, Character &character, Param& param);
 
-void moveCharacterTeleporter (vector<string> &maze, Character &character, Param& param);
+void eatBubble (const Character &character, std::vector<std::string> &maze, size_t &bubbleLeft);
 
-void eatBubble (const Character &character, vector<string> &maze, size_t &bubbleLeft);
-
-void eatBigBubble (Character &character, vector<string> &maze, size_t &bubbleLeft);
-
-void bigBubbleDuration(map<string, Character> &mapCharact);
+void eatBigBubble (Character &character, std::vector<std::string> &maze, size_t &bubbleLeft);
 
 void changeState(Character &charact);
 
-void changeEveryoneState(map<string, Character> &mapCharact, bool newValue);
+void changeEveryoneState(map<std::string, Character> &mapCharact, bool newValue);
 
-void checkEating(map<string, Character> mapC, bool &gameRunning);
+void checkEating(map<std::string, Character> mapC, bool &gameRunning);
 
 #endif // GAMELOGIC_H

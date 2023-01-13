@@ -1,3 +1,11 @@
+#include "constants.h"
+#include "param.h"
+#include "assertives.h"
+#include "general.h"
+#include <iostream>
+
+using namespace std;
+
 void moveCharacter(Character &character, string direction) {
     if (direction == "up") --character.pos.y;
     else if (direction == "right") ++character.pos.x;
@@ -30,11 +38,6 @@ void eatBigBubble (Character &character, vector<string> &maze, size_t &bubbleLef
     else if(character.direction == "left") maze[character.pos.y][character.pos.x+1] = ' ';
     else if(character.direction == "right") maze[character.pos.y][character.pos.x-1] = ' ';
     bubbleLeft -= 1;
-}
-
-void bigBubbleDuration(map<string, Character> &mapCharact) {
-    this_thread::sleep_for(chrono::seconds(5));
-    changeEveryoneState(mapCharact, true);
 }
 
 void changeState(Character &charact) {

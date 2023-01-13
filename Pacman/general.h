@@ -1,9 +1,13 @@
 #ifndef GENERAL_H
 #define GENERAL_H
+#include "mingl/mingl.h"
+#include "param.h"
+#include "constants.h"
+#include <iostream>
 
 // game control
 
-void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze);
+void keyboardInput(MinGL &window, Param &param, Character &pacman, std::vector<std::string> &maze);
 
 void gameOver(bool &gameRunning);
 
@@ -12,56 +16,56 @@ void gameOver(bool &gameRunning);
 /**
  * @brief give a random direction to go
  * @param pos : Position
- * @param maze : vector<string>
+ * @param maze : std::vector<std::string>
  * @return a random direction
- * @fn string randomDirection(Position &pos, vector<string> &maze)
+ * @fn std::string randomDirection(Position &pos, std::vector<std::string> &maze)
  */
-string randomDirection(Position &pos, vector<string> &maze);
+std::string randomDirection(Position &pos, std::vector<std::string> &maze);
 
 /**
  * @brief give a random character
- * @param characters : map<string, Character>
- * @param characterList : vector<string>
+ * @param characters : map<std::string, Character>
+ * @param characterList : std::vector<std::string>
  * @return a random character
- * @fn Character randomCharacter(map<string, Character> &characters, vector<string> &characterList)
+ * @fn Character randomCharacter(map<std::string, Character> &characters, std::vector<std::string> &characterList)
  */
-Character randomCharacter(map<string, Character> &characters, vector<string> &characterList);
+Character randomCharacter(map<std::string, Character> &characters, std::vector<std::string> &characterList);
 
 /**
  * @brief give the position in wich the direction goes
- * @param direction : string
+ * @param direction : std::string
  * @param currentPos : Position
  * @return the Position in wich the direction goes
- * @fn Position nextMove(string &direction, Position &currentPos)
+ * @fn Position nextMove(std::string &direction, Position &currentPos)
  */
-Position nextMove(string &direction, Position &currentPos);
+Position nextMove(std::string &direction, Position &currentPos);
 
 /**
  * @brief give all the possible directions from a given position
  * @param currentPos : Position
- * @param maze : vector<string>
+ * @param maze : std::vector<std::string>
  * @return the list of the possible directions
- * @fn vector<string> possibleDirections(Position &currentPos, vector<string> &maze)
+ * @fn std::vector<std::string> possibleDirections(Position &currentPos, std::vector<std::string> &maze)
  */
-vector<string> possibleDirections(Position &currentPos, vector<string> &maze);
+std::vector<std::string> possibleDirections(Position &currentPos, std::vector<std::string> &maze);
 
 /**
  * @brief give the direction used to go from the first position to the second
  * @param pos1 : Position
  * @param pos2 : Position
  * @return the direction used to go from the first position to the second
- * @fn string getDirection(Position &pos1, Position &pos2)
+ * @fn std::string getDirection(Position &pos1, Position &pos2)
  */
-string getDirection(Position &pos1, Position &pos2);
+std::string getDirection(Position &pos1, Position &pos2);
 
-vector<Position> getPosTeleporter(Param &param);
+std::vector<Position> getPosTeleporter(Param &param);
 
 Position getPosCage(Param &param);
 
 // tests
 
-void showMaze(const vector<string> &maze);
+void showMaze(const std::vector<std::string> &maze);
 
-void showMap(map<string, Character> &myMap);
+void showMap(map<std::string, Character> &myMap);
 
 #endif // GENERAL_H

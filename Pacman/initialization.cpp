@@ -1,3 +1,10 @@
+#include "constants.h"
+#include "param.h"
+#include "general.h"
+#include <iostream>
+
+using namespace std;
+
 vector<string> initMaze(Param &param) {
     if (param.skins["Maze"] == 1) return maze1;
     else return maze2;
@@ -22,7 +29,7 @@ map<string, Character> initCharacters(Param &param) {
         "right", // direction
         true, // isDefaultState
         400, // vitesse
-        {nsGui::Sprite({RGBAcolor{0,0,0,0}}, 1,  nsGraphics::Vec2D(0,0))}, // sprites
+        {nsGui::Sprite({nsGraphics::RGBAcolor{0,0,0,0}}, 1,  nsGraphics::Vec2D(0,0))}, // sprites
         skin
     };
     mapC["Pacman"] = tmp;
@@ -38,18 +45,18 @@ map<string, Character> initCharacters(Param &param) {
         "up",
         true,
         500,
-        {nsGui::Sprite({RGBAcolor{0,0,0,0}}, 1,  nsGraphics::Vec2D(0,0))},
+        {nsGui::Sprite({nsGraphics::RGBAcolor{0,0,0,0}}, 1,  nsGraphics::Vec2D(0,0))},
         skin
     };
     mapC["Ghost1"] = tmp;
-    vector<RGBAcolor> listPixel;
+    vector<nsGraphics::RGBAcolor> listPixel;
     vector<string> directions = {"up", "down", "right", "left"};
     for (unsigned i(2); i <= param.difficulty["GhostNumber"]; ++i) {
         mapC["Ghost"+to_string(i)] = tmp;
         mapC["Ghost"+to_string(i)].pos = {i,i};
         for (const string &direction : directions) {
             listPixel = mapC["Ghost1"].skins.defaultState.find(direction)->second.getPixelData();
-            for (RGBAcolor &pixel : listPixel) {
+            for (nsGraphics::RGBAcolor &pixel : listPixel) {
                 if (pixel == skinGhostColors[0]) {
                     pixel = skinGhostColors[i-1];
                 }

@@ -1,19 +1,10 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
-#include "mingl/shape/rectangle.h"
-#include "mingl/shape/circle.h"
-#include "mingl/shape/line.h"
-#include "mingl/shape/triangle.h"
-#include "mingl/shape/shape.h"
 #include "mingl/mingl.h"
+#include "mingl/shape/rectangle.h"
 #include "mingl/gui/sprite.h"
 #include <vector>
 #include <iostream>
-
-using namespace std;
-using namespace nsShape;
-using namespace nsGraphics;
-using namespace nsGui;
 
 struct Position {
     unsigned x;
@@ -30,8 +21,8 @@ struct Position {
 };
 
 struct Skin {
-    map<string, Sprite> defaultState;
-    map<string, Sprite> madState;
+    std::map<std::string, nsGui::Sprite> defaultState;
+    std::map<std::string, nsGui::Sprite> madState;
 };
 
 struct PacmanMouth {
@@ -40,18 +31,18 @@ struct PacmanMouth {
 };
 
 struct Character {
-    string type; //Pacman, Ghost, Fruit
+    std::string type; //Pacman, Ghost, Fruit
     Position pos;
-    string direction;
+    std::string direction;
     bool isDefaultState;
     unsigned vitesse; // default : 500, mad mod : 300 -> 0 is the fastest
-    vector<Sprite> sprite; // can't init an empty sprite
+    std::vector<nsGui::Sprite> sprite; // can't init an empty sprite
     Skin skins;
 };
 
 // ---------- Global Values ---------- //
 
-const static Vec2D posBegin = {200,150};
+const static nsGraphics::Vec2D posBegin = {200,150};
 
 // ---------- Maze Patterns ---------- //
 
@@ -61,7 +52,7 @@ const static Vec2D posBegin = {200,150};
 // = : tunnel
 // - : ghost cage
 
-const vector<string> maze1 = {
+const std::vector<std::string> maze1 = {
     "###########=###########",
     "#.........#...##.....o#",
     "#.##.##.#...#.o#.#.---#",
@@ -76,7 +67,7 @@ const vector<string> maze1 = {
     "###########=###########"
 };
 
-const vector<string> maze2 = {
+const std::vector<std::string> maze2 = {
     "#######################",
     "#..........o..........#",
     "#.###.#####.#####.#.#.#",
@@ -94,25 +85,25 @@ const vector<string> maze2 = {
 // ---------- Pacman Skins ---------- //
 
 const Skin flowerPacman = {
-    {{"up", Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"down", Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"right", Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"left", Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))}},
-    {{"up", Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"down", Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"right", Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))},
-     {"left", Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))}}
+    {{"up", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"down", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"right", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"left", nsGui::Sprite("../Pacman/skins/flowerOpen.si2", nsGraphics::Vec2D(0,0))}},
+    {{"up", nsGui::Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"down", nsGui::Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"right", nsGui::Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))},
+     {"left", nsGui::Sprite("../Pacman/skins/madFlowerOpen.si2", nsGraphics::Vec2D(0,0))}}
 };
 
 const Skin flowerPacmanClose = {
-    {{"up", Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"down", Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"left", Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"right", Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}},
-    {{"up", Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"down", Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"left", Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
-    {"right", Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}}
+    {{"up", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"down", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"right", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}},
+    {{"up", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"down", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"left", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))},
+    {"right", nsGui::Sprite("../Pacman/skins/flowerClose.si2", nsGraphics::Vec2D(0,0))}}
 };
 
 const Skin penguinPacman = {
@@ -148,14 +139,14 @@ const Skin penguinPacmanClose = {
 // ---------- Ghost Skins ---------- //
 
 const Skin butterflyGhost = {
-    {{"up", Sprite("../Pacman/skins/butterflyUp.si2", nsGraphics::Vec2D(0,0))},
-     {"down", Sprite("../Pacman/skins/butterflyDown.si2", nsGraphics::Vec2D(0,0))},
-     {"right", Sprite("../Pacman/skins/butterflyRight.si2", nsGraphics::Vec2D(0,0))},
-     {"left", Sprite("../Pacman/skins/butterflyLeft.si2", nsGraphics::Vec2D(0,0))}},
-    {{"up", Sprite("../Pacman/skins/fearedButterflyUp.si2", nsGraphics::Vec2D(0,0))},
-     {"down", Sprite("../Pacman/skins/fearedButterflyDown.si2", nsGraphics::Vec2D(0,0))},
-     {"right", Sprite("../Pacman/skins/fearedButterflyRight.si2", nsGraphics::Vec2D(0,0))},
-     {"left", Sprite("../Pacman/skins/fearedButterflyLeft.si2", nsGraphics::Vec2D(0,0))}}
+    {{"up", nsGui::Sprite("../Pacman/skins/butterflyUp.si2", nsGraphics::Vec2D(0,0))},
+     {"down", nsGui::Sprite("../Pacman/skins/butterflyDown.si2", nsGraphics::Vec2D(0,0))},
+     {"right", nsGui::Sprite("../Pacman/skins/butterflyRight.si2", nsGraphics::Vec2D(0,0))},
+     {"left", nsGui::Sprite("../Pacman/skins/butterflyLeft.si2", nsGraphics::Vec2D(0,0))}},
+    {{"up", nsGui::Sprite("../Pacman/skins/fearedButterflyUp.si2", nsGraphics::Vec2D(0,0))},
+     {"down", nsGui::Sprite("../Pacman/skins/fearedButterflyDown.si2", nsGraphics::Vec2D(0,0))},
+     {"right", nsGui::Sprite("../Pacman/skins/fearedButterflyRight.si2", nsGraphics::Vec2D(0,0))},
+     {"left", nsGui::Sprite("../Pacman/skins/fearedButterflyLeft.si2", nsGraphics::Vec2D(0,0))}}
 };
 
 const Skin iceCreamGhost = {
@@ -180,25 +171,25 @@ const Skin lolipopGhost = {
      {"left", nsGui::Sprite("../Pacman/skins/fearedLolipopLeft.si2", nsGraphics::Vec2D(0,0))}}
 };
 
-const vector<RGBAcolor> skinGhostColors = {RGBAcolor(255,192,203,255), RGBAcolor(255,238,0,255), RGBAcolor(105,0,105,255), RGBAcolor(200,0,0,255)};
+const std::vector<nsGraphics::RGBAcolor> skinGhostColors = {nsGraphics::RGBAcolor(255,192,203,255), nsGraphics::RGBAcolor(255,238,0,255), nsGraphics::RGBAcolor(105,0,105,255), nsGraphics::RGBAcolor(200,0,0,255)};
 
 // ---------- Numbers ---------- //
 /* Numbers are vector of yellow rectangles */
 
-const vector<Rectangle> nbZero = {
+const std::vector<nsShape::Rectangle> nbZero = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,10), nsGraphics::Vec2D(10,30), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(20,10), nsGraphics::Vec2D(25,30), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
 
-const vector<Rectangle> nbOne = {
+const std::vector<nsShape::Rectangle> nbOne = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(17,10), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(12,10), nsGraphics::Vec2D(17,30), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
 
-const vector<Rectangle> nbTwo = {
+const std::vector<nsShape::Rectangle> nbTwo = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,20), nsGraphics::Vec2D(10,30), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
@@ -206,20 +197,20 @@ const vector<Rectangle> nbTwo = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
 
-const vector<Rectangle> nbThree = {
+const std::vector<nsShape::Rectangle> nbThree = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(20,10), nsGraphics::Vec2D(25,30), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
 
-const vector<Rectangle> nbFour = {
+const std::vector<nsShape::Rectangle> nbFour = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(10,17), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(20,5), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
 
-const vector<Rectangle> nbFive = {
+const std::vector<nsShape::Rectangle> nbFive = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,10), nsGraphics::Vec2D(10,20), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
@@ -227,7 +218,7 @@ const vector<Rectangle> nbFive = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
 
-const vector<Rectangle> nbSix = {
+const std::vector<nsShape::Rectangle> nbSix = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,10), nsGraphics::Vec2D(10,30), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
@@ -235,12 +226,12 @@ const vector<Rectangle> nbSix = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
 
-const vector<Rectangle> nbSeven = {
+const std::vector<nsShape::Rectangle> nbSeven = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(20,10), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
 
-const vector<Rectangle> nbEight = {
+const std::vector<nsShape::Rectangle> nbEight = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,10), nsGraphics::Vec2D(10,30), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
@@ -248,35 +239,12 @@ const vector<Rectangle> nbEight = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
 
-const vector<Rectangle> nbNine = {
+const std::vector<nsShape::Rectangle> nbNine = {
     nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,10), nsGraphics::Vec2D(10,17), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(20,10), nsGraphics::Vec2D(25,30), nsGraphics::KYellow),
     nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
-
-
-//// Sohkna
-//const unsigned largeur_rayon_fantome = 12;
-//const unsigned longeur_fantome = 25;
-
-//struct GhostSprite {
-//    RGBAcolor couleur;
-//    nsGraphics::Vec2D position;
-//    nsGraphics::Circle head;
-//    nsGraphics::Rectangle body;
-//    vector<nsGraphics::Triangle> bottom;
-//};
-
-//// ex de la création d'un fantome
-
-//GhostSprite ghost1 = {
-//    nsGraphics::KCyan, //couleur
-//    {0,0}, //position
-//    Circle(blablabla), //head
-//    Rectangle(blablabla), //body
-//    {Triangle(blabla),Triangle(blabla),Triangle(blabla)} //bottom
-//};
 
 #endif // CONSTANTS_H

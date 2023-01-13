@@ -1,40 +1,42 @@
 #ifndef GHOST_INTELLIGENCE_H
 #define GHOST_INTELLIGENCE_H
+#include "constants.h"
+#include <iostream>
 
 /**
  * @brief check if a move is possible
  * @param ghost : Character
  * @param personality : string
  * @param difficulty : unsigned
- * @param maze : vector<string>
+ * @param maze : std::vector<std::string>
  * @param pacmanPos : Position
- * @param characters : map<string, Character>
- * @param characterList : vector<string>
+ * @param characters : std::map<std::string, Character>
+ * @param characterList : std::vector<std::string>
  * @return true if the move is possible, if not return false
- * @fn bool isMovePossible(vector<string> &maze,Character &character, string direction)
+ * @fn bool isMovePossible(std::vector<std::string> &maze,Character &character, std::string direction)
  */
-string decideGhostDirection(Character &ghost, string &personality, unsigned &difficulty, vector<string> maze, Position &pacmanPos, map<string, Character> &characters, vector<string> &characterList);
+std::string decideGhostDirection(Character &ghost, std::string &personality, unsigned &difficulty, std::vector<std::string> maze, Position &pacmanPos, std::map<std::string, Character> &characters, std::vector<std::string> &characterList);
 
 /**
  * @brief the main function of all the a* algorithm
- * @param maze : vector<string>
+ * @param maze : std::vector<std::string>
  * @param ghostPos : Position
  * @param pacmanPos : Position
  * @return the direction wich the ghost has to take
- * @fn string aStar(vector<string> &maze, Position &ghostPos, Position &pacmanPos)
+ * @fn std::string aStar(std::vector<std::string> &maze, Position &ghostPos, Position &pacmanPos)
  */
-string aStar(vector<string> &maze, Position &ghostPos, Position &pacmanPos);
+std::string aStar(std::vector<std::string> &maze, Position &ghostPos, Position &pacmanPos);
 
 /**
  * @brief the core of the a* algorithm, used after all the initialization process
- * @param openNodes : map<Position, unsigned>
- * @param closedNodes : map<Position, Position>
+ * @param openNodes : std::map<Position, unsigned>
+ * @param closedNodes : std::map<Position, Position>
  * @param pacmanPos : Position
- * @param maze : vector<string>
+ * @param maze : std::vector<std::string>
  * @param currentNode : Position
- * @fn void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> &closedNodes, Position &pacmanPos, vector<string> &maze, Position &currentNode)
+ * @fn void aStarAlgorithm(std::map<Position, unsigned> &openNodes, std::map<Position, Position> &closedNodes, Position &pacmanPos, std::vector<std::string> &maze, Position &currentNode)
  */
-void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> &closedNodes, Position &pacmanPos, vector<string> &maze, Position &currentNode);
+void aStarAlgorithm(std::map<Position, unsigned> &openNodes, std::map<Position, Position> &closedNodes, Position &pacmanPos, std::vector<std::string> &maze, Position &currentNode);
 
 /**
  * @brief give a quality to a node, for the a* algorithm
@@ -47,38 +49,38 @@ unsigned nodeQuality(Position &currentPos, Position &pacmanPos);
 
 /**
  * @brief get all the usable nodes from the maze, for the a* algorithm
- * @param maze : vector<string>
- * @return a vector of Position wich contains all the usable nodes from the maze
- * @fn vector<Position> getAllNodes(vector<string> &maze)
+ * @param maze : std::vector<std::string>
+ * @return a std::vector of Position wich contains all the usable nodes from the maze
+ * @fn std::vector<Position> getAllNodes(std::vector<std::string> &maze)
  */
-vector<Position> getAllNodes(vector<string> &maze);
+std::vector<Position> getAllNodes(std::vector<std::string> &maze);
 
 /**
  * @brief set the quality all the nodes, for a* algorithm
- * @param nodes : vector<Position>
- * @param openNodes : map<Position, unsigned>
+ * @param nodes : std::vector<Position>
+ * @param openNodes : std::map<Position, unsigned>
  * @param pacmanPos : Position
- * @fn void setNodesQuality(vector<Position> &nodes, map<Position, unsigned> &openNodes, Position &pacmanPos)
+ * @fn void setNodesQuality(std::vector<Position> &nodes, std::map<Position, unsigned> &openNodes, Position &pacmanPos)
  */
-void setNodesQuality(vector<Position> &nodes, map<Position, unsigned> &openNodes, Position &pacmanPos);
+void setNodesQuality(std::vector<Position> &nodes, std::map<Position, unsigned> &openNodes, Position &pacmanPos);
 
 /**
  * @brief chose the best direction judging by its quality
- * @param directions : vector<string>
- * @param openNodes : map<Position, unsigned>
+ * @param directions : std::vector<std::string>
+ * @param openNodes : std::map<Position, unsigned>
  * @return return the index of the best direction to take
- * @fn unsigned bestDirection(vector<string> &directions, map<Position, unsigned> &openNodes)
+ * @fn unsigned bestDirection(std::vector<std::string> &directions, std::map<Position, unsigned> &openNodes)
  */
-unsigned bestDirection(vector<string> &directions, map<Position, unsigned> &openNodes);
+unsigned bestDirection(std::vector<std::string> &directions, std::map<Position, unsigned> &openNodes);
 
 /**
  * @brief recursive function used to get up to the origin of the binary tree, used in a* algorithm
- * @param closedNodes : map<Position, Position>
+ * @param closedNodes : std::map<Position, Position>
  * @param currentNode : Position
  * @param ghostPos: Position
  * @return the first direction generatoed from the a* algorithm
- * @fn string firstDirection(map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos)
+ * @fn std::string firstDirection(std::map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos)
  */
-string firstDirection(map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos);
+std::string firstDirection(std::map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos);
 
 #endif // GHOST_INTELLIGENCE_H
