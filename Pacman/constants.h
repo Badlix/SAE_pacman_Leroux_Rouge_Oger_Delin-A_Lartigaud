@@ -29,11 +29,6 @@ struct Position {
     }
 };
 
-//struct Skin {
-//    map<string, vector<RGBAcolor>> defaultState;
-//    map<string, vector<RGBAcolor>> madState;
-//};
-
 struct Skin {
     map<string, Sprite> defaultState;
     map<string, Sprite> madState;

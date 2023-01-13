@@ -65,6 +65,7 @@ int main()
                 changeEveryoneState(characterMap, false);
                 bigBubbleDuration = 0;
             }
+            checkEating(characterMap, gameRunning);
             ++bigBubbleDuration;
             if (bigBubbleDuration == 30) changeEveryoneState(characterMap, true);
             isTransitionFinished = false;
