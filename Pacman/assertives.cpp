@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool isGhostInCage(const Position posGhost, Param &param) {
+bool isGhostInCage(const Position &posGhost, Param &param) {
     if (posGhost == getPosCage(param)) {
         return true;
     }
@@ -34,9 +34,9 @@ bool isBigBubble (Character &character, vector<string> &maze, unsigned &score){
     else return false;
 }
 
-void isBubbleLeft (size_t &bubbleLeft , bool &gameRunning, bool &isVictory) {
+void isBubbleLeft (size_t &bubbleLeft , bool &isGameRunning, bool &isVictory) {
     if (bubbleLeft == 0){
-        gameOver(gameRunning);
+        gameOver(isGameRunning);
         isVictory = true;
     }
 }
@@ -67,7 +67,7 @@ bool isTeleporter(vector<string> &maze, Character & character) {
     else return false;
 }
 
-bool isSamePos(Character &c1, Character &c2) {
-    if (c1.pos == c2.pos) return true;
+bool isSamePos(Character &character1, Character &character2) {
+    if (character1.pos == character2.pos) return true;
     else return false;
 }

@@ -29,8 +29,8 @@ void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string
     }
 }
 
-void gameOver(bool &gameRunning) {
-    gameRunning = false;
+void gameOver(bool &isisisGameRunning) {
+    isisisGameRunning = false;
 }
 
 // general functions

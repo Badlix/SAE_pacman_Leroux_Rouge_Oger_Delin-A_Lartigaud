@@ -16,12 +16,12 @@ void moveCharacter(Character &character, string direction) {
     character.direction = direction;
 }
 
-void moveCharacterTeleporter (vector<string> &maze, Character &character, Param& param) {
-    if(isTeleporter(maze,character)){
-        if(character.pos == (getPosTeleporter(param))[0]){ // check if the player is on the first teleporter to know on wich teleporter the player have to move.
-            character.pos = (getPosTeleporter(param))[1]; // change the positionof the player to set it on the linked teleporter.
-        }else if(character.pos == (getPosTeleporter(param))[1]){
-                character.pos = (getPosTeleporter(param))[0];
+void moveCharacterTeleporter (vector<string> &maze, Character &Character, Param& param) {
+    if(isTeleporter(maze, Character)){
+        if(Character.pos == (getPosTeleporter(param))[0]){ // check if the player is on the first teleporter to know on wich teleporter the player have to move.
+            Character.pos = (getPosTeleporter(param))[1]; // change the positionof the player to set it on the linked teleporter.
+        }else if(Character.pos == (getPosTeleporter(param))[1]){
+                Character.pos = (getPosTeleporter(param))[0];
         }
     }
 }
@@ -70,13 +70,13 @@ void eatFruit(map<string, Character> &mapC, string fruitKey, unsigned &score) {
     score += 200;
 }
 
-void checkEating(Param &param, map<string, Character> &mapC, bool &gameRunning, unsigned &score, nsAudio::AudioEngine &audioEngine) {
+void checkEating(Param &param, map<string, Character> &mapC, bool &isGameRunning, unsigned &score, nsAudio::AudioEngine &audioEngine) {
     for (auto it = mapC.begin(); it != mapC.end(); it++) {
         if (it->second.type == "Ghost") {
             if (isSamePos(mapC["Pacman"], it->second)) {
                 if (it->second.isDefaultState == true) {
                     audioEngine.playSoundFromFile("../Pacman/audio/pacmanDies.wav");
-                    gameOver(gameRunning);
+                    gameOver(isGameRunning);
                 } else {
                     audioEngine.playSoundFromFile("../Pacman/audio/pacmanEatingGhost.wav");
                     eatGhost(param, it->second, score);

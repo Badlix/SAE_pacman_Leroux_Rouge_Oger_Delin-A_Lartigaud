@@ -9,7 +9,7 @@
 
 void keyboardInput(MinGL &window, Param &param, Character &pacman, std::vector<std::string> &maze);
 
-void gameOver(bool &gameRunning);
+void gameOver(bool &isGameRunning);
 
 // general functions
 

@@ -33,7 +33,7 @@ int main()
         characterList.push_back(it->first);
     }
 
-    bool gameRunning (true);
+    bool isGameRunning (true);
     bool isVictory (false); // value change only if pacman eat all bubbles
 
     size_t nbBubbleLeft = nbBubbleInMaze(maze);
@@ -54,7 +54,7 @@ int main()
     chrono::microseconds frameTime = chrono::microseconds::zero();
     while (window.isOpen())
     {
-        if (gameRunning){
+        if (isGameRunning){
             if (isTransitionFinished) {
                 keyboardInput(window, param, characterMap["Pacman"], maze);
                 if (isTeleporter(maze, characterMap["Pacman"])) moveCharacterTeleporter(maze, characterMap["Pacman"], param);
@@ -66,7 +66,7 @@ int main()
                     //switchMusic(defaultMusic, madMusic, characterMap["Pacman"].isDefaultState);
                     bigBubbleDuration = 0;
                 }
-                checkEating(param, characterMap, gameRunning, score, defaultMusic);
+                checkEating(param, characterMap, isGameRunning, score, defaultMusic);
                 ++bigBubbleDuration;
                 if (bigBubbleDuration == 30) {
                     changeEveryoneState(characterMap, true, defaultMusic, madMusic);
@@ -80,7 +80,7 @@ int main()
         window.clearScreen();
         transitionEngine.update(frameTime);
         //letGhostsOut();
-        if (gameRunning) {
+        if (isGameRunning) {
             switchMouthPacmanOpenClose(characterMap["Pacman"], pacmanMouth);
             drawMaze(window, maze, param);
             drawCharacter(window, characterList, characterMap, param);
@@ -96,7 +96,7 @@ int main()
         window.getEventManager().clearEvents();
         this_thread::sleep_for(chrono::milliseconds(1000 / FPS_LIMIT) - chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start));
         frameTime = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start);
-        isBubbleLeft(nbBubbleLeft, gameRunning, isVictory);
+        isBubbleLeft(nbBubbleLeft, isGameRunning, isVictory);
     }
     return 0;
 }
