@@ -97,8 +97,8 @@ def convert_to_si2(source, output):
 
 def main():
 
-    source = "pixel.png"
-    output = "gameover.si2"
+    source = "youWin.png"
+    output = "youWin.si2"
 
     # Check that source file exists
     if not os.path.isfile(source):

@@ -17,7 +17,7 @@ bool isFree(char &pos){
     else return false;
 }
 
-bool isBubble (Character &character, vector<string> &maze){
+bool isBubble (Character &character, vector<string> &maze, unsigned &score){
     if (character.direction == "up" && (maze[character.pos.y+1][character.pos.x] == '.')) return true;
     else if(character.direction == "down" && (maze[character.pos.y-1][character.pos.x] == '.')) return true;
     else if(character.direction == "left" && (maze[character.pos.y][character.pos.x+1] == '.')) return true;
@@ -26,7 +26,7 @@ bool isBubble (Character &character, vector<string> &maze){
 }
 
 
-bool isBigBubble (Character &character, vector<string> &maze){
+bool isBigBubble (Character &character, vector<string> &maze, unsigned &score){
     if (character.direction == "up" && (maze[character.pos.y+1][character.pos.x] == 'o')) return true;
     else if(character.direction == "down" && (maze[character.pos.y-1][character.pos.x] == 'o')) return true;
     else if(character.direction == "left" && (maze[character.pos.y][character.pos.x+1] == 'o')) return true;
@@ -34,9 +34,10 @@ bool isBigBubble (Character &character, vector<string> &maze){
     else return false;
 }
 
-void isBubbleLeft (size_t &bubbleLeft , bool &gameRunning) {
+void isBubbleLeft (size_t &bubbleLeft , bool &gameRunning, bool &isVictory) {
     if (bubbleLeft == 0){
         gameOver(gameRunning);
+        isVictory = true;
     }
 }
 

@@ -29,7 +29,7 @@ std::string randomDirection(Position &pos, std::vector<std::string> &maze);
  * @return a random character
  * @fn Character randomCharacter(map<std::string, Character> &characters, std::vector<std::string> &characterList)
  */
-Character randomCharacter(map<std::string, Character> &characters, std::vector<std::string> &characterList);
+Character randomCharacter(std::map<std::string, Character> &characters, std::vector<std::string> &characterList);
 
 /**
  * @brief give the position in wich the direction goes
@@ -49,6 +49,8 @@ Position nextMove(std::string &direction, Position &currentPos);
  */
 std::vector<std::string> possibleDirections(Position &currentPos, std::vector<std::string> &maze);
 
+// get functions
+
 /**
  * @brief give the direction used to go from the first position to the second
  * @param pos1 : Position
@@ -66,6 +68,6 @@ Position getPosCage(Param &param);
 
 void showMaze(const std::vector<std::string> &maze);
 
-void showMap(map<std::string, Character> &myMap);
+void showMap(std::map<std::string, Character> &myMap);
 
 #endif // GENERAL_H

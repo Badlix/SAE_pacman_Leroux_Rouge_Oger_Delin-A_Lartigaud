@@ -21,12 +21,12 @@ int main()
     nsAudio::AudioEngine audioEngine;
 
     // On définit la musique du sous-système, et on la joue
-    audioEngine.setMusic("res/music.wav");
+    audioEngine.setMusic("../07-Audio/res/music.wav");
     audioEngine.startMusicFromBeginning();
 
     // On charge les effets sonores
-    audioEngine.loadSound("res/sound1.wav");
-    audioEngine.loadSound("res/sound2.wav");
+    audioEngine.loadSound("../07-Audio/res/sound1.wav");
+    audioEngine.loadSound("../07-Audio/res/sound2.wav");
 
     // Variable qui tient le temps de frame
     chrono::microseconds frameTime = chrono::microseconds::zero();
@@ -49,7 +49,7 @@ int main()
         // On vérifie les touches
         if (window.isPressed({' ', false}))
         {
-            // Espace a été pressé, on bascule la musique
+            // Espace a été pressé, on pause/lance la musique
             window.resetKey({' ', false});
             audioEngine.toggleMusicPlaying();
         }
@@ -58,7 +58,16 @@ int main()
             // S a été pressé, on joue un effet sonore
             window.resetKey({'s', false});
             const uint8_t soundToPlay = rand() % 2 + 1;
-            audioEngine.playSoundFromBuffer("res/sound" + std::to_string(soundToPlay) + ".wav");
+            //audioEngine.playSoundFromBuffer("res/sound" + std::to_string(soundToPlay) + ".wav");
+            audioEngine.playSoundFromFile("../07-Audio/res/sound1.wav");
+        }
+        if (window.isPressed({'d', false}))
+        {
+            // S a été pressé, on joue un effet sonore
+            window.resetKey({'d', false});
+            const uint8_t soundToPlay = rand() % 2 + 1;
+            //audioEngine.playSoundFromBuffer("res/sound" + std::to_string(soundToPlay) + ".wav");
+            audioEngine.playSoundFromFile("../07-Audio/res/sound2.wav");
         }
 
         // On finit la frame en cours

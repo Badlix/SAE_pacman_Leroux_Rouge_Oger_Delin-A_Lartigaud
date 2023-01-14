@@ -13,11 +13,11 @@ bool isGhostInCage(Character ghost, Param &param);
  */
 bool isFree(char &pos);
 
-void isBubbleLeft(size_t &bubbleLeft , bool &gameRunning);
+void isBubbleLeft(size_t &bubbleLeft , bool &gameRunning, bool &isVictory);
 
-bool isBigBubble(Character &character, std::vector<std::string> &maze);
+bool isBigBubble(Character &character, std::vector<std::string> &maze, unsigned &score);
 
-bool isBubble(Character &character, std::vector<std::string> &maze);
+bool isBubble(Character &character, std::vector<std::string> &maze, unsigned &score);
 
 bool isMovePossible(std::vector<std::string> &maze,Character &character, std::string direction);
 

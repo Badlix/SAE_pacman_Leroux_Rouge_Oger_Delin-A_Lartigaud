@@ -3,6 +3,9 @@
 #include "mingl/shape/rectangle.h"
 #include "mingl/shape/circle.h"
 #include "mingl/transition/transition_engine.h"
+#include "mingl/audio/audioengine.h"
+#include "mingl/gui/text.h"
+#include "mingl/gui/glut_font.h"
 #include "constants.h"
 #include "param.h"
 #include "general.h"
@@ -11,6 +14,36 @@
 using namespace std;
 using namespace nsGraphics;
 using namespace nsShape;
+
+void switchMusic(nsAudio::AudioEngine &defaultMusicEngine, nsAudio::AudioEngine &madMusicEngine, bool &pacmanDefaultState) {
+    if (!pacmanDefaultState) {
+        if (!madMusicEngine.isMusicPlaying()) {
+            defaultMusicEngine.setMusicPlaying(false);
+            madMusicEngine.setMusicPlaying(true);
+        }
+    } else {
+        madMusicEngine.setMusicPlaying(false);
+        defaultMusicEngine.setMusicPlaying(true);
+    }
+}
+
+void drawGameOverScreen(MinGL &window, bool &isVictory, unsigned &score) {
+    nsGui::Sprite gameOver("../Pacman/skins/gameover.si2", Vec2D(0, 0));
+    gameOver.setPosition(Vec2D(window.getWindowSize().getX()/2-gameOver.getRowSize()/2, 200));
+    window << gameOver;
+    if (isVictory) {
+        nsGui::Sprite youWin("../Pacman/skins/youWin.si2", Vec2D(0,0));
+        youWin.setPosition(Vec2D(window.getWindowSize().getX()/2-youWin.getRowSize()/2, 380));
+        window << youWin;
+    } else {
+        nsGui::Sprite youLose("../Pacman/skins/youLose.si2", Vec2D(0,0));
+        youLose.setPosition(Vec2D(window.getWindowSize().getX()/2-youLose.getRowSize()/2, 380));
+        window << youLose;
+    }
+    nsGui::Text textScore(Vec2D(0,0), "Score : " + to_string(score), KYellow, nsGui::GlutFont::BITMAP_TIMES_ROMAN_24);
+    textScore.setPosition(Vec2D(window.getWindowSize().getX()/2-textScore.computeWidth()/2, 520));
+    window << textScore;
+}
 
 void drawCage(MinGL &window, Vec2D pos) {
     window << Line(pos, pos + Vec2D(1*50, 0), KSilver, 5.0);
@@ -43,8 +76,9 @@ void drawMaze(MinGL &window, vector<string> &maze, Param &param) {
     }
 }
 
-void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Character> &charactMap) {
+void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Character> &charactMap, Param &param) {
     for (string &name : characterList) {
+        if (name == "Pacman" && (charactMap[name].pos == getPosTeleporter(param)[0] || charactMap[name].pos == getPosTeleporter(param)[1])) continue;
         if (charactMap[name].isDefaultState) {
             charactMap[name].skins.defaultState.find(charactMap[name].direction)->second.setPosition(charactMap[name].sprite[0].getPosition());
             window << charactMap[name].skins.defaultState.find(charactMap[name].direction)->second;

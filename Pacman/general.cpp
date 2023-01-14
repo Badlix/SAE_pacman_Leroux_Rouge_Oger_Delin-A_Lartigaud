@@ -85,16 +85,12 @@ Position getPosCage(Param &param) {
 // tests
 
 void showMap(map<string, Character> &myMap) {
-    vector<string> keys;
     for (auto it = myMap.begin(); it != myMap.end(); it++) {
-        keys.push_back(it->first);
-    }
-    for (size_t i (0); i < keys.size(); ++i) {
-        cout << keys[i] << " -> ";
-        cout << " pos.x : " << myMap[keys[i]].pos.x;
-        cout << "  |  pos.y : " << myMap[keys[i]].pos.y;
-        cout << "  |  direction : " << myMap[keys[i]].direction;
-        cout << "  |  isDefaultState : " << myMap[keys[i]].isDefaultState << endl;
+        cout << it->first << " -> ";
+        cout << " pos.x : " << it->second.pos.x;
+        cout << "  |  pos.y : " << it->second.pos.y;
+        cout << "  |  direction : " << it->second.direction;
+        cout << "  |  isDefaultState : " << it->second.isDefaultState << endl;
     }
 }
 

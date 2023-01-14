@@ -1,3 +1,4 @@
+#include "mingl/audio/audioengine.h"
 #include "constants.h"
 #include "param.h"
 #include "general.h"
@@ -111,4 +112,15 @@ void initPersonality (vector<string> &characterList, map<string, string> persona
             personalities.insert({characterList[i], personality});
         }
     }
+}
+
+void initMusicsEngine(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic, nsAudio::AudioEngine &gameOverMusic) {
+    defaultMusic.setMusic("../Pacman/audio/musicDefault.wav");
+    madMusic.setMusic("../Pacman/audio/musicMad.wav");
+    gameOverMusic.setMusic("../Pacman/audio/musicGameOver.wav");
+    defaultMusic.startMusicFromBeginning();
+    madMusic.startMusicFromBeginning();
+    gameOverMusic.startMusicFromBeginning();
+    gameOverMusic.setMusicPlaying(false);
+    madMusic.setMusicPlaying(false);
 }

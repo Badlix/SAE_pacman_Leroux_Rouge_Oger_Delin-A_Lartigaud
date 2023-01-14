@@ -4,8 +4,6 @@
 #include <map>
 #include <vector>
 
-using namespace std;
-
 struct Param {
     std::map<std::string, char> moveKeys;
     std::map<std::string, unsigned> skins;

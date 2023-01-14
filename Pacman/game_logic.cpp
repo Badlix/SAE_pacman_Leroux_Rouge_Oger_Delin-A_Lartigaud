@@ -1,7 +1,9 @@
+#include "mingl/audio/audioengine.h"
 #include "constants.h"
 #include "param.h"
 #include "assertives.h"
 #include "general.h"
+#include "draw.h"
 #include <iostream>
 
 using namespace std;
@@ -24,20 +26,22 @@ void moveCharacterTeleporter (vector<string> &maze, Character &character, Param&
     }
 }
 
-void eatBubble (const Character &character, vector<string> &maze, size_t &bubbleLeft){
+void eatBubble (const Character &character, vector<string> &maze, size_t &bubbleLeft, unsigned &score){
     if(character.direction == "up") maze[character.pos.y+1][character.pos.x] = ' ';
     else if(character.direction == "down") maze[character.pos.y-1][character.pos.x] = ' ';
     else if(character.direction == "left") maze[character.pos.y][character.pos.x+1] = ' ';
     else if(character.direction == "right") maze[character.pos.y][character.pos.x-1] = ' ';
     bubbleLeft -= 1;
+    score += 10;
 }
 
-void eatBigBubble (Character &character, vector<string> &maze, size_t &bubbleLeft){
+void eatBigBubble (Character &character, vector<string> &maze, size_t &bubbleLeft, unsigned &score){
     if(character.direction == "up") maze[character.pos.y+1][character.pos.x] = ' ';
     else if(character.direction == "down") maze[character.pos.y-1][character.pos.x] = ' ';
     else if(character.direction == "left") maze[character.pos.y][character.pos.x+1] = ' ';
     else if(character.direction == "right") maze[character.pos.y][character.pos.x-1] = ' ';
     bubbleLeft -= 1;
+    score += 50;
 }
 
 void changeState(Character &charact) {
@@ -49,21 +53,39 @@ void changeState(Character &charact) {
     }
 }
 
-void changeEveryoneState(map<string, Character> &mapCharact, bool newValue) {
+void changeEveryoneState(map<string, Character> &mapCharact, bool newValue, nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic) {
     for (auto& charact : mapCharact) {
         if (charact.second.isDefaultState != newValue) changeState(charact.second);
     }
+    switchMusic(defaultMusic, madMusic, mapCharact["Pacman"].isDefaultState);
 }
 
-// void eatGhost
+void eatGhost(Param &param, Character &ghost, unsigned &score) {
+    ghost.pos = getPosCage(param);
+    score += 500;
+}
 
-//void checkEating(map<string, Character> mapC, bool &gameRunning) {
-//    for (auto it = mapC.begin(); it != mapC.end(); it++) {
-//        if (it->second.type == "Ghost") {
-//            if (isSamePos(mapC["Pacman"], it->second)) {
-//                if (it->second.isDefaultState == true) gameOver(gameRunning);
-//                else ()
-//            }
-//        }
-//    }
-//}
+void eatFruit(map<string, Character> &mapC, string fruitKey, unsigned &score) {
+    mapC.erase(fruitKey);
+    score += 200;
+}
+
+void checkEating(Param &param, map<string, Character> &mapC, bool &gameRunning, unsigned &score, nsAudio::AudioEngine &audioEngine) {
+    for (auto it = mapC.begin(); it != mapC.end(); it++) {
+        if (it->second.type == "Ghost") {
+            if (isSamePos(mapC["Pacman"], it->second)) {
+                if (it->second.isDefaultState == true) {
+                    audioEngine.playSoundFromFile("../Pacman/audio/pacmanDies.wav");
+                    gameOver(gameRunning);
+                } else {
+                    audioEngine.playSoundFromFile("../Pacman/audio/pacmanEatingGhost.wav");
+                    eatGhost(param, it->second, score);
+                }
+            }
+        } else if (it->second.type == "Fruit") {
+            if (isSamePos(mapC["Pacman"], it->second)) {
+                eatFruit(mapC, it->first, score);
+            }
+        }
+    }
+}

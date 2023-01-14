@@ -35,7 +35,7 @@ struct Character {
     Position pos;
     std::string direction;
     bool isDefaultState;
-    unsigned vitesse; // default : 500, mad mod : 300 -> 0 is the fastest
+    unsigned vitesse; // default : 500, mad : 300 -> 0 is the fastest
     std::vector<nsGui::Sprite> sprite; // can't init an empty sprite
     Skin skins;
 };

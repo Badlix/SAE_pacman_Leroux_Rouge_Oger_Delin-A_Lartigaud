@@ -655,21 +655,22 @@ main.o: ../Pacman/main.cpp ../MinGL/include/mingl/mingl.h \
 		../MinGL/include/mingl/graphics/vec2d.h \
 		../MinGL/include/mingl/event/event_manager.h \
 		../MinGL/include/mingl/event/event.hpp \
-		../MinGL/include/mingl/shape/rectangle.h \
-		../MinGL/include/mingl/shape/shape.h \
-		../MinGL/include/mingl/transition/itransitionable.h \
-		../MinGL/include/mingl/shape/circle.h \
-		../MinGL/include/mingl/shape/line.h \
-		../MinGL/include/mingl/shape/triangle.h \
 		../MinGL/include/mingl/transition/transition_engine.h \
 		../MinGL/include/mingl/transition/transition.h \
 		../MinGL/include/mingl/transition/transition_contract.h \
+		../MinGL/include/mingl/transition/itransitionable.h \
 		../MinGL/include/mingl/transition/transition_types.h \
-		../MinGL/include/mingl/gui/sprite.h \
-		../Pacman/ghost.h \
+		../MinGL/include/mingl/audio/audioengine.h \
+		../Pacman/initialization.h \
 		../Pacman/constants.h \
+		../MinGL/include/mingl/shape/rectangle.h \
+		../MinGL/include/mingl/shape/shape.h \
+		../MinGL/include/mingl/gui/sprite.h \
 		../Pacman/param.h \
-		../Pacman/functions.h
+		../Pacman/general.h \
+		../Pacman/assertives.h \
+		../Pacman/game_logic.h \
+		../Pacman/draw.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Pacman/main.cpp
 
 param.o: ../Pacman/param.cpp ../Pacman/param.h
@@ -688,7 +689,9 @@ game_logic.o: ../Pacman/game_logic.cpp ../Pacman/constants.h \
 		../MinGL/include/mingl/shape/shape.h \
 		../MinGL/include/mingl/transition/itransitionable.h \
 		../MinGL/include/mingl/gui/sprite.h \
-		../Pacman/param.h
+		../Pacman/param.h \
+		../Pacman/assertives.h \
+		../Pacman/general.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o game_logic.o ../Pacman/game_logic.cpp
 
 general.o: ../Pacman/general.cpp ../MinGL/include/mingl/mingl.h \
@@ -704,7 +707,9 @@ general.o: ../Pacman/general.cpp ../MinGL/include/mingl/mingl.h \
 		../MinGL/include/mingl/shape/rectangle.h \
 		../MinGL/include/mingl/shape/shape.h \
 		../MinGL/include/mingl/transition/itransitionable.h \
-		../MinGL/include/mingl/gui/sprite.h
+		../MinGL/include/mingl/gui/sprite.h \
+		../Pacman/game_logic.h \
+		../Pacman/assertives.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o general.o ../Pacman/general.cpp
 
 initialization.o: ../Pacman/initialization.cpp ../Pacman/constants.h \
@@ -720,7 +725,8 @@ initialization.o: ../Pacman/initialization.cpp ../Pacman/constants.h \
 		../MinGL/include/mingl/shape/shape.h \
 		../MinGL/include/mingl/transition/itransitionable.h \
 		../MinGL/include/mingl/gui/sprite.h \
-		../Pacman/param.h
+		../Pacman/param.h \
+		../Pacman/general.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o initialization.o ../Pacman/initialization.cpp
 
 draw.o: ../Pacman/draw.cpp ../MinGL/include/mingl/mingl.h \
@@ -736,8 +742,14 @@ draw.o: ../Pacman/draw.cpp ../MinGL/include/mingl/mingl.h \
 		../MinGL/include/mingl/transition/itransitionable.h \
 		../MinGL/include/mingl/shape/rectangle.h \
 		../MinGL/include/mingl/shape/circle.h \
+		../MinGL/include/mingl/transition/transition_engine.h \
+		../MinGL/include/mingl/transition/transition.h \
+		../MinGL/include/mingl/transition/transition_contract.h \
+		../MinGL/include/mingl/transition/transition_types.h \
 		../Pacman/constants.h \
-		../MinGL/include/mingl/gui/sprite.h
+		../MinGL/include/mingl/gui/sprite.h \
+		../Pacman/param.h \
+		../Pacman/general.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o draw.o ../Pacman/draw.cpp
 
 ghost_intelligence.o: ../Pacman/ghost_intelligence.cpp ../Pacman/constants.h \
@@ -752,7 +764,10 @@ ghost_intelligence.o: ../Pacman/ghost_intelligence.cpp ../Pacman/constants.h \
 		../MinGL/include/mingl/shape/rectangle.h \
 		../MinGL/include/mingl/shape/shape.h \
 		../MinGL/include/mingl/transition/itransitionable.h \
-		../MinGL/include/mingl/gui/sprite.h
+		../MinGL/include/mingl/gui/sprite.h \
+		../Pacman/general.h \
+		../Pacman/param.h \
+		../Pacman/assertives.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ghost_intelligence.o ../Pacman/ghost_intelligence.cpp
 
 assertives.o: ../Pacman/assertives.cpp ../Pacman/constants.h \

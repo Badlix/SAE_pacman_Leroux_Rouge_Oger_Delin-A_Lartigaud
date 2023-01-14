@@ -4,8 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp \
-        param.cpp \
+    main.cpp \
+    param.cpp \
     game_logic.cpp \
     general.cpp \
     initialization.cpp \
@@ -26,5 +26,6 @@ HEADERS += \
 DISTFILES += \
     settings.yaml
     skins/
+    audio/
 
 include(../MinGL/mingl.pri)
