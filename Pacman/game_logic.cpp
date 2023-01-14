@@ -16,12 +16,12 @@ void moveCharacter(Character &character, string direction) {
     character.direction = direction;
 }
 
-void moveCharacterTeleporter (vector<string> &maze, Character &Character, Param& param) {
-    if(isTeleporter(maze, Character)){
-        if(Character.pos == (getPosTeleporter(param))[0]){ // check if the player is on the first teleporter to know on wich teleporter the player have to move.
-            Character.pos = (getPosTeleporter(param))[1]; // change the positionof the player to set it on the linked teleporter.
-        }else if(Character.pos == (getPosTeleporter(param))[1]){
-                Character.pos = (getPosTeleporter(param))[0];
+void moveCharacterTeleporter (vector<string> &maze, Character &character, Param& param) {
+    if(isTeleporter(maze, character)){
+        if(character.pos == (getPosTeleporter(param))[0]){ // check if the player is on the first teleporter to know on wich teleporter the player have to move.
+            character.pos = (getPosTeleporter(param))[1]; // change the positionof the player to set it on the linked teleporter.
+        }else if(character.pos == (getPosTeleporter(param))[1]){
+                character.pos = (getPosTeleporter(param))[0];
         }
     }
 }
@@ -35,7 +35,7 @@ void eatBubble (const Character &character, vector<string> &maze, size_t &bubble
     score += 10;
 }
 
-void eatBigBubble (Character &character, vector<string> &maze, size_t &bubbleLeft, unsigned &score){
+void eatBigBubble (const Character &character, vector<string> &maze, size_t &bubbleLeft, unsigned &score){
     if(character.direction == "up") maze[character.pos.y+1][character.pos.x] = ' ';
     else if(character.direction == "down") maze[character.pos.y-1][character.pos.x] = ' ';
     else if(character.direction == "left") maze[character.pos.y][character.pos.x+1] = ' ';
