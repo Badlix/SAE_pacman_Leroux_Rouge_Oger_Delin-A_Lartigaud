@@ -84,7 +84,7 @@ void eatFruit(std::map<std::string, Character> &mapC, std::string fruitKey, unsi
  * @param score
  * @fn void eatGhost(Param &param, Character &ghost, unsigned &score);
  */
-void eatGhost(Param &param, Character &ghost, unsigned &score);
+void eatGhost(Param &param, Character &ghost, unsigned &score, nsAudio::AudioEngine &audioEngine);
 
 /**
  * @brief check if a character is eating an another one

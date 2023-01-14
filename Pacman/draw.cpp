@@ -1,4 +1,4 @@
-#include "mingl/mingl.h"
+﻿#include "mingl/mingl.h"
 #include "mingl/shape/line.h"
 #include "mingl/shape/rectangle.h"
 #include "mingl/shape/circle.h"
@@ -9,6 +9,7 @@
 #include "constants.h"
 #include "param.h"
 #include "general.h"
+#include "assertives.h"
 #include <iostream>
 
 using namespace std;
@@ -28,15 +29,15 @@ void switchMusic(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMu
 }
 
 void drawGameOverScreen(MinGL &window, const bool &isVictory, const unsigned &score) {
-    nsGui::Sprite gameOver("../Pacman/skins/gameover.si2", Vec2D(0, 0));
+    nsGui::Sprite gameOver("../Pacman/skins/other/gameover.si2", Vec2D(0, 0));
     gameOver.setPosition(Vec2D(window.getWindowSize().getX()/2-gameOver.getRowSize()/2, 200));
     window << gameOver;
     if (isVictory) {
-        nsGui::Sprite youWin("../Pacman/skins/youWin.si2", Vec2D(0,0));
+        nsGui::Sprite youWin("../Pacman/skins/other/youWin.si2", Vec2D(0,0));
         youWin.setPosition(Vec2D(window.getWindowSize().getX()/2-youWin.getRowSize()/2, 380));
         window << youWin;
     } else {
-        nsGui::Sprite youLose("../Pacman/skins/youLose.si2", Vec2D(0,0));
+        nsGui::Sprite youLose("../Pacman/skins/other/youLose.si2", Vec2D(0,0));
         youLose.setPosition(Vec2D(window.getWindowSize().getX()/2-youLose.getRowSize()/2, 380));
         window << youLose;
     }
@@ -54,13 +55,26 @@ void drawCage(MinGL &window, const Vec2D pos) {
     window << Line(pos + Vec2D(1*50, 0), pos + Vec2D(2*50, 0), KSilver, 1.0);
 }
 
-void drawMaze(MinGL &window, const std::vector<string> &maze, Param &param) {
+size_t getNbrOfHorizontalWallInARow (vector<string> &maze, size_t &horizontalLayer){
+    size_t numOfWallInARow = 0;
+    for(size_t j=0;j<maze.size();++j){
+        if (maze[horizontalLayer][j] == '#')
+            numOfWallInARow += 1 ;
+        else {
+            return numOfWallInARow;
+            numOfWallInARow = 0;
+        }
+        return numOfWallInARow;
+    }
+}
+
+void drawMaze(MinGL &window, std::vector<string> &maze, std::vector<Rectangle> &walls, Param &param) {
+    for (Rectangle &wall : walls) {
+        window << wall;
+    }
     for (size_t i(0); i < maze.size(); ++i) {
         for (size_t j(0); j < maze[0].size(); ++j) {
             switch (maze[i][j]) {
-            case '#':
-                window << Rectangle(posBegin + Vec2D(j*50,i*50), posBegin + Vec2D(j*50+50, i*50+50), RGBAcolor(0,0,255,150));
-                break;
             case '.':
                 window << Circle(posBegin + Vec2D(j*50+25, i*50+25), 3, KYellow);
                 break;
@@ -77,20 +91,20 @@ void drawMaze(MinGL &window, const std::vector<string> &maze, Param &param) {
 }
 
 void drawCharacter(MinGL &window, std::vector<string> &characterList, std::map<string, Character> &charactMap, Param &param) {
-    for (string &name : characterList) {
-        if (name == "Pacman" && (charactMap[name].pos == getPosTeleporter(param)[0] || charactMap[name].pos == getPosTeleporter(param)[1])) continue;
-        if (charactMap[name].isDefaultState) {
-            charactMap[name].skins.defaultState.find(charactMap[name].direction)->second.setPosition(charactMap[name].sprite[0].getPosition());
-            window << charactMap[name].skins.defaultState.find(charactMap[name].direction)->second;
+    for (auto it(charactMap.begin()) ; it != charactMap.end() ; ++it) {
+        if (it->first == "Pacman" && (it->second.pos == getPosTeleporter(param)[0] || it->second.pos == getPosTeleporter(param)[1])) continue;
+        if (it->second.isDefaultState) {
+            it->second.skins.defaultState.find(it->second.direction)->second.setPosition(it->second.sprite[0].getPosition());
+            window << it->second.skins.defaultState.find(it->second.direction)->second;
         } else {
-            charactMap[name].skins.madState.find(charactMap[name].direction)->second.setPosition(charactMap[name].sprite[0].getPosition());
-            window << charactMap[name].skins.madState.find(charactMap[name].direction)->second;
+            it->second.skins.madState.find(it->second.direction)->second.setPosition(it->second.sprite[0].getPosition());
+            window << it->second.skins.madState.find(it->second.direction)->second;
         }
     }
 }
 
 void switchMouthPacmanOpenClose(Character &pacman, PacmanMouth &pacmanMouth) {
-    if (pacmanMouth.delay > 15) {
+    if (pacmanMouth.delay > 10) {
         swap(pacman.skins, pacmanMouth.skins);
         pacmanMouth.delay = 0;
     }

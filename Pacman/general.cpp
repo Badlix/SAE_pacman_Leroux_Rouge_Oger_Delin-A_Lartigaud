@@ -31,8 +31,8 @@ void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string
     }
 }
 
-void gameOver(bool &isisisGameRunning) {
-    isisisGameRunning = false;
+void gameOver(bool &isGameRunning) {
+    isGameRunning = false;
 }
 
 

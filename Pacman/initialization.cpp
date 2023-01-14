@@ -1,4 +1,6 @@
 #include "mingl/audio/audioengine.h"
+#include "mingl/shape/rectangle.h"
+#include "mingl/graphics/vec2d.h"
 #include "constants.h"
 #include "param.h"
 #include "general.h"
@@ -11,18 +13,51 @@ vector<string> initMaze(Param &param) {
     else return maze2;
 }
 
+vector<nsShape::Rectangle> initWalls(vector<string> &maze) {
+    vector<nsShape::Rectangle> walls = {};
+    bool isIsolate (true);
+    nsGraphics::Vec2D firstPos;
+    for (size_t i(0); i < maze.size(); ++i) {
+        for (size_t j(0); j < maze[i].size(); ++j) {
+            isIsolate = true;
+            if(maze[i][j] == '#') {
+                firstPos = posBegin + nsGraphics::Vec2D{j*50+10,i*50+10};
+                if (j != maze[0].size()-1 && maze[i][j+1] == '#') {
+                    walls.push_back(nsShape::Rectangle(firstPos, firstPos+nsGraphics::Vec2D(80,30), nsGraphics::RGBAcolor(15,24,202,255)));
+                    isIsolate = false;
+                }
+                if (i != maze.size()-1 && maze[i+1][j] == '#') {
+                    walls.push_back(nsShape::Rectangle(firstPos, firstPos+nsGraphics::Vec2D(30,80), nsGraphics::RGBAcolor(15,24,202,255)));
+                    isIsolate = false;
+                }
+                if (j != 0 && maze[i][j-1] == '#') isIsolate = false;
+                if (i != 0 && maze[i-1][j] == '#') isIsolate = false;
+                if (isIsolate) {
+                    walls.push_back(nsShape::Rectangle(firstPos, firstPos+nsGraphics::Vec2D(30,30), nsGraphics::RGBAcolor(15,24,202,255)));
+                }
+            }
+
+        }
+    }
+    return walls;
+}
+
 PacmanMouth initPacmanmouth(Param &param) {
-    if (param.skins["Pacman"] == 1) return {flowerPacmanClose, 0};
+    if (param.skins["Pacman"] == 1) return {defaultPacmanClose, 0};
+    else if (param.skins["Pacman"] == 2) return {penguinPacmanClose, 0};
+    else if (param.skins["Pacman"] == 3) return {candyPacmanClose, 0};
+    else if (param.skins["Pacman"] == 4) return {flowerPacmanClose, 0};
 }
 
 map<string, Character> initCharacters(Param &param) {
     map<string, Character> mapC;
-    /* Set Pacman Skin*/
     Skin skin;
-    Skin skinMouthClose;
-    if (param.skins["Pacman"] == 1) {skin = flowerPacman; skinMouthClose = flowerPacmanClose;}
-    /*else if (param.skins["Pacman"] == 2) {skin = candyPacman; skinMouthClose = flowerPacmanClose;}
-    else if (param.skins["Pacman"] == 3) {skin = penguinPacman; skinMouthClose = penguinPacmanClose;}*/
+
+    /* Set Pacman Skin*/
+    if (param.skins["Pacman"] == 1) skin = defaultPacman;
+    else if (param.skins["Pacman"] == 2) skin = penguinPacman;
+    else if (param.skins["Pacman"] == 3) skin = candyPacman;
+    else if (param.skins["Pacman"] == 4) skin = flowerPacman;
 
     Character tmp = {
         "Pacman",  // type
@@ -36,13 +71,14 @@ map<string, Character> initCharacters(Param &param) {
     mapC["Pacman"] = tmp;
 
     /* Set Ghost1 Skin*/
-    if (param.skins["Ghost"] == 1) skin = butterflyGhost;
-//    else if (param.skins["Ghost"] == 2) skin = lolipopGhost;
-//    else if (param.skins["Ghost"] == 3) skin = iceCreamGhost;
+    if (param.skins["Ghost"] == 1) skin = defaultGhost;
+    else if (param.skins["Ghost"] == 2) skin = iceCreamGhost;
+    else if (param.skins["Ghost"] == 3) skin = lolipopGhost;
+    else if (param.skins["Ghost"] == 4) skin = butterflyGhost;
 
     tmp = {
         "Ghost",
-        getPosCage(param),
+        Position{getPosCage(param).x, getPosCage(param).y-2},
         "up",
         true,
         350,
@@ -50,15 +86,17 @@ map<string, Character> initCharacters(Param &param) {
         skin
     };
     mapC["Ghost1"] = tmp;
+    tmp.pos = getPosCage(param);
     vector<nsGraphics::RGBAcolor> listPixel;
     vector<string> directions = {"up", "down", "right", "left"};
+
     for (unsigned i(2); i <= param.difficulty["GhostNumber"]; ++i) {
         mapC["Ghost"+to_string(i)] = tmp;
-        mapC["Ghost"+to_string(i)].pos = {i,i};
         for (const string &direction : directions) {
+            /* change the body color of the ghost */
             listPixel = mapC["Ghost1"].skins.defaultState.find(direction)->second.getPixelData();
             for (nsGraphics::RGBAcolor &pixel : listPixel) {
-                if (pixel == skinGhostColors[0]) {
+                if (pixel == skinGhostColors[0] || pixel == nsGraphics::RGBAcolor(255,163,177,255)) {
                     pixel = skinGhostColors[i-1];
                 }
             }
@@ -115,12 +153,18 @@ void initPersonality (vector<string> &characterList, map<string, string> persona
 }
 
 void initMusicsEngine(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic, nsAudio::AudioEngine &gameOverMusic) {
+
+    /* Set the different musics */
     defaultMusic.setMusic("../Pacman/audio/musicDefault.wav");
     madMusic.setMusic("../Pacman/audio/musicMad.wav");
     gameOverMusic.setMusic("../Pacman/audio/musicGameOver.wav");
+
+    /* start all the music */
     defaultMusic.startMusicFromBeginning();
     madMusic.startMusicFromBeginning();
     gameOverMusic.startMusicFromBeginning();
+
+    /* Pause the non necessary music*/
     gameOverMusic.setMusicPlaying(false);
     madMusic.setMusicPlaying(false);
 }

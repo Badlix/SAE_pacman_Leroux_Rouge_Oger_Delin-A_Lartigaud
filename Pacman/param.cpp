@@ -32,7 +32,7 @@ void checkParam(Param &param, AutorizedKeys &autorizedKeys,string &key, string &
     /* check if key is a skin number */
     } else if (find(autorizedKeys.skins.begin(), autorizedKeys.skins.end(), key) != autorizedKeys.skins.end()) {
         /* check if value is a valid skin number */
-        if (value == "1" || value == "2" || value == "3") {
+        if (value == "1" || value == "2" || value == "3" || value == "4") {
             param.skins[key] = stoi(value);
         } else {
             cerr << "Settings Error : '" << key << "' has an invalid value" << endl;

@@ -12,6 +12,14 @@ bool isGhostInCage(const Position &posGhost, Param &param) {
     return false;
 }
 
+bool isEncouterGhostPacman(Character &ghost, Character &pacman) {
+    if (ghost.direction == "up" && pacman.direction == "down" && ghost.pos == Position{pacman.pos.x, pacman.pos.y+1}) return true;
+    if (ghost.direction == "down" && pacman.direction == "up" && ghost.pos == Position{pacman.pos.x, pacman.pos.y-1}) return true;
+    if (ghost.direction == "right" && pacman.direction == "left" && ghost.pos == Position{pacman.pos.x-1, pacman.pos.y}) return true;
+    if (ghost.direction == "left" && pacman.direction == "right" && ghost.pos == Position{pacman.pos.x+1, pacman.pos.y}) return true;
+    return false;
+}
+
 bool isThereAGhostInCage(map<string, Character> &mapCharact, Param &param) {
     for (auto it(mapCharact.begin()) ; it != mapCharact.end() ; ++it) {
         if (isGhostInCage(it->second.pos, param)) return true;
@@ -20,7 +28,7 @@ bool isThereAGhostInCage(map<string, Character> &mapCharact, Param &param) {
 }
 
 bool isFree(char &pos){
-    if (pos != '#' && pos != '-') return true;
+    if (pos != '#' && pos != '-' && pos != '=') return true;
     else return false;
 }
 

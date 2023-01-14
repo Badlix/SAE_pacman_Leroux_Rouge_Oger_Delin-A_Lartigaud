@@ -51,6 +51,8 @@ void switchMouthPacmanOpenClose(Character &pacman, PacmanMouth &pacmanMouth);
  */
 void drawCharacter(MinGL &window, std::vector<std::string> &characterList, std::map<std::string, Character> &charactMap, Param &param);
 
+size_t getNbrOfHorizontalWallInARow (std::vector<std::string> &maze, size_t &horizontalLayer);
+
 /**
  * @brief draw the maze
  * @param window
@@ -58,7 +60,7 @@ void drawCharacter(MinGL &window, std::vector<std::string> &characterList, std::
  * @param param
  * @fn void drawMaze(MinGL &window, const std::vector<std::string> &maze, Param &param)
  */
-void drawMaze(MinGL &window, const std::vector<std::string> &maze, Param &param);
+void drawMaze(MinGL &window, std::vector<std::string> &maze, std::vector<nsShape::Rectangle> &walls, Param &param);
 
 /**
  * @brief launch the movement transition of all characters

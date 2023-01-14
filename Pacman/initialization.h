@@ -1,11 +1,14 @@
 #ifndef INITIALIZATION_H
 #define INITIALIZATION_H
 #include "mingl/audio/audioengine.h"
+#include "mingl/shape/rectangle.h"
 #include "constants.h"
 #include "param.h"
 #include <iostream>
 
 std::vector<std::string> initMaze(Param &param);
+
+std::vector<nsShape::Rectangle> initWalls(std::vector<std::string> &maze);
 
 std::map<std::string, Character> initCharacters(Param &param);
 

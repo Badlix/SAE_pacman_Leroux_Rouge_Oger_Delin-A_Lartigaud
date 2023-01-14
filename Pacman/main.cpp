@@ -19,6 +19,12 @@ using namespace nsGraphics;
 using namespace nsShape;
 using namespace nsTransition;
 
+//int main () {
+//    char nb = '1';
+//    cout << std::stoul(nb) + 5 << endl;
+//    return 0;
+//}
+
 int main()
 {
     // Initalization of core elements
@@ -30,6 +36,7 @@ int main()
     PacmanMouth pacmanMouth = initPacmanmouth(param);
 
     vector<string> maze = initMaze(param);
+    vector<Rectangle> walls = initWalls(maze);
 
     vector<string> characterList;
     for (auto it = characterMap.begin(); it != characterMap.end(); it++) {
@@ -67,11 +74,10 @@ int main()
                     defaultMusic.playSoundFromFile("../Pacman/audio/pacmanEatingBigBubble.wav");
                     eatBigBubble(characterMap["Pacman"], maze, nbBubbleLeft, score);
                     changeEveryoneState(characterMap, false, defaultMusic, madMusic);
-                    //switchMusic(defaultMusic, madMusic, characterMap["Pacman"].isDefaultState);
                     bigBubbleDuration = 0;
                 }
-                tmpMoveGhost(maze, characterMap, param);
                 checkEating(param, characterMap, isGameRunning, score, defaultMusic);
+                tmpMoveGhost(maze, characterMap, param);
                 ++bigBubbleDuration;
                 if (bigBubbleDuration == 30) {
                     changeEveryoneState(characterMap, true, defaultMusic, madMusic);
@@ -87,7 +93,7 @@ int main()
         transitionEngine.update(frameTime);
         if (isGameRunning) {
             switchMouthPacmanOpenClose(characterMap["Pacman"], pacmanMouth);
-            drawMaze(window, maze, param);
+            drawMaze(window, maze, walls, param);
             drawCharacter(window, characterList, characterMap, param);
         }  else {
             if (!gameoverMusic.isMusicPlaying()) {

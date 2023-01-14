@@ -4,7 +4,7 @@
 # 1 : Default Maze
 # 2 : Casali Maze
 
-Maze : 1
+Maze : 2
 
 # Choose the number of ghosts betwwen 1 to 4.
 
@@ -13,8 +13,8 @@ GhostNumber : 4
 # Choose pacman and ghosts skins.
 # 1 : default skin
 
-Pacman : 1
-Ghost : 1
+Pacman : 4
+Ghost : 4
 
 # Keybinding
 

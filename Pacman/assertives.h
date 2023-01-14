@@ -14,6 +14,15 @@
 bool isGhostInCage(const Position &posGhost, Param &param);
 
 /**
+ * @brief check if pacman encounter a ghost
+ * @param ghost
+ * @param pacman
+ * @return bool
+ * @fn bool isEncouterGhostPacman(Character &ghost, Character &pacman)
+ */
+bool isEncouterGhostPacman(Character &ghost, Character &pacman);
+
+/**
  * @brief check if there is at least one ghost in the cage
  * @param mapCharact
  * @param param

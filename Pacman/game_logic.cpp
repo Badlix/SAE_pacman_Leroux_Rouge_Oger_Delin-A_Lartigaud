@@ -73,7 +73,8 @@ void changeEveryoneState(map<string, Character> &mapCharact, bool newValue, nsAu
     switchMusic(defaultMusic, madMusic, mapCharact["Pacman"].isDefaultState);
 }
 
-void eatGhost(Param &param, Character &ghost, unsigned &score) {
+void eatGhost(Param &param, Character &ghost, unsigned &score, nsAudio::AudioEngine &audioEngine) {
+    audioEngine.playSoundFromFile("../Pacman/audio/pacmanEatingGhost.wav");
     ghost.pos = getPosCage(param);
     score += 500;
 }
@@ -86,13 +87,12 @@ void eatFruit(map<string, Character> &mapC, string fruitKey, unsigned &score) {
 void checkEating(Param &param, map<string, Character> &mapC, bool &isGameRunning, unsigned &score, nsAudio::AudioEngine &audioEngine) {
     for (auto it = mapC.begin(); it != mapC.end(); it++) {
         if (it->second.type == "Ghost") {
-            if (isSamePos(mapC["Pacman"], it->second)) {
+            if (isSamePos(mapC["Pacman"], it->second) || isEncouterGhostPacman(it->second, mapC["Pacman"])) {
                 if (it->second.isDefaultState == true) {
                     audioEngine.playSoundFromFile("../Pacman/audio/pacmanDies.wav");
                     gameOver(isGameRunning);
                 } else {
-                    audioEngine.playSoundFromFile("../Pacman/audio/pacmanEatingGhost.wav");
-                    eatGhost(param, it->second, score);
+                    eatGhost(param, it->second, score, audioEngine);
                 }
             }
         } else if (it->second.type == "Fruit") {
