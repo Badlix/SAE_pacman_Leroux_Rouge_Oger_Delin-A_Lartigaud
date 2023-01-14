@@ -84,7 +84,7 @@ Position getPosCage(Param &param) {
 
 // tests
 
-void showMap(map<string, Character> &myMap) {
+void showMap(const std::map<string, Character> &myMap) {
     for (auto it = myMap.begin(); it != myMap.end(); it++) {
         cout << it->first << " -> ";
         cout << " pos.x : " << it->second.pos.x;
