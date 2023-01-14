@@ -5,7 +5,11 @@
 #include "constants.h"
 #include <iostream>
 
-// game control
+
+void tmpMoveGhost(std::vector<std::string> &maze, std::map<std::string, Character> &characterMap, Param &param);
+
+// ---------- Game Control ---------- //
+
 
 /**
  * @brief check the keyboard input and move the character is possible
@@ -23,7 +27,9 @@ void keyboardInput(MinGL &window, Param &param, Character &pacman, std::vector<s
  */
 void gameOver(bool &isGameRunning);
 
-// general functions
+
+// ---------- General Functions ---------- //
+
 
 /**
  * @brief give a random direction to go
@@ -61,7 +67,9 @@ Position nextMove(std::string &direction, Position &currentPos);
  */
 std::vector<std::string> possibleDirections(Position &currentPos, std::vector<std::string> &maze);
 
-// get functions
+
+// ---------- "Get" Functions ---------- //
+
 
 /**
  * @brief give the direction used to go from the first position to the second
@@ -88,7 +96,9 @@ std::vector<Position> getPosTeleporter(Param &param);
  */
 Position getPosCage(Param &param);
 
-// tests
+
+// ---------- Functions used for tests ---------- //
+
 
 /**
  * @brief show the maze

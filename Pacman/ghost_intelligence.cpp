@@ -17,7 +17,7 @@ void setNodesQuality(vector<Position> &nodes, map<Position, unsigned> &openNodes
 }
 
 vector<Position> getAllNodes(vector<string> &maze){
-    vector<Position> nodes;
+    vector<Position> nodes = {};
     for (size_t i = 0 ; i < maze.size() ; ++i) {
         for (size_t j = 0 ; j < maze.size() ; ++j) {
             if (isFree(maze[i][j])) nodes.push_back(Position{static_cast<int>(i), static_cast<int>(j)});

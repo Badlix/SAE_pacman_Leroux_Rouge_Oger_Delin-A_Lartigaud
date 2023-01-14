@@ -26,6 +26,19 @@ void moveCharacterTeleporter (vector<string> &maze, Character &character, Param&
     }
 }
 
+void letGhostOut(std::map<std::string, Character> &mapCharact, unsigned &jailGhostDuration, Param &param) {
+    if (isThereAGhostInCage(mapCharact, param)) {
+        if (jailGhostDuration > 25) jailGhostDuration = 0;
+        for (auto it = mapCharact.begin(); it != mapCharact.end(); it++) {
+            if (isGhostInCage(it->second.pos, param) && jailGhostDuration == 25) {
+                moveCharacter(it->second, "up");
+                break;
+            }
+        }
+    }
+    ++jailGhostDuration;
+}
+
 void eatBubble (const Character &character, vector<string> &maze, size_t &bubbleLeft, unsigned &score){
     if(character.direction == "up") maze[character.pos.y+1][character.pos.x] = ' ';
     else if(character.direction == "down") maze[character.pos.y-1][character.pos.x] = ' ';
@@ -47,9 +60,9 @@ void eatBigBubble (const Character &character, vector<string> &maze, size_t &bub
 void changeState(Character &charact) {
     charact.isDefaultState = !charact.isDefaultState;
     if (charact.isDefaultState) {
-        if (charact.type == "Pacman") charact.vitesse = 500;
+        if (charact.type == "Pacman") charact.vitesse += 100;
     } else {
-        if (charact.type == "Pacman") charact.vitesse = 300;
+        if (charact.type == "Pacman") charact.vitesse -= 100;
     }
 }
 

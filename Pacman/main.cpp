@@ -2,6 +2,9 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "mingl/mingl.h"
 #include "mingl/transition/transition_engine.h"
 #include "mingl/audio/audioengine.h"
@@ -50,7 +53,8 @@ int main()
 
     unsigned score (0);
     bool isTransitionFinished (true);
-    unsigned bigBubbleDuration(0);
+    unsigned bigBubbleDuration (0);
+    unsigned jailGhostDuration (0);
     chrono::microseconds frameTime = chrono::microseconds::zero();
     while (window.isOpen())
     {
@@ -66,12 +70,14 @@ int main()
                     //switchMusic(defaultMusic, madMusic, characterMap["Pacman"].isDefaultState);
                     bigBubbleDuration = 0;
                 }
+                tmpMoveGhost(maze, characterMap, param);
                 checkEating(param, characterMap, isGameRunning, score, defaultMusic);
                 ++bigBubbleDuration;
                 if (bigBubbleDuration == 30) {
                     changeEveryoneState(characterMap, true, defaultMusic, madMusic);
                     switchMusic(defaultMusic, madMusic, characterMap["Pacman"].isDefaultState);
                 }
+                letGhostOut(characterMap, jailGhostDuration, param);
                 isTransitionFinished = false;
                 launchTransitions(transitionEngine, characterMap, isTransitionFinished, characterList);
             }
@@ -79,7 +85,6 @@ int main()
         chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
         window.clearScreen();
         transitionEngine.update(frameTime);
-        //letGhostsOut();
         if (isGameRunning) {
             switchMouthPacmanOpenClose(characterMap["Pacman"], pacmanMouth);
             drawMaze(window, maze, param);

@@ -12,8 +12,15 @@ bool isGhostInCage(const Position &posGhost, Param &param) {
     return false;
 }
 
+bool isThereAGhostInCage(map<string, Character> &mapCharact, Param &param) {
+    for (auto it(mapCharact.begin()) ; it != mapCharact.end() ; ++it) {
+        if (isGhostInCage(it->second.pos, param)) return true;
+    }
+    return false;
+}
+
 bool isFree(char &pos){
-    if (pos != '#' && pos != '-' && pos != '~') return true;
+    if (pos != '#' && pos != '-') return true;
     else return false;
 }
 

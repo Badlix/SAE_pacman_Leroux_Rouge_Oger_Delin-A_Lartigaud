@@ -23,6 +23,15 @@ void moveCharacter(Character &character, std::string direction);
 void moveCharacterTeleporter(std::vector<std::string> &maze, Character &character, Param& param);
 
 /**
+ * @brief free a ghost after a certain delay if there is one in the cage
+ * @param mapCharact
+ * @param jailGhostDuration : unsigned used as a timer
+ * @param param
+ * @fn void letGhostOut(std::map<std::string, Character> &mapCharact, unsigned &jailGhostDuration, Param &param)
+ */
+void letGhostOut(std::map<std::string, Character> &mapCharact, unsigned &jailGhostDuration, Param &param);
+
+/**
  * @brief eat a bubble
  * @param[in] character
  * @param maze

@@ -4,10 +4,12 @@
 #include "game_logic.h"
 #include "assertives.h"
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
-// game control
+// ---------- Game Control ---------- //
+
 
 void keyboardInput(MinGL &window, Param &param, Character &pacman, vector<string> &maze){
     // called inbetween every transition
@@ -33,24 +35,27 @@ void gameOver(bool &isisisGameRunning) {
     isisisGameRunning = false;
 }
 
-// general functions
+
+// ---------- General Functions ---------- //
+
 
 vector<string> possibleDirections(Position &currentPos, vector<string> &maze){
-    vector<string> directions;
-    if ( isFree(maze[currentPos.y-1][currentPos.x]) ) directions.push_back("up");
-    if ( isFree(maze[currentPos.y+1][currentPos.x]) ) directions.push_back("down");
-    if ( isFree(maze[currentPos.y][currentPos.x-1]) ) directions.push_back("left");
-    if ( isFree(maze[currentPos.y][currentPos.x+1]) ) directions.push_back("right");
+    vector<string> directions = {};
+    if (isFree(maze[currentPos.y-1][currentPos.x])) directions.push_back("up");
+    if (isFree(maze[currentPos.y+1][currentPos.x])) directions.push_back("down");
+    if (isFree(maze[currentPos.y][currentPos.x-1])) directions.push_back("left");
+    if (isFree(maze[currentPos.y][currentPos.x+1])) directions.push_back("right");
     return directions;
 }
 
 string randomDirection(Position &pos, vector<string> &maze){
     vector<string> directions = possibleDirections(pos, maze);
-    return directions[(rand()%directions.size())-1];
+    return directions[rand()%(directions.size())];
+    // rand between [0, directions.size()-1]
 }
 
 Character randomCharacter(map<string, Character> &characters, vector<string> &characterList) {
-    return characters[characterList[rand()%characterList.size()-1]];
+    return characters[characterList[rand()%characterList.size()]];
 }
 
 Position nextMove(string &direction, Position &currentPos){
@@ -82,7 +87,18 @@ Position getPosCage(Param &param) {
    return {0,0};
 }
 
-// tests
+
+// ---------- Functions used for tests ---------- //
+
+void tmpMoveGhost(std::vector<std::string> &maze, map<std::string, Character> &characterMap, Param &param) {
+    for (auto it (characterMap.begin()) ; it != characterMap.end() ; ++it) {
+        if (it->second.type == "Ghost") {
+            if (it->second.type == "Ghost" && it->second.pos == getPosCage(param)) continue;
+            it->second.direction = randomDirection(it->second.pos, maze);
+            moveCharacter(it->second, it->second.direction);
+        }
+    }
+}
 
 void showMap(const std::map<string, Character> &myMap) {
     for (auto it = myMap.begin(); it != myMap.end(); it++) {

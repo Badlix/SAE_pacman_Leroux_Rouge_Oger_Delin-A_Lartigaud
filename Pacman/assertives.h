@@ -14,6 +14,15 @@
 bool isGhostInCage(const Position &posGhost, Param &param);
 
 /**
+ * @brief check if there is at least one ghost in the cage
+ * @param mapCharact
+ * @param param
+ * @return bool
+ * @fn bool isThereAGhostInCage(map<string, Character> &mapCharact, Param &param)
+ */
+bool isThereAGhostInCage(std::map<std::string, Character> &mapCharact, Param &param);
+
+/**
  * @brief check if a emplacement is free
  * @param pos : char
  * @return true if free, false if not

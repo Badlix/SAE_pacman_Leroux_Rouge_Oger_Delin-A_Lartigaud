@@ -26,7 +26,7 @@ map<string, Character> initCharacters(Param &param) {
 
     Character tmp = {
         "Pacman",  // type
-        {1, 1}, // position
+        {20, 10}, // position
         "right", // direction
         true, // isDefaultState
         400, // vitesse
@@ -45,7 +45,7 @@ map<string, Character> initCharacters(Param &param) {
         getPosCage(param),
         "up",
         true,
-        500,
+        350,
         {nsGui::Sprite({nsGraphics::RGBAcolor{0,0,0,0}}, 1,  nsGraphics::Vec2D(0,0))},
         skin
     };

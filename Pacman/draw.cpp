@@ -106,7 +106,7 @@ void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character>
     for (const string &name : names) {
         posEnd = calcPosTransition(charactMap[name].pos);
         nsTransition::TransitionContract a(charactMap[name].sprite[0],
-                             charactMap[name].sprite[0].TRANSITION_POSITION, chrono::milliseconds(charactMap[name].vitesse-200),{(float)(posEnd.getX()), (float)(posEnd.getY())});
+                             charactMap[name].sprite[0].TRANSITION_POSITION, chrono::milliseconds(charactMap[name].vitesse),{(float)(posEnd.getX()), (float)(posEnd.getY())});
         if (name == "Pacman") {
             a.setDestinationCallback([&] {
                 isTransitionFinished = true;
