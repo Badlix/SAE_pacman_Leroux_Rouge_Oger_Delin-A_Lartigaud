@@ -15,19 +15,19 @@ using namespace std;
 using namespace nsGraphics;
 using namespace nsShape;
 
-void switchMusic(nsAudio::AudioEngine &defaultMusicEngine, nsAudio::AudioEngine &madMusicEngine, bool &pacmanDefaultState) {
+void switchMusic(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic, const bool &pacmanDefaultState) {
     if (!pacmanDefaultState) {
-        if (!madMusicEngine.isMusicPlaying()) {
-            defaultMusicEngine.setMusicPlaying(false);
-            madMusicEngine.setMusicPlaying(true);
+        if (!madMusic.isMusicPlaying()) {
+            defaultMusic.setMusicPlaying(false);
+            madMusic.setMusicPlaying(true);
         }
     } else {
-        madMusicEngine.setMusicPlaying(false);
-        defaultMusicEngine.setMusicPlaying(true);
+        madMusic.setMusicPlaying(false);
+        defaultMusic.setMusicPlaying(true);
     }
 }
 
-void drawGameOverScreen(MinGL &window, bool &isVictory, unsigned &score) {
+void drawGameOverScreen(MinGL &window, const bool &isVictory, const unsigned &score) {
     nsGui::Sprite gameOver("../Pacman/skins/gameover.si2", Vec2D(0, 0));
     gameOver.setPosition(Vec2D(window.getWindowSize().getX()/2-gameOver.getRowSize()/2, 200));
     window << gameOver;
@@ -45,7 +45,7 @@ void drawGameOverScreen(MinGL &window, bool &isVictory, unsigned &score) {
     window << textScore;
 }
 
-void drawCage(MinGL &window, Vec2D pos) {
+void drawCage(MinGL &window, const Vec2D pos) {
     window << Line(pos, pos + Vec2D(1*50, 0), KSilver, 5.0);
     window << Line(pos + Vec2D(2*50,0), pos + Vec2D{3*50, 0}, KSilver, 5.0);
     window << Line(pos, pos + Vec2D{0, 2*50}, KSilver, 5.0);
@@ -54,12 +54,12 @@ void drawCage(MinGL &window, Vec2D pos) {
     window << Line(pos + Vec2D(1*50, 0), pos + Vec2D(2*50, 0), KSilver, 1.0);
 }
 
-void drawMaze(MinGL &window, vector<string> &maze, Param &param) {
+void drawMaze(MinGL &window, const std::vector<string> &maze, Param &param) {
     for (size_t i(0); i < maze.size(); ++i) {
         for (size_t j(0); j < maze[0].size(); ++j) {
             switch (maze[i][j]) {
             case '#':
-                window << Rectangle(posBegin + Vec2D(j*50,i*50), posBegin + Vec2D(j*50+50, i*50+50), KBlue);
+                window << Rectangle(posBegin + Vec2D(j*50,i*50), posBegin + Vec2D(j*50+50, i*50+50), RGBAcolor(0,0,255,150));
                 break;
             case '.':
                 window << Circle(posBegin + Vec2D(j*50+25, i*50+25), 3, KYellow);
@@ -76,7 +76,7 @@ void drawMaze(MinGL &window, vector<string> &maze, Param &param) {
     }
 }
 
-void drawCharacter(MinGL &window, vector<string> &characterList, map<string, Character> &charactMap, Param &param) {
+void drawCharacter(MinGL &window, std::vector<string> &characterList, std::map<string, Character> &charactMap, Param &param) {
     for (string &name : characterList) {
         if (name == "Pacman" && (charactMap[name].pos == getPosTeleporter(param)[0] || charactMap[name].pos == getPosTeleporter(param)[1])) continue;
         if (charactMap[name].isDefaultState) {
@@ -97,14 +97,14 @@ void switchMouthPacmanOpenClose(Character &pacman, PacmanMouth &pacmanMouth) {
     ++pacmanMouth.delay;
 }
 
-Vec2D calcPosTransition(Character &charact) {
-    return {posBegin.getX() + charact.pos.x*50, posBegin.getY() + charact.pos.y*50};
+Vec2D calcPosTransition(Position &posCharact) {
+    return {posBegin.getX() + posCharact.x*50, posBegin.getY() + posCharact.y*50};
 }
 
 void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character> &charactMap, bool &isTransitionFinished, vector<string> &names) {
     Vec2D posEnd;
     for (const string &name : names) {
-        posEnd = calcPosTransition(charactMap[name]);
+        posEnd = calcPosTransition(charactMap[name].pos);
         nsTransition::TransitionContract a(charactMap[name].sprite[0],
                              charactMap[name].sprite[0].TRANSITION_POSITION, chrono::milliseconds(charactMap[name].vitesse-200),{(float)(posEnd.getX()), (float)(posEnd.getY())});
         if (name == "Pacman") {

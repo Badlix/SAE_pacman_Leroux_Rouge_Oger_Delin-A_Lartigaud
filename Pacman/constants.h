@@ -6,6 +6,9 @@
 #include <vector>
 #include <iostream>
 
+/**
+ * @brief The Position struct
+ */
 struct Position {
     unsigned x;
     unsigned y;
@@ -20,16 +23,25 @@ struct Position {
     }
 };
 
+/**
+ * @brief The Skin struct
+ */
 struct Skin {
     std::map<std::string, nsGui::Sprite> defaultState;
     std::map<std::string, nsGui::Sprite> madState;
 };
 
+/**
+ * @brief The PacmanMouth struct
+ */
 struct PacmanMouth {
     Skin skins;
     unsigned delay;
 };
 
+/**
+ * @brief The Character struct
+ */
 struct Character {
     std::string type; //Pacman, Ghost, Fruit
     Position pos;
@@ -42,6 +54,7 @@ struct Character {
 
 // ---------- Global Values ---------- //
 
+/* Begin of the area where the game element are draw */
 const static nsGraphics::Vec2D posBegin = {200,150};
 
 // ---------- Maze Patterns ---------- //

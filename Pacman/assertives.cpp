@@ -5,8 +5,8 @@
 
 using namespace std;
 
-bool isGhostInCage(Character ghost, Param &param) {
-    if (ghost.pos == getPosCage(param)) {
+bool isGhostInCage(const Position posGhost, Param &param) {
+    if (posGhost == getPosCage(param)) {
         return true;
     }
     return false;

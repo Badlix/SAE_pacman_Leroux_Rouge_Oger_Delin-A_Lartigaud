@@ -1,9 +1,18 @@
 #ifndef ASSERTIVES_H
 #define ASSERTIVES_H
 #include "constants.h"
+#include "param.h"
 #include <iostream>
 
-bool isGhostInCage(Character ghost, Param &param);
+
+/**
+ * @brief check if the ghost is in the cage
+ * @param[in] posGhost : position of the ghost
+ * @param[in] param
+ * @return bool
+ * @fn bool isGhostInCage(Character ghost, Param &param)
+ */
+bool isGhostInCage(const Position posGhost, const Param &param);
 
 /**
  * @brief check if a emplacement is free
