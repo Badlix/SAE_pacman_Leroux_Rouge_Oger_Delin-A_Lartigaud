@@ -174,7 +174,6 @@ size_t nbBubbleInMaze(vector<string> &maze){
     return bubbleLeft;
 }
 
-
 /**
 * @brief initialize the personnality of each character
 * @param characterList list of characters
@@ -186,18 +185,18 @@ size_t nbBubbleInMaze(vector<string> &maze){
 * The normal personality has a 30*difficulty - 20 drop rate
 * The hard personality has a 20 drop rate
 */
-void initPersonality (vector<string> &characterList, map<string, string> personalities, Param &param) {
+void initPersonality (vector<string> &characterList, map<string, string> personalities, unsigned &difficulty) {
     //Each personnality has a level of difficulty.
     //The chances of it to drop are in percentage.
 
     //Initialization of the personalities
-    vector<string> easyPersonality = {"dumb"};
-    vector<string> normalPersonality = {"confused"};
-    vector<string> hardPersonality = {"hardcore"};
+    vector<string> easyPersonality {"dumb"};
+    vector<string> normalPersonality {"confused"};
+    vector<string> hardPersonality {"hardcore"};
 
     //Initialization of the droprate of each level of difficulty :
-    unsigned easy = 100 - 30*param.difficulty["Difficulty"];
-    unsigned hard = 30 * param.difficulty["Difficulty"] - 20;
+    unsigned easy = 100 - 30*difficulty;
+    unsigned hard = 30 * difficulty - 20;
     unsigned normal = 100 - easy - hard ;
 
     //Application of a random personality to each characters
@@ -206,18 +205,15 @@ void initPersonality (vector<string> &characterList, map<string, string> persona
     for (size_t i = 0 ; i < characterList.size() ; ++i) {
         random = rand()%100;
         if (random <= easy) {
-            //personality = easyPersonality[(rand()%easyPersonality.size())-1];
-            personality = "dumb";
+            personality = easyPersonality[(rand()%easyPersonality.size())-1];
             personalities.insert({characterList[i], personality});
         }
         else if (random <= easy+normal){
-            //personality = normalPersonality[(rand()%normalPersonality.size())-1];
-            personality = "confused";
+            personality = normalPersonality[(rand()%normalPersonality.size())-1];
             personalities.insert({characterList[i], personality});
         }
         else {
-            //personality = hardPersonality[(rand()%hardPersonality.size())-1];
-            personality = "hardcore";
+            personality = hardPersonality[(rand()%hardPersonality.size())-1];
             personalities.insert({characterList[i], personality});
         }
     }

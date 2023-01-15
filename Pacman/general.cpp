@@ -113,11 +113,10 @@ Character randomCharacter(map<string, Character> &characterMap) {
  * The function checks the direction and returns the next position accordingly.
  */
 Position nextMove(string &direction, Position &currentPos){
-    //Give the next Position going from the current Position (&currentPos) by a given direction (&direction).
     if (direction == "up") return Position{currentPos.x, currentPos.y-1};
     else if (direction == "down") return Position{currentPos.x, currentPos.y+1};
     else if (direction == "left") return Position{currentPos.x-1, currentPos.y};
-    else if (direction == "right") return Position{currentPos.x+1, currentPos.y};
+    else return Position{currentPos.x+1, currentPos.y}; //if (direction == "right")
 }
 
 /**
@@ -130,11 +129,10 @@ Position nextMove(string &direction, Position &currentPos){
  * The function compares the x and y coordinates of the two positions and returns the corresponding direction of the movement.
  */
 string getDirection(Position &pos1, Position &pos2){
-    //Give the direction used to go from &pos1 to &pos2
-    if ( pos1.x == pos2.x && pos1.y-1 == pos2.y ) return "up";
-    else if ( pos1.x == pos2.x && pos1.y+1 == pos2.y ) return "down";
-    else if ( pos1.x-1 == pos2.x && pos1.y == pos2.y ) return "left";
-    else if ( pos1.x+1 == pos2.x && pos1.y == pos2.y )return "right";
+    if ( pos1.x-1 == pos2.x && pos1.y == pos2.y ) return "up";
+    else if ( pos1.x+1 == pos2.x && pos1.y == pos2.y ) return "down";
+    else if ( pos1.x == pos2.x && pos1.y-1 == pos2.y ) return "left";
+    else return "right"; //if ( pos1.x == pos2.x && pos1.y+1 == pos2.y )
 }
 
 /**
@@ -169,7 +167,6 @@ Position getPosCage(Param &param) {
 }
 
 // ---------- Functions used for tests ---------- //
-
 
 /**
  * @fn tmpMoveGhost

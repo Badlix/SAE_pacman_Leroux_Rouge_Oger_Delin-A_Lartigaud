@@ -56,7 +56,7 @@ size_t nbBubbleInMaze(std::vector<std::string> &maze);
 * @param personalities A reference to the map containing the personalities for the characters
 * @param difficulty A reference to the difficulty level
 */
-void initPersonality (std::vector<std::string> &characterList, std::map<std::string, std::string> personalities, Param &param);
+void initPersonality (std::vector<std::string> &characterList, std::map<std::string, std::string> personalities, unsigned &difficulty);
 
 /**
 * @brief Initialize the music engine for the game
@@ -64,6 +64,6 @@ void initPersonality (std::vector<std::string> &characterList, std::map<std::str
 * @param madMusic A reference to the music engine played when the player eats a power pellet
 * @param gameOverMusic A reference to the music engine played when the player loses
 */
-void initMusicsEngine(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic, nsAudio::AudioEngine &gameOverMusic);
+void initMuscEngine(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic, nsAudio::AudioEngine &gameOverMusic);
 
 #endif // INITIALIZATION_H

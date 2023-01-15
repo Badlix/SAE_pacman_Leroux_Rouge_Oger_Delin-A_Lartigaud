@@ -33,13 +33,17 @@ struct AutorizedKeys {
 * @brief Initialize the Param struct with default values.
 * @param[in,out] param The struct that holds the parameter's values.
 */
-void initParam(Param &param);
+void initParam(Param &param) {
+    //...
+}
 
 /**
 * @brief Load the parameters from a file.
 * @param[in,out] param The struct that holds the parameter's values.
 */
-void loadParam(Param &param);
+void loadParam(Param &param) {
+    //...
+}
 
 /**
 * @brief Check if the key and value are valid and store them in the param struct
@@ -48,6 +52,9 @@ void loadParam(Param &param);
 * @param[in] key The key of the parameter.
 * @param[in] value The value of the parameter.
 */
-void checkParam(Param &param, AutorizedKeys &autorizedKeys, std::string &key, std::string &value);
+void checkParam(Param &param, AutorizedKeys &autorizedKeys, std::string &key, std::string &value) {
+    //...
+}
+
 
 #endif // PARAM_H

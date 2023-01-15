@@ -37,8 +37,8 @@ int main()
         characterList.push_back(it->first);
     }
 
-    map<string, string> personalities = {};
-    initPersonality(characterList, personalities, param);
+    vector<string> personalities;
+    initPersonality(characterList, personalities, param.difficulty);
 
     srand(time(NULL));
 
@@ -78,8 +78,7 @@ int main()
                     bigBubbleDuration = 0;
                 }
                 checkEating(param, characterMap, isGameRunning, score, defaultMusic);
-                moveAllGhost(maze, characterMap, characterList, personalities, param);
-                //tmpMoveGhost(maze, characterMap, param);
+                tmpMoveGhost(maze, characterMap, param);
                 checkEating(param, characterMap, isGameRunning, score, defaultMusic);
                 ++bigBubbleDuration;
                 if (bigBubbleDuration == 30) {
