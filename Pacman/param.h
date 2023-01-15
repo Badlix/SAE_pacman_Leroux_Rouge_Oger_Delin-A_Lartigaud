@@ -13,7 +13,7 @@ struct Param {
 struct AutorizedKeys {
     const std::vector<std::string> moveKeys {"KeyUp", "KeyDown", "KeyRight", "KeyLeft"};
     const std::vector<std::string> skins {"Maze", "Pacman", "Ghost"};
-    const std::vector<std::string> difficulty {"GhostNumber"};
+    const std::vector<std::string> difficulty {"GhostNumber", "Difficulty"};
 };
 
 void initParam(Param &param);

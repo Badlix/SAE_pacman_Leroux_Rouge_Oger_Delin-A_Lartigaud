@@ -16,6 +16,7 @@ void initParam(Param &param) {
     param.skins["Ghost"] = 1;
     param.skins["Maze"] = 1;
     param.difficulty["GhostNumber"] = 4;
+    param.difficulty["Difficulty"] = 2;
 }
 
 void checkParam(Param &param, AutorizedKeys &autorizedKeys,string &key, string &value)
@@ -39,7 +40,7 @@ void checkParam(Param &param, AutorizedKeys &autorizedKeys,string &key, string &
         }
 
     /* check if key is the number of ghosts */
-    } else if (key == "GhostNumber") {
+    } else if (find(autorizedKeys.difficulty.begin(), autorizedKeys.difficulty.end(), key) != autorizedKeys.difficulty.end()) {
         /* check if value is a valid number of ghosts */
         if (value == "1" || value == "2" || value == "3" || value == "4") {
             param.difficulty[key] = stoi(value);

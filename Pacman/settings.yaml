@@ -6,9 +6,13 @@
 
 Maze : 2
 
-# Choose the number of ghosts betwwen 1 to 4.
+# Choose the number of ghosts between 1 to 4.
 
 GhostNumber : 4
+
+# Choose the difficulty between 1 to 3
+
+Difficulty : 2
 
 # Choose pacman and ghosts skins.
 # 1 : default skin
