@@ -4,7 +4,7 @@
 # 1 : Default Maze
 # 2 : Casali Maze
 
-Maze : 2
+Maze : 1
 
 # Choose the number of ghosts between 1 to 4.
 
@@ -16,6 +16,9 @@ Difficulty : 2
 
 # Choose pacman and ghosts skins.
 # 1 : default skin
+# 2 : Ice Skin
+# 3 : Sugar Skin
+# 4 : Garden Skin
 
 Pacman : 1
 Ghost : 1

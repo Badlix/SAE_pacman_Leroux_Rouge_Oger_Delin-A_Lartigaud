@@ -6,66 +6,53 @@
 #include <iostream>
 
 /**
- * @brief change the position of a character depending a position
- * @param character
- * @param direction
- * @fn void moveCharacter(Character &c, std::string direction)
- */
+* @brief Move a character in a specific direction
+* @param character the character to move
+* @param direction the direction to move the character in ("up", "right", "down", "left")
+* @note This function does not check if the move is valid (if the character will collide with a wall for example)
+*/
 void moveCharacter(Character &character, std::string direction);
 
 /**
- * @brief teleport pacman
- * @param maze
- * @param character
- * @param param
- * @fn void moveCharacterTeleporter (std::vector<std::string> &maze, Character &Character, Param& param)
- */
+* @brief Move the character through the teleporter
+* @param maze The current game maze
+* @param character The character to move
+* @param param The game parameters
+*/
 void moveCharacterTeleporter(std::vector<std::string> &maze, Character &character, Param& param);
 
 /**
- * @brief free a ghost after a certain delay if there is one in the cage
- * @param mapCharact
- * @param jailGhostDuration : unsigned used as a timer
- * @param param
- * @fn void letGhostOut(std::map<std::string, Character> &mapCharact, unsigned &jailGhostDuration, Param &param)
- */
+* @brief This function allows the ghosts to leave the jail
+* @param mapCharact a map containing all the characters of the game
+* @param jailGhostDuration a variable to keep track of the time the ghost stayed in the jail
+* @param param contains all the necessary parameters of the game
+*/
 void letGhostOut(std::map<std::string, Character> &mapCharact, unsigned &jailGhostDuration, Param &param);
 
 /**
- * @brief eat a bubble
- * @param[in] character
- * @param maze
- * @param bubbleLeft : number of bubble not eaten
- * @param score
- * @fn void eatBubble (const Character &character, std::vector<std::string> &maze, size_t &bubbleLeft, unsigned &score)
- */
+* @brief Eat a bubble in the current position of the character and increment the score
+* @param character : The character that eats the bubble
+* @param maze : The current game maze
+* @param bubbleLeft : The number of bubble left in the maze
+* @param score : The score of the player
+*/
 void eatBubble(const Character &character, std::vector<std::string> &maze, size_t &bubbleLeft, unsigned &score);
 
 /**
- * @brief eatBigBubble
- * @param[in] character
- * @param maze
- * @param bubbleLeft : number of bubble not eaten
- * @param score
- * @fn void eatBigBubble(const Character &character, std::vector<std::string> &maze, size_t &bubbleLeft, unsigned &score)
- */
-void eatBigBubble(const Character &character, std::vector<std::string> &maze, size_t &bubbleLeft, unsigned &score);
-
-/**
- * @brief change the state of a character
- * @param charact
- * @fn void changeState(Character &charact)
- */
+* @brief Change the state of a character
+* @param charact The character whose state needs to be changed
+* This function changes the state of the character passed as a parameter. It inverts the value of the "isDefaultState" attribute of the character.
+* If the character is of type "Pacman", it also modifies the character's speed depending on the new state.
+*/
 void changeState(Character &charact);
 
 /**
- * @brief change everyone state
- * @param mapCharact
- * @param newValue : new value to assign to the value isDefaultState of all characters
- * @param defaultMusic
- * @param madMusic
- * @fn void changeEveryoneState(std::map<std::string, Character> &mapCharact, bool newValue, nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic)
- */
+* @brief Change the state of every character in the map to the given value.
+* @param mapCharact A map containing all the characters in the game.
+* @param newValue The new state that will be applied to every character.
+* @param defaultMusic The background music that is played when pacman is in his default state.
+* @param madMusic The background music that is played when pacman is in his mad state.
+*/
 void changeEveryoneState(std::map<std::string, Character> &mapCharact, bool newValue, nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic);
 
 /**
@@ -78,23 +65,26 @@ void changeEveryoneState(std::map<std::string, Character> &mapCharact, bool newV
 //void eatFruit(std::map<std::string, Character> &mapC, std::string fruitKey, unsigned &score);
 
 /**
- * @brief ghost goes back to the cage and defaultState
- * @param param
- * @param ghost
- * @param score
- * @fn void eatGhost(Param &param, Character &ghost, unsigned &score);
- */
+* @brief This function is used to make pacman eat the ghost and update the score accordingly
+* @param param is used to access the position of the cage where the ghost will be sent
+* @param ghost is the ghost that is going to be eaten
+* @param score is the current score of the game and will be updated
+* @param audioEngine is used to play the sound of pacman eating the ghost
+*/
 void eatGhost(Param &param, Character &ghost, unsigned &score, nsAudio::AudioEngine &audioEngine);
 
 /**
- * @brief check if a character is eating an another one
- * @param param
- * @param mapC
+ * @brief check if a character is eating something
+ * @param param is used to access the position of the cage where the ghost will be sent
+ * @param mapC is used to access the position of the cage where the ghost will be sent
+ * @param maze The current game maze
  * @param isGameRunning
- * @param score
- * @param audioEngine
+ * @param score is the current score of the game and will be updated
+ * @param nbBubbleLeft : The number of bubble left in the maze
+ * @param bigBubbleDuration a variable to keep track of the time the pacman stayed in mad mode
+ * @param audioEngine is used to play differents sounds effect
  * @fn void checkEating(Param &param, std::map<std::string, Character> &mapC, bool &isGameRunning, unsigned &score, nsAudio::AudioEngine &audioEngine)
  */
-void checkEating(Param &param, std::map<std::string, Character> &mapC, bool &isGameRunning, unsigned &score, nsAudio::AudioEngine &audioEngine);
+void checkEating(Param &param, std::map<std::string, Character> &mapC, std::vector<std::string> &maze, bool &isGameRunning, unsigned &score, unsigned &nbBubbleLeft, unsigned &bigBubbleDuration, nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic);
 
 #endif // GAMELOGIC_H

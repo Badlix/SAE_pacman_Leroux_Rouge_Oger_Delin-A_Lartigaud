@@ -7,10 +7,6 @@
 
 using namespace std;
 
-/**
-* @brief Initialize the game parameters with the default values
-* @param param A reference to the parameters object to be initialized
-*/
 void initParam(Param &param) {
     param.moveKeys["KeyUp"] = 'z';
     param.moveKeys["KeyDown"] = 's';

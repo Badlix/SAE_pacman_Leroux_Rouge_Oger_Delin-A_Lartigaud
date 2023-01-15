@@ -19,17 +19,6 @@ using namespace nsGraphics;
 using namespace nsShape;
 using namespace nsTransition;
 
-//int main() {
-//    Param param;
-//    initParam(param);
-//    loadParam(param);
-//    map<string, Character> characterMap = initCharacters(param);
-//    for (int i = 0; i < 20; ++i) {
-//        randomCharacter(characterMap);
-//    }
-//    return 0;
-//}
-
 /**
 * @brief The main function of the program
 * This function initializes all the core elements of the program, such as the characters, the maze, and the music.
@@ -63,12 +52,13 @@ int main()
     bool isGameRunning (true);
     bool isVictory (false); // value change only if pacman eat all bubbles
 
-    size_t nbBubbleLeft = nbBubbleInMaze(maze);
+    unsigned nbBubbleLeft = nbBubbleInMaze(maze);
 
     // Initalization of the graphics system
     MinGL window("Pacman", Vec2D(1550, 900), Vec2D(128, 128), KBlack);
     window.initGlut();
     window.initGraphic();
+
     nsTransition::TransitionEngine transitionEngine;
     nsAudio::AudioEngine defaultMusic;
     nsAudio::AudioEngine madMusic;
@@ -86,26 +76,16 @@ int main()
     {
         if (isGameRunning){
             if (isTransitionFinished) {
+                checkEating(param, characterMap, maze, isGameRunning, score, nbBubbleLeft, bigBubbleDuration, defaultMusic, madMusic);
                 keyboardInput(window, param, characterMap["Pacman"], maze);
-                if (isTeleporter(maze, characterMap["Pacman"])) moveCharacterTeleporter(maze, characterMap["Pacman"], param);
-                else if (isBubble(characterMap["Pacman"], maze, score)) eatBubble(characterMap["Pacman"], maze, nbBubbleLeft, score);
-                else if (isBigBubble(characterMap["Pacman"], maze, score)) {
-                    defaultMusic.playSoundFromFile("../Pacman/audio/pacmanEatingBigBubble.wav");
-                    eatBigBubble(characterMap["Pacman"], maze, nbBubbleLeft, score);
-                    changeEveryoneState(characterMap, false, defaultMusic, madMusic);
-                    bigBubbleDuration = 0;
-                }
-                checkEating(param, characterMap, isGameRunning, score, defaultMusic);
                 tmpMoveGhost(maze, characterMap, param);
-                checkEating(param, characterMap, isGameRunning, score, defaultMusic);
-                ++bigBubbleDuration;
                 if (bigBubbleDuration == 30) {
                     changeEveryoneState(characterMap, true, defaultMusic, madMusic);
                     switchMusic(defaultMusic, madMusic, characterMap["Pacman"].isDefaultState);
                 }
                 letGhostOut(characterMap, jailGhostDuration, param);
                 isTransitionFinished = false;
-                launchTransitions(transitionEngine, characterMap, isTransitionFinished, characterList);
+                launchTransitions(transitionEngine, characterMap, isTransitionFinished);
             }
         }
         chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
@@ -114,7 +94,7 @@ int main()
         if (isGameRunning) {
             switchMouthPacmanOpenClose(characterMap["Pacman"], pacmanMouth);
             drawMaze(window, maze, walls, param);
-            drawCharacter(window, characterList, characterMap, param);
+            drawCharacter(window, characterMap, param);
             drawScore(window, score);
         }  else {
             if (!gameoverMusic.isMusicPlaying()) {

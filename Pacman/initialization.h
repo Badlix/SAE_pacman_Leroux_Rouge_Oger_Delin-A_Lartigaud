@@ -7,62 +7,75 @@
 #include <iostream>
 
 /**
- * @brief Initialize the game maze
- * @param param A reference to the parameters object
- * @return A vector of strings representing the game maze
+ * @fn initMaze
+ * @brief A function that returns the initial state of a maze based on the current selection in the game's parameters.
+ * @param param : a reference to the game's parameters
+ * @return a vector of strings representing the initial state of the selected maze
+ *
+ * The function checks the current maze selection in the game's parameters and returns the corresponding maze.
  */
 std::vector<std::string> initMaze(Param &param);
 
 /**
-* @brief Initialize the game walls
-* @param maze A reference to the current game maze
-* @return A vector of rectangle representing the walls of the maze
-*/
+ * @fn initWalls
+ * @brief A function that returns the walls of a maze in the form of a vector of Rectangle shape
+ * @param maze : a reference to the current state of the maze
+ * @return a vector of nsShape::Rectangle representing the walls of the maze
+ *
+ * The function iterates through the characters of the maze and checks for the presence of a wall.
+ * If a wall is found, it checks its surroundings to determine whether it is an isolated wall or a part of a larger wall.
+ * It then constructs the appropriate Rectangle shape and adds it to the vector of walls.
+ */
 std::vector<nsShape::Rectangle> initWalls(std::vector<std::string> &maze);
 
 /**
-* @brief Initialize the characters in the game
-* @param param A reference to the parameters object
-* @return A map of characters in the game, where the key is the character's name and the value is the Character object
-*/
+ * @brief Initialize the characters for the game.
+ *
+ * @param param A reference to the Param struct containing the game's settings.
+ * @return A map containing all the characters in the game.
+ */
 std::map<std::string, Character> initCharacters(Param &param);
 
 /**
- * @fn initSkin
- * @brief A function that initializes the skin of a character.
- * @param type : a string that represents the type of the character (Pacman, Ghost, Fruit)
- * @param skinName : a string that represents the name of the skin the user wants to apply
- * @return Skin : the initialized skin
- */
+* @brief Initialize the skin of a character
+* @param type the type of the character (Pacman or Ghost)
+* @param skinName the name of the skin to be used
+* @return the initialized skin
+*/
 Skin initSkin(std::string type, std::string skinName);
 
 /**
-* @brief Initialize the PacmanMouth
-* @param param A reference to the parameters object
-* @return A PacmanMouth object
-*/
+ * @brief Initialize the Pacman mouth
+ * @param param : The parameter of the game used to select the skin
+ * @return The PacmanMouth struct with the selected skin and the current mouth state (open or closed)
+ */
 PacmanMouth initPacmanmouth(Param &param);
 
 /**
 * @brief Count the number of bubbles in the maze
-* @param maze A reference to the current game maze
+* @param[in] maze The current state of the maze
 * @return The number of bubbles in the maze
 */
-size_t nbBubbleInMaze(std::vector<std::string> &maze);
+unsigned nbBubbleInMaze(std::vector<std::string> &maze);
 
 /**
-* @brief Initialize the personality for the characters
-* @param characterList A reference to the vector containing the names of the characters in the game
-* @param personalities A reference to the map containing the personalities for the characters
-* @param difficulty A reference to the difficulty level
+* @brief initialize the personnality of each character
+* @param characterList list of characters
+* @param personalities map containing the personnality of each character
+* @param difficulty the difficulty of the game
+*
+* This function will randomly assign a personality to each character, based on a drop rate defined by the difficulty
+* The easy personality has a 100 - 30*difficulty drop rate
+* The normal personality has a 30*difficulty - 20 drop rate
+* The hard personality has a 20 drop rate
 */
 void initPersonality (std::vector<std::string> &characterList, std::map<std::string, std::string> personalities, Param &param);
 
 /**
-* @brief Initialize the music engine for the game
-* @param defaultMusic A reference to the default music engine
-* @param madMusic A reference to the music engine played when the player eats a power pellet
-* @param gameOverMusic A reference to the music engine played when the player loses
+* @brief Initialize the different musics used in the game.
+* @param defaultMusic The music played when the game starts or when pacman is not in mad mode.
+* @param madMusic The music played when pacman enters mad mode.
+* @param gameOverMusic The music played when pacman loses.
 */
 void initMusicsEngine(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic, nsAudio::AudioEngine &gameOverMusic);
 

@@ -5,95 +5,83 @@
 #include <iostream>
 
 /**
- * @brief check if the ghost is in the cage
- * @param[in] posGhost : position of the ghost
- * @param param
- * @return bool
- * @fn bool isGhostInCage(Character ghost, Param &param)
- */
+* @brief A function that checks if a ghost is currently in its cage
+* @param posGhost The current position of the ghost
+* @param param A struct containing the game's parameters
+* @return true if the ghost is in its cage, false otherwise
+*/
 bool isGhostInCage(const Position &posGhost, Param &param);
 
 /**
- * @brief check if pacman encounter a ghost
- * @param ghost
- * @param pacman
- * @return bool
- * @fn bool isEncouterGhostPacman(Character &ghost, Character &pacman)
- */
+* @brief A function that checks if the pacman and a ghost have encountered each other
+* @param ghost The ghost character
+* @param pacman The pacman character
+* @return true if the pacman and ghost have encountered each other, false otherwise
+*/
 bool isEncouterGhostPacman(Character &ghost, Character &pacman);
 
 /**
- * @brief check if there is at least one ghost in the cage
- * @param mapCharact
- * @param param
- * @return bool
- * @fn bool isThereAGhostInCage(map<string, Character> &mapCharact, Param &param)
- */
-bool isThereAGhostInCage(std::map<std::string, Character> &mapCharact, Param &param);
+* @brief A function that checks if there is a ghost currently in its cage
+* @param mapCharact A map containing all the characters of the game
+* @param param A struct containing the game's parameters
+* @return true if there is a ghost in its cage, false otherwise
+*/
+bool isThereAGhostInCage(std::map<std::string, Character> &characterMap, Param &param);
 
 /**
- * @brief check if a emplacement is free
- * @param pos : char
- * @return true if free, false if not
- * @fn bool isFree(char &pos)
- */
+* @brief A function that checks if a given position is free
+* @param pos A character representing the position on the maze
+* @return true if the position is free, false otherwise
+*/
 bool isFree(char &pos);
 
 /**
- * @brief check if all bubbles have been eaten
- * @param bubbleLeft : number of bubble left
- * @param isGameRunning
- * @param isVictory
- * @fn void isBubbleLeft(size_t &bubbleLeft , bool &isGameRunning, bool &isVictory)
- */
-void isBubbleLeft(size_t &bubbleLeft , bool &isGameRunning, bool &isVictory);
+* @brief A function that checks if all the bubbles have been eaten and sets the game state accordingly
+* @param bubbleLeft The number of bubbles left in the maze
+* @param isGameRunning A flag indicating if the game is running
+* @param isVictory A flag indicating if the player has won
+*/
+void isBubbleLeft(unsigned &bubbleLeft , bool &isGameRunning, bool &isVictory);
 
 /**
- * @brief check if the character has the same position of a big bubble
- * @param character
- * @param maze
- * @param score
- * @return bool
- * @fn bool isBigBubble(Character &character, std::vector<std::string> &maze, unsigned &score)
- */
-bool isBigBubble(Character &character, std::vector<std::string> &maze, unsigned &score);
+* @brief A function that checks if the pacman is currently on a big bubble
+* @param character The character object representing Pacman
+* @param maze The game's maze
+* @return true if the pacman is on a big bubble, false otherwise
+*/
+bool isBigBubble(Position pos, std::vector<std::string> &maze);
 
 /**
- * @brief check if the character has the same position of a bubble
- * @param character
- * @param maze
- * @param score
- * @return bool
- * @fn bool isBubble(Character &character, std::vector<std::string> &maze, unsigned &score)
- */
-bool isBubble(Character &character, std::vector<std::string> &maze, unsigned &score);
+* @brief A function that checks if the pacman is currently on a bubble
+* @param character The character object representing Pacman
+* @param maze The game's maze
+* @return true if the pacman is on a bubble, false otherwise
+*/
+bool isBubble(Position pos, std::vector<std::string> &maze);
 
 /**
- * @brief check if a move is posssible
- * @param maze
- * @param character
- * @param direction
- * @return bool
- * @fn bool isMovePossible(std::vector<std::string> &maze,Character &character, std::string direction)
- */
-bool isMovePossible(std::vector<std::string> &maze,Character &character, std::string direction);
+* @brief A function that checks if a move is possible
+* @param maze The game's maze
+* @param character The character object representing Pacman
+* @param direction The direction in which the character wants to move
+* @return true if the move is possible, false otherwise
+*/
+bool isMovePossible(std::vector<std::string> &maze, Character &character, std::string direction);
 
 /**
- * @brief check if the character has the same position of a teleporter
- * @param maze
- * @param character
- * @return bool
- * @fn bool isTeleporter(std::vector<std::string> &maze, Character &character)
- */
+* @brief A function that checks if a character is on a teleporter
+* @param maze The game's maze
+* @param character The character object representing Pacman
+* @return true if the character is on a teleporter and is moving towards it, false otherwise
+*/
 bool isTeleporter(std::vector<std::string> &maze, Character &character);
 
 /**
- * @brief check if two character have the same position
- * @param first character
- * @param second character
- * @return bool
- * @fn bool isSamePos(Character &character1, Character &character2)
- */
+* @brief A function that checks if two characters have the same position
+* @param character1 The first character object
+* @param character2 The second character object
+* @return true if the two characters have the same position, false otherwise
+*/
 bool isSamePos(Character &character1, Character &character2);
 
 #endif // ASSERTIVES_H
