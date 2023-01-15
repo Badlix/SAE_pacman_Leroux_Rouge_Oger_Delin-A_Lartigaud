@@ -83,4 +83,8 @@ unsigned bestDirection(std::vector<std::string> &directions, std::map<Position, 
  */
 std::string firstDirection(std::map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos);
 
+std::string codePosition (Position &pos);
+
+Position uncodePosition (std::string & str);
+
 #endif // GHOST_INTELLIGENCE_H

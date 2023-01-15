@@ -13,6 +13,8 @@
  */
 void moveCharacter(Character &character, std::string direction);
 
+void moveAllGhost(std::vector<std::string> &maze, std::map<std::string, Character> &characterMap, std::vector<std::string> &characterList, std::map<std::string, std::string> &personalities, Param &param);
+
 /**
  * @brief teleport pacman
  * @param maze

@@ -4,6 +4,7 @@
 #include "assertives.h"
 #include "general.h"
 #include "draw.h"
+#include "ghost_intelligence.h"
 #include <iostream>
 
 using namespace std;
@@ -14,6 +15,16 @@ void moveCharacter(Character &character, string direction) {
     else if (direction == "down") ++character.pos.y;
     else if (direction == "left") --character.pos.x;
     character.direction = direction;
+}
+
+void moveAllGhost(vector<string> &maze, map<string, Character> &characterMap, vector<string> &characterList,  map<string, string> &personnalities, Param &param) {
+    for (auto it (characterMap.begin()) ; it != characterMap.end() ; ++it) {
+        if (it->second.type == "Ghost") {
+            if (it->second.type == "Ghost" && it->second.pos == getPosCage(param)) continue;
+            it->second.direction = decideGhostDirection(it->second, personnalities.find(it->first)->second, param.difficulty["Difficulty"], maze, characterMap["Pacman"].pos, characterMap, characterList);
+            moveCharacter(it->second, it->second.direction);
+        }
+    }
 }
 
 void moveCharacterTeleporter (vector<string> &maze, Character &character, Param& param) {
