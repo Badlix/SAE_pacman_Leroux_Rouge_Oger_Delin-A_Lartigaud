@@ -56,6 +56,8 @@ int main()
     bool isTransitionFinished (true);
     unsigned bigBubbleDuration (0);
     unsigned jailGhostDuration (0);
+    srand((unsigned)time(0));
+    unsigned random (rand()%3);
     chrono::microseconds frameTime = chrono::microseconds::zero();
     while (window.isOpen())
     {
@@ -90,13 +92,14 @@ int main()
             switchMouthPacmanOpenClose(characterMap["Pacman"], pacmanMouth);
             drawMaze(window, maze, walls, param);
             drawCharacter(window, characterList, characterMap, param);
+            drawScore(window, score);
         }  else {
             if (!gameoverMusic.isMusicPlaying()) {
                 defaultMusic.setMusicPlaying(false);
                 madMusic.setMusicPlaying(false);
                 gameoverMusic.setMusicPlaying(true);
             }
-            drawGameOverScreen(window, isVictory, score);
+            drawGameOverScreen(window, isVictory, score, random);
         }
         window.finishFrame();
         window.getEventManager().clearEvents();

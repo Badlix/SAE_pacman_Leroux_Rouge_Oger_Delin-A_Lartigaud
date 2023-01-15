@@ -79,10 +79,10 @@ void eatGhost(Param &param, Character &ghost, unsigned &score, nsAudio::AudioEng
     score += 500;
 }
 
-void eatFruit(map<string, Character> &mapC, string fruitKey, unsigned &score) {
-    mapC.erase(fruitKey);
-    score += 200;
-}
+//void eatFruit(map<string, Character> &mapC, string fruitKey, unsigned &score) {
+//    mapC.erase(fruitKey);
+//    score += 200;
+//}
 
 void checkEating(Param &param, map<string, Character> &mapC, bool &isGameRunning, unsigned &score, nsAudio::AudioEngine &audioEngine) {
     for (auto it = mapC.begin(); it != mapC.end(); it++) {
@@ -95,10 +95,11 @@ void checkEating(Param &param, map<string, Character> &mapC, bool &isGameRunning
                     eatGhost(param, it->second, score, audioEngine);
                 }
             }
-        } else if (it->second.type == "Fruit") {
-            if (isSamePos(mapC["Pacman"], it->second)) {
-                eatFruit(mapC, it->first, score);
-            }
         }
+//        else if (it->second.type == "Fruit") {
+//            if (isSamePos(mapC["Pacman"], it->second)) {
+//                eatFruit(mapC, it->first, score);
+//            }
+//        }
     }
 }

@@ -31,7 +31,7 @@ void drawCage(MinGL &window, const nsGraphics::Vec2D pos);
  * @param[in] score
  * @fn void drawGameOverScreen(MinGL &window, const bool &isVictory, const unsigned &score)
  */
-void drawGameOverScreen(MinGL &window, const bool &isVictory, const unsigned &score);
+void drawGameOverScreen(MinGL &window, const bool &isVictory, const unsigned &score, unsigned &random);
 
 /**
  * @brief make the mouvement of the mouth (open/close)
@@ -78,5 +78,7 @@ void launchTransitions(nsTransition::TransitionEngine &t, std::map<std::string, 
  * @fn nsGraphics::Vec2D calcPosTransition(Position &posCharact)
  */
 nsGraphics::Vec2D calcPosTransition(Position &posCharact);
+
+void drawScore(MinGL &window, unsigned &score);
 
 #endif // DRAW_H

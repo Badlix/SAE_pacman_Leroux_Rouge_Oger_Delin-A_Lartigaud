@@ -75,7 +75,7 @@ void changeEveryoneState(std::map<std::string, Character> &mapCharact, bool newV
  * @param score
  * @fn void eatFruit(std::map<std::string, Character> &mapC, std::string fruitKey, unsigned &score)
  */
-void eatFruit(std::map<std::string, Character> &mapC, std::string fruitKey, unsigned &score);
+//void eatFruit(std::map<std::string, Character> &mapC, std::string fruitKey, unsigned &score);
 
 /**
  * @brief ghost goes back to the cage and defaultState

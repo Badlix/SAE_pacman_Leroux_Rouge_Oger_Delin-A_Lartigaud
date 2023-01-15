@@ -10,6 +10,9 @@
 #include "param.h"
 #include "general.h"
 #include "assertives.h"
+#include <stdlib.h>
+#include <ctime>
+#include <stdio.h>
 #include <iostream>
 
 using namespace std;
@@ -28,7 +31,8 @@ void switchMusic(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMu
     }
 }
 
-void drawGameOverScreen(MinGL &window, const bool &isVictory, const unsigned &score) {
+void drawGameOverScreen(MinGL &window, const bool &isVictory, const unsigned &score, unsigned &random) {
+    cout << random << endl;
     nsGui::Sprite gameOver("../Pacman/skins/other/gameover.si2", Vec2D(0, 0));
     gameOver.setPosition(Vec2D(window.getWindowSize().getX()/2-gameOver.getRowSize()/2, 200));
     window << gameOver;
@@ -36,10 +40,16 @@ void drawGameOverScreen(MinGL &window, const bool &isVictory, const unsigned &sc
         nsGui::Sprite youWin("../Pacman/skins/other/youWin.si2", Vec2D(0,0));
         youWin.setPosition(Vec2D(window.getWindowSize().getX()/2-youWin.getRowSize()/2, 380));
         window << youWin;
+        nsGui::Text textWin(Vec2D(0,0), winSentence[random], KYellow, nsGui::GlutFont::BITMAP_TIMES_ROMAN_24);
+        textWin.setPosition(Vec2D(window.getWindowSize().getX()/2-textWin.computeWidth()/2, 700));
+        window << textWin;
     } else {
         nsGui::Sprite youLose("../Pacman/skins/other/youLose.si2", Vec2D(0,0));
         youLose.setPosition(Vec2D(window.getWindowSize().getX()/2-youLose.getRowSize()/2, 380));
         window << youLose;
+        nsGui::Text textLose(Vec2D(0,0), loseSentence[random], KYellow, nsGui::GlutFont::BITMAP_TIMES_ROMAN_24);
+        textLose.setPosition(Vec2D(window.getWindowSize().getX()/2-textLose.computeWidth()/2,700));
+        window << textLose;
     }
     nsGui::Text textScore(Vec2D(0,0), "Score : " + to_string(score), KYellow, nsGui::GlutFont::BITMAP_TIMES_ROMAN_24);
     textScore.setPosition(Vec2D(window.getWindowSize().getX()/2-textScore.computeWidth()/2, 520));
@@ -69,6 +79,7 @@ size_t getNbrOfHorizontalWallInARow (vector<string> &maze, size_t &horizontalLay
 }
 
 void drawMaze(MinGL &window, std::vector<string> &maze, std::vector<Rectangle> &walls, Param &param) {
+    window << Rectangle(posBegin, posBegin+Vec2D{maze[0].size()*50, maze.size()*50}, nsGraphics::RGBAcolor(30,30,50,255));
     for (Rectangle &wall : walls) {
         window << wall;
     }
@@ -126,5 +137,14 @@ void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character>
                 isTransitionFinished = true;
             });}
         t.startContract(a);
+    }
+}
+
+void drawScore(MinGL &window, unsigned &score){
+    string scoreStr = to_string(score);
+    Vec2D pos = {window.getWindowSize().getX()-50*scoreStr.size(), 20};
+    for (unsigned i(0) ; i < scoreStr.size(); ++i){
+        window << nsGui::Sprite("../Pacman/skins/other/" + string(1, scoreStr[i]) + ".si2", pos);
+        pos += nsGraphics::Vec2D{50, 0};
     }
 }
