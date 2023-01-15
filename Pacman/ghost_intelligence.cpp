@@ -36,9 +36,20 @@ unsigned bestDirection(vector<string> &directions, map<Position, unsigned> &open
     return bestIndex;
 }
 
-string firstDirection(map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos){
-    if (closedNodes[currentNode] == ghostPos) return getDirection(ghostPos, currentNode);
-    else return firstDirection(closedNodes, closedNodes[currentNode], ghostPos);
+string firstDirection(map<string, string> closedNodes, Position &currentNode, Position &ghostPos){
+    //Recursive algorithm used to browse the closedNodes map.
+
+    //If the parrent of the current node (&currentNode) is the root (&ghostPos) of the closedNodes,
+    if (uncodePosition(closedNodes.find(codePosition(currentNode))->second) == ghostPos) {
+        //Then it is the end of the function.
+        return getDirection(ghostPos, currentNode);
+    }
+    //If the parent of the current node isn't the root...
+    else  {
+        //The parent becomes the new current node.
+        Position parentNode = uncodePosition(closedNodes[codePosition(currentNode)]);
+        return firstDirection(closedNodes, parentNode, ghostPos);
+    }
 }
 
 void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> &closedNodes, Position &pacmanPos, vector<string> &maze, Position &currentNode){
@@ -61,13 +72,24 @@ void aStarAlgorithm(map<Position, unsigned> &openNodes, map<Position, Position> 
     }
 }
 
-string aStar(vector<string> &maze, Position &ghostPos, Position &pacmanPos){
+string aStar(std::vector<string> &maze, Position &ghostPos, Position &pacmanPos){
+
+    //Create all the used variables
     Position currentNode = ghostPos;
-    map<Position, unsigned> openNodes;
-    map<Position, Position> closedNodes;
+    map<string, unsigned> openNodes;
+    map<string, string> closedNodes;
+
+    //First, get the list of all the free positions in the maze.
     vector<Position> nodes = getAllNodes(maze);
+
+    //Second, create the openNodes, wich attribute a quality to all the positions ; they become nodes.
     setNodesQuality(nodes, openNodes, pacmanPos);
+
+    //Third, create the closedNodes, a tree wich has the &ghostPos as a root and &pacmanPos as it's final leef.
     aStarAlgorithm(openNodes, closedNodes, pacmanPos, maze, currentNode);
+
+    //Finally, we browse the closedNodes from the leef up to the root,
+    //to return the first movement our little ghost has to do in order to catch pacman !
     return firstDirection(closedNodes, currentNode, ghostPos);
 }
 

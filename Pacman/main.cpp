@@ -37,6 +37,11 @@ int main()
         characterList.push_back(it->first);
     }
 
+    vector<string> personalities;
+    initPersonality(characterList, personalities, param.difficulty);
+
+    srand(time(NULL));
+
     bool isGameRunning (true);
     bool isVictory (false); // value change only if pacman eat all bubbles
 
