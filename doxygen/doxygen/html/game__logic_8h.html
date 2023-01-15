@@ -114,6 +114,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a7765c52170ec96b4bc846c8c95df90b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__logic_8h.html#a7765c52170ec96b4bc846c8c95df90b1">changeEveryoneState</a> (std::map&lt; std::string, <a class="el" href="struct_character.html">Character</a> &gt; &amp;characterMap, bool newValue, nsAudio::AudioEngine &amp;defaultMusic, nsAudio::AudioEngine &amp;madMusic)</td></tr>
 <tr class="memdesc:a7765c52170ec96b4bc846c8c95df90b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the state of every character in the map to the given value.  <br /></td></tr>
 <tr class="separator:a7765c52170ec96b4bc846c8c95df90b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a659c97f5559f24516af327a2a89d7acd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__logic_8h.html#a659c97f5559f24516af327a2a89d7acd">eatFruit</a> (std::map&lt; std::string, <a class="el" href="struct_character.html">Character</a> &gt; &amp;mapC, std::string fruitKey, unsigned &amp;score)</td></tr>
+<tr class="memdesc:a659c97f5559f24516af327a2a89d7acd"><td class="mdescLeft">&#160;</td><td class="mdescRight">pacman eat a fruit  <br /></td></tr>
+<tr class="separator:a659c97f5559f24516af327a2a89d7acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a6b34d696b1bda124ddc2d2294ca30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__logic_8h.html#ac2a6b34d696b1bda124ddc2d2294ca30">fruitSpawn</a> (unsigned &amp;fruitDuration, std::vector&lt; std::string &gt; &amp;maze, std::map&lt; std::string, <a class="el" href="struct_character.html">Character</a> &gt; &amp;characterMap)</td></tr>
+<tr class="memdesc:ac2a6b34d696b1bda124ddc2d2294ca30"><td class="mdescLeft">&#160;</td><td class="mdescRight">swpan a fruit  <br /></td></tr>
+<tr class="separator:ac2a6b34d696b1bda124ddc2d2294ca30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00f559aef9c6d67bbc4f79dee7e43027"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__logic_8h.html#a00f559aef9c6d67bbc4f79dee7e43027">eatGhost</a> (<a class="el" href="struct_param.html">Param</a> &amp;param, <a class="el" href="struct_character.html">Character</a> &amp;ghost, unsigned &amp;score, nsAudio::AudioEngine &amp;audioEngine)</td></tr>
 <tr class="memdesc:a00f559aef9c6d67bbc4f79dee7e43027"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to make pacman eat the ghost and update the score accordingly.  <br /></td></tr>
 <tr class="separator:a00f559aef9c6d67bbc4f79dee7e43027"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -328,6 +334,50 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a659c97f5559f24516af327a2a89d7acd" name="a659c97f5559f24516af327a2a89d7acd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a659c97f5559f24516af327a2a89d7acd">&#9670;&#160;</a></span>eatFruit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eatFruit </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="struct_character.html">Character</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mapC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>fruitKey</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned &amp;&#160;</td>
+          <td class="paramname"><em>score</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>pacman eat a fruit </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mapC</td><td></td></tr>
+    <tr><td class="paramname">fruitKey</td><td>: name of fruit which is the key of the fruit in mapC </td></tr>
+    <tr><td class="paramname">score</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a00f559aef9c6d67bbc4f79dee7e43027" name="a00f559aef9c6d67bbc4f79dee7e43027"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00f559aef9c6d67bbc4f79dee7e43027">&#9670;&#160;</a></span>eatGhost()</h2>
 
@@ -386,6 +436,50 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game__logic_8h_a00f559aef9c6d67bbc4f79dee7e43027_icgraph.png" border="0" usemap="#agame__logic_8h_a00f559aef9c6d67bbc4f79dee7e43027_icgraph" alt=""/></div>
 </div>
+
+</div>
+</div>
+<a id="ac2a6b34d696b1bda124ddc2d2294ca30" name="ac2a6b34d696b1bda124ddc2d2294ca30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2a6b34d696b1bda124ddc2d2294ca30">&#9670;&#160;</a></span>fruitSpawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fruitSpawn </td>
+          <td>(</td>
+          <td class="paramtype">unsigned &amp;&#160;</td>
+          <td class="paramname"><em>fruitDuration</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>maze</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="struct_character.html">Character</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>characterMap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>swpan a fruit </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fruitDuration</td><td>Value used as a timer in order to when to spawn a fruit </td></tr>
+    <tr><td class="paramname">maze</td><td>The current game maze </td></tr>
+    <tr><td class="paramname">characterMap</td><td>A map containing all the characters in the game. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

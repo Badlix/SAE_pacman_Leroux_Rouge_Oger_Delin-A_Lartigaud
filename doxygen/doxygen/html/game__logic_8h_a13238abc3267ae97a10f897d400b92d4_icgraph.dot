@@ -13,4 +13,7 @@ digraph "changeState"
   Node3 -> Node4 [dir="back",color="steelblue1",style="solid"];
   Node4 [label="main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4",tooltip="The main function of the program This function initializes all the core elements of the program,..."];
   Node2 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node1 -> Node5 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="eatGhost",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$game__logic_8cpp.html#a00f559aef9c6d67bbc4f79dee7e43027",tooltip="This function is used to make pacman eat the ghost and update the score accordingly."];
+  Node5 -> Node3 [dir="back",color="steelblue1",style="solid"];
 }

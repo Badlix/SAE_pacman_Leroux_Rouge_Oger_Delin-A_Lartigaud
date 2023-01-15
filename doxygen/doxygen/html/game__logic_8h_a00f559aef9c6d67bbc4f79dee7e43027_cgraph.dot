@@ -7,5 +7,7 @@ digraph "eatGhost"
   rankdir="LR";
   Node1 [label="eatGhost",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="This function is used to make pacman eat the ghost and update the score accordingly."];
   Node1 -> Node2 [color="steelblue1",style="solid"];
-  Node2 [label="getPosCage",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$general_8cpp.html#a04e932e5accda172d1f2536bda6c8513",tooltip=" "];
+  Node2 [label="changeState",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$game__logic_8cpp.html#a13238abc3267ae97a10f897d400b92d4",tooltip="Change the state of a character."];
+  Node1 -> Node3 [color="steelblue1",style="solid"];
+  Node3 [label="getPosCage",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$general_8cpp.html#a04e932e5accda172d1f2536bda6c8513",tooltip=" "];
 }

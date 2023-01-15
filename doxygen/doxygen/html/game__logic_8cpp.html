@@ -109,6 +109,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a00f559aef9c6d67bbc4f79dee7e43027"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__logic_8cpp.html#a00f559aef9c6d67bbc4f79dee7e43027">eatGhost</a> (<a class="el" href="struct_param.html">Param</a> &amp;param, <a class="el" href="struct_character.html">Character</a> &amp;ghost, unsigned &amp;score, nsAudio::AudioEngine &amp;audioEngine)</td></tr>
 <tr class="memdesc:a00f559aef9c6d67bbc4f79dee7e43027"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to make pacman eat the ghost and update the score accordingly.  <br /></td></tr>
 <tr class="separator:a00f559aef9c6d67bbc4f79dee7e43027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1677b972feefa4cd20dd7f3c6a494ef3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__logic_8cpp.html#a1677b972feefa4cd20dd7f3c6a494ef3">eatFruit</a> (map&lt; string, <a class="el" href="struct_character.html">Character</a> &gt; &amp;mapC, string fruitKey, unsigned &amp;score)</td></tr>
+<tr class="separator:a1677b972feefa4cd20dd7f3c6a494ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2c9cb513fc3ce33ac2130286efacb9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__logic_8cpp.html#ac2c9cb513fc3ce33ac2130286efacb9a">fruitSpawn</a> (unsigned &amp;fruitDuration, vector&lt; string &gt; &amp;maze, map&lt; string, <a class="el" href="struct_character.html">Character</a> &gt; &amp;characterMap)</td></tr>
+<tr class="separator:ac2c9cb513fc3ce33ac2130286efacb9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0ed05ef5a7dc7541318db1cc12c825f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__logic_8cpp.html#ae0ed05ef5a7dc7541318db1cc12c825f">checkEating</a> (<a class="el" href="struct_param.html">Param</a> &amp;param, map&lt; string, <a class="el" href="struct_character.html">Character</a> &gt; &amp;characterMap, vector&lt; string &gt; &amp;maze, bool &amp;isGameRunning, unsigned &amp;score, unsigned &amp;nbBubbleLeft, unsigned &amp;bigBubbleDuration, nsAudio::AudioEngine &amp;defaultMusic, nsAudio::AudioEngine &amp;madMusic)</td></tr>
 <tr class="separator:ae0ed05ef5a7dc7541318db1cc12c825f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -328,6 +332,45 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a1677b972feefa4cd20dd7f3c6a494ef3" name="a1677b972feefa4cd20dd7f3c6a494ef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1677b972feefa4cd20dd7f3c6a494ef3">&#9670;&#160;</a></span>eatFruit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eatFruit </td>
+          <td>(</td>
+          <td class="paramtype">map&lt; string, <a class="el" href="struct_character.html">Character</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mapC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>fruitKey</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned &amp;&#160;</td>
+          <td class="paramname"><em>score</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="game__logic_8cpp_a1677b972feefa4cd20dd7f3c6a494ef3_icgraph.png" border="0" usemap="#agame__logic_8cpp_a1677b972feefa4cd20dd7f3c6a494ef3_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
 <a id="a00f559aef9c6d67bbc4f79dee7e43027" name="a00f559aef9c6d67bbc4f79dee7e43027"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00f559aef9c6d67bbc4f79dee7e43027">&#9670;&#160;</a></span>eatGhost()</h2>
 
@@ -385,6 +428,45 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game__logic_8cpp_a00f559aef9c6d67bbc4f79dee7e43027_icgraph.png" border="0" usemap="#agame__logic_8cpp_a00f559aef9c6d67bbc4f79dee7e43027_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ac2c9cb513fc3ce33ac2130286efacb9a" name="ac2c9cb513fc3ce33ac2130286efacb9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2c9cb513fc3ce33ac2130286efacb9a">&#9670;&#160;</a></span>fruitSpawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fruitSpawn </td>
+          <td>(</td>
+          <td class="paramtype">unsigned &amp;&#160;</td>
+          <td class="paramname"><em>fruitDuration</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>maze</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">map&lt; string, <a class="el" href="struct_character.html">Character</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>characterMap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="game__logic_8cpp_ac2c9cb513fc3ce33ac2130286efacb9a_cgraph.png" border="0" usemap="#agame__logic_8cpp_ac2c9cb513fc3ce33ac2130286efacb9a_cgraph" alt=""/></div>
 </div>
 
 </div>
