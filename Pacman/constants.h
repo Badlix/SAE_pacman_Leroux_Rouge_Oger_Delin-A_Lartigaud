@@ -168,7 +168,7 @@ const std::vector<std::string> maze2 = {
  * purple (105,0,105,255)
  * red (200,0,0,255)
  */
-const std::vector<nsGraphics::RGBAcolor> skinGhostColors = {nsGraphics::RGBAcolor(255,192,203,255), nsGraphics::RGBAcolor(255,238,0,255), nsGraphics::RGBAcolor(105,0,105,255), nsGraphics::RGBAcolor(200,0,0,255)};
+const std::vector<nsGraphics::RGBAcolor> skinGhostColors = {nsGraphics::RGBAcolor(255,192,203,255), nsGraphics::RGBAcolor(222,29,76,255), nsGraphics::RGBAcolor(66,194,193,255), nsGraphics::RGBAcolor(14,158,62,255)};
 
 
 // ---------- Fruits Skins ---------- //

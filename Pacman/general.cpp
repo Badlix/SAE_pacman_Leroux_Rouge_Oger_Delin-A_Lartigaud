@@ -95,11 +95,18 @@ Position getPosCage(Param &param) {
 }
 
 void tmpMoveGhost(std::vector<std::string> &maze, map<std::string, Character> &characterMap, Param &param) {
+    string nextDirection;
     for (auto it (characterMap.begin()) ; it != characterMap.end() ; ++it) {
         if (it->second.type == "Ghost") {
-            if (it->second.type == "Ghost" && it->second.pos == getPosCage(param)) continue;
-            it->second.direction = randomDirection(it->second.pos, maze);
-            moveCharacter(it->second, it->second.direction);
+            if (it->second.pos == getPosCage(param)) continue;
+            nextDirection = randomDirection(it->second.pos, maze);
+            if ((nextDirection == "up" && it->second.direction == "down") ||
+                (nextDirection == "down" && it->second.direction == "up") ||
+                 (nextDirection == "right" && it->second.direction == "left") ||
+                (nextDirection == "left" && it->second.direction == "right")) {
+                   nextDirection = randomDirection(it->second.pos, maze);
+            }
+            moveCharacter(it->second, nextDirection);
         }
     }
 }

@@ -35,10 +35,10 @@ void moveCharacterTeleporter (vector<string> &maze, Character &character, Param&
 
 void letGhostOut(std::map<std::string, Character> &characterMap, unsigned &jailGhostDuration, Param &param) {
     if (isThereAGhostInCage(characterMap, param)) {
-        if (jailGhostDuration > 15) jailGhostDuration = 0;
         for (auto it = characterMap.begin(); it != characterMap.end(); it++) {
-            if (isGhostInCage(it->second.pos, param) && jailGhostDuration == 25) {
+            if (isGhostInCage(it->second.pos, param) && jailGhostDuration == 10) {
                 moveCharacter(it->second, "up");
+                jailGhostDuration = 0;
                 break;
             }
         }
@@ -72,13 +72,26 @@ void changeEveryoneState(map<string, Character> &characterMap, bool newValue, ns
 void eatGhost(Param &param, Character &ghost, unsigned &score, nsAudio::AudioEngine &audioEngine) {
     audioEngine.playSoundFromFile("../Pacman/audio/pacmanEatingGhost.wav");
     ghost.pos = getPosCage(param);
+    changeState(ghost);
     score += 500;
 }
 
-//void eatFruit(map<string, Character> &mapC, string fruitKey, unsigned &score) {
-//    mapC.erase(fruitKey);
-//    score += 200;
-//}
+void eatFruit(map<string, Character> &mapC, string fruitKey, unsigned &score) {
+    mapC.erase(mapC.find(fruitKey)->first);
+    score += 200;
+}
+
+void fruitSpawn(unsigned &fruitDuration, vector<string> &maze, map<string, Character> &characterMap) {
+    if (fruitDuration > 50) {
+        fruitDuration = 0;
+        Position pos = {0,0};
+        while (!isFree(maze[pos.y][pos.x])) {pos = {rand()%maze[0].size(), rand()%maze.size()};}
+        Character unFruit = {"Fruit", pos, "up", true, 0, {fruitSkins[rand()%fruitSkins.size()]}, Skin()};
+        unFruit.sprite[0].setPosition(posBegin + nsGraphics::Vec2D(pos.x*50, pos.y*50));
+        characterMap.insert({"Fruit"+to_string(pos.x)+to_string(pos.y), unFruit});
+    }
+    ++fruitDuration;
+}
 
 void checkEating(Param &param, map<string, Character> &characterMap, vector<string> &maze, bool &isGameRunning, unsigned &score, unsigned &nbBubbleLeft, unsigned &bigBubbleDuration, nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic) {
     if (isBubble(characterMap["Pacman"].pos, maze)) eatBubble(characterMap["Pacman"], maze, nbBubbleLeft, score);
@@ -100,10 +113,10 @@ void checkEating(Param &param, map<string, Character> &characterMap, vector<stri
                 }
             }
         }
-//        else if (it->second.type == "Fruit") {
-//            if (isSamePos(mapC["Pacman"], it->second)) {
-//                eatFruit(mapC, it->first, score);
-//            }
-//        }
+        else if (it->second.type == "Fruit") {
+            if (isSamePos(characterMap["Pacman"], it->second)) {
+                eatFruit(characterMap, it->first, score);
+            }
+        }
     }
 }

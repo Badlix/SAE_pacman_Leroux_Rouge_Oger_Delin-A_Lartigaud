@@ -69,7 +69,15 @@ void changeEveryoneState(std::map<std::string, Character> &characterMap, bool ne
  * @param score
  * @fn void eatFruit(std::map<std::string, Character> &mapC, std::string fruitKey, unsigned &score)
  */
-//void eatFruit(std::map<std::string, Character> &mapC, std::string fruitKey, unsigned &score);
+void eatFruit(std::map<std::string, Character> &mapC, std::string fruitKey, unsigned &score);
+
+/**
+ * @brief swpan a fruit
+ * @param fruitDuration Value used as a timer in order to when to spawn a fruit
+ * @param maze The current game maze
+ * @param characterMap A map containing all the characters in the game.
+ */
+void fruitSpawn(unsigned &fruitDuration, std::vector<std::string> &maze, std::map<std::string, Character> &characterMap);
 
 /**
 * @brief This function is used to make pacman eat the ghost and update the score accordingly
