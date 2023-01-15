@@ -7,6 +7,10 @@
 
 using namespace std;
 
+/**
+* @brief Initialize the game parameters with the default values
+* @param param A reference to the parameters object to be initialized
+*/
 void initParam(Param &param) {
     param.moveKeys["KeyUp"] = 'z';
     param.moveKeys["KeyDown"] = 's';
@@ -19,6 +23,13 @@ void initParam(Param &param) {
     param.difficulty["Difficulty"] = 2;
 }
 
+/**
+ * @brief Check if the key and value from the settings file are authorized 
+ * @param param A reference to the parameters object 
+ * @param autorizedKeys A reference to the struct that contains the authorized keys, skins and difficulty
+ * @param key The key from the settings file
+ * @param value The value from the settings file 
+ */
 void checkParam(Param &param, AutorizedKeys &autorizedKeys,string &key, string &value)
 {
     /* check if key is a move keys*/
@@ -52,6 +63,10 @@ void checkParam(Param &param, AutorizedKeys &autorizedKeys,string &key, string &
     }
 }
 
+/**
+ * @brief Load the game parameters from the settings file
+ * @param param A reference to the parameters object to be loaded
+ */
 void loadParam(Param &param) {
     ifstream file("../Pacman/settings.yaml");
     string line;
