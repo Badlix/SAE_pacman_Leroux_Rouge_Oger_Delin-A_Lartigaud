@@ -42,11 +42,26 @@ vector<nsShape::Rectangle> initWalls(vector<string> &maze) {
     return walls;
 }
 
+Skin initSkin(string type, string skinName) {
+    Skin skin;
+    string path = "";
+    string notDefaultState = "mad";
+    if (type == "Ghost") notDefaultState = "feared";
+    vector<string> directions = {"up", "down", "left", "right"};
+    for (string &direction : directions) {
+        path = "../Pacman/skins/" + type + "/" + skinName + "/" + skinName + "_" + direction + ".si2";
+        skin.defaultState.insert({direction,nsGui::Sprite(path, nsGraphics::Vec2D(0,0))});
+        path = "../Pacman/skins/" + type + "/" + skinName + "/" +notDefaultState + skinName + "_" + direction + ".si2";
+        skin.madState.insert({direction, nsGui::Sprite(path, nsGraphics::Vec2D(0,0))});
+    }
+    return skin;
+}
+
 PacmanMouth initPacmanmouth(Param &param) {
-    if (param.skins["Pacman"] == 1) return {defaultPacmanClose, 0};
-    else if (param.skins["Pacman"] == 2) return {penguinPacmanClose, 0};
-    else if (param.skins["Pacman"] == 3) return {candyPacmanClose, 0};
-    else if (param.skins["Pacman"] == 4) return {flowerPacmanClose, 0};
+    if (param.skins["Pacman"] == 1) return {initSkin("Pacman", "PacmanDefaultClose"), 0};
+    else if (param.skins["Pacman"] == 2) return {initSkin("Pacman", "PenguinClose"), 0};
+    else if (param.skins["Pacman"] == 3) return {initSkin("Pacman", "CandyClose"), 0};
+    else if (param.skins["Pacman"] == 4) return {initSkin("Pacman", "FlowerClose"), 0};
 }
 
 map<string, Character> initCharacters(Param &param) {
@@ -54,10 +69,10 @@ map<string, Character> initCharacters(Param &param) {
     Skin skin;
 
     /* Set Pacman Skin*/
-    if (param.skins["Pacman"] == 1) skin = defaultPacman;
-    else if (param.skins["Pacman"] == 2) skin = penguinPacman;
-    else if (param.skins["Pacman"] == 3) skin = candyPacman;
-    else if (param.skins["Pacman"] == 4) skin = flowerPacman;
+    if (param.skins["Pacman"] == 1) skin = initSkin("Pacman", "PacmanDefaultOpen");
+    else if (param.skins["Pacman"] == 2) skin = initSkin("Pacman", "PenguinOpen");
+    else if (param.skins["Pacman"] == 3) skin = initSkin("Pacman", "CandyOpen");
+    else if (param.skins["Pacman"] == 4) skin = initSkin("Pacman", "FlowerOpen");
 
     Character tmp = {
         "Pacman",  // type
@@ -71,10 +86,10 @@ map<string, Character> initCharacters(Param &param) {
     mapC["Pacman"] = tmp;
 
     /* Set Ghost1 Skin*/
-    if (param.skins["Ghost"] == 1) skin = defaultGhost;
-    else if (param.skins["Ghost"] == 2) skin = iceCreamGhost;
-    else if (param.skins["Ghost"] == 3) skin = lolipopGhost;
-    else if (param.skins["Ghost"] == 4) skin = butterflyGhost;
+    if (param.skins["Ghost"] == 1) skin = initSkin("Ghost", "GhostDefault");
+    else if (param.skins["Ghost"] == 2) skin = initSkin("Ghost", "IceCream");
+    else if (param.skins["Ghost"] == 3) skin = initSkin("Ghost", "Lolipop");
+    else if (param.skins["Ghost"] == 4) skin = initSkin("Ghost", "Butterfly");
 
     tmp = {
         "Ghost",

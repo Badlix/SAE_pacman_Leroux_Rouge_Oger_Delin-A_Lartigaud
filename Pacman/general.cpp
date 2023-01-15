@@ -54,8 +54,11 @@ string randomDirection(Position &pos, vector<string> &maze){
     // rand between [0, directions.size()-1]
 }
 
-Character randomCharacter(map<string, Character> &characters, vector<string> &characterList) {
-    return characters[characterList[rand()%characterList.size()]];
+Character randomCharacter(map<string, Character> &characterMap) {
+    auto it = characterMap.begin();
+    cout << rand()%characterMap.size() << endl;
+    std::advance(it, rand()%characterMap.size());
+    return it->second;
 }
 
 Position nextMove(string &direction, Position &currentPos){

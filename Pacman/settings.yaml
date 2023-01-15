@@ -13,8 +13,8 @@ GhostNumber : 4
 # Choose pacman and ghosts skins.
 # 1 : default skin
 
-Pacman : 4
-Ghost : 4
+Pacman : 1
+Ghost : 1
 
 # Keybinding
 

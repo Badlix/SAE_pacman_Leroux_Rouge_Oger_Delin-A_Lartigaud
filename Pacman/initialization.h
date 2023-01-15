@@ -12,6 +12,8 @@ std::vector<nsShape::Rectangle> initWalls(std::vector<std::string> &maze);
 
 std::map<std::string, Character> initCharacters(Param &param);
 
+Skin initSkin(std::string type, std::string skinName);
+
 PacmanMouth initPacmanmouth(Param &param);
 
 size_t nbBubbleInMaze(std::vector<std::string> &maze);

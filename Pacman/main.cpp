@@ -19,12 +19,6 @@ using namespace nsGraphics;
 using namespace nsShape;
 using namespace nsTransition;
 
-//int main () {
-//    char nb = '1';
-//    cout << std::stoul(nb) + 5 << endl;
-//    return 0;
-//}
-
 int main()
 {
     // Initalization of core elements

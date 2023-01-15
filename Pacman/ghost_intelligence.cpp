@@ -77,7 +77,7 @@ string decideGhostDirection(Character &ghost, string &personality, unsigned &dif
     if(rand()%100 <= aStarProba) return aStar(maze, ghost.pos, pacmanPos);
     else if (personality == "dumb" || personality == "hardcore") return randomDirection(ghost.pos, maze); //the dumb personnality, or the hardcore when failed, follow a random path
     else if (personality == "confused") { //the confused personnality sometime confuses pacman with another ghost or with a fruit...
-        Character randomChar = randomCharacter(characters, characterList);
+        Character randomChar = randomCharacter(characters);
         return aStar(maze, ghost.pos, randomChar.pos);
     }
 }

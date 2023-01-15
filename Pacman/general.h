@@ -47,7 +47,7 @@ std::string randomDirection(Position &pos, std::vector<std::string> &maze);
  * @return a random character
  * @fn Character randomCharacter(map<std::string, Character> &characters, std::vector<std::string> &characterList)
  */
-Character randomCharacter(std::map<std::string, Character> &characters, std::vector<std::string> &characterList);
+Character randomCharacter(std::map<std::string, Character> &characterMap);
 
 /**
  * @brief give the position in wich the direction goes
