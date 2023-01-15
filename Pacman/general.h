@@ -1,3 +1,10 @@
+/**
+ * @file   general.h
+ * @author  Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger
+ * @date    Janvier 2023
+ * @brief   general functions
+ **/
+
 #ifndef GENERAL_H
 #define GENERAL_H
 #include "mingl/mingl.h"

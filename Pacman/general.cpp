@@ -1,3 +1,10 @@
+/**
+ * @file   general.cpp
+ * @author  Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger
+ * @date    Janvier 2023
+ * @brief   general functions
+ **/
+
 #include "mingl/mingl.h"
 #include "param.h"
 #include "constants.h"

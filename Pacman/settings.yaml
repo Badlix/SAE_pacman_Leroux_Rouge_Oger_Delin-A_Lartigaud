@@ -23,9 +23,15 @@ Difficulty : 2
 Pacman : 1
 Ghost : 1
 
-# Keybinding
+# KeyBinding
 
 KeyUp : z
 KeyDown : s
 KeyRight : d
 KeyLeft : q
+
+# Random Mode (true or false)
+# impact Skins, KeyBinding and GhostNumber
+
+RandomSkins : true
+RandomKeys : false

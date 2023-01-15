@@ -31,28 +31,7 @@ int main()
     // Initalization of core elements
     Param param;
     initParam(param);
-    loadParam(param);
-
-    map<string, Character> characterMap = initCharacters(param);
-    PacmanMouth pacmanMouth = initPacmanmouth(param);
-
-    vector<string> maze = initMaze(param);
-    vector<Rectangle> walls = initWalls(maze);
-
-    vector<string> characterList;
-    for (auto it = characterMap.begin(); it != characterMap.end(); it++) {
-        characterList.push_back(it->first);
-    }
-
-    map<string, string> personalities = {};
-    initPersonality(characterList, personalities, param);
-
-    srand(time(NULL));
-
-    bool isGameRunning (true);
-    bool isVictory (false); // value change only if pacman eat all bubbles
-
-    unsigned nbBubbleLeft = nbBubbleInMaze(maze);
+    bool replay (true);
 
     // Initalization of the graphics system
     MinGL window("Pacman", Vec2D(1550, 900), Vec2D(128, 128), KBlack);
@@ -63,52 +42,84 @@ int main()
     nsAudio::AudioEngine defaultMusic;
     nsAudio::AudioEngine madMusic;
     nsAudio::AudioEngine gameoverMusic;
-    initMusicsEngine(defaultMusic, madMusic, gameoverMusic);
 
-    unsigned score (0);
-    bool isTransitionFinished (true);
-    unsigned bigBubbleDuration (0);
-    unsigned jailGhostDuration (0);
-    srand((unsigned)time(0));
-    unsigned random (rand()%3);
-    chrono::microseconds frameTime = chrono::microseconds::zero();
-    while (window.isOpen())
-    {
-        if (isGameRunning){
-            if (isTransitionFinished) {
-                checkEating(param, characterMap, maze, isGameRunning, score, nbBubbleLeft, bigBubbleDuration, defaultMusic, madMusic);
-                keyboardInput(window, param, characterMap["Pacman"], maze);
-                tmpMoveGhost(maze, characterMap, param);
-                if (bigBubbleDuration == 30) {
-                    changeEveryoneState(characterMap, true, defaultMusic, madMusic);
-                    switchMusic(defaultMusic, madMusic, characterMap["Pacman"].isDefaultState);
+    while (replay) {
+        replay = false;
+        loadParam(param);
+
+        map<string, Character> characterMap = initCharacters(param);
+        PacmanMouth pacmanMouth = initPacmanmouth(param);
+
+        vector<string> maze = initMaze(param);
+        vector<Rectangle> walls = initWalls(maze);
+
+        vector<string> characterList;
+        for (auto it = characterMap.begin(); it != characterMap.end(); it++) {
+            characterList.push_back(it->first);
+        }
+
+        initMusicsEngine(defaultMusic, madMusic, gameoverMusic);
+
+        map<string, string> personalities = {};
+        initPersonality(characterList, personalities, param);
+
+        srand(time(NULL));
+
+        bool isGameRunning (true);
+        bool isVictory (false); // value change only if pacman eat all bubbles
+
+        unsigned nbBubbleLeft = nbBubbleInMaze(maze);
+
+        unsigned score (100);
+        bool isTransitionFinished (true);
+        unsigned bigBubbleDuration (0);
+        unsigned jailGhostDuration (0);
+        srand((unsigned)time(0));
+        unsigned random (rand()%3);
+        chrono::microseconds frameTime = chrono::microseconds::zero();
+        while (window.isOpen())
+        {
+            if (isGameRunning){
+                if (isTransitionFinished) {
+                    checkEating(param, characterMap, maze, isGameRunning, score, nbBubbleLeft, bigBubbleDuration, defaultMusic, madMusic);
+                    keyboardInput(window, param, characterMap["Pacman"], maze);
+                    tmpMoveGhost(maze, characterMap, param);
+                    if (bigBubbleDuration == 30) {
+                        changeEveryoneState(characterMap, true, defaultMusic, madMusic);
+                        switchMusic(defaultMusic, madMusic, characterMap["Pacman"].isDefaultState);
+                    }
+                    letGhostOut(characterMap, jailGhostDuration, param);
+                    isTransitionFinished = false;
+                    launchTransitions(transitionEngine, characterMap, isTransitionFinished);
+                    if (score != 0) --score;
                 }
-                letGhostOut(characterMap, jailGhostDuration, param);
-                isTransitionFinished = false;
-                launchTransitions(transitionEngine, characterMap, isTransitionFinished);
             }
-        }
-        chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
-        window.clearScreen();
-        transitionEngine.update(frameTime);
-        if (isGameRunning) {
-            switchMouthPacmanOpenClose(characterMap["Pacman"], pacmanMouth);
-            drawMaze(window, maze, walls, param);
-            drawCharacter(window, characterMap, param);
-            drawScore(window, score);
-        }  else {
-            if (!gameoverMusic.isMusicPlaying()) {
-                defaultMusic.setMusicPlaying(false);
-                madMusic.setMusicPlaying(false);
-                gameoverMusic.setMusicPlaying(true);
+            chrono::time_point<chrono::steady_clock> start = chrono::steady_clock::now();
+            window.clearScreen();
+            transitionEngine.update(frameTime);
+            if (isGameRunning) {
+                switchMouthPacmanOpenClose(characterMap["Pacman"], pacmanMouth);
+                drawMaze(window, maze, walls, param);
+                drawCharacter(window, characterMap, param);
+                drawScore(window, score);
+            }  else {
+                if (!gameoverMusic.isMusicPlaying()) {
+                    defaultMusic.setMusicPlaying(false);
+                    madMusic.setMusicPlaying(false);
+                    gameoverMusic.setMusicPlaying(true);
+                }
+                drawGameOverScreen(window, isVictory, score, random);
+                if (window.isPressed({'r', false})){
+                    replay = true;
+                    break;
+                } else if (window.isPressed({'q', false})) break;
             }
-            drawGameOverScreen(window, isVictory, score, random);
+            window.finishFrame();
+            window.getEventManager().clearEvents();
+            this_thread::sleep_for(chrono::milliseconds(1000 / FPS_LIMIT) - chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start));
+            frameTime = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start);
+            isBubbleLeft(nbBubbleLeft, isGameRunning, isVictory);
         }
-        window.finishFrame();
-        window.getEventManager().clearEvents();
-        this_thread::sleep_for(chrono::milliseconds(1000 / FPS_LIMIT) - chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start));
-        frameTime = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - start);
-        isBubbleLeft(nbBubbleLeft, isGameRunning, isVictory);
     }
     return 0;
 }

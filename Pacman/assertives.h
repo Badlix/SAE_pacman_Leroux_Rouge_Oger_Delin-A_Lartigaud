@@ -1,3 +1,10 @@
+/**
+ * @file   assertives.h
+ * @author  Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger
+ * @date    Janvier 2023
+ * @brief   all "is" functions
+ **/
+
 #ifndef ASSERTIVES_H
 #define ASSERTIVES_H
 #include "constants.h"

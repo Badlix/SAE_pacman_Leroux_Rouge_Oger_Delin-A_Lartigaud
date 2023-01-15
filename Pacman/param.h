@@ -1,3 +1,10 @@
+/**
+ * @file   param.h
+ * @author  Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger
+ * @date    Janvier 2023
+ * @brief   functions used to load and init settings
+ **/
+
 #ifndef PARAM_H
 #define PARAM_H
 #include <iostream>
@@ -23,10 +30,14 @@ struct Param {
 struct AutorizedKeys {
     const std::vector<std::string> moveKeys {"KeyUp", "KeyDown", "KeyRight", "KeyLeft"};
     /**< list of authorized keys for movement */
+
     const std::vector<std::string> skins {"Maze", "Pacman", "Ghost"};
     /**< list of authorized skins for characters */
+
     const std::vector<std::string> difficulty {"GhostNumber", "Difficulty"};
     /**< list of authorized difficulty level */
+
+    const std::vector<std::string> random {"RandomKeys", "RandomSkins"};
 }; 
 
 /**
@@ -50,5 +61,17 @@ void loadParam(Param &param);
 */
 void checkParam(Param &param, AutorizedKeys &autorizedKeys, std::string &key, std::string &value);
 
+/**
+ * @brief Set Random moveKeys between [z,q,s,d]
+ * @param param The struct that holds the parameter's values.
+ * @param autorizedKeys The struct that holds the authorized keys, skins and difficulty level for the game.
+ */
+void randomKeys(Param &param, AutorizedKeys &autorizedKeys);
+
+/**
+ * @brief  Set Random characters and maze skins
+ * @param param The struct that holds the parameter's values.
+ */
+void randomSkin(Param &param);
 
 #endif // PARAM_H

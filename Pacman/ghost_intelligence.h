@@ -1,3 +1,10 @@
+/**
+ * @file   ghost_intelligence.h
+ * @author  Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger
+ * @date    Janvier 2023
+ * @brief   functions used for deciding ghosts movements
+ **/
+
 #ifndef GHOST_INTELLIGENCE_H
 #define GHOST_INTELLIGENCE_H
 #include "constants.h"

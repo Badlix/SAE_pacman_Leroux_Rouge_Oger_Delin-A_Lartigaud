@@ -1,3 +1,10 @@
+/**
+ * @file   game_logic.h
+ * @author  Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger
+ * @date    Janvier 2023
+ * @brief   gameplay functions
+ **/
+
 #ifndef GAME_LOGIC_H
 #define GAME_LOGIC_H
 #include "mingl/audio/audioengine.h"
@@ -27,7 +34,7 @@ void moveCharacterTeleporter(std::vector<std::string> &maze, Character &characte
 * @param jailGhostDuration a variable to keep track of the time the ghost stayed in the jail
 * @param param contains all the necessary parameters of the game
 */
-void letGhostOut(std::map<std::string, Character> &mapCharact, unsigned &jailGhostDuration, Param &param);
+void letGhostOut(std::map<std::string, Character> &characterMap, unsigned &jailGhostDuration, Param &param);
 
 /**
 * @brief Eat a bubble in the current position of the character and increment the score
@@ -53,7 +60,7 @@ void changeState(Character &charact);
 * @param defaultMusic The background music that is played when pacman is in his default state.
 * @param madMusic The background music that is played when pacman is in his mad state.
 */
-void changeEveryoneState(std::map<std::string, Character> &mapCharact, bool newValue, nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic);
+void changeEveryoneState(std::map<std::string, Character> &characterMap, bool newValue, nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic);
 
 /**
  * @brief pacman eat a fruit
@@ -85,6 +92,6 @@ void eatGhost(Param &param, Character &ghost, unsigned &score, nsAudio::AudioEng
  * @param audioEngine is used to play differents sounds effect
  * @fn void checkEating(Param &param, std::map<std::string, Character> &mapC, bool &isGameRunning, unsigned &score, nsAudio::AudioEngine &audioEngine)
  */
-void checkEating(Param &param, std::map<std::string, Character> &mapC, std::vector<std::string> &maze, bool &isGameRunning, unsigned &score, unsigned &nbBubbleLeft, unsigned &bigBubbleDuration, nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic);
+void checkEating(Param &param, std::map<std::string, Character> &characterMap, std::vector<std::string> &maze, bool &isGameRunning, unsigned &score, unsigned &nbBubbleLeft, unsigned &bigBubbleDuration, nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic);
 
 #endif // GAMELOGIC_H

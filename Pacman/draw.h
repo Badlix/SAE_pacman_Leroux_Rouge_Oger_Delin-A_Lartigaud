@@ -1,3 +1,10 @@
+/**
+ * @file   draw.h
+ * @author  Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger
+ * @date    Janvier 2023
+ * @brief   functions used to draw and played sounds/musics
+ **/
+
 #ifndef DRAW_H
 #define DRAW_H
 #include "mingl/mingl.h"

@@ -1,3 +1,10 @@
+/**
+ * @file   initialization.h
+ * @author  Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger
+ * @date    Janvier 2023
+ * @brief   functions used to initialize values
+ **/
+
 #ifndef INITIALIZATION_H
 #define INITIALIZATION_H
 #include "mingl/audio/audioengine.h"

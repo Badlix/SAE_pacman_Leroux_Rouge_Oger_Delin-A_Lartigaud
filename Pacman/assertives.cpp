@@ -1,3 +1,10 @@
+/**
+ * @file   assertives.cpp
+ * @author  Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger
+ * @date    Janvier 2023
+ * @brief   all "is" functions
+ **/
+
 #include "constants.h"
 #include "general.h"
 #include <iostream>

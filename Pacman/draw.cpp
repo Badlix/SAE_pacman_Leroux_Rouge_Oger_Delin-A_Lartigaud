@@ -8,6 +8,13 @@
 #include "mingl/gui/glut_font.h"
 #include "constants.h"
 #include "param.h"
+/**
+ * @file   draw.cpp
+ * @author  Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger
+ * @date    Janvier 2023
+ * @brief   functions used to draw and played sounds/musics
+ **/
+
 #include "general.h"
 #include "assertives.h"
 #include <stdlib.h>

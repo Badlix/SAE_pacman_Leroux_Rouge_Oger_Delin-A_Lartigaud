@@ -1,3 +1,10 @@
+/**
+ * @file   constants.h
+ * @author  Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger
+ * @date    Janvier 2023
+ * @brief  contains struct and constants value
+ **/
+
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 #include "mingl/mingl.h"
@@ -180,130 +187,6 @@ const std::vector<nsGui::Sprite> fruitSkins = {
     nsGui::Sprite("../Pacman/skins/other/cherry.si2", nsGraphics::Vec2D(0,0)),
     nsGui::Sprite("../Pacman/skins/other/pear.si2", nsGraphics::Vec2D(0,0)),
     nsGui::Sprite("../Pacman/skins/other/cake.si2", nsGraphics::Vec2D(0,0))
-};
-
-// ---------- Numbers ---------- //
-/* Numbers are vector of yellow rectangles */
-
-/**
- * @var nbZero
- * @brief A constant variable that holds the shapes of number Zero.
- * @var std::vector<nsShape::Rectangle>
- */
-const std::vector<nsShape::Rectangle> nbZero = {
-    nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,10), nsGraphics::Vec2D(10,30), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(20,10), nsGraphics::Vec2D(25,30), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
-};
-
-/**
- * @var nbOne
- * @brief A constant variable that holds the shapes of number One.
- * @var std::vector<nsShape::Rectangle>
- */
-const std::vector<nsShape::Rectangle> nbOne = {
-    nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(17,10), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(12,10), nsGraphics::Vec2D(17,30), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
-};
-
-/**
- * @var nbTwo
- * @brief A constant variable that holds the shapes of number Two.
- * @var std::vector<nsShape::Rectangle>
- */
-const std::vector<nsShape::Rectangle> nbTwo = {
-    nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,20), nsGraphics::Vec2D(10,30), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(20,10), nsGraphics::Vec2D(25,20), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
-};
-
-/**
- * @var nbThree
- * @brief A constant variable that holds the shapes of number Three.
- * @var std::vector<nsShape::Rectangle>
- */
-const std::vector<nsShape::Rectangle> nbThree = {
-    nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(20,10), nsGraphics::Vec2D(25,30), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
-};
-
-/**
- * @var nbFour
- * @brief A constant variable that holds the shapes of number Four.
- * @var std::vector<nsShape::Rectangle>
- */
-const std::vector<nsShape::Rectangle> nbFour = {
-    nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(10,17), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(20,5), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
-};
-
-/**
- * @var nbFive
- * @brief A constant variable that holds the shapes of number Five.
- * @var std::vector<nsShape::Rectangle>
- */
-const std::vector<nsShape::Rectangle> nbFive = {
-    nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,10), nsGraphics::Vec2D(10,20), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(20,20), nsGraphics::Vec2D(25,30), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
-};
-
-/**
- * @var nbSix
- * @brief A constant variable that holds the shapes of number Six.
- * @var std::vector<nsShape::Rectangle>
- */
-const std::vector<nsShape::Rectangle> nbSix = {
-    nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,10), nsGraphics::Vec2D(10,30), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(20,20), nsGraphics::Vec2D(25,30), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
-};
-
-/**
- * @var nbSeven
- * @brief A constant variable that holds the shapes of number Seven.
- * @var std::vector<nsShape::Rectangle>
- */
-const std::vector<nsShape::Rectangle> nbSeven = {
-    nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(20,10), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
-};
-
-/**
- * @var nbEight
- * @brief A constant variable that holds the shapes of number Eight.
- * @var std::vector<nsShape::Rectangle>
- */
-const std::vector<nsShape::Rectangle> nbEight = {
-    nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,10), nsGraphics::Vec2D(10,30), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(20,10), nsGraphics::Vec2D(25,30), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
-};
-
-/**
- * @var nbNine
- * @brief A constant variable that holds the shapes of number nine.
- * @var std::vector<nsShape::Rectangle>
- */
-const std::vector<nsShape::Rectangle> nbNine = {
-    nsShape::Rectangle(nsGraphics::Vec2D(5,5), nsGraphics::Vec2D(25,10), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,10), nsGraphics::Vec2D(10,17), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,17), nsGraphics::Vec2D(25,22), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(20,10), nsGraphics::Vec2D(25,30), nsGraphics::KYellow),
-    nsShape::Rectangle(nsGraphics::Vec2D(5,35), nsGraphics::Vec2D(25,30), nsGraphics::KYellow)
 };
 
 
