@@ -39,12 +39,13 @@ void gameOver(bool &isGameRunning) {
 // ---------- General Functions ---------- //
 
 
-vector<string> possibleDirections(Position &currentPos, vector<string> &maze){
-    vector<string> directions = {};
-    if (isFree(maze[currentPos.y-1][currentPos.x])) directions.push_back("up");
-    if (isFree(maze[currentPos.y+1][currentPos.x])) directions.push_back("down");
-    if (isFree(maze[currentPos.y][currentPos.x-1])) directions.push_back("left");
-    if (isFree(maze[currentPos.y][currentPos.x+1])) directions.push_back("right");
+vector<string> possibleDirections(Position &currentPos, vector<string> &maze) {
+    //Generate a list of all the possible directions from a current Position (&currentPos)
+    vector<string> directions;
+    if ( isFree(maze[currentPos.y-1][currentPos.x]) ) directions.push_back("up");
+    if ( isFree(maze[currentPos.y+1][currentPos.x]) ) directions.push_back("down");
+    if ( isFree(maze[currentPos.y][currentPos.x-1]) ) directions.push_back("left");
+    if ( isFree(maze[currentPos.y][currentPos.x+1]) ) directions.push_back("right");
     return directions;
 }
 
@@ -62,17 +63,19 @@ Character randomCharacter(map<string, Character> &characterMap) {
 }
 
 Position nextMove(string &direction, Position &currentPos){
+    //Give the next Position going from the current Position (&currentPos) by a given direction (&direction).
     if (direction == "up") return Position{currentPos.x, currentPos.y-1};
     else if (direction == "down") return Position{currentPos.x, currentPos.y+1};
     else if (direction == "left") return Position{currentPos.x-1, currentPos.y};
-    else return Position{currentPos.x+1, currentPos.y}; //if (direction == "right")
+    else if (direction == "right") return Position{currentPos.x+1, currentPos.y};
 }
 
 string getDirection(Position &pos1, Position &pos2){
-    if ( pos1.x-1 == pos2.x && pos1.y == pos2.y ) return "up";
-    else if ( pos1.x+1 == pos2.x && pos1.y == pos2.y ) return "down";
-    else if ( pos1.x == pos2.x && pos1.y-1 == pos2.y ) return "left";
-    else return "right"; //if ( pos1.x == pos2.x && pos1.y+1 == pos2.y )
+    //Give the direction used to go from &pos1 to &pos2
+    if ( pos1.x == pos2.x && pos1.y-1 == pos2.y ) return "up";
+    else if ( pos1.x == pos2.x && pos1.y+1 == pos2.y ) return "down";
+    else if ( pos1.x-1 == pos2.x && pos1.y == pos2.y ) return "left";
+    else if ( pos1.x+1 == pos2.x && pos1.y == pos2.y )return "right";
 }
 
 vector<Position> getPosTeleporter(Param &param) {
@@ -92,16 +95,6 @@ Position getPosCage(Param &param) {
 
 
 // ---------- Functions used for tests ---------- //
-
-void tmpMoveGhost(std::vector<std::string> &maze, map<std::string, Character> &characterMap, Param &param) {
-    for (auto it (characterMap.begin()) ; it != characterMap.end() ; ++it) {
-        if (it->second.type == "Ghost") {
-            if (it->second.type == "Ghost" && it->second.pos == getPosCage(param)) continue;
-            it->second.direction = randomDirection(it->second.pos, maze);
-            moveCharacter(it->second, it->second.direction);
-        }
-    }
-}
 
 void showMap(const std::map<string, Character> &myMap) {
     for (auto it = myMap.begin(); it != myMap.end(); it++) {

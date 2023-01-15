@@ -18,7 +18,7 @@ PacmanMouth initPacmanmouth(Param &param);
 
 size_t nbBubbleInMaze(std::vector<std::string> &maze);
 
-void initPersonality (std::vector<std::string> &characterList, std::map<std::string, std::string> personalities, unsigned &difficulty);
+void initPersonality (std::vector<std::string> &characterList, std::map<std::string, std::string> &personalities, Param &param);
 
 void initMusicsEngine(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic, nsAudio::AudioEngine &gameOverMusic);
 
