@@ -6,7 +6,15 @@
 #include <iostream>
 
 
+/**
+ * @fn tmpMoveGhost
+ * @brief A function that temporarily moves the ghosts in the game.
+ * @param maze : a reference to the vector of strings representing the current maze
+ * @param characterMap : a reference to the map of characters in the game
+ * @param param : a reference to the Param object that holds the game's parameters
+ */
 void tmpMoveGhost(std::vector<std::string> &maze, std::map<std::string, Character> &characterMap, Param &param);
+
 
 // ---------- Game Control ---------- //
 

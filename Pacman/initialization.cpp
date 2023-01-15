@@ -8,11 +8,29 @@
 
 using namespace std;
 
+/**
+ * @fn initMaze
+ * @brief A function that returns the initial state of a maze based on the current selection in the game's parameters.
+ * @param param : a reference to the game's parameters
+ * @return a vector of strings representing the initial state of the selected maze
+ *
+ * The function checks the current maze selection in the game's parameters and returns the corresponding maze.
+ */
 vector<string> initMaze(Param &param) {
     if (param.skins["Maze"] == 1) return maze1;
     else return maze2;
 }
 
+/**
+ * @fn initWalls
+ * @brief A function that returns the walls of a maze in the form of a vector of Rectangle shape
+ * @param maze : a reference to the current state of the maze
+ * @return a vector of nsShape::Rectangle representing the walls of the maze
+ *
+ * The function iterates through the characters of the maze and checks for the presence of a wall.
+ * If a wall is found, it checks its surroundings to determine whether it is an isolated wall or a part of a larger wall.
+ * It then constructs the appropriate Rectangle shape and adds it to the vector of walls.
+ */
 vector<nsShape::Rectangle> initWalls(vector<string> &maze) {
     vector<nsShape::Rectangle> walls = {};
     bool isIsolate (true);
@@ -42,6 +60,12 @@ vector<nsShape::Rectangle> initWalls(vector<string> &maze) {
     return walls;
 }
 
+/**
+* @brief Initialize the skin of a character
+* @param type the type of the character (Pacman or Ghost)
+* @param skinName the name of the skin to be used
+* @return the initialized skin
+*/
 Skin initSkin(string type, string skinName) {
     Skin skin;
     string path = "";
@@ -57,6 +81,11 @@ Skin initSkin(string type, string skinName) {
     return skin;
 }
 
+/**
+ * @brief Initialize the Pacman mouth
+ * @param param : The parameter of the game used to select the skin
+ * @return The PacmanMouth struct with the selected skin and the current mouth state (open or closed)
+ */
 PacmanMouth initPacmanmouth(Param &param) {
     if (param.skins["Pacman"] == 1) return {initSkin("Pacman", "PacmanDefaultClose"), 0};
     else if (param.skins["Pacman"] == 2) return {initSkin("Pacman", "PenguinClose"), 0};
@@ -64,6 +93,12 @@ PacmanMouth initPacmanmouth(Param &param) {
     else if (param.skins["Pacman"] == 4) return {initSkin("Pacman", "FlowerClose"), 0};
 }
 
+/**
+ * @brief Initialize the characters for the game.
+ *
+ * @param param A reference to the Param struct containing the game's settings.
+ * @return A map containing all the characters in the game.
+ */
 map<string, Character> initCharacters(Param &param) {
     map<string, Character> mapC;
     Skin skin;
@@ -121,6 +156,12 @@ map<string, Character> initCharacters(Param &param) {
     return mapC;
 }
 
+/**
+* @brief Count the number of bubbles in the maze
+* @param[in] maze The current state of the maze
+* @return The number of bubbles in the maze
+*/
+
 size_t nbBubbleInMaze(vector<string> &maze){
     size_t bubbleLeft = 0;
     for (size_t i(0); i < maze.size(); ++i){
@@ -133,7 +174,19 @@ size_t nbBubbleInMaze(vector<string> &maze){
     return bubbleLeft;
 }
 
-void initPersonality (vector<string> &characterList, map<string, string> &personalities, Param &param) {
+
+/**
+* @brief initialize the personnality of each character
+* @param characterList list of characters
+* @param personalities map containing the personnality of each character
+* @param difficulty the difficulty of the game
+*
+* This function will randomly assign a personality to each character, based on a drop rate defined by the difficulty
+* The easy personality has a 100 - 30*difficulty drop rate
+* The normal personality has a 30*difficulty - 20 drop rate
+* The hard personality has a 20 drop rate
+*/
+void initPersonality (vector<string> &characterList, map<string, string> personalities, Param &param) {
     //Each personnality has a level of difficulty.
     //The chances of it to drop are in percentage.
 
@@ -170,8 +223,14 @@ void initPersonality (vector<string> &characterList, map<string, string> &person
     }
 }
 
-void initMusicsEngine(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic, nsAudio::AudioEngine &gameOverMusic) {
 
+/**
+* @brief Initialize the different musics used in the game.
+* @param defaultMusic The music played when the game starts or when pacman is not in mad mode.
+* @param madMusic The music played when pacman enters mad mode.
+* @param gameOverMusic The music played when pacman loses.
+*/
+void initMusicsEngine(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMusic, nsAudio::AudioEngine &gameOverMusic) {
     /* Set the different musics */
     defaultMusic.setMusic("../Pacman/audio/musicDefault.wav");
     madMusic.setMusic("../Pacman/audio/musicMad.wav");
