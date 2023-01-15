@@ -1,0 +1,25 @@
+digraph "aStarAlgorithm"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="aStarAlgorithm",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="steelblue1",style="solid"];
+  Node2 [label="bestDirection",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ghost__intelligence_8cpp.html#aa96a92a5f556716af8f446370a5be782",tooltip=" "];
+  Node2 -> Node3 [color="steelblue1",style="solid"];
+  Node3 [label="codePosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ghost__intelligence_8cpp.html#af131dfae8cf73948925f5bf6803cd4dc",tooltip="convert a Position to a string"];
+  Node2 -> Node4 [color="steelblue1",style="solid"];
+  Node4 [label="nextMove",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$general_8cpp.html#a4a3d2aecdd95dad3b27401866a6268bc",tooltip=" "];
+  Node1 -> Node3 [color="steelblue1",style="solid"];
+  Node1 -> Node4 [color="steelblue1",style="solid"];
+  Node1 -> Node5 [color="steelblue1",style="solid"];
+  Node5 [label="possibleDirections",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$general_8cpp.html#a49b69d17591326e8104b90001fc8e635",tooltip=" "];
+  Node5 -> Node6 [color="steelblue1",style="solid"];
+  Node6 [label="isFree",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$assertives_8cpp.html#a23b730f99dc9132a7343a500388c27e3",tooltip="A function that checks if a given position is free."];
+  Node1 -> Node7 [color="steelblue1",style="solid"];
+  Node7 [label="remove",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ghost__intelligence_8cpp.html#a569048560a0d51e09f6715b64dcb3844",tooltip=" "];
+  Node1 -> Node8 [color="steelblue1",style="solid"];
+  Node8 [label="uncodePosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ghost__intelligence_8cpp.html#a5ccdcb9f96c7fbbaae872d4c9df2134f",tooltip=" "];
+}

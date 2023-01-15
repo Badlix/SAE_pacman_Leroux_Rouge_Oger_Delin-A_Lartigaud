@@ -1,0 +1,53 @@
+\hypertarget{general_8h_source}{}\doxysection{general.\+h}
+\mbox{\hyperlink{general_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ GENERAL\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ GENERAL\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}mingl/mingl.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{param_8h}{param.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants_8h}{constants.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Game\ Control\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ //}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{general_8h_a286b329c5091a1724040daded1877b86}{keyboardInput}}(MinGL\ \&window,\ \mbox{\hyperlink{struct_param}{Param}}\ \&param,\ \mbox{\hyperlink{struct_character}{Character}}\ \&pacman,\ std::vector<std::string>\ \&maze);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{general_8h_a5911410731b0e459ee58c84e5ac8d7dd}{gameOver}}(\textcolor{keywordtype}{bool}\ \&isGameRunning);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{general_8h_a9484e966adccf61536a5d43fa062c64f}{tmpMoveGhost}}(std::vector<std::string>\ \&maze,\ std::map<std::string,\ Character>\ \&characterMap,\ \mbox{\hyperlink{struct_param}{Param}}\ \&param);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ General\ Functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ //}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00066\ std::string\ \mbox{\hyperlink{general_8h_a7717c6da9d4e2e9228c29e4e3721393f}{randomDirection}}(\mbox{\hyperlink{struct_position}{Position}}\ \&pos,\ std::vector<std::string>\ \&maze);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00077\ \mbox{\hyperlink{struct_character}{Character}}\ \mbox{\hyperlink{general_8h_aaa95f3a7d2b6aab9bd213b43c956225a}{randomCharacter}}(std::map<std::string,\ Character>\ \&characterMap);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00088\ \mbox{\hyperlink{struct_position}{Position}}\ \mbox{\hyperlink{general_8h_a0e288e19d9b45ac3b8922a696a24a505}{nextMove}}(std::string\ \&direction,\ \mbox{\hyperlink{struct_position}{Position}}\ \&currentPos);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00099\ std::vector<std::string>\ \mbox{\hyperlink{general_8h_a1ae0d3e0822ec3b378e237250845b797}{possibleDirections}}(\mbox{\hyperlink{struct_position}{Position}}\ \&currentPos,\ std::vector<std::string>\ \&maze);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ "{}Get"{}\ Functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ //}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00114\ std::string\ \mbox{\hyperlink{general_8h_adc1a96eb3d078714f831d8319b77311e}{getDirection}}(\mbox{\hyperlink{struct_position}{Position}}\ \&pos1,\ \mbox{\hyperlink{struct_position}{Position}}\ \&pos2);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00124\ std::vector<Position>\ \mbox{\hyperlink{general_8h_ac10095e8aead892c9ac5b5a5fccf9a95}{getPosTeleporter}}(\mbox{\hyperlink{struct_param}{Param}}\ \&param);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00134\ \mbox{\hyperlink{struct_position}{Position}}\ \mbox{\hyperlink{general_8h_a04e932e5accda172d1f2536bda6c8513}{getPosCage}}(\mbox{\hyperlink{struct_param}{Param}}\ \&param);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Functions\ used\ for\ tests\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ //}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{general_8h_ad83aa8b489038b1146eb2825d0e982f6}{showMaze}}(\textcolor{keyword}{const}\ std::vector<std::string>\ \&maze);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{general_8h_ae3ad87b5861159015e6d915e6b4006c4}{showMap}}(\textcolor{keyword}{const}\ std::map<std::string,\ Character>\ \&myMap);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GENERAL\_H}}
+
+\end{DoxyCode}

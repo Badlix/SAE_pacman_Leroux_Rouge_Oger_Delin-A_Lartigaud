@@ -1,0 +1,10 @@
+digraph "PacmanMouth"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [label="PacmanMouth",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="struct that contains all the information related to pacman's mouth animation"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" skins" ];
+  Node2 [label="Skin",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$struct_skin.html",tooltip="Holds the sprites for the default and mad state of a character."];
+}

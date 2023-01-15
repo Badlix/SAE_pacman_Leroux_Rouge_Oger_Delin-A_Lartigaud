@@ -1,0 +1,136 @@
+\hypertarget{general_8h}{}\doxysection{general.\+h File Reference}
+\label{general_8h}\index{general.h@{general.h}}
+
+
+general functions  
+
+
+{\ttfamily \#include \char`\"{}mingl/mingl.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}constants.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for general.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{general_8h_a286b329c5091a1724040daded1877b86}{keyboard\+Input}} (Min\+GL \&window, \mbox{\hyperlink{struct_param}{Param}} \&param, \mbox{\hyperlink{struct_character}{Character}} \&pacman, std\+::vector$<$ std\+::string $>$ \&maze)
+\item 
+void \mbox{\hyperlink{general_8h_a5911410731b0e459ee58c84e5ac8d7dd}{game\+Over}} (bool \&is\+Game\+Running)
+\item 
+void \mbox{\hyperlink{general_8h_a9484e966adccf61536a5d43fa062c64f}{tmp\+Move\+Ghost}} (std\+::vector$<$ std\+::string $>$ \&maze, std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&character\+Map, \mbox{\hyperlink{struct_param}{Param}} \&param)
+\item 
+std\+::string \mbox{\hyperlink{general_8h_a7717c6da9d4e2e9228c29e4e3721393f}{random\+Direction}} (\mbox{\hyperlink{struct_position}{Position}} \&pos, std\+::vector$<$ std\+::string $>$ \&maze)
+\item 
+\mbox{\hyperlink{struct_character}{Character}} \mbox{\hyperlink{general_8h_aaa95f3a7d2b6aab9bd213b43c956225a}{random\+Character}} (std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&character\+Map)
+\item 
+\mbox{\hyperlink{struct_position}{Position}} \mbox{\hyperlink{general_8h_a0e288e19d9b45ac3b8922a696a24a505}{next\+Move}} (std\+::string \&direction, \mbox{\hyperlink{struct_position}{Position}} \&current\+Pos)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{general_8h_a1ae0d3e0822ec3b378e237250845b797}{possible\+Directions}} (\mbox{\hyperlink{struct_position}{Position}} \&current\+Pos, std\+::vector$<$ std\+::string $>$ \&maze)
+\item 
+std\+::string \mbox{\hyperlink{general_8h_adc1a96eb3d078714f831d8319b77311e}{get\+Direction}} (\mbox{\hyperlink{struct_position}{Position}} \&pos1, \mbox{\hyperlink{struct_position}{Position}} \&pos2)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_position}{Position}} $>$ \mbox{\hyperlink{general_8h_ac10095e8aead892c9ac5b5a5fccf9a95}{get\+Pos\+Teleporter}} (\mbox{\hyperlink{struct_param}{Param}} \&param)
+\item 
+\mbox{\hyperlink{struct_position}{Position}} \mbox{\hyperlink{general_8h_a04e932e5accda172d1f2536bda6c8513}{get\+Pos\+Cage}} (\mbox{\hyperlink{struct_param}{Param}} \&param)
+\item 
+void \mbox{\hyperlink{general_8h_ad83aa8b489038b1146eb2825d0e982f6}{show\+Maze}} (const std\+::vector$<$ std\+::string $>$ \&maze)
+\item 
+void \mbox{\hyperlink{general_8h_ae3ad87b5861159015e6d915e6b4006c4}{show\+Map}} (const std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&my\+Map)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+general functions 
+
+\begin{DoxyAuthor}{Author}
+Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Janvier 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{general_8h_a5911410731b0e459ee58c84e5ac8d7dd}\label{general_8h_a5911410731b0e459ee58c84e5ac8d7dd}} 
+\index{general.h@{general.h}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{gameOver()}{gameOver()}}
+{\footnotesize\ttfamily void game\+Over (\begin{DoxyParamCaption}\item[{bool \&}]{is\+Game\+Running }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{general_8h_adc1a96eb3d078714f831d8319b77311e}\label{general_8h_adc1a96eb3d078714f831d8319b77311e}} 
+\index{general.h@{general.h}!getDirection@{getDirection}}
+\index{getDirection@{getDirection}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{getDirection()}{getDirection()}}
+{\footnotesize\ttfamily std\+::string get\+Direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{pos1,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{pos2 }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{general_8h_a04e932e5accda172d1f2536bda6c8513}\label{general_8h_a04e932e5accda172d1f2536bda6c8513}} 
+\index{general.h@{general.h}!getPosCage@{getPosCage}}
+\index{getPosCage@{getPosCage}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{getPosCage()}{getPosCage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_position}{Position}} get\+Pos\+Cage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{general_8h_ac10095e8aead892c9ac5b5a5fccf9a95}\label{general_8h_ac10095e8aead892c9ac5b5a5fccf9a95}} 
+\index{general.h@{general.h}!getPosTeleporter@{getPosTeleporter}}
+\index{getPosTeleporter@{getPosTeleporter}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{getPosTeleporter()}{getPosTeleporter()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct_position}{Position}} $>$ get\+Pos\+Teleporter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{general_8h_a286b329c5091a1724040daded1877b86}\label{general_8h_a286b329c5091a1724040daded1877b86}} 
+\index{general.h@{general.h}!keyboardInput@{keyboardInput}}
+\index{keyboardInput@{keyboardInput}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{keyboardInput()}{keyboardInput()}}
+{\footnotesize\ttfamily void keyboard\+Input (\begin{DoxyParamCaption}\item[{Min\+GL \&}]{window,  }\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param,  }\item[{\mbox{\hyperlink{struct_character}{Character}} \&}]{pacman,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{maze }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{general_8h_a0e288e19d9b45ac3b8922a696a24a505}\label{general_8h_a0e288e19d9b45ac3b8922a696a24a505}} 
+\index{general.h@{general.h}!nextMove@{nextMove}}
+\index{nextMove@{nextMove}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{nextMove()}{nextMove()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_position}{Position}} next\+Move (\begin{DoxyParamCaption}\item[{std\+::string \&}]{direction,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{current\+Pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{general_8h_a1ae0d3e0822ec3b378e237250845b797}\label{general_8h_a1ae0d3e0822ec3b378e237250845b797}} 
+\index{general.h@{general.h}!possibleDirections@{possibleDirections}}
+\index{possibleDirections@{possibleDirections}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{possibleDirections()}{possibleDirections()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ possible\+Directions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{current\+Pos,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{maze }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{general_8h_aaa95f3a7d2b6aab9bd213b43c956225a}\label{general_8h_aaa95f3a7d2b6aab9bd213b43c956225a}} 
+\index{general.h@{general.h}!randomCharacter@{randomCharacter}}
+\index{randomCharacter@{randomCharacter}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{randomCharacter()}{randomCharacter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_character}{Character}} random\+Character (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&}]{character\+Map }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{general_8h_a7717c6da9d4e2e9228c29e4e3721393f}\label{general_8h_a7717c6da9d4e2e9228c29e4e3721393f}} 
+\index{general.h@{general.h}!randomDirection@{randomDirection}}
+\index{randomDirection@{randomDirection}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{randomDirection()}{randomDirection()}}
+{\footnotesize\ttfamily std\+::string random\+Direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{pos,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{maze }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{general_8h_ae3ad87b5861159015e6d915e6b4006c4}\label{general_8h_ae3ad87b5861159015e6d915e6b4006c4}} 
+\index{general.h@{general.h}!showMap@{showMap}}
+\index{showMap@{showMap}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{showMap()}{showMap()}}
+{\footnotesize\ttfamily void show\+Map (\begin{DoxyParamCaption}\item[{const std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&}]{my\+Map }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{general_8h_ad83aa8b489038b1146eb2825d0e982f6}\label{general_8h_ad83aa8b489038b1146eb2825d0e982f6}} 
+\index{general.h@{general.h}!showMaze@{showMaze}}
+\index{showMaze@{showMaze}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{showMaze()}{showMaze()}}
+{\footnotesize\ttfamily void show\+Maze (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{maze }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{general_8h_a9484e966adccf61536a5d43fa062c64f}\label{general_8h_a9484e966adccf61536a5d43fa062c64f}} 
+\index{general.h@{general.h}!tmpMoveGhost@{tmpMoveGhost}}
+\index{tmpMoveGhost@{tmpMoveGhost}!general.h@{general.h}}
+\doxysubsubsection{\texorpdfstring{tmpMoveGhost()}{tmpMoveGhost()}}
+{\footnotesize\ttfamily void tmp\+Move\+Ghost (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{maze,  }\item[{std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&}]{character\+Map,  }\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+

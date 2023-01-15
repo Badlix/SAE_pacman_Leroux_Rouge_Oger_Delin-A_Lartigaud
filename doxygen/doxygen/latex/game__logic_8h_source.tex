@@ -1,0 +1,32 @@
+\hypertarget{game__logic_8h_source}{}\doxysection{game\+\_\+logic.\+h}
+\mbox{\hyperlink{game__logic_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ GAME\_LOGIC\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ GAME\_LOGIC\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}mingl/audio/audioengine.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants_8h}{constants.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{param_8h}{param.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_a168345b9efed6e83373fa203e4787a3f}{moveCharacter}}(\mbox{\hyperlink{struct_character}{Character}}\ \&character,\ std::string\ direction);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_a5a34a41b8cdeee378691828327b3a76d}{moveCharacterTeleporter}}(std::vector<std::string>\ \&maze,\ \mbox{\hyperlink{struct_character}{Character}}\ \&character,\ \mbox{\hyperlink{struct_param}{Param}}\&\ param);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_aad082b99d257ff8b68ea4a4c8c40c333}{letGhostOut}}(std::map<std::string,\ Character>\ \&characterMap,\ \textcolor{keywordtype}{unsigned}\ \&jailGhostDuration,\ \mbox{\hyperlink{struct_param}{Param}}\ \&param);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_a816903711d7aaa89b0eb5b70a1a1e8c2}{eatBubble}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_character}{Character}}\ \&character,\ std::vector<std::string>\ \&maze,\ \textcolor{keywordtype}{size\_t}\ \&bubbleLeft,\ \textcolor{keywordtype}{unsigned}\ \&score);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_a13238abc3267ae97a10f897d400b92d4}{changeState}}(\mbox{\hyperlink{struct_character}{Character}}\ \&charact);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_a7765c52170ec96b4bc846c8c95df90b1}{changeEveryoneState}}(std::map<std::string,\ Character>\ \&characterMap,\ \textcolor{keywordtype}{bool}\ newValue,\ nsAudio::AudioEngine\ \&defaultMusic,\ nsAudio::AudioEngine\ \&madMusic);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{//void\ eatFruit(std::map<std::string,\ Character>\ \&mapC,\ std::string\ fruitKey,\ unsigned\ \&score);}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_a00f559aef9c6d67bbc4f79dee7e43027}{eatGhost}}(\mbox{\hyperlink{struct_param}{Param}}\ \&param,\ \mbox{\hyperlink{struct_character}{Character}}\ \&ghost,\ \textcolor{keywordtype}{unsigned}\ \&score,\ nsAudio::AudioEngine\ \&audioEngine);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_a3b70e6a7d2abb9415d1f3be5a87a29ec}{checkEating}}(\mbox{\hyperlink{struct_param}{Param}}\ \&param,\ std::map<std::string,\ Character>\ \&characterMap,\ std::vector<std::string>\ \&maze,\ \textcolor{keywordtype}{bool}\ \&isGameRunning,\ \textcolor{keywordtype}{unsigned}\ \&score,\ \textcolor{keywordtype}{unsigned}\ \&nbBubbleLeft,\ \textcolor{keywordtype}{unsigned}\ \&bigBubbleDuration,\ nsAudio::AudioEngine\ \&defaultMusic,\ nsAudio::AudioEngine\ \&madMusic);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GAMELOGIC\_H}}
+
+\end{DoxyCode}

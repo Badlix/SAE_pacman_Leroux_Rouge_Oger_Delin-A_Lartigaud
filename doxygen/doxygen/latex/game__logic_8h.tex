@@ -1,0 +1,200 @@
+\hypertarget{game__logic_8h}{}\doxysection{game\+\_\+logic.\+h File Reference}
+\label{game__logic_8h}\index{game\_logic.h@{game\_logic.h}}
+
+
+gameplay functions  
+
+
+{\ttfamily \#include \char`\"{}mingl/audio/audioengine.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}constants.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for game\+\_\+logic.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{game__logic_8h_a168345b9efed6e83373fa203e4787a3f}{move\+Character}} (\mbox{\hyperlink{struct_character}{Character}} \&character, std\+::string direction)
+\begin{DoxyCompactList}\small\item\em Move a character in a specific direction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__logic_8h_a5a34a41b8cdeee378691828327b3a76d}{move\+Character\+Teleporter}} (std\+::vector$<$ std\+::string $>$ \&maze, \mbox{\hyperlink{struct_character}{Character}} \&character, \mbox{\hyperlink{struct_param}{Param}} \&param)
+\begin{DoxyCompactList}\small\item\em Move the character through the teleporter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__logic_8h_aad082b99d257ff8b68ea4a4c8c40c333}{let\+Ghost\+Out}} (std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&character\+Map, unsigned \&jail\+Ghost\+Duration, \mbox{\hyperlink{struct_param}{Param}} \&param)
+\begin{DoxyCompactList}\small\item\em This function allows the ghosts to leave the jail. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__logic_8h_a816903711d7aaa89b0eb5b70a1a1e8c2}{eat\+Bubble}} (const \mbox{\hyperlink{struct_character}{Character}} \&character, std\+::vector$<$ std\+::string $>$ \&maze, size\+\_\+t \&bubble\+Left, unsigned \&score)
+\begin{DoxyCompactList}\small\item\em Eat a bubble in the current position of the character and increment the score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__logic_8h_a13238abc3267ae97a10f897d400b92d4}{change\+State}} (\mbox{\hyperlink{struct_character}{Character}} \&charact)
+\begin{DoxyCompactList}\small\item\em Change the state of a character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__logic_8h_a7765c52170ec96b4bc846c8c95df90b1}{change\+Everyone\+State}} (std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&character\+Map, bool new\+Value, ns\+Audio\+::\+Audio\+Engine \&default\+Music, ns\+Audio\+::\+Audio\+Engine \&mad\+Music)
+\begin{DoxyCompactList}\small\item\em Change the state of every character in the map to the given value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__logic_8h_a00f559aef9c6d67bbc4f79dee7e43027}{eat\+Ghost}} (\mbox{\hyperlink{struct_param}{Param}} \&param, \mbox{\hyperlink{struct_character}{Character}} \&ghost, unsigned \&score, ns\+Audio\+::\+Audio\+Engine \&audio\+Engine)
+\begin{DoxyCompactList}\small\item\em This function is used to make pacman eat the ghost and update the score accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__logic_8h_a3b70e6a7d2abb9415d1f3be5a87a29ec}{check\+Eating}} (\mbox{\hyperlink{struct_param}{Param}} \&param, std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&character\+Map, std\+::vector$<$ std\+::string $>$ \&maze, bool \&is\+Game\+Running, unsigned \&score, unsigned \&nb\+Bubble\+Left, unsigned \&big\+Bubble\+Duration, ns\+Audio\+::\+Audio\+Engine \&default\+Music, ns\+Audio\+::\+Audio\+Engine \&mad\+Music)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+gameplay functions 
+
+\begin{DoxyAuthor}{Author}
+Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Janvier 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game__logic_8h_a7765c52170ec96b4bc846c8c95df90b1}\label{game__logic_8h_a7765c52170ec96b4bc846c8c95df90b1}} 
+\index{game\_logic.h@{game\_logic.h}!changeEveryoneState@{changeEveryoneState}}
+\index{changeEveryoneState@{changeEveryoneState}!game\_logic.h@{game\_logic.h}}
+\doxysubsubsection{\texorpdfstring{changeEveryoneState()}{changeEveryoneState()}}
+{\footnotesize\ttfamily void change\+Everyone\+State (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&}]{character\+Map,  }\item[{bool}]{new\+Value,  }\item[{ns\+Audio\+::\+Audio\+Engine \&}]{default\+Music,  }\item[{ns\+Audio\+::\+Audio\+Engine \&}]{mad\+Music }\end{DoxyParamCaption})}
+
+
+
+Change the state of every character in the map to the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map\+Charact} & A map containing all the characters in the game. \\
+\hline
+{\em new\+Value} & The new state that will be applied to every character. \\
+\hline
+{\em default\+Music} & The background music that is played when pacman is in his default state. \\
+\hline
+{\em mad\+Music} & The background music that is played when pacman is in his mad state. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game__logic_8h_a13238abc3267ae97a10f897d400b92d4}\label{game__logic_8h_a13238abc3267ae97a10f897d400b92d4}} 
+\index{game\_logic.h@{game\_logic.h}!changeState@{changeState}}
+\index{changeState@{changeState}!game\_logic.h@{game\_logic.h}}
+\doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
+{\footnotesize\ttfamily void change\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_character}{Character}} \&}]{charact }\end{DoxyParamCaption})}
+
+
+
+Change the state of a character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em charact} & The character whose state needs to be changed This function changes the state of the character passed as a parameter. It inverts the value of the \char`\"{}is\+Default\+State\char`\"{} attribute of the character. If the character is of type \char`\"{}\+Pacman\char`\"{}, it also modifies the character\textquotesingle{}s speed depending on the new state. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{game__logic_8h_a3b70e6a7d2abb9415d1f3be5a87a29ec}\label{game__logic_8h_a3b70e6a7d2abb9415d1f3be5a87a29ec}} 
+\index{game\_logic.h@{game\_logic.h}!checkEating@{checkEating}}
+\index{checkEating@{checkEating}!game\_logic.h@{game\_logic.h}}
+\doxysubsubsection{\texorpdfstring{checkEating()}{checkEating()}}
+{\footnotesize\ttfamily void check\+Eating (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param,  }\item[{std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&}]{character\+Map,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{maze,  }\item[{bool \&}]{is\+Game\+Running,  }\item[{unsigned \&}]{score,  }\item[{unsigned \&}]{nb\+Bubble\+Left,  }\item[{unsigned \&}]{big\+Bubble\+Duration,  }\item[{ns\+Audio\+::\+Audio\+Engine \&}]{default\+Music,  }\item[{ns\+Audio\+::\+Audio\+Engine \&}]{mad\+Music }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{game__logic_8h_a816903711d7aaa89b0eb5b70a1a1e8c2}\label{game__logic_8h_a816903711d7aaa89b0eb5b70a1a1e8c2}} 
+\index{game\_logic.h@{game\_logic.h}!eatBubble@{eatBubble}}
+\index{eatBubble@{eatBubble}!game\_logic.h@{game\_logic.h}}
+\doxysubsubsection{\texorpdfstring{eatBubble()}{eatBubble()}}
+{\footnotesize\ttfamily void eat\+Bubble (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_character}{Character}} \&}]{character,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{maze,  }\item[{size\+\_\+t \&}]{bubble\+Left,  }\item[{unsigned \&}]{score }\end{DoxyParamCaption})}
+
+
+
+Eat a bubble in the current position of the character and increment the score. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & \+: The character that eats the bubble \\
+\hline
+{\em maze} & \+: The current game maze \\
+\hline
+{\em bubble\+Left} & \+: The number of bubble left in the maze \\
+\hline
+{\em score} & \+: The score of the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game__logic_8h_a00f559aef9c6d67bbc4f79dee7e43027}\label{game__logic_8h_a00f559aef9c6d67bbc4f79dee7e43027}} 
+\index{game\_logic.h@{game\_logic.h}!eatGhost@{eatGhost}}
+\index{eatGhost@{eatGhost}!game\_logic.h@{game\_logic.h}}
+\doxysubsubsection{\texorpdfstring{eatGhost()}{eatGhost()}}
+{\footnotesize\ttfamily void eat\+Ghost (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param,  }\item[{\mbox{\hyperlink{struct_character}{Character}} \&}]{ghost,  }\item[{unsigned \&}]{score,  }\item[{ns\+Audio\+::\+Audio\+Engine \&}]{audio\+Engine }\end{DoxyParamCaption})}
+
+
+
+This function is used to make pacman eat the ghost and update the score accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & is used to access the position of the cage where the ghost will be sent \\
+\hline
+{\em ghost} & is the ghost that is going to be eaten \\
+\hline
+{\em score} & is the current score of the game and will be updated \\
+\hline
+{\em audio\+Engine} & is used to play the sound of pacman eating the ghost \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{game__logic_8h_aad082b99d257ff8b68ea4a4c8c40c333}\label{game__logic_8h_aad082b99d257ff8b68ea4a4c8c40c333}} 
+\index{game\_logic.h@{game\_logic.h}!letGhostOut@{letGhostOut}}
+\index{letGhostOut@{letGhostOut}!game\_logic.h@{game\_logic.h}}
+\doxysubsubsection{\texorpdfstring{letGhostOut()}{letGhostOut()}}
+{\footnotesize\ttfamily void let\+Ghost\+Out (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&}]{character\+Map,  }\item[{unsigned \&}]{jail\+Ghost\+Duration,  }\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+
+
+
+This function allows the ghosts to leave the jail. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map\+Charact} & a map containing all the characters of the game \\
+\hline
+{\em jail\+Ghost\+Duration} & a variable to keep track of the time the ghost stayed in the jail \\
+\hline
+{\em param} & contains all the necessary parameters of the game \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{game__logic_8h_a168345b9efed6e83373fa203e4787a3f}\label{game__logic_8h_a168345b9efed6e83373fa203e4787a3f}} 
+\index{game\_logic.h@{game\_logic.h}!moveCharacter@{moveCharacter}}
+\index{moveCharacter@{moveCharacter}!game\_logic.h@{game\_logic.h}}
+\doxysubsubsection{\texorpdfstring{moveCharacter()}{moveCharacter()}}
+{\footnotesize\ttfamily void move\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_character}{Character}} \&}]{character,  }\item[{std\+::string}]{direction }\end{DoxyParamCaption})}
+
+
+
+Move a character in a specific direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & the character to move \\
+\hline
+{\em direction} & the direction to move the character in (\char`\"{}up\char`\"{}, \char`\"{}right\char`\"{}, \char`\"{}down\char`\"{}, \char`\"{}left\char`\"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function does not check if the move is valid (if the character will collide with a wall for example) 
+\end{DoxyNote}
+\mbox{\Hypertarget{game__logic_8h_a5a34a41b8cdeee378691828327b3a76d}\label{game__logic_8h_a5a34a41b8cdeee378691828327b3a76d}} 
+\index{game\_logic.h@{game\_logic.h}!moveCharacterTeleporter@{moveCharacterTeleporter}}
+\index{moveCharacterTeleporter@{moveCharacterTeleporter}!game\_logic.h@{game\_logic.h}}
+\doxysubsubsection{\texorpdfstring{moveCharacterTeleporter()}{moveCharacterTeleporter()}}
+{\footnotesize\ttfamily void move\+Character\+Teleporter (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{maze,  }\item[{\mbox{\hyperlink{struct_character}{Character}} \&}]{character,  }\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+
+
+
+Move the character through the teleporter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maze} & The current game maze \\
+\hline
+{\em character} & The character to move \\
+\hline
+{\em param} & The game parameters \\
+\hline
+\end{DoxyParams}

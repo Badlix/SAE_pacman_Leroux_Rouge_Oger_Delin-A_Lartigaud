@@ -1,0 +1,16 @@
+digraph "initSkin"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [label="initSkin",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="initCharacters",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$initialization_8cpp.html#afc7f1f6f705585a0191d53ef7f45b184",tooltip="Initialize the characters for the game."];
+  Node2 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4",tooltip="The main function of the program This function initializes all the core elements of the program,..."];
+  Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="initPacmanmouth",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$initialization_8cpp.html#ab7748396f9ce97426eacae784594c02b",tooltip="Initialize the Pacman mouth."];
+  Node4 -> Node3 [dir="back",color="steelblue1",style="solid"];
+}

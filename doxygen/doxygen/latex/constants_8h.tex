@@ -1,0 +1,161 @@
+\hypertarget{constants_8h}{}\doxysection{constants.\+h File Reference}
+\label{constants_8h}\index{constants.h@{constants.h}}
+
+
+contains struct and constants value  
+
+
+{\ttfamily \#include \char`\"{}mingl/mingl.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mingl/shape/rectangle.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mingl/gui/sprite.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for constants.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_position}{Position}}
+\begin{DoxyCompactList}\small\item\em Struct representing a position in the maze. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_skin}{Skin}}
+\begin{DoxyCompactList}\small\item\em Holds the sprites for the default and mad state of a character. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_pacman_mouth}{Pacman\+Mouth}}
+\begin{DoxyCompactList}\small\item\em struct that contains all the information related to pacman\textquotesingle{}s mouth animation \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_character}{Character}}
+\begin{DoxyCompactList}\small\item\em A struct that represents a character in the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{constants_8h_a578860512331a2cc1244db3925df5b17}{maze1}}
+\begin{DoxyCompactList}\small\item\em A constant variable that holds the layout of the first maze in the game. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{constants_8h_abdcc339d1e568f549ea79437b1ea56d7}{maze2}}
+\begin{DoxyCompactList}\small\item\em A constant variable that holds the layout of the second maze in the game. \end{DoxyCompactList}\item 
+const std\+::vector$<$ ns\+Graphics\+::\+RGBAcolor $>$ \mbox{\hyperlink{constants_8h_aa2f6513c75816bc928d93308efe93b08}{skin\+Ghost\+Colors}} = \{ns\+Graphics\+::\+RGBAcolor(255,192,203,255), ns\+Graphics\+::\+RGBAcolor(255,238,0,255), ns\+Graphics\+::\+RGBAcolor(105,0,105,255), ns\+Graphics\+::\+RGBAcolor(200,0,0,255)\}
+\begin{DoxyCompactList}\small\item\em A constant variable that holds the colors for the ghost skins in the game. \end{DoxyCompactList}\item 
+const std\+::vector$<$ ns\+Gui\+::\+Sprite $>$ \mbox{\hyperlink{constants_8h_a3f4429733c2b0d1983cdb1438d25827b}{fruit\+Skins}}
+\begin{DoxyCompactList}\small\item\em A constant variable that holds the skins for the fruits in the game. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{constants_8h_a619acc31feecf117ccf56ab84c291829}{lose\+Sentence}} = \{\char`\"{}Error\+: A fatal exception has occurred. Player\textquotesingle{}s skills has left the game.\char`\"{}, \char`\"{}Do you really know how to play this game ?\char`\"{}, \char`\"{}Take a little rest before resuming, it shall benefit a bit to your health.\char`\"{}\}
+\begin{DoxyCompactList}\small\item\em A constant variable that holds the sentences displayed when the player loses the game. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{constants_8h_a7a09919f6ebcf746ce22dfd099878758}{win\+Sentence}} = \{\char`\"{}You, who braved so many trials, you have all my admiration for having succeeded.\char`\"{}, \char`\"{}Congratulations ! Now that you\textquotesingle{}re done, how about taking a quick shower ?\char`\"{}, \char`\"{}You are filled with determination\char`\"{}\}
+\begin{DoxyCompactList}\small\item\em A constant variable that holds the sentences displayed when the player wins the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+contains struct and constants value 
+
+\begin{DoxyAuthor}{Author}
+Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Janvier 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{constants_8h_a3f4429733c2b0d1983cdb1438d25827b}\label{constants_8h_a3f4429733c2b0d1983cdb1438d25827b}} 
+\index{constants.h@{constants.h}!fruitSkins@{fruitSkins}}
+\index{fruitSkins@{fruitSkins}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{fruitSkins}{fruitSkins}}
+{\footnotesize\ttfamily fruit\+Skins}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ nsGui::Sprite(\textcolor{stringliteral}{"{}../Pacman/skins/other/cherry.si2"{}},\ nsGraphics::Vec2D(0,0)),}
+\DoxyCodeLine{\ \ \ \ nsGui::Sprite(\textcolor{stringliteral}{"{}../Pacman/skins/other/pear.si2"{}},\ nsGraphics::Vec2D(0,0)),}
+\DoxyCodeLine{\ \ \ \ nsGui::Sprite(\textcolor{stringliteral}{"{}../Pacman/skins/other/cake.si2"{}},\ nsGraphics::Vec2D(0,0))}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+A constant variable that holds the skins for the fruits in the game. 
+
+\mbox{\Hypertarget{constants_8h_a619acc31feecf117ccf56ab84c291829}\label{constants_8h_a619acc31feecf117ccf56ab84c291829}} 
+\index{constants.h@{constants.h}!loseSentence@{loseSentence}}
+\index{loseSentence@{loseSentence}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{loseSentence}{loseSentence}}
+{\footnotesize\ttfamily lose\+Sentence = \{\char`\"{}Error\+: A fatal exception has occurred. Player\textquotesingle{}s skills has left the game.\char`\"{}, \char`\"{}Do you really know how to play this game ?\char`\"{}, \char`\"{}Take a little rest before resuming, it shall benefit a bit to your health.\char`\"{}\}}
+
+
+
+A constant variable that holds the sentences displayed when the player loses the game. 
+
+\mbox{\Hypertarget{constants_8h_a578860512331a2cc1244db3925df5b17}\label{constants_8h_a578860512331a2cc1244db3925df5b17}} 
+\index{constants.h@{constants.h}!maze1@{maze1}}
+\index{maze1@{maze1}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{maze1}{maze1}}
+{\footnotesize\ttfamily maze1}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#\#\#\#\#\#\#\#\#\#\#=\#\#\#\#\#\#\#\#\#\#\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.........\#...\#\#.....o\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#\#.\#\#.\#...\#.o\#.\#.-\/-\/-\/\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#...\#.\#.\#.\#\#.\#.\#.-\/-\/-\/\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#.\#.\#o.....\#...\#....\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#..o\#.\#\#\#.\#\#.\#.\#.\#.\#\#.\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#\#\#......\#.\#.\#.\#..\#.\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#...\#.\#\#\#\#.\#...\#.\#\#...\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#.\#......\#.\#\#\#...o\#.\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#.\#o\#.\#\#\#\#.\#...\#\#\#\#.\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#..............\#.....o\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#\#\#\#\#\#\#\#\#\#\#=\#\#\#\#\#\#\#\#\#\#\#"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+A constant variable that holds the layout of the first maze in the game. 
+
+\mbox{\Hypertarget{constants_8h_abdcc339d1e568f549ea79437b1ea56d7}\label{constants_8h_abdcc339d1e568f549ea79437b1ea56d7}} 
+\index{constants.h@{constants.h}!maze2@{maze2}}
+\index{maze2@{maze2}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{maze2}{maze2}}
+{\footnotesize\ttfamily maze2}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#..........o..........\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#\#\#.\#\#\#\#\#.\#\#\#\#\#.\#.\#.\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#o......\#.\#.....\#...\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#.\#\#.\#\#.....\#\#\#.\#.\#.\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}=.\#.\#.....\#\#\#.....\#...="{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#.\#.\#\#\#.\#o..-\/-\/-\/.\#.\#.\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#.\#.\#\ \#.\#\#\#.-\/-\/-\/.\#o\#.\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#...\#\#\#...\#.\#\#\#.\#.\#.\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#.\#\#\#.\#o\#.\#\#\#.\#o\#.\#.\#.\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#o....................\#"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+A constant variable that holds the layout of the second maze in the game. 
+
+\mbox{\Hypertarget{constants_8h_aa2f6513c75816bc928d93308efe93b08}\label{constants_8h_aa2f6513c75816bc928d93308efe93b08}} 
+\index{constants.h@{constants.h}!skinGhostColors@{skinGhostColors}}
+\index{skinGhostColors@{skinGhostColors}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{skinGhostColors}{skinGhostColors}}
+{\footnotesize\ttfamily skin\+Ghost\+Colors = \{ns\+Graphics\+::\+RGBAcolor(255,192,203,255), ns\+Graphics\+::\+RGBAcolor(255,238,0,255), ns\+Graphics\+::\+RGBAcolor(105,0,105,255), ns\+Graphics\+::\+RGBAcolor(200,0,0,255)\}}
+
+
+
+A constant variable that holds the colors for the ghost skins in the game. 
+
+\mbox{\Hypertarget{constants_8h_a7a09919f6ebcf746ce22dfd099878758}\label{constants_8h_a7a09919f6ebcf746ce22dfd099878758}} 
+\index{constants.h@{constants.h}!winSentence@{winSentence}}
+\index{winSentence@{winSentence}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{winSentence}{winSentence}}
+{\footnotesize\ttfamily win\+Sentence = \{\char`\"{}You, who braved so many trials, you have all my admiration for having succeeded.\char`\"{}, \char`\"{}Congratulations ! Now that you\textquotesingle{}re done, how about taking a quick shower ?\char`\"{}, \char`\"{}You are filled with determination\char`\"{}\}}
+
+
+
+A constant variable that holds the sentences displayed when the player wins the game. 
+

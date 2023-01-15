@@ -1,0 +1,32 @@
+digraph "getPosCage"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [label="getPosCage",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="drawMaze",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$draw_8cpp.html#a3e1ac31dc4a8858d652ed8f20f5ceda3",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4",tooltip="The main function of the program This function initializes all the core elements of the program,..."];
+  Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="eatGhost",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$game__logic_8cpp.html#a00f559aef9c6d67bbc4f79dee7e43027",tooltip="This function is used to make pacman eat the ghost and update the score accordingly."];
+  Node4 -> Node5 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="checkEating",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$game__logic_8cpp.html#ae0ed05ef5a7dc7541318db1cc12c825f",tooltip=" "];
+  Node5 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node1 -> Node6 [dir="back",color="steelblue1",style="solid"];
+  Node6 [label="initCharacters",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$initialization_8cpp.html#afc7f1f6f705585a0191d53ef7f45b184",tooltip="Initialize the characters for the game."];
+  Node6 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node1 -> Node7 [dir="back",color="steelblue1",style="solid"];
+  Node7 [label="isGhostInCage",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$assertives_8cpp.html#a9990c14f211e1c5760b612423b342c6f",tooltip="A function that checks if a ghost is currently in its cage."];
+  Node7 -> Node8 [dir="back",color="steelblue1",style="solid"];
+  Node8 [label="isThereAGhostInCage",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$assertives_8cpp.html#a99c698efb3f30c46e61095fe7fda6347",tooltip=" "];
+  Node8 -> Node9 [dir="back",color="steelblue1",style="solid"];
+  Node9 [label="letGhostOut",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$game__logic_8cpp.html#aad082b99d257ff8b68ea4a4c8c40c333",tooltip="This function allows the ghosts to leave the jail."];
+  Node9 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node7 -> Node9 [dir="back",color="steelblue1",style="solid"];
+  Node1 -> Node10 [dir="back",color="steelblue1",style="solid"];
+  Node10 [label="tmpMoveGhost",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$general_8cpp.html#a6eac6a0d4521074e5ab46d5af0f9aa8f",tooltip=" "];
+  Node10 -> Node3 [dir="back",color="steelblue1",style="solid"];
+}

@@ -1,0 +1,143 @@
+\hypertarget{param_8cpp}{}\doxysection{param.\+cpp File Reference}
+\label{param_8cpp}\index{param.cpp@{param.cpp}}
+
+
+functions used to load and init settings  
+
+
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$typeinfo$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for param.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{param_8cpp_acdcf6cc1adce9270fd23fb13e3f3ff70}{init\+Param}} (\mbox{\hyperlink{struct_param}{Param}} \&param)
+\begin{DoxyCompactList}\small\item\em Initialize the \mbox{\hyperlink{struct_param}{Param}} struct with default values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{param_8cpp_ad4a3d063ebc7e99a32401183016ba46a}{random\+Keys}} (\mbox{\hyperlink{struct_param}{Param}} \&param, \mbox{\hyperlink{struct_autorized_keys}{Autorized\+Keys}} \&autorized\+Keys)
+\begin{DoxyCompactList}\small\item\em Set Random move\+Keys between \mbox{[}z,q,s,d\mbox{]}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{param_8cpp_af269a8e6756124d3438c4f75a51b958e}{random\+Skin}} (\mbox{\hyperlink{struct_param}{Param}} \&param)
+\begin{DoxyCompactList}\small\item\em Set Random characters and maze skins. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{param_8cpp_ab05c7bb830ed2383d964a5523ca1268d}{check\+Param}} (\mbox{\hyperlink{struct_param}{Param}} \&param, \mbox{\hyperlink{struct_autorized_keys}{Autorized\+Keys}} \&autorized\+Keys, string \&key, string \&value)
+\begin{DoxyCompactList}\small\item\em Check if the key and value from the settings file are authorized. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{param_8cpp_a5b1770617561c897790e48b07c49c58e}{load\+Param}} (\mbox{\hyperlink{struct_param}{Param}} \&param)
+\begin{DoxyCompactList}\small\item\em Load the game parameters from the settings file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+functions used to load and init settings 
+
+\begin{DoxyAuthor}{Author}
+Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Janvier 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{param_8cpp_ab05c7bb830ed2383d964a5523ca1268d}\label{param_8cpp_ab05c7bb830ed2383d964a5523ca1268d}} 
+\index{param.cpp@{param.cpp}!checkParam@{checkParam}}
+\index{checkParam@{checkParam}!param.cpp@{param.cpp}}
+\doxysubsubsection{\texorpdfstring{checkParam()}{checkParam()}}
+{\footnotesize\ttfamily void check\+Param (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param,  }\item[{\mbox{\hyperlink{struct_autorized_keys}{Autorized\+Keys}} \&}]{autorized\+Keys,  }\item[{string \&}]{key,  }\item[{string \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Check if the key and value from the settings file are authorized. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & A reference to the parameters object \\
+\hline
+{\em autorized\+Keys} & A reference to the struct that contains the authorized keys, skins and difficulty \\
+\hline
+{\em key} & The key from the settings file \\
+\hline
+{\em value} & The value from the settings file \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{param_8cpp_acdcf6cc1adce9270fd23fb13e3f3ff70}\label{param_8cpp_acdcf6cc1adce9270fd23fb13e3f3ff70}} 
+\index{param.cpp@{param.cpp}!initParam@{initParam}}
+\index{initParam@{initParam}!param.cpp@{param.cpp}}
+\doxysubsubsection{\texorpdfstring{initParam()}{initParam()}}
+{\footnotesize\ttfamily void init\+Param (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+
+
+
+Initialize the \mbox{\hyperlink{struct_param}{Param}} struct with default values. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em param} & The struct that holds the parameter\textquotesingle{}s values. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{param_8cpp_a5b1770617561c897790e48b07c49c58e}\label{param_8cpp_a5b1770617561c897790e48b07c49c58e}} 
+\index{param.cpp@{param.cpp}!loadParam@{loadParam}}
+\index{loadParam@{loadParam}!param.cpp@{param.cpp}}
+\doxysubsubsection{\texorpdfstring{loadParam()}{loadParam()}}
+{\footnotesize\ttfamily void load\+Param (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+
+
+
+Load the game parameters from the settings file. 
+
+Load the parameters from a file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & A reference to the parameters object to be loaded \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{param_8cpp_ad4a3d063ebc7e99a32401183016ba46a}\label{param_8cpp_ad4a3d063ebc7e99a32401183016ba46a}} 
+\index{param.cpp@{param.cpp}!randomKeys@{randomKeys}}
+\index{randomKeys@{randomKeys}!param.cpp@{param.cpp}}
+\doxysubsubsection{\texorpdfstring{randomKeys()}{randomKeys()}}
+{\footnotesize\ttfamily void random\+Keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param,  }\item[{\mbox{\hyperlink{struct_autorized_keys}{Autorized\+Keys}} \&}]{autorized\+Keys }\end{DoxyParamCaption})}
+
+
+
+Set Random move\+Keys between \mbox{[}z,q,s,d\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & The struct that holds the parameter\textquotesingle{}s values. \\
+\hline
+{\em autorized\+Keys} & The struct that holds the authorized keys, skins and difficulty level for the game. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{param_8cpp_af269a8e6756124d3438c4f75a51b958e}\label{param_8cpp_af269a8e6756124d3438c4f75a51b958e}} 
+\index{param.cpp@{param.cpp}!randomSkin@{randomSkin}}
+\index{randomSkin@{randomSkin}!param.cpp@{param.cpp}}
+\doxysubsubsection{\texorpdfstring{randomSkin()}{randomSkin()}}
+{\footnotesize\ttfamily void random\+Skin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+
+
+
+Set Random characters and maze skins. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & The struct that holds the parameter\textquotesingle{}s values. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 7

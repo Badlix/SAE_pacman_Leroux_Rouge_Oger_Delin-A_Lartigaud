@@ -1,0 +1,34 @@
+\hypertarget{draw_8h_source}{}\doxysection{draw.\+h}
+\mbox{\hyperlink{draw_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ DRAW\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ DRAW\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}mingl/mingl.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}mingl/audio/audioengine.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}mingl/transition/transition\_engine.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants_8h}{constants.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{param_8h}{param.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{draw_8h_a70a6031add87a5c5a556ff3515910852}{switchMusic}}(nsAudio::AudioEngine\ \&defaultMusic,\ nsAudio::AudioEngine\ \&madMusic,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&pacmanDefaultState);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{draw_8h_aa5e6934b011c4733cc698f9e933fbd74}{drawCage}}(MinGL\ \&window,\ \textcolor{keyword}{const}\ nsGraphics::Vec2D\ pos);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{draw_8h_a64851a04ba4f16777a9585ee475ad844}{drawGameOverScreen}}(MinGL\ \&window,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&isVictory,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \&score,\ \textcolor{keywordtype}{unsigned}\ \&random);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{draw_8h_ae580b80500db92efedc4df0a75d9bd7f}{switchMouthPacmanOpenClose}}(\mbox{\hyperlink{struct_character}{Character}}\ \&pacman,\ \mbox{\hyperlink{struct_pacman_mouth}{PacmanMouth}}\ \&pacmanMouth);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{draw_8h_a455681d041a3125142600a05d432295e}{drawCharacter}}(MinGL\ \&window,\ std::map<std::string,\ Character>\ \&charactMap,\ \mbox{\hyperlink{struct_param}{Param}}\ \&param);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{draw_8h_abc7d05921a095a28d214f427c602144d}{drawMaze}}(MinGL\ \&window,\ std::vector<std::string>\ \&maze,\ std::vector<nsShape::Rectangle>\ \&walls,\ \mbox{\hyperlink{struct_param}{Param}}\ \&param);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{draw_8h_a559c5d6b980ef2d40679b6d96f246eb3}{launchTransitions}}(nsTransition::TransitionEngine\ \&t,\ std::map<std::string,\ Character>\ \&\ characterMap,\ \textcolor{keywordtype}{bool}\ \&isTransitionFinished);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00084\ nsGraphics::Vec2D\ \mbox{\hyperlink{draw_8h_a8054a3e7bca97fb6b6b6161255297034}{calcPosTransition}}(\mbox{\hyperlink{struct_position}{Position}}\ \&posCharact);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{draw_8h_acd349d5ff0808c844d9ee289442fff5a}{drawScore}}(MinGL\ \&window,\ \textcolor{keywordtype}{unsigned}\ \&score);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DRAW\_H}}
+
+\end{DoxyCode}

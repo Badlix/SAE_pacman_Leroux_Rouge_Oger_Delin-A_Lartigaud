@@ -1,0 +1,31 @@
+\hypertarget{initialization_8h_source}{}\doxysection{initialization.\+h}
+\mbox{\hyperlink{initialization_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ INITIALIZATION\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ INITIALIZATION\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}mingl/audio/audioengine.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}mingl/shape/rectangle.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants_8h}{constants.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{param_8h}{param.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00024\ std::vector<std::string>\ \mbox{\hyperlink{initialization_8h_a5959a109da2bcabca4402db0a9de94c7}{initMaze}}(\mbox{\hyperlink{struct_param}{Param}}\ \&param);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00036\ std::vector<nsShape::Rectangle>\ \mbox{\hyperlink{initialization_8h_ab572028d3edea97087721fe4547a4338}{initWalls}}(std::vector<std::string>\ \&maze);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00044\ std::map<std::string,\ Character>\ \mbox{\hyperlink{initialization_8h_a37119ba4c63486bd70f6145368a06720}{initCharacters}}(\mbox{\hyperlink{struct_param}{Param}}\ \&param);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00052\ \mbox{\hyperlink{struct_skin}{Skin}}\ \mbox{\hyperlink{initialization_8h_ae9b28621a936d391beaf953f328125ee}{initSkin}}(std::string\ type,\ std::string\ skinName);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \mbox{\hyperlink{struct_pacman_mouth}{PacmanMouth}}\ \mbox{\hyperlink{initialization_8h_ab7748396f9ce97426eacae784594c02b}{initPacmanmouth}}(\mbox{\hyperlink{struct_param}{Param}}\ \&param);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{initialization_8h_a0ea7872df3a61b478a2cf0951c424be9}{nbBubbleInMaze}}(std::vector<std::string>\ \&maze);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{initialization_8h_a05874b59a37debd7613c4d3a3d73b8c3}{initPersonality}}\ (std::vector<std::string>\ \&characterList,\ std::map<std::string,\ std::string>\ personalities,\ \mbox{\hyperlink{struct_param}{Param}}\ \&param);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{initialization_8h_a4e7df9e43241611159fd2ce69dd27bbd}{initMusicsEngine}}(nsAudio::AudioEngine\ \&defaultMusic,\ nsAudio::AudioEngine\ \&madMusic,\ nsAudio::AudioEngine\ \&gameOverMusic);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INITIALIZATION\_H}}
+
+\end{DoxyCode}

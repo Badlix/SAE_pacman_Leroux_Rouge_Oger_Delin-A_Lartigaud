@@ -1,0 +1,15 @@
+digraph "loadParam"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="loadParam",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Load the parameters from a file."];
+  Node1 -> Node2 [color="steelblue1",style="solid"];
+  Node2 [label="checkParam",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$param_8cpp.html#ab05c7bb830ed2383d964a5523ca1268d",tooltip="Check if the key and value from the settings file are authorized."];
+  Node2 -> Node3 [color="steelblue1",style="solid"];
+  Node3 [label="randomKeys",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$param_8cpp.html#ad4a3d063ebc7e99a32401183016ba46a",tooltip="Set Random moveKeys between [z,q,s,d]."];
+  Node2 -> Node4 [color="steelblue1",style="solid"];
+  Node4 [label="randomSkin",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$param_8cpp.html#af269a8e6756124d3438c4f75a51b958e",tooltip="Set Random characters and maze skins."];
+}

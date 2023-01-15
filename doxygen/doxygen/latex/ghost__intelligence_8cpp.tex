@@ -1,0 +1,184 @@
+\hypertarget{ghost__intelligence_8cpp}{}\doxysection{ghost\+\_\+intelligence.\+cpp File Reference}
+\label{ghost__intelligence_8cpp}\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+
+
+functions used for deciding ghosts movements  
+
+
+{\ttfamily \#include \char`\"{}constants.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}assertives.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}general.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for ghost\+\_\+intelligence.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{ghost__intelligence_8cpp_af131dfae8cf73948925f5bf6803cd4dc}{code\+Position}} (\mbox{\hyperlink{struct_position}{Position}} \&pos)
+\begin{DoxyCompactList}\small\item\em convert a \mbox{\hyperlink{struct_position}{Position}} to a string \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_position}{Position}} \mbox{\hyperlink{ghost__intelligence_8cpp_a5ccdcb9f96c7fbbaae872d4c9df2134f}{uncode\+Position}} (string \&str)
+\item 
+unsigned \mbox{\hyperlink{ghost__intelligence_8cpp_a0fdf8ca591d5e78a3c924bd86ec7be70}{node\+Quality}} (\mbox{\hyperlink{struct_position}{Position}} \&current\+Pos, \mbox{\hyperlink{struct_position}{Position}} \&pacman\+Pos)
+\begin{DoxyCompactList}\small\item\em This function calculates the node quality by using Manhattan distance between the current position and the pacman\textquotesingle{}s position. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{struct_position}{Position}} $>$ \mbox{\hyperlink{ghost__intelligence_8cpp_a1f530af5c755d488eead876e096fdb0d}{get\+All\+Nodes}} (vector$<$ string $>$ \&maze)
+\item 
+void \mbox{\hyperlink{ghost__intelligence_8cpp_abe78aa040dbd23d0dcd3a65d968647c3}{set\+Nodes\+Quality}} (vector$<$ \mbox{\hyperlink{struct_position}{Position}} $>$ \&nodes, map$<$ string, unsigned $>$ \&open\+Nodes, \mbox{\hyperlink{struct_position}{Position}} \&pacman\+Pos)
+\item 
+unsigned \mbox{\hyperlink{ghost__intelligence_8cpp_aa96a92a5f556716af8f446370a5be782}{best\+Direction}} (vector$<$ string $>$ \&directions, map$<$ string, unsigned $>$ \&open\+Nodes, \mbox{\hyperlink{struct_position}{Position}} \&current\+Pos)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{ghost__intelligence_8cpp_a569048560a0d51e09f6715b64dcb3844}{remove}} (vector$<$ string $>$ \&V, string \&rm)
+\item 
+void \mbox{\hyperlink{ghost__intelligence_8cpp_ae7850a53f5e548a89f5fc7bd313ea30d}{a\+Star\+Algorithm}} (map$<$ string, unsigned $>$ \&open\+Nodes, map$<$ string, string $>$ \&closed\+Nodes, \mbox{\hyperlink{struct_position}{Position}} \&pacman\+Pos, vector$<$ string $>$ \&maze, \mbox{\hyperlink{struct_position}{Position}} \&current\+Node)
+\item 
+string \mbox{\hyperlink{ghost__intelligence_8cpp_a1fbe8983a6b43e0f66152d241229a0df}{first\+Direction}} (map$<$ string, string $>$ closed\+Nodes, \mbox{\hyperlink{struct_position}{Position}} \&current\+Node, \mbox{\hyperlink{struct_position}{Position}} \&ghost\+Pos)
+\item 
+string \mbox{\hyperlink{ghost__intelligence_8cpp_a1736387c34d2767e769cf73f95eaa572}{a\+Star}} (vector$<$ string $>$ \&maze, \mbox{\hyperlink{struct_position}{Position}} \&ghost\+Pos, \mbox{\hyperlink{struct_position}{Position}} \&pacman\+Pos)
+\item 
+string \mbox{\hyperlink{ghost__intelligence_8cpp_a735ce867b25667797297aa628ba8ac5b}{decide\+Ghost\+Direction}} (\mbox{\hyperlink{struct_character}{Character}} \&ghost, string \&personality, unsigned \&difficulty, vector$<$ string $>$ maze, \mbox{\hyperlink{struct_position}{Position}} \&pacman\+Pos, map$<$ string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&characters, vector$<$ string $>$ \&character\+List)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+functions used for deciding ghosts movements 
+
+\begin{DoxyAuthor}{Author}
+Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Janvier 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ghost__intelligence_8cpp_a1736387c34d2767e769cf73f95eaa572}\label{ghost__intelligence_8cpp_a1736387c34d2767e769cf73f95eaa572}} 
+\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}!aStar@{aStar}}
+\index{aStar@{aStar}!ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+\doxysubsubsection{\texorpdfstring{aStar()}{aStar()}}
+{\footnotesize\ttfamily string a\+Star (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ \&}]{maze,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{ghost\+Pos,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{pacman\+Pos }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{ghost__intelligence_8cpp_ae7850a53f5e548a89f5fc7bd313ea30d}\label{ghost__intelligence_8cpp_ae7850a53f5e548a89f5fc7bd313ea30d}} 
+\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}!aStarAlgorithm@{aStarAlgorithm}}
+\index{aStarAlgorithm@{aStarAlgorithm}!ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+\doxysubsubsection{\texorpdfstring{aStarAlgorithm()}{aStarAlgorithm()}}
+{\footnotesize\ttfamily void a\+Star\+Algorithm (\begin{DoxyParamCaption}\item[{map$<$ string, unsigned $>$ \&}]{open\+Nodes,  }\item[{map$<$ string, string $>$ \&}]{closed\+Nodes,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{pacman\+Pos,  }\item[{vector$<$ string $>$ \&}]{maze,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{current\+Node }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{ghost__intelligence_8cpp_aa96a92a5f556716af8f446370a5be782}\label{ghost__intelligence_8cpp_aa96a92a5f556716af8f446370a5be782}} 
+\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}!bestDirection@{bestDirection}}
+\index{bestDirection@{bestDirection}!ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+\doxysubsubsection{\texorpdfstring{bestDirection()}{bestDirection()}}
+{\footnotesize\ttfamily unsigned best\+Direction (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ \&}]{directions,  }\item[{map$<$ string, unsigned $>$ \&}]{open\+Nodes,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{current\+Pos }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{ghost__intelligence_8cpp_af131dfae8cf73948925f5bf6803cd4dc}\label{ghost__intelligence_8cpp_af131dfae8cf73948925f5bf6803cd4dc}} 
+\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}!codePosition@{codePosition}}
+\index{codePosition@{codePosition}!ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+\doxysubsubsection{\texorpdfstring{codePosition()}{codePosition()}}
+{\footnotesize\ttfamily string code\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{pos }\end{DoxyParamCaption})}
+
+
+
+convert a \mbox{\hyperlink{struct_position}{Position}} to a string 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_position}{Position(x}},y)} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\char`\"{}x,y\char`\"{} 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{ghost__intelligence_8cpp_a735ce867b25667797297aa628ba8ac5b}\label{ghost__intelligence_8cpp_a735ce867b25667797297aa628ba8ac5b}} 
+\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}!decideGhostDirection@{decideGhostDirection}}
+\index{decideGhostDirection@{decideGhostDirection}!ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+\doxysubsubsection{\texorpdfstring{decideGhostDirection()}{decideGhostDirection()}}
+{\footnotesize\ttfamily string decide\+Ghost\+Direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_character}{Character}} \&}]{ghost,  }\item[{string \&}]{personality,  }\item[{unsigned \&}]{difficulty,  }\item[{vector$<$ string $>$}]{maze,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{pacman\+Pos,  }\item[{map$<$ string, \mbox{\hyperlink{struct_character}{Character}} $>$ \&}]{characters,  }\item[{vector$<$ string $>$ \&}]{character\+List }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{ghost__intelligence_8cpp_a1fbe8983a6b43e0f66152d241229a0df}\label{ghost__intelligence_8cpp_a1fbe8983a6b43e0f66152d241229a0df}} 
+\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}!firstDirection@{firstDirection}}
+\index{firstDirection@{firstDirection}!ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+\doxysubsubsection{\texorpdfstring{firstDirection()}{firstDirection()}}
+{\footnotesize\ttfamily string first\+Direction (\begin{DoxyParamCaption}\item[{map$<$ string, string $>$}]{closed\+Nodes,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{current\+Node,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{ghost\+Pos }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{ghost__intelligence_8cpp_a1f530af5c755d488eead876e096fdb0d}\label{ghost__intelligence_8cpp_a1f530af5c755d488eead876e096fdb0d}} 
+\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}!getAllNodes@{getAllNodes}}
+\index{getAllNodes@{getAllNodes}!ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+\doxysubsubsection{\texorpdfstring{getAllNodes()}{getAllNodes()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{struct_position}{Position}} $>$ get\+All\+Nodes (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ \&}]{maze }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{ghost__intelligence_8cpp_a0fdf8ca591d5e78a3c924bd86ec7be70}\label{ghost__intelligence_8cpp_a0fdf8ca591d5e78a3c924bd86ec7be70}} 
+\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}!nodeQuality@{nodeQuality}}
+\index{nodeQuality@{nodeQuality}!ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+\doxysubsubsection{\texorpdfstring{nodeQuality()}{nodeQuality()}}
+{\footnotesize\ttfamily unsigned node\+Quality (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{current\+Pos,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{pacman\+Pos }\end{DoxyParamCaption})}
+
+
+
+This function calculates the node quality by using Manhattan distance between the current position and the pacman\textquotesingle{}s position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Pos} & The current position of the ghost \\
+\hline
+{\em pacman\+Pos} & The current position of the pacman \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The node quality as the Manhattan distance between the current position and the pacman\textquotesingle{}s position 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 13
+\mbox{\Hypertarget{ghost__intelligence_8cpp_a569048560a0d51e09f6715b64dcb3844}\label{ghost__intelligence_8cpp_a569048560a0d51e09f6715b64dcb3844}} 
+\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}!remove@{remove}}
+\index{remove@{remove}!ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily vector$<$ string $>$ remove (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ \&}]{V,  }\item[{string \&}]{rm }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 14
+\mbox{\Hypertarget{ghost__intelligence_8cpp_abe78aa040dbd23d0dcd3a65d968647c3}\label{ghost__intelligence_8cpp_abe78aa040dbd23d0dcd3a65d968647c3}} 
+\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}!setNodesQuality@{setNodesQuality}}
+\index{setNodesQuality@{setNodesQuality}!ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+\doxysubsubsection{\texorpdfstring{setNodesQuality()}{setNodesQuality()}}
+{\footnotesize\ttfamily void set\+Nodes\+Quality (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{struct_position}{Position}} $>$ \&}]{nodes,  }\item[{map$<$ string, unsigned $>$ \&}]{open\+Nodes,  }\item[{\mbox{\hyperlink{struct_position}{Position}} \&}]{pacman\+Pos }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 15
+Here is the caller graph for this function\+:
+% FIG 16
+\mbox{\Hypertarget{ghost__intelligence_8cpp_a5ccdcb9f96c7fbbaae872d4c9df2134f}\label{ghost__intelligence_8cpp_a5ccdcb9f96c7fbbaae872d4c9df2134f}} 
+\index{ghost\_intelligence.cpp@{ghost\_intelligence.cpp}!uncodePosition@{uncodePosition}}
+\index{uncodePosition@{uncodePosition}!ghost\_intelligence.cpp@{ghost\_intelligence.cpp}}
+\doxysubsubsection{\texorpdfstring{uncodePosition()}{uncodePosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_position}{Position}} uncode\+Position (\begin{DoxyParamCaption}\item[{string \&}]{str }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 17

@@ -1,0 +1,18 @@
+digraph "letGhostOut"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="letGhostOut",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="This function allows the ghosts to leave the jail."];
+  Node1 -> Node2 [color="steelblue1",style="solid"];
+  Node2 [label="isGhostInCage",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$assertives_8cpp.html#a9990c14f211e1c5760b612423b342c6f",tooltip="A function that checks if a ghost is currently in its cage."];
+  Node2 -> Node3 [color="steelblue1",style="solid"];
+  Node3 [label="getPosCage",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$general_8cpp.html#a04e932e5accda172d1f2536bda6c8513",tooltip=" "];
+  Node1 -> Node4 [color="steelblue1",style="solid"];
+  Node4 [label="isThereAGhostInCage",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$assertives_8cpp.html#a99c698efb3f30c46e61095fe7fda6347",tooltip=" "];
+  Node4 -> Node2 [color="steelblue1",style="solid"];
+  Node1 -> Node5 [color="steelblue1",style="solid"];
+  Node5 [label="moveCharacter",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$game__logic_8cpp.html#ad49fe1a5f76e62ddcb7f9f3caa56a5c2",tooltip=" "];
+}

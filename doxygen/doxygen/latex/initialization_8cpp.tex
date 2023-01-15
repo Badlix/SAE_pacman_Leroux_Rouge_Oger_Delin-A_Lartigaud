@@ -1,0 +1,154 @@
+\hypertarget{initialization_8cpp}{}\doxysection{initialization.\+cpp File Reference}
+\label{initialization_8cpp}\index{initialization.cpp@{initialization.cpp}}
+
+
+functions used to initialize values  
+
+
+{\ttfamily \#include \char`\"{}mingl/audio/audioengine.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mingl/shape/rectangle.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mingl/graphics/vec2d.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}constants.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}general.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for initialization.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{initialization_8cpp_a2c0cb58e6db52cc59a54387d093ad6d7}{init\+Maze}} (\mbox{\hyperlink{struct_param}{Param}} \&param)
+\item 
+vector$<$ ns\+Shape\+::\+Rectangle $>$ \mbox{\hyperlink{initialization_8cpp_a3c62a54fcaa9cd77b0df54c2643a7d90}{init\+Walls}} (vector$<$ string $>$ \&maze)
+\item 
+\mbox{\hyperlink{struct_skin}{Skin}} \mbox{\hyperlink{initialization_8cpp_a363165128bfdd45f99153a6d13aaf0a9}{init\+Skin}} (string type, string skin\+Name)
+\item 
+\mbox{\hyperlink{struct_pacman_mouth}{Pacman\+Mouth}} \mbox{\hyperlink{initialization_8cpp_ab7748396f9ce97426eacae784594c02b}{init\+Pacmanmouth}} (\mbox{\hyperlink{struct_param}{Param}} \&param)
+\begin{DoxyCompactList}\small\item\em Initialize the Pacman mouth. \end{DoxyCompactList}\item 
+map$<$ string, \mbox{\hyperlink{struct_character}{Character}} $>$ \mbox{\hyperlink{initialization_8cpp_afc7f1f6f705585a0191d53ef7f45b184}{init\+Characters}} (\mbox{\hyperlink{struct_param}{Param}} \&param)
+\begin{DoxyCompactList}\small\item\em Initialize the characters for the game. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{initialization_8cpp_a2c605a2e05e49806b2aea278b89942ff}{nb\+Bubble\+In\+Maze}} (vector$<$ string $>$ \&maze)
+\item 
+void \mbox{\hyperlink{initialization_8cpp_ac594683bf6ecd46b1c6471636307be23}{init\+Personality}} (vector$<$ string $>$ \&character\+List, map$<$ string, string $>$ personalities, \mbox{\hyperlink{struct_param}{Param}} \&param)
+\item 
+void \mbox{\hyperlink{initialization_8cpp_a4e7df9e43241611159fd2ce69dd27bbd}{init\+Musics\+Engine}} (ns\+Audio\+::\+Audio\+Engine \&default\+Music, ns\+Audio\+::\+Audio\+Engine \&mad\+Music, ns\+Audio\+::\+Audio\+Engine \&game\+Over\+Music)
+\begin{DoxyCompactList}\small\item\em Initialize the different musics used in the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+functions used to initialize values 
+
+\begin{DoxyAuthor}{Author}
+Mathieu Leroux, Elliot Lartigaud, Gabriel Rouge, Alexis Delain, Léo Oger 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Janvier 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{initialization_8cpp_afc7f1f6f705585a0191d53ef7f45b184}\label{initialization_8cpp_afc7f1f6f705585a0191d53ef7f45b184}} 
+\index{initialization.cpp@{initialization.cpp}!initCharacters@{initCharacters}}
+\index{initCharacters@{initCharacters}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{initCharacters()}{initCharacters()}}
+{\footnotesize\ttfamily map$<$ string, \mbox{\hyperlink{struct_character}{Character}} $>$ init\+Characters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+
+
+
+Initialize the characters for the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & A reference to the \mbox{\hyperlink{struct_param}{Param}} struct containing the game\textquotesingle{}s settings. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A map containing all the characters in the game. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{initialization_8cpp_a2c0cb58e6db52cc59a54387d093ad6d7}\label{initialization_8cpp_a2c0cb58e6db52cc59a54387d093ad6d7}} 
+\index{initialization.cpp@{initialization.cpp}!initMaze@{initMaze}}
+\index{initMaze@{initMaze}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{initMaze()}{initMaze()}}
+{\footnotesize\ttfamily vector$<$ string $>$ init\+Maze (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{initialization_8cpp_a4e7df9e43241611159fd2ce69dd27bbd}\label{initialization_8cpp_a4e7df9e43241611159fd2ce69dd27bbd}} 
+\index{initialization.cpp@{initialization.cpp}!initMusicsEngine@{initMusicsEngine}}
+\index{initMusicsEngine@{initMusicsEngine}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{initMusicsEngine()}{initMusicsEngine()}}
+{\footnotesize\ttfamily void init\+Musics\+Engine (\begin{DoxyParamCaption}\item[{ns\+Audio\+::\+Audio\+Engine \&}]{default\+Music,  }\item[{ns\+Audio\+::\+Audio\+Engine \&}]{mad\+Music,  }\item[{ns\+Audio\+::\+Audio\+Engine \&}]{game\+Over\+Music }\end{DoxyParamCaption})}
+
+
+
+Initialize the different musics used in the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em default\+Music} & The music played when the game starts or when pacman is not in mad mode. \\
+\hline
+{\em mad\+Music} & The music played when pacman enters mad mode. \\
+\hline
+{\em game\+Over\+Music} & The music played when pacman loses. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{initialization_8cpp_ab7748396f9ce97426eacae784594c02b}\label{initialization_8cpp_ab7748396f9ce97426eacae784594c02b}} 
+\index{initialization.cpp@{initialization.cpp}!initPacmanmouth@{initPacmanmouth}}
+\index{initPacmanmouth@{initPacmanmouth}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{initPacmanmouth()}{initPacmanmouth()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_pacman_mouth}{Pacman\+Mouth}} init\+Pacmanmouth (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+
+
+
+Initialize the Pacman mouth. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & \+: The parameter of the game used to select the skin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{struct_pacman_mouth}{Pacman\+Mouth}} struct with the selected skin and the current mouth state (open or closed) 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{initialization_8cpp_ac594683bf6ecd46b1c6471636307be23}\label{initialization_8cpp_ac594683bf6ecd46b1c6471636307be23}} 
+\index{initialization.cpp@{initialization.cpp}!initPersonality@{initPersonality}}
+\index{initPersonality@{initPersonality}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{initPersonality()}{initPersonality()}}
+{\footnotesize\ttfamily void init\+Personality (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ \&}]{character\+List,  }\item[{map$<$ string, string $>$}]{personalities,  }\item[{\mbox{\hyperlink{struct_param}{Param}} \&}]{param }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{initialization_8cpp_a363165128bfdd45f99153a6d13aaf0a9}\label{initialization_8cpp_a363165128bfdd45f99153a6d13aaf0a9}} 
+\index{initialization.cpp@{initialization.cpp}!initSkin@{initSkin}}
+\index{initSkin@{initSkin}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{initSkin()}{initSkin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_skin}{Skin}} init\+Skin (\begin{DoxyParamCaption}\item[{string}]{type,  }\item[{string}]{skin\+Name }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{initialization_8cpp_a3c62a54fcaa9cd77b0df54c2643a7d90}\label{initialization_8cpp_a3c62a54fcaa9cd77b0df54c2643a7d90}} 
+\index{initialization.cpp@{initialization.cpp}!initWalls@{initWalls}}
+\index{initWalls@{initWalls}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{initWalls()}{initWalls()}}
+{\footnotesize\ttfamily vector$<$ ns\+Shape\+::\+Rectangle $>$ init\+Walls (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ \&}]{maze }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{initialization_8cpp_a2c605a2e05e49806b2aea278b89942ff}\label{initialization_8cpp_a2c605a2e05e49806b2aea278b89942ff}} 
+\index{initialization.cpp@{initialization.cpp}!nbBubbleInMaze@{nbBubbleInMaze}}
+\index{nbBubbleInMaze@{nbBubbleInMaze}!initialization.cpp@{initialization.cpp}}
+\doxysubsubsection{\texorpdfstring{nbBubbleInMaze()}{nbBubbleInMaze()}}
+{\footnotesize\ttfamily unsigned nb\+Bubble\+In\+Maze (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ \&}]{maze }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 10
