@@ -154,11 +154,14 @@ void drawMaze(MinGL &window, std::vector<string> &maze, std::vector<Rectangle> &
 void drawCharacter(MinGL &window, std::vector<string> &characterList, std::map<string, Character> &charactMap, Param &param) {
     for (auto it(charactMap.begin()) ; it != charactMap.end() ; ++it) {
         if (it->first == "Pacman" && (it->second.pos == getPosTeleporter(param)[0] || it->second.pos == getPosTeleporter(param)[1])) continue;
+        it->second.sprite[0].setPosition(posBegin + Vec2D(it->second.pos.x*50, it->second.pos.y*50));
         if (it->second.isDefaultState) {
-            it->second.skins.defaultState.find(it->second.direction)->second.setPosition(it->second.sprite[0].getPosition());
+            //it->second.skins.defaultState.find(it->second.direction)->second.setPosition(it->second.sprite[0].getPosition());
+            it->second.skins.defaultState.find(it->second.direction)->second.setPosition(posBegin + Vec2D(it->second.pos.x*50, it->second.pos.y*50));
             window << it->second.skins.defaultState.find(it->second.direction)->second;
         } else {
-            it->second.skins.madState.find(it->second.direction)->second.setPosition(it->second.sprite[0].getPosition());
+            //it->second.skins.madState.find(it->second.direction)->second.setPosition(it->second.sprite[0].getPosition());
+            it->second.skins.madState.find(it->second.direction)->second.setPosition(posBegin + Vec2D(it->second.pos.x*50, it->second.pos.y*50));
             window << it->second.skins.madState.find(it->second.direction)->second;
         }
     }
@@ -193,15 +196,14 @@ Vec2D calcPosTransition(Position &posCharact) {
 * @param t Reference to a TransitionEngine object.
 * @param charactMap Reference to a map containing the characters and their information.
 * @param isTransitionFinished Reference to a boolean flag indicating whether the transition is finished.
-* @param names Vector of strings containing the names of the characters to launch transitions for.
 */
-void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character> &charactMap, bool &isTransitionFinished, vector<string> &names) {
+void launchTransitions(nsTransition::TransitionEngine &t, map<string, Character> &charactMap, bool &isTransitionFinished) {
     Vec2D posEnd;
-    for (const string &name : names) {
-        posEnd = calcPosTransition(charactMap[name].pos);
-        nsTransition::TransitionContract a(charactMap[name].sprite[0],
-                             charactMap[name].sprite[0].TRANSITION_POSITION, chrono::milliseconds(charactMap[name].vitesse),{(float)(posEnd.getX()), (float)(posEnd.getY())});
-        if (name == "Pacman") {
+    for (auto it(charactMap.begin()) ; it != charactMap.end() ; ++it) {
+        posEnd = calcPosTransition(it->second.pos);
+        nsTransition::TransitionContract a(it->second.sprite[0],
+                             it->second.sprite[0].TRANSITION_POSITION, chrono::milliseconds(it->second.vitesse),{(float)(posEnd.getX()), (float)(posEnd.getY())});
+        if (it->first == "Pacman") {
             a.setDestinationCallback([&] {
                 isTransitionFinished = true;
             });}

@@ -98,7 +98,6 @@ string randomDirection(Position &pos, vector<string> &maze){
  */
 Character randomCharacter(map<string, Character> &characterMap) {
     auto it = characterMap.begin();
-    cout << rand()%characterMap.size() << endl;
     std::advance(it, rand()%characterMap.size());
     return it->second;
 }

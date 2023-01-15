@@ -19,6 +19,17 @@ using namespace nsGraphics;
 using namespace nsShape;
 using namespace nsTransition;
 
+//int main() {
+//    Param param;
+//    initParam(param);
+//    loadParam(param);
+//    map<string, Character> characterMap = initCharacters(param);
+//    for (int i = 0; i < 20; ++i) {
+//        randomCharacter(characterMap);
+//    }
+//    return 0;
+//}
+
 /**
 * @brief The main function of the program
 * This function initializes all the core elements of the program, such as the characters, the maze, and the music.
@@ -44,8 +55,8 @@ int main()
         characterList.push_back(it->first);
     }
 
-    vector<string> personalities;
-    initPersonality(characterList, personalities, param.difficulty);
+    map<string, string> personalities = {};
+    initPersonality(characterList, personalities, param);
 
     srand(time(NULL));
 

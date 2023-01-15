@@ -1,87 +1,99 @@
+#ifndef ASSERTIVES_H
+#define ASSERTIVES_H
+#include "constants.h"
 #include "param.h"
-#include <typeinfo>
 #include <iostream>
-#include <map>
-#include <algorithm>
-#include <fstream>
-
-using namespace std;
 
 /**
-* @brief Initialize the game parameters with the default values
-* @param param A reference to the parameters object to be initialized
-*/
-void initParam(Param &param) {
-    param.moveKeys["KeyUp"] = 'z';
-    param.moveKeys["KeyDown"] = 's';
-    param.moveKeys["KeyRight"] = 'd';
-    param.moveKeys["KeyLeft"] = 'q';
-    param.skins["Pacman"] = 1;
-    param.skins["Ghost"] = 1;
-    param.skins["Maze"] = 1;
-    param.difficulty["GhostNumber"] = 4;
-    param.difficulty["Difficulty"] = 2;
-}
-
-/**
- * @brief Check if the key and value from the settings file are authorized 
- * @param param A reference to the parameters object 
- * @param autorizedKeys A reference to the struct that contains the authorized keys, skins and difficulty
- * @param key The key from the settings file
- * @param value The value from the settings file 
+ * @brief check if the ghost is in the cage
+ * @param[in] posGhost : position of the ghost
+ * @param param
+ * @return bool
+ * @fn bool isGhostInCage(Character ghost, Param &param)
  */
-void checkParam(Param &param, AutorizedKeys &autorizedKeys,string &key, string &value)
-{
-    /* check if key is a move keys*/
-    if (find(autorizedKeys.moveKeys.begin(), autorizedKeys.moveKeys.end(), key) != autorizedKeys.moveKeys.end()) {
-        /* check if move key is a char */
-        if (value.size() == 1) {
-            param.moveKeys[key] = value[0];
-        } else {
-            cerr << "Settings Error : '" << key << "' should be a single letter" << endl;
-        }
-
-    /* check if key is a skin number */
-    } else if (find(autorizedKeys.skins.begin(), autorizedKeys.skins.end(), key) != autorizedKeys.skins.end()) {
-        /* check if value is a valid skin number */
-        if (value == "1" || value == "2" || value == "3" || value == "4") {
-            param.skins[key] = stoi(value);
-        } else {
-            cerr << "Settings Error : '" << key << "' has an invalid value" << endl;
-        }
-
-    /* check if key is the number of ghosts */
-    } else if (find(autorizedKeys.difficulty.begin(), autorizedKeys.difficulty.end(), key) != autorizedKeys.difficulty.end()) {
-        /* check if value is a valid number of ghosts */
-        if (value == "1" || value == "2" || value == "3" || value == "4") {
-            param.difficulty[key] = stoi(value);
-        } else {
-            cerr << "Settings Error : '" << key << "' has an invalid value" << endl;
-        }
-    } else {
-        cerr << "Settings Error : '" << key << "' is an invalid key name" << endl;
-    }
-}
+bool isGhostInCage(const Position &posGhost, Param &param);
 
 /**
- * @brief Load the game parameters from the settings file
- * @param param A reference to the parameters object to be loaded
+ * @brief check if pacman encounter a ghost
+ * @param ghost
+ * @param pacman
+ * @return bool
+ * @fn bool isEncouterGhostPacman(Character &ghost, Character &pacman)
  */
-void loadParam(Param &param) {
-    ifstream file("../Pacman/settings.yaml");
-    string line;
-    string key;
-    string value;
-    size_t index; // index of ":"
-    AutorizedKeys autorizedKeys;
-    while(true) {
-        getline(file, line);
-        if(file.eof()) break;
-        if (line[0] != '#' && line.size() != 0) {
-            index = line.find(":");
-            key = line.substr(0, index-1);
-            value = line.substr(index+2);
-            checkParam(param, autorizedKeys, key, value);
-        }
-    }
-}
+bool isEncouterGhostPacman(Character &ghost, Character &pacman);
+
+/**
+ * @brief check if there is at least one ghost in the cage
+ * @param mapCharact
+ * @param param
+ * @return bool
+ * @fn bool isThereAGhostInCage(map<string, Character> &mapCharact, Param &param)
+ */
+bool isThereAGhostInCage(std::map<std::string, Character> &mapCharact, Param &param);
+
+/**
+ * @brief check if a emplacement is free
+ * @param pos : char
+ * @return true if free, false if not
+ * @fn bool isFree(char &pos)
+ */
+bool isFree(char &pos);
+
+/**
+ * @brief check if all bubbles have been eaten
+ * @param bubbleLeft : number of bubble left
+ * @param isGameRunning
+ * @param isVictory
+ * @fn void isBubbleLeft(size_t &bubbleLeft , bool &isGameRunning, bool &isVictory)
+ */
+void isBubbleLeft(size_t &bubbleLeft , bool &isGameRunning, bool &isVictory);
+
+/**
+ * @brief check if the character has the same position of a big bubble
+ * @param character
+ * @param maze
+ * @param score
+ * @return bool
+ * @fn bool isBigBubble(Character &character, std::vector<std::string> &maze, unsigned &score)
+ */
+bool isBigBubble(Character &character, std::vector<std::string> &maze, unsigned &score);
+
+/**
+ * @brief check if the character has the same position of a bubble
+ * @param character
+ * @param maze
+ * @param score
+ * @return bool
+ * @fn bool isBubble(Character &character, std::vector<std::string> &maze, unsigned &score)
+ */
+bool isBubble(Character &character, std::vector<std::string> &maze, unsigned &score);
+
+/**
+ * @brief check if a move is posssible
+ * @param maze
+ * @param character
+ * @param direction
+ * @return bool
+ * @fn bool isMovePossible(std::vector<std::string> &maze,Character &character, std::string direction)
+ */
+bool isMovePossible(std::vector<std::string> &maze,Character &character, std::string direction);
+
+/**
+ * @brief check if the character has the same position of a teleporter
+ * @param maze
+ * @param character
+ * @return bool
+ * @fn bool isTeleporter(std::vector<std::string> &maze, Character &character)
+ */
+bool isTeleporter(std::vector<std::string> &maze, Character &character);
+
+/**
+ * @brief check if two character have the same position
+ * @param first character
+ * @param second character
+ * @return bool
+ * @fn bool isSamePos(Character &character1, Character &character2)
+ */
+bool isSamePos(Character &character1, Character &character2);
+
+#endif // ASSERTIVES_H

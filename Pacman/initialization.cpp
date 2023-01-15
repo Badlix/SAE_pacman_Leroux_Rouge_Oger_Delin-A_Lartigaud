@@ -185,7 +185,7 @@ size_t nbBubbleInMaze(vector<string> &maze){
 * The normal personality has a 30*difficulty - 20 drop rate
 * The hard personality has a 20 drop rate
 */
-void initPersonality (vector<string> &characterList, map<string, string> personalities, unsigned &difficulty) {
+void initPersonality (vector<string> &characterList, map<string, string> personalities, Param &param) {
     //Each personnality has a level of difficulty.
     //The chances of it to drop are in percentage.
 
@@ -195,25 +195,25 @@ void initPersonality (vector<string> &characterList, map<string, string> persona
     vector<string> hardPersonality {"hardcore"};
 
     //Initialization of the droprate of each level of difficulty :
-    unsigned easy = 100 - 30*difficulty;
-    unsigned hard = 30 * difficulty - 20;
+    unsigned easy = 100 - 30*param.difficulty["Difficulty"];
+    unsigned hard = 30 * param.difficulty["Difficulty"] - 20;
     unsigned normal = 100 - easy - hard ;
 
     //Application of a random personality to each characters
     unsigned random;
     string personality;
     for (size_t i = 0 ; i < characterList.size() ; ++i) {
-        random = rand()%100;
+        random = rand()%100; // [0,99]
         if (random <= easy) {
-            personality = easyPersonality[(rand()%easyPersonality.size())-1];
+            personality = easyPersonality[(rand()%easyPersonality.size())];
             personalities.insert({characterList[i], personality});
         }
         else if (random <= easy+normal){
-            personality = normalPersonality[(rand()%normalPersonality.size())-1];
+            personality = normalPersonality[(rand()%normalPersonality.size())];
             personalities.insert({characterList[i], personality});
         }
         else {
-            personality = hardPersonality[(rand()%hardPersonality.size())-1];
+            personality = hardPersonality[(rand()%hardPersonality.size())];
             personalities.insert({characterList[i], personality});
         }
     }

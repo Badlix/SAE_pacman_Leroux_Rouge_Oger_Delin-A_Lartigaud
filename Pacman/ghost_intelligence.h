@@ -36,7 +36,7 @@ std::string aStar(std::vector<std::string> &maze, Position &ghostPos, Position &
  * @param currentNode : Position
  * @fn void aStarAlgorithm(std::map<Position, unsigned> &openNodes, std::map<Position, Position> &closedNodes, Position &pacmanPos, std::vector<std::string> &maze, Position &currentNode)
  */
-void aStarAlgorithm(std::map<Position, unsigned> &openNodes, std::map<Position, Position> &closedNodes, Position &pacmanPos, std::vector<std::string> &maze, Position &currentNode);
+void aStarAlgorithm(std::map<std::string, unsigned> &openNodes, std::map<std::string, std::string> &closedNodes, Position &pacmanPos, std::vector<std::string> &maze, Position &currentNode);
 
 /**
  * @brief give a quality to a node, for the a* algorithm
@@ -62,7 +62,7 @@ std::vector<Position> getAllNodes(std::vector<std::string> &maze);
  * @param pacmanPos : Position
  * @fn void setNodesQuality(std::vector<Position> &nodes, std::map<Position, unsigned> &openNodes, Position &pacmanPos)
  */
-void setNodesQuality(std::vector<Position> &nodes, std::map<Position, unsigned> &openNodes, Position &pacmanPos);
+void setNodesQuality(std::vector<Position> &nodes, std::map<std::string, unsigned> &openNodes, Position &pacmanPos);
 
 /**
  * @brief chose the best direction judging by its quality
@@ -71,7 +71,7 @@ void setNodesQuality(std::vector<Position> &nodes, std::map<Position, unsigned> 
  * @return return the index of the best direction to take
  * @fn unsigned bestDirection(std::vector<std::string> &directions, std::map<Position, unsigned> &openNodes)
  */
-unsigned bestDirection(std::vector<std::string> &directions, std::map<Position, unsigned> &openNodes);
+unsigned bestDirection(std::vector<std::string> &directions, std::map<std::string, unsigned> &openNodes);
 
 /**
  * @brief recursive function used to get up to the origin of the binary tree, used in a* algorithm
@@ -81,6 +81,10 @@ unsigned bestDirection(std::vector<std::string> &directions, std::map<Position, 
  * @return the first direction generatoed from the a* algorithm
  * @fn std::string firstDirection(std::map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos)
  */
-std::string firstDirection(std::map<Position, Position> closedNodes, Position &currentNode, Position &ghostPos);
+std::string firstDirection(std::map<std::string, std::string> closedNodes, Position &currentNode, Position &ghostPos);
+
+Position uncodePosition (std::string & str);
+
+std::string codePosition (Position &pos);
 
 #endif // GHOST_INTELLIGENCE_H

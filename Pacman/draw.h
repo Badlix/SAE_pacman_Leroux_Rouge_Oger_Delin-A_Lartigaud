@@ -51,8 +51,6 @@ void switchMouthPacmanOpenClose(Character &pacman, PacmanMouth &pacmanMouth);
  */
 void drawCharacter(MinGL &window, std::vector<std::string> &characterList, std::map<std::string, Character> &charactMap, Param &param);
 
-size_t getNbrOfHorizontalWallInARow (std::vector<std::string> &maze, size_t &horizontalLayer);
-
 /**
  * @brief draw the maze
  * @param window
@@ -69,7 +67,7 @@ void drawMaze(MinGL &window, std::vector<std::string> &maze, std::vector<nsShape
  * @param isTransitionFinished
  * @param names : list of characters name
  */
-void launchTransitions(nsTransition::TransitionEngine &t, std::map<std::string, Character> & characterMap, bool &isTransitionFinished, std::vector<std::string> &names);
+void launchTransitions(nsTransition::TransitionEngine &t, std::map<std::string, Character> & characterMap, bool &isTransitionFinished);
 
 /**
  * @brief calculate the ending position of a transition
