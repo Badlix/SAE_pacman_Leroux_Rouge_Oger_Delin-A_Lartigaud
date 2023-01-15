@@ -39,18 +39,21 @@ void switchMusic(nsAudio::AudioEngine &defaultMusic, nsAudio::AudioEngine &madMu
 }
 
 void drawGameOverScreen(MinGL &window, const bool &isVictory, const unsigned &score, unsigned &random) {
-    cout << random << endl;
     nsGui::Sprite gameOver("../Pacman/skins/other/gameover.si2", Vec2D(0, 0));
     gameOver.setPosition(Vec2D(window.getWindowSize().getX()/2-gameOver.getRowSize()/2, 200));
     window << gameOver;
+
     if (isVictory) {
+
         nsGui::Sprite youWin("../Pacman/skins/other/youWin.si2", Vec2D(0,0));
         youWin.setPosition(Vec2D(window.getWindowSize().getX()/2-youWin.getRowSize()/2, 380));
         window << youWin;
         nsGui::Text textWin(Vec2D(0,0), winSentence[random], KYellow, nsGui::GlutFont::BITMAP_TIMES_ROMAN_24);
         textWin.setPosition(Vec2D(window.getWindowSize().getX()/2-textWin.computeWidth()/2, 700));
         window << textWin;
+
     } else {
+
         nsGui::Sprite youLose("../Pacman/skins/other/youLose.si2", Vec2D(0,0));
         youLose.setPosition(Vec2D(window.getWindowSize().getX()/2-youLose.getRowSize()/2, 380));
         window << youLose;
@@ -58,9 +61,12 @@ void drawGameOverScreen(MinGL &window, const bool &isVictory, const unsigned &sc
         textLose.setPosition(Vec2D(window.getWindowSize().getX()/2-textLose.computeWidth()/2,700));
         window << textLose;
     }
+
     nsGui::Text textScore(Vec2D(0,0), "Score : " + to_string(score), KYellow, nsGui::GlutFont::BITMAP_TIMES_ROMAN_24);
     textScore.setPosition(Vec2D(window.getWindowSize().getX()/2-textScore.computeWidth()/2, 520));
     window << textScore;
+    window << nsGui::Text(Vec2D(100, 50), "REPLAY [R]", KYellow, nsGui::GlutFont::BITMAP_TIMES_ROMAN_24);
+    window << nsGui::Text(Vec2D(window.getWindowSize().getX()-200, 50), "QUIT [A]", KYellow, nsGui::GlutFont::BITMAP_TIMES_ROMAN_24);
 }
 
 void drawCage(MinGL &window, const Vec2D pos) {
