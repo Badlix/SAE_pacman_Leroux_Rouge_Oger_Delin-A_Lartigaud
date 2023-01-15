@@ -19,6 +19,13 @@ using namespace nsGraphics;
 using namespace nsShape;
 using namespace nsTransition;
 
+/**
+* @brief The main function of the program
+* This function initializes all the core elements of the program, such as the characters, the maze, and the music.
+* It also initializes the graphics system, and enters the main game loop.
+* Within the loop, the function handles user input, updates the characters' positions, and checks for collisions.
+* It also handles the transitions, and the drawing of the score. If the game is over, it will display the game over screen.
+*/
 int main()
 {
     // Initalization of core elements
