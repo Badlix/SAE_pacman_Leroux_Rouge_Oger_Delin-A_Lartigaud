@@ -20,8 +20,8 @@ bool isGhostInCage(const Position &posGhost, Param &param) {
 }
 
 bool isEncouterGhostPacman(Character &ghost, Character &pacman) {
-    if (ghost.direction == "up" && pacman.direction == "down" && ghost.pos == Position{pacman.pos.x, pacman.pos.y+1}) return true;
-    if (ghost.direction == "down" && pacman.direction == "up" && ghost.pos == Position{pacman.pos.x, pacman.pos.y-1}) return true;
+    if (ghost.direction == "up" && pacman.direction == "down" && ghost.pos == Position{pacman.pos.x, pacman.pos.y-1}) return true;
+    if (ghost.direction == "down" && pacman.direction == "up" && ghost.pos == Position{pacman.pos.x, pacman.pos.y+1}) return true;
     if (ghost.direction == "right" && pacman.direction == "left" && ghost.pos == Position{pacman.pos.x-1, pacman.pos.y}) return true;
     if (ghost.direction == "left" && pacman.direction == "right" && ghost.pos == Position{pacman.pos.x+1, pacman.pos.y}) return true;
     return false;
