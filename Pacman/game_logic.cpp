@@ -36,7 +36,7 @@ void moveCharacterTeleporter (vector<string> &maze, Character &character, Param&
 void letGhostOut(std::map<std::string, Character> &characterMap, unsigned &jailGhostDuration, Param &param) {
     if (isThereAGhostInCage(characterMap, param)) {
         for (auto it = characterMap.begin(); it != characterMap.end(); it++) {
-            if (isGhostInCage(it->second.pos, param) && jailGhostDuration == 10) {
+            if (isGhostInCage(it->second.pos, param) && jailGhostDuration > 10) {
                 moveCharacter(it->second, "up");
                 jailGhostDuration = 0;
                 break;
