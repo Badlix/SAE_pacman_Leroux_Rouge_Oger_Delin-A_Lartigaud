@@ -5,7 +5,7 @@ Projet réalisé dans la cadre du BUT Informatique
 
 > participants :
 > Mathieu Leroux
-> Gabriel Rouge
-> Léo Oger
-> Alexis Delin
-> Elliot Lartigaud
+> - Gabriel Rouge
+> - Léo Oger
+> - Alexis Delin
+> - Elliot Lartigaud
