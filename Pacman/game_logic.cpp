@@ -85,7 +85,7 @@ void fruitSpawn(unsigned &fruitDuration, vector<string> &maze, map<string, Chara
     if (fruitDuration > 50) {
         fruitDuration = 0;
         Position pos = {0,0};
-        while (!isFree(maze[pos.y][pos.x])) {pos = {rand()%maze[0].size(), rand()%maze.size()};}
+        while (!isFree(maze[pos.y][pos.x])) {pos = {rand()%(unsigned)(maze[0].size()), rand()%(unsigned)(maze.size())};}
         Character unFruit = {"Fruit", pos, "up", true, 0, {fruitSkins[rand()%fruitSkins.size()]}, Skin()};
         unFruit.sprite[0].setPosition(posBegin + nsGraphics::Vec2D(pos.x*50, pos.y*50));
         characterMap.insert({"Fruit"+to_string(pos.x)+to_string(pos.y), unFruit});
